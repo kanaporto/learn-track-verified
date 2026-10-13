@@ -1,11 +1,12 @@
 # Dumpi Learn — construcción por etapas
 
 ## Identidad confirmada
+- Proyecto de **hackatón, sin comercialización de la aplicación**. No exigir licencias comerciales ni trámites de lanzamiento comercial; los recursos deben permitir su uso y exhibición en el hackatón.
 - El producto se llama **Dumpi Learn** y el robot **DUMPI**, nunca DAMPY.
 - La imagen aportada, generada con IA por el propietario, se utilizará **solo como referencia para la aplicación**. No se modificará el cartel ni se incrustará como pantalla.
 - Conservar el aspecto del mismo robot: cuerpo metálico claro, rostro de pantalla oscura, ojos azules expresivos, extremidades articuladas y mochila. Glitch mantiene la capucha, el portátil y el aspecto de hacker-virus.
 - El tono de Glitch seguirá el PRD: travieso, nunca intimidatorio ni dirigido contra el alumno. No trasladar a la aplicación las frases del cartel que contradigan ese tono.
-- La disponibilidad de la marca continúa **pendiente**. El origen IA de la referencia no acredita por sí solo derechos comerciales sobre los recursos finales.
+- La disponibilidad de la marca continúa **pendiente**, sin bloquear el prototipo del hackatón ni iniciar trámites de registro.
 
 ## Etapa 1 — interfaz para revisar
 Esta será la primera entrega; no se presentará todavía como un MVP funcional completo.
@@ -45,7 +46,7 @@ Esta será la primera entrega; no se presentará todavía como un MVP funcional 
 ## Pendientes que no se resolverán por suposición
 - Banco de preguntas y traducciones; nombre de Python; nombres, versiones, dominios y formatos oficiales de las certificaciones.
 - Fórmula de distribución de niveles: propuesta todavía no aprobada `nivel = 1 + redondear(4 × (i−1)/(N−1))`, con nivel 1 cuando N=1. Ejemplos: tres dominios → 10/30/50 puntos; seis → 10/20/30/30/40/50. No implementarla hasta confirmación.
-- Recursos finales y derechos de personajes, animaciones, música y TT Hoves; proveedor de push; textos legales y privacidad; disponibilidad de marca.
+- Recursos finales y condiciones de uso para el hackatón de personajes, animaciones, música y TT Hoves; proveedor de push; información de privacidad para las cuentas de prueba; disponibilidad de marca sin bloquear el prototipo. No preparar un lanzamiento comercial.
 - Nombre del proyecto en el editor: el propietario puede cambiarlo desde el nombre superior izquierdo → Rename → Dumpi Learn; no afirmar que ese cambio se ha realizado sin comprobarlo.
 
 ## Detalles técnicos y comprobaciones

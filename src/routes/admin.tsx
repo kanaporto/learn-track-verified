@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { checkAdminPassword } from '@/lib/admin.functions';
+import { Lock } from 'lucide-react';
 import { FileSpreadsheet, Trash2, Upload, CheckCircle2, AlertTriangle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -13,6 +15,22 @@ export const Route = createFileRoute('/admin')({
 });
 
 function AdminPage() {
+  const t = useText();
+  const [ok, setOk] = useState(false);
+  const [pw, setPw] = useState('');
+  const [err, setErr] = useState(false);
+  useEffect(() => { if (sessionStorage.getItem('dumpi-admin') === '1') setOk(true); }, []);
+  if (ok) return <AdminContent />;
+  async function submit(e: React.FormEvent) {
+    e.preventDefault();
+    const r = await checkAdminPassword({ data: { password: pw } });
+    if (r.ok) { sessionStorage.setItem('dumpi-admin', '1'); setOk(true); } else setErr(true);
+  }
+  return <div className="page-content"><PageTitle eyebrow={t('ACCESO RESTRINGIDO', 'RESTRICTED ACCESS')} title="Admin" subtitle={t('Introduce la contraseña de administración.', 'Enter the admin password.')} />
+    <form onSubmit={submit} className="admin-card grid gap-3 max-w-sm"><label className="flex items-center gap-2 font-bold"><Lock size={18} />{t('Contraseña', 'Password')}</label><Input type="password" autoComplete="current-password" value={pw} onChange={e => { setPw(e.target.value); setErr(false); }} />{err && <p className="text-destructive text-sm">{t('Contraseña incorrecta', 'Incorrect password')}</p>}<Button type="submit">{t('Entrar', 'Enter')}</Button></form></div>;
+}
+
+function AdminContent() {
   const t = useText();
   const courses = useCourses();
   const [name, setName] = useState('');

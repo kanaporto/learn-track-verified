@@ -22,4 +22,4 @@
 - [ ] Compartir cursos y ránking entre jugadores (requiere activar cuentas en la nube)
 - [x] Regiones con el nombre oficial de su dominio de la certificación
 - [x] Fondos futuristas «Rumbo a Silicon Valley» (garaje → número 1 en tech) en lugar de los medievales
-- [ ] Admin en Mi Perfil con contraseña; regiones legibles con resumen del temario
+- [x] Admin en Mi Perfil con contraseña; regiones legibles con resumen del temario

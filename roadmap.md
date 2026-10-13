@@ -13,3 +13,10 @@
 - [x] Registro rápido solo con nombre, obligatorio para jugar (sin inicio de sesión por ahora).
 
 - [x] Pantalla sin vidas: DUMPI triste, Glitch riéndose, botón para recargar vidas (prueba)
+- [x] Vidas, puntos y nivel reales (1 nivel cada 500 pts) guardados entre sesiones
+- [x] Reto de aprendizaje para ganar vidas (+1 por acierto, +2 bonus)
+- [x] Glitch aparece al 3er fallo en 5 preguntas
+- [x] Logos reales de cursos y lema «Rumbo a Silicon Valley»
+- [x] Ránking con tus puntos y ligas; sello ¡COMPLETADA!; victoria con baile de DUMPI
+- [x] Admin: añadir cursos y subir dumps Excel (guardado en el dispositivo)
+- [ ] Compartir cursos y ránking entre jugadores (requiere activar cuentas en la nube)

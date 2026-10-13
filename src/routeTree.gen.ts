@@ -84,9 +84,9 @@ const CertificationsIndexRoute = CertificationsIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const CertificationsIdRoute = CertificationsIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => CertificationsRoute,
+  id: '/certifications/$id',
+  path: '/certifications/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -195,6 +195,7 @@ export interface RootRouteChildren {
   ResultsRoute: typeof ResultsRoute
   ReviewRoute: typeof ReviewRoute
   StatisticsRoute: typeof StatisticsRoute
+  CertificationsIdRoute: typeof CertificationsIdRoute
   CertificationsIndexRoute: typeof CertificationsIndexRoute
 }
 
@@ -286,10 +287,10 @@ declare module '@tanstack/react-router' {
     }
     '/certifications/$id': {
       id: '/certifications/$id'
-      path: '/$id'
+      path: '/certifications/$id'
       fullPath: '/certifications/$id'
       preLoaderRoute: typeof CertificationsIdRouteImport
-      parentRoute: typeof CertificationsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
@@ -306,6 +307,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResultsRoute: ResultsRoute,
   ReviewRoute: ReviewRoute,
   StatisticsRoute: StatisticsRoute,
+  CertificationsIdRoute: CertificationsIdRoute,
   CertificationsIndexRoute: CertificationsIndexRoute,
 }
 export const routeTree = rootRouteImport

@@ -10,33 +10,192 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as CertificationsRouteImport } from './routes/certifications'
+import { Route as ExamRouteImport } from './routes/exam'
+import { Route as LeaderboardsRouteImport } from './routes/leaderboards'
+import { Route as MockExamRouteImport } from './routes/mock-exam'
+import { Route as NoLivesRouteImport } from './routes/no-lives'
+import { Route as PracticeRouteImport } from './routes/practice'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ResultsRouteImport } from './routes/results'
+import { Route as ReviewRouteImport } from './routes/review'
+import { Route as StatisticsRouteImport } from './routes/statistics'
+import { Route as CertificationsIdRouteImport } from './routes/certifications.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificationsRoute = CertificationsRouteImport.update({
+  id: '/certifications',
+  path: '/certifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamRoute = ExamRouteImport.update({
+  id: '/exam',
+  path: '/exam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeaderboardsRoute = LeaderboardsRouteImport.update({
+  id: '/leaderboards',
+  path: '/leaderboards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MockExamRoute = MockExamRouteImport.update({
+  id: '/mock-exam',
+  path: '/mock-exam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NoLivesRoute = NoLivesRouteImport.update({
+  id: '/no-lives',
+  path: '/no-lives',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PracticeRoute = PracticeRouteImport.update({
+  id: '/practice',
+  path: '/practice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultsRoute = ResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewRoute = ReviewRouteImport.update({
+  id: '/review',
+  path: '/review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatisticsRoute = StatisticsRouteImport.update({
+  id: '/statistics',
+  path: '/statistics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificationsIdRoute = CertificationsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => CertificationsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/certifications': typeof CertificationsRouteWithChildren
+  '/exam': typeof ExamRoute
+  '/leaderboards': typeof LeaderboardsRoute
+  '/mock-exam': typeof MockExamRoute
+  '/no-lives': typeof NoLivesRoute
+  '/practice': typeof PracticeRoute
+  '/profile': typeof ProfileRoute
+  '/results': typeof ResultsRoute
+  '/review': typeof ReviewRoute
+  '/statistics': typeof StatisticsRoute
+  '/certifications/$id': typeof CertificationsIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/certifications': typeof CertificationsRouteWithChildren
+  '/exam': typeof ExamRoute
+  '/leaderboards': typeof LeaderboardsRoute
+  '/mock-exam': typeof MockExamRoute
+  '/no-lives': typeof NoLivesRoute
+  '/practice': typeof PracticeRoute
+  '/profile': typeof ProfileRoute
+  '/results': typeof ResultsRoute
+  '/review': typeof ReviewRoute
+  '/statistics': typeof StatisticsRoute
+  '/certifications/$id': typeof CertificationsIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/certifications': typeof CertificationsRouteWithChildren
+  '/exam': typeof ExamRoute
+  '/leaderboards': typeof LeaderboardsRoute
+  '/mock-exam': typeof MockExamRoute
+  '/no-lives': typeof NoLivesRoute
+  '/practice': typeof PracticeRoute
+  '/profile': typeof ProfileRoute
+  '/results': typeof ResultsRoute
+  '/review': typeof ReviewRoute
+  '/statistics': typeof StatisticsRoute
+  '/certifications/$id': typeof CertificationsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/certifications'
+    | '/exam'
+    | '/leaderboards'
+    | '/mock-exam'
+    | '/no-lives'
+    | '/practice'
+    | '/profile'
+    | '/results'
+    | '/review'
+    | '/statistics'
+    | '/certifications/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/certifications'
+    | '/exam'
+    | '/leaderboards'
+    | '/mock-exam'
+    | '/no-lives'
+    | '/practice'
+    | '/profile'
+    | '/results'
+    | '/review'
+    | '/statistics'
+    | '/certifications/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/certifications'
+    | '/exam'
+    | '/leaderboards'
+    | '/mock-exam'
+    | '/no-lives'
+    | '/practice'
+    | '/profile'
+    | '/results'
+    | '/review'
+    | '/statistics'
+    | '/certifications/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
+  CertificationsRoute: typeof CertificationsRouteWithChildren
+  ExamRoute: typeof ExamRoute
+  LeaderboardsRoute: typeof LeaderboardsRoute
+  MockExamRoute: typeof MockExamRoute
+  NoLivesRoute: typeof NoLivesRoute
+  PracticeRoute: typeof PracticeRoute
+  ProfileRoute: typeof ProfileRoute
+  ResultsRoute: typeof ResultsRoute
+  ReviewRoute: typeof ReviewRoute
+  StatisticsRoute: typeof StatisticsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +207,118 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/certifications': {
+      id: '/certifications'
+      path: '/certifications'
+      fullPath: '/certifications'
+      preLoaderRoute: typeof CertificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exam': {
+      id: '/exam'
+      path: '/exam'
+      fullPath: '/exam'
+      preLoaderRoute: typeof ExamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leaderboards': {
+      id: '/leaderboards'
+      path: '/leaderboards'
+      fullPath: '/leaderboards'
+      preLoaderRoute: typeof LeaderboardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mock-exam': {
+      id: '/mock-exam'
+      path: '/mock-exam'
+      fullPath: '/mock-exam'
+      preLoaderRoute: typeof MockExamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/no-lives': {
+      id: '/no-lives'
+      path: '/no-lives'
+      fullPath: '/no-lives'
+      preLoaderRoute: typeof NoLivesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practice': {
+      id: '/practice'
+      path: '/practice'
+      fullPath: '/practice'
+      preLoaderRoute: typeof PracticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/results': {
+      id: '/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/review': {
+      id: '/review'
+      path: '/review'
+      fullPath: '/review'
+      preLoaderRoute: typeof ReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/statistics': {
+      id: '/statistics'
+      path: '/statistics'
+      fullPath: '/statistics'
+      preLoaderRoute: typeof StatisticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/certifications/$id': {
+      id: '/certifications/$id'
+      path: '/$id'
+      fullPath: '/certifications/$id'
+      preLoaderRoute: typeof CertificationsIdRouteImport
+      parentRoute: typeof CertificationsRoute
+    }
   }
 }
 
+interface CertificationsRouteChildren {
+  CertificationsIdRoute: typeof CertificationsIdRoute
+}
+
+const CertificationsRouteChildren: CertificationsRouteChildren = {
+  CertificationsIdRoute: CertificationsIdRoute,
+}
+
+const CertificationsRouteWithChildren = CertificationsRoute._addFileChildren(
+  CertificationsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
+  CertificationsRoute: CertificationsRouteWithChildren,
+  ExamRoute: ExamRoute,
+  LeaderboardsRoute: LeaderboardsRoute,
+  MockExamRoute: MockExamRoute,
+  NoLivesRoute: NoLivesRoute,
+  PracticeRoute: PracticeRoute,
+  ProfileRoute: ProfileRoute,
+  ResultsRoute: ResultsRoute,
+  ReviewRoute: ReviewRoute,
+  StatisticsRoute: StatisticsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -16,6 +16,7 @@ Esta será la primera entrega; no se presentará todavía como un MVP funcional 
 - Aplicar la paleta aprobada del PRD, lectura cómoda en móvil, tablet y escritorio, controles accesibles y ajustes de sonido y movimiento.
 - Preparar la interfaz en español e inglés. No traducir preguntas en directo.
 - Mantener certificaciones, regiones y simulacros pendientes hasta contar con información oficial verificada y preguntas aportadas. Sin preguntas inventadas, dominios ficticios, clasificaciones falsas ni progreso simulado como real.
+- Los archivos de preguntas todavía los aportará el propietario. La entrega de pantallas puede continuar sin ellos, pero práctica y simulacros permanecerán deshabilitados hasta recibir y comprobar el banco original preaprobado y sus traducciones; no generar preguntas para cubrir esa espera.
 - Preparar la integración visual de DUMPI y Glitch a partir de la referencia. La imagen no equivale a los personajes separados ni a los bailes terminados: revisar los recursos adaptados antes de tratarlos como definitivos.
 - No elegir una tipografía sustituta ni música definitiva sin autorización; TT Hoves y su licencia siguen pendientes. Mientras tanto, la estructura de revisión podrá usar la fuente del sistema sin afirmar que es la identidad final.
 - Mostrar estados de carga, contenido pendiente, error de conexión y controles aún no disponibles de forma honesta.
@@ -25,13 +26,15 @@ Esta será la primera entrega; no se presentará todavía como un MVP funcional 
 - Añadir registro por correo y contraseña, verificación, recuperación, sesión y eliminación de cuenta y datos.
 - Conectar Resend para los correos cuando estén disponibles su configuración y un remitente autorizado; comprobar entrega real antes de declarar la integración completa.
 - Guardar perfiles, preferencias, catálogo verificado, preguntas bilingües preaprobadas, progreso, vidas, intentos y registro de puntos.
+- **Catálogo y preguntas como datos, nunca fijos en el código.** Certificaciones, regiones/dominios (escenarios) y preguntas se leen de la base de datos en tiempo de ejecución: añadir una certificación nueva (p. ej. Windows Administrator), un dominio/escenario nuevo o más preguntas del banco será una operación de datos en el backend, sin reconstruir ni republicar la aplicación. La interfaz (mapa, catálogo, práctica, simulacros) se genera a partir de esos datos, incluidos los elementos visuales del escenario (color, ambientación) definidos como datos de cada dominio.
+- La etapa 1 puede maquetar con datos de muestra claramente marcados como pendientes, pero la estructura ya debe consumir el catálogo como datos para que el cambio a datos reales no exija rehacer pantallas.
 - Administración directa en el backend, sin panel administrativo ni revisión editorial dentro de la aplicación.
 
 ## Etapa 3 — aprendizaje y reglas
 - Práctica: banco de 50 preguntas por región, selección aleatoria, diez aciertos no consecutivos para completar, un avance por acierto, sin retroceso al fallar y explicación únicamente tras fallo.
 - Vidas: máximo diez, un fallo consume una, recuperación de una por hora y recuperación completa identificada como función de pruebas del hackatón. Cero vidas bloquea responder en práctica, no repasar.
 - Repaso: sin vidas, puntos ni cambios en la aventura.
-- Puntuar nuevamente las repeticiones, sin límites ni penalizaciones. Activar la distribución de niveles solo tras aprobar la fórmula.
+- Puntuar nuevamente las repeticiones, sin límites ni penalizaciones. Aplicar la fórmula de niveles aprobada únicamente en la etapa de puntuación, haciéndola visible y verificándola con pruebas antes de activarla.
 - Clasificaciones global y por certificación: acumulativas, alias públicos y empates con la misma posición.
 - Simulacros ilimitados desde el inicio, independientes de las vidas y sin ayudas, Glitch ni puntos por respuesta. Habilitarlos únicamente con configuración suficiente y verificada.
 - Recompensas por intento aprobado: 500 puntos, o 650 si además alcanza al menos 95 % de aciertos; una sola concesión por intento.
@@ -43,9 +46,15 @@ Esta será la primera entrega; no se presentará todavía como un MVP funcional 
 - Proponer y aprobar el mecanismo de push antes de implementarlo. Los recordatorios serán opcionales a las 18:00 de la zona horaria del usuario, solo los días sin práctica, con permisos y disponibilidad reales.
 - Integrar personajes, cuatro bailes regionales, quinto baile de aprobación y música cuando sus archivos y condiciones de uso estén resueltos.
 
+## Fórmula de puntuación aprobada
+- **Opción A:** `nivel = 1 + redondear(4 × (i−1)/(N−1))`, con nivel 1 cuando N=1.
+- N es el número de dominios e i su posición desde 1. Puntos por acierto = 10 × nivel.
+- Ejemplos: tres dominios → 10/30/50 puntos; seis → 10/20/30/30/40/50.
+- Mostrar la fórmula y verificarla con pruebas en la etapa de puntuación; **no activarla antes de esa etapa**.
+- Al retomar la construcción, registrar esta aprobación en la memoria del proyecto y en las tareas, sustituyendo el estado anterior de fórmula pendiente.
+
 ## Pendientes que no se resolverán por suposición
 - Banco de preguntas y traducciones; nombre de Python; nombres, versiones, dominios y formatos oficiales de las certificaciones.
-- Fórmula de distribución de niveles: propuesta todavía no aprobada `nivel = 1 + redondear(4 × (i−1)/(N−1))`, con nivel 1 cuando N=1. Ejemplos: tres dominios → 10/30/50 puntos; seis → 10/20/30/30/40/50. No implementarla hasta confirmación.
 - Recursos finales y condiciones de uso para el hackatón de personajes, animaciones, música y TT Hoves; proveedor de push; información de privacidad para las cuentas de prueba; disponibilidad de marca sin bloquear el prototipo. No preparar un lanzamiento comercial.
 - Nombre del proyecto en el editor: el propietario puede cambiarlo desde el nombre superior izquierdo → Rename → Dumpi Learn; no afirmar que ese cambio se ha realizado sin comprobarlo.
 
@@ -58,4 +67,4 @@ Esta será la primera entrega; no se presentará todavía como un MVP funcional 
 - Revisar navegación, legibilidad y recursos en móvil y escritorio. Instalación y push requieren además comprobación en dispositivos y navegadores objetivo.
 - Mantener fuera del alcance pagos, publicidad, códigos, administración en la PWA, práctica offline, tiendas móviles y cualquier función excluida en el PRD.
 
-**La aprobación permite empezar por la etapa 1; no aprueba automáticamente la fórmula de puntos, recursos finales ni otras decisiones pendientes.**
+**La aprobación permite continuar la etapa 1; la fórmula de puntos ya está aprobada, pero solo se activará en su etapa; los recursos finales y otras decisiones pendientes no quedan aprobados automáticamente.**

@@ -26,6 +26,8 @@ Esta será la primera entrega; no se presentará todavía como un MVP funcional 
 - Añadir registro por correo y contraseña, verificación, recuperación, sesión y eliminación de cuenta y datos.
 - Conectar Resend para los correos cuando estén disponibles su configuración y un remitente autorizado; comprobar entrega real antes de declarar la integración completa.
 - Guardar perfiles, preferencias, catálogo verificado, preguntas bilingües preaprobadas, progreso, vidas, intentos y registro de puntos.
+- **Catálogo y preguntas como datos, nunca fijos en el código.** Certificaciones, regiones/dominios (escenarios) y preguntas se leen de la base de datos en tiempo de ejecución: añadir una certificación nueva (p. ej. Windows Administrator), un dominio/escenario nuevo o más preguntas del banco será una operación de datos en el backend, sin reconstruir ni republicar la aplicación. La interfaz (mapa, catálogo, práctica, simulacros) se genera a partir de esos datos, incluidos los elementos visuales del escenario (color, ambientación) definidos como datos de cada dominio.
+- La etapa 1 puede maquetar con datos de muestra claramente marcados como pendientes, pero la estructura ya debe consumir el catálogo como datos para que el cambio a datos reales no exija rehacer pantallas.
 - Administración directa en el backend, sin panel administrativo ni revisión editorial dentro de la aplicación.
 
 ## Etapa 3 — aprendizaje y reglas

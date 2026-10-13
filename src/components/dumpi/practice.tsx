@@ -88,7 +88,7 @@ function RegionRun({ region, onExit }: { region: number; onExit: () => void }) {
     <div className="grid gap-2.5">
       {text.o.map((o, i) => { const l = LETTERS[i]; const sel = picked.includes(l); const isAns = q.answer.includes(l);
         const state = result === null ? (sel ? 'border-primary bg-primary/15' : 'border-border') : isAns ? 'border-green-500 bg-green-500/15' : sel ? 'border-destructive bg-destructive/10' : 'border-border opacity-60';
-        return <button key={l} onClick={() => toggle(l)} className={`flex items-start gap-3 text-left rounded-xl border-2 p-3.5 min-h-14 ${state}`}>
+        return <button key={l} onClick={() => toggle(l)} className={`flex items-start gap-3 text-left rounded-xl border-2 p-3.5 min-h-14 ${state}`} style={{ background: result !== null && isAns ? 'rgba(34,197,94,.18)' : result !== null && sel ? 'rgba(239,68,68,.15)' : sel ? 'rgba(37,99,235,.25)' : 'rgba(255,255,255,.06)', color: 'inherit' }}>
           <span className="font-bold w-6 shrink-0">{l}</span><span className="flex-1">{o}</span>
           {result !== null && isAns && <Check className="text-green-600 shrink-0" size={20} />}
           {result !== null && sel && !isAns && <X className="text-destructive shrink-0" size={20} />}

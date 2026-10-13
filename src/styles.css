@@ -299,3 +299,4 @@ body { background: var(--dumpi-bg); color: var(--dumpi-navy); font-family: syste
 }
 
 .reduce-motion *, .reduce-motion *::before, .reduce-motion *::after { animation: none !important; transition: none !important; }
+.glitch-band a, .glitch-band button { color: var(--dumpi-navy); font-weight: 600; }

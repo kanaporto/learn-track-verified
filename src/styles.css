@@ -292,8 +292,8 @@ body { background: var(--dumpi-bg); color: var(--dumpi-navy); font-family: syste
   .auth-layout { grid-template-columns: 1fr; }
   .scene-dumpi { width: 160px; }
   .dumpi-label { display: none; }
-  .mobile-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 30; background: var(--dumpi-white); border-top: 1px solid #dbe7f7; padding: 6px 10px; justify-content: space-around; }
-  .mobile-nav a { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 0.62rem; }
+  .mobile-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); position: fixed; bottom: 0; left: 0; right: 0; z-index: 30; background: var(--dumpi-white); border-top: 1px solid #dbe7f7; padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); }
+  .mobile-nav a { display: flex; min-width: 0; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 6px 2px; font-size: 0.62rem; }
   .app-main { padding-bottom: 64px; }
   .topbar-note { display: none; }
 }

@@ -78,14 +78,14 @@ function RegionRun({ course, region, onExit, onTrain }: { course: Course; region
   const [gain, setGain] = useState<number | null>(null);
   const [justWon, setJustWon] = useState(false);
 
-  useEffect(() => { if (progress && !loaded) { setCorrect(courseOf(progress, course.id).tiles[region] ?? 0); setLoaded(true); } }, [progress, loaded, course.id, region]);
+  useEffect(() => { if (progress && !loaded) { { const tv = courseOf(progress, course.id).tiles[region] ?? 0; setCorrect(tv >= GOAL ? 0 : tv); }; setLoaded(true); } }, [progress, loaded, course.id, region]);
   if (!progress || !loaded || !pool.length) return <div className="page-content" />;
   const lives = progress.lives;
   const q = pool[idx % pool.length]!;
   const text = language === 'es' ? q.es : q.en;
   const needed = q.answer.length;
 
-  if (justWon || correct >= GOAL) return <Victory regionName={language === 'es' ? meta.es : meta.en} onExit={onExit} onReplay={() => { patchCourse(course.id, c => ({ ...c, tiles: { ...c.tiles, [region]: 0 } })); setCorrect(0); setJustWon(false); }} />;
+  if (justWon) return <Victory regionName={language === 'es' ? meta.es : meta.en} onExit={onExit} onReplay={() => { patchCourse(course.id, c => ({ ...c, tiles: { ...c.tiles, [region]: 0 } })); setCorrect(0); setJustWon(false); }} />;
   if (lives <= 0) return <NoLives onTrain={onTrain} onRefill={() => { setLives(MAX_LIVES); setRecent([]); next(); }} onExit={onExit} />;
 
   function toggle(l: string) {
@@ -105,7 +105,7 @@ function RegionRun({ course, region, onExit, onTrain }: { course: Course; region
       updateProgress(p => {
         const cp = courseOf(p, course.id);
         const done = c >= GOAL && !cp.completed.includes(region) ? [...cp.completed, region] : cp.completed;
-        return { ...p, points: p.points + pts, courses: { ...p.courses, [course.id]: { ...cp, completed: done, tiles: { ...cp.tiles, [region]: c >= GOAL ? 0 : c } } } };
+        return { ...p, points: p.points + pts, courses: { ...p.courses, [course.id]: { ...cp, completed: done, tiles: { ...cp.tiles, [region]: Math.min(c, GOAL) } } } };
       });
       if (c >= GOAL) setTimeout(() => setJustWon(true), 900);
       setSinceGlitch(since);

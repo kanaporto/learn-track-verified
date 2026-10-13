@@ -1,24 +1,18 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowRight, Compass, Flag, Heart, Sparkles, Trophy, BookOpen, MapPin, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Catalog } from '@/components/dumpi/catalog';
+import { useText, pageHead } from '@/lib/dumpi';
+import landscape from '@/assets/compostela.jpg';
+import dumpi from '@/assets/dumpi.png';
+import glitch from '@/assets/glitch.png';
+export const Route = createFileRoute('/')({ head: () => pageHead('Mi aventura', 'Tu aventura de aprendizaje IT con DUMPI, rumbo a una Compostela imaginaria.'), component: Index });
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+ const t = useText();
+ return <div className="page-content home-page"><div className="page-heading"><div><span className="eyebrow"><Sparkles size={14} />{t('EL CONOCIMIENTO ES TU SUPERPODER', 'KNOWLEDGE IS YOUR SUPERPOWER')}</span><h1>{t('Mi aventura', 'My adventure')}<span className="heading-dot">.</span></h1><p>{t('Cada pequeño paso te lleva un poco más lejos.', 'Every small step takes you a little further.')}</p></div><span className="edition-pill"><span />{t('Edición hackatón', 'Hackathon edition')}</span></div>
+ <section className="adventure-scene"><img className="landscape" src={landscape} width={1536} height={1024} alt={t('Camino fantástico hacia una Compostela imaginaria', 'A fantasy trail towards imaginary Compostela')} /><div className="scene-shade" /><div className="scene-copy"><span className="scene-eyebrow"><Compass size={16} />{t('UN NUEVO CAMINO TE ESPERA', 'A NEW JOURNEY AWAITS')}</span><h2>{t('Tu aventura empieza', 'Your adventure starts')}<br />{t('con un primer paso.', 'with a first step.')}</h2><p>{t('Elige tu certificación. DUMPI está listo para acompañarte hasta Compostela.', 'Choose your certification. DUMPI is ready to join you all the way to Compostela.')}</p><Button asChild size="lg"><Link to="/certifications">{t('Explorar certificaciones', 'Explore certifications')}<ArrowRight /></Link></Button><span className="scene-note"><MapPin size={14} />{t('Destino: una Compostela imaginaria', 'Destination: imaginary Compostela')}</span></div><img className="scene-dumpi" src={dumpi} width={1024} height={1024} alt="DUMPI" /><span className="dumpi-label">{t('¡Vamos juntos!', 'Let’s go together!')}<Sparkles size={14} /></span></section>
+ <div className="journey-stats">{[{ icon: Flag, label: t('Mi recorrido', 'My journey'), value: t('Por comenzar', 'Not started') }, { icon: BookOpen, label: t('Certificación', 'Certification'), value: t('Sin seleccionar', 'Not selected') }, { icon: Heart, label: t('Mis vidas', 'My lives'), value: '—' }, { icon: Trophy, label: t('Mis puntos', 'My points'), value: '—' }].map(({ icon: Icon, label, value }) => <div className="journey-stat" key={label}><span className="stat-icon"><Icon size={20} /></span><div><span>{label}</span><strong>{value}</strong></div></div>)}</div>
+ <section className="catalog-section"><div className="section-heading"><div><span className="eyebrow">{t('ENCUENTRA TU CAMINO', 'FIND YOUR PATH')}</span><h2>{t('Tu próxima certificación', 'Your next certification')}</h2></div><Button asChild variant="ghost"><Link to="/certifications">{t('Ver todas', 'View all')}<ArrowRight /></Link></Button></div><Catalog compact /></section>
+ <section className="glitch-band"><img src={glitch} alt="Glitch" width={1024} height={1024} loading="lazy" /><div><span className="eyebrow">{t('HASTA LOS ERRORES SUMAN APRENDIZAJE', 'EVEN MISTAKES BRING KNOWLEDGE')}</span><h3>{t('Glitch también se apunta al viaje.', 'Glitch is joining the journey, too.')}</h3><p>{t('Un poco travieso. Nada que no puedas aprender a superar.', 'A little mischievous. Nothing you cannot learn to overcome.')}</p></div><Button asChild variant="outline"><Link to="/review">{t('Mi repaso', 'My review')}<ChevronRight /></Link></Button></section>
+ </div>;
 }

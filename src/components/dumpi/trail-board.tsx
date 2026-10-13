@@ -3,11 +3,13 @@ import dumpi from '@/assets/dumpi.png';
 
 const pos = (i: number) => ({ x: 6 + i * 9.8, y: 52 + 28 * Math.sin(i * 1.1) });
 
-export function TrailBoard({ total, done, color, label }: { total: number; done: number; color: string; label: string }) {
+export function TrailBoard({ total, done, color, label, art }: { total: number; done: number; color: string; label: string; art?: string }) {
   const pts = Array.from({ length: total }, (_, i) => pos(i));
   const at = pts[Math.min(done, total - 1)]!;
   return (
     <div className="trail-board" style={{ ['--region' as string]: color }} role="img" aria-label={label}>
+      {art && <img src={art} alt="" className="trail-art" />}
+      {art && <div className="trail-art-shade" />}
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="trail-path" aria-hidden>
         <polyline points={pts.map(p => `${p.x},${p.y}`).join(' ')} />
       </svg>

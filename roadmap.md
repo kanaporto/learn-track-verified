@@ -7,4 +7,7 @@
 - [ ] Revisión del propietario de la primera entrega de interfaz.
 - [x] Rediseño AAA de la pantalla principal (estilo Clash Royale + Zenless Zone Zero), sin cargar aún las preguntas.
 - [ ] Conectar cuentas y datos en la etapa 2 (fuera de la primera entrega aprobada).
-- [ ] Activar aprendizaje e integraciones en etapas posteriores (requiere banco, configuración oficial, fórmula de puntos y recursos finales).
+- [ ] Activar aprendizaje e integraciones en etapas posteriores (requiere banco, configuración oficial, fórmula de puntos y recursos finales).- [x] Botón Comprobar visible sobre la barra inferior.
+- [x] Fondos medievales por región y nombres legibles.
+- [x] Liga Plata en clasificaciones.
+- [x] Registro rápido solo con nombre, obligatorio para jugar (sin inicio de sesión por ahora).

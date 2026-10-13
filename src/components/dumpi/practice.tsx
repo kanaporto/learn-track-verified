@@ -18,7 +18,7 @@ const regions = [
 const LETTERS = ['A', 'B', 'C', 'D'];
 const GOAL = 10;
 const MAX_LIVES = 10;
-function shuffle<T>(a: T[]) { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; }
+function shuffle<T>(a: T[]) { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j]!, b[i]!]; } return b; }
 
 export function PracticeGame() {
   const t = useText();
@@ -45,7 +45,7 @@ export function PracticeGame() {
 function RegionRun({ region, onExit }: { region: number; onExit: () => void }) {
   const t = useText();
   const { language } = usePreferences();
-  const meta = regions[region - 1];
+  const meta = regions[region - 1]!;
   const pool = useMemo(() => shuffle(questions.filter(q => q.region === region)), [region]);
   const [idx, setIdx] = useState(0);
   const [correct, setCorrect] = useState(0);
@@ -53,7 +53,7 @@ function RegionRun({ region, onExit }: { region: number; onExit: () => void }) {
   const [picked, setPicked] = useState<string[]>([]);
   const [result, setResult] = useState<null | boolean>(null);
   const [recent, setRecent] = useState<boolean[]>([]);
-  const q = pool[idx % pool.length];
+  const q = pool[idx % pool.length]!;
   const text = language === 'es' ? q.es : q.en;
   const needed = q.answer.length;
   const glitch = recent.slice(-5).filter(x => !x).length >= 3;
@@ -86,7 +86,7 @@ function RegionRun({ region, onExit }: { region: number; onExit: () => void }) {
     {glitch && result === null && <div className="glitch-band my-3 rounded-xl p-3 text-sm">{t('⚠ Glitch acecha: 3 fallos en las últimas 5. ¡Concéntrate!', '⚠ Glitch is lurking: 3 misses in the last 5. Focus!')}</div>}
     <h2 className="text-lg font-semibold my-4 leading-snug">{text.q}</h2>
     <div className="grid gap-2.5">
-      {text.o.map((o, i) => { const l = LETTERS[i]; const sel = picked.includes(l); const isAns = q.answer.includes(l);
+      {text.o.map((o, i) => { const l = LETTERS[i]!; const sel = picked.includes(l); const isAns = q.answer.includes(l);
         const state = result === null ? (sel ? 'border-primary bg-primary/15' : 'border-border') : isAns ? 'border-green-500 bg-green-500/15' : sel ? 'border-destructive bg-destructive/10' : 'border-border opacity-60';
         return <button key={l} onClick={() => toggle(l)} className={`flex items-start gap-3 text-left rounded-xl border-2 p-3.5 min-h-14 ${state}`} style={{ background: result !== null && isAns ? 'rgba(34,197,94,.18)' : result !== null && sel ? 'rgba(239,68,68,.15)' : sel ? 'rgba(37,99,235,.25)' : 'rgba(255,255,255,.06)', color: 'inherit' }}>
           <span className="font-bold w-6 shrink-0">{l}</span><span className="flex-1">{o}</span>

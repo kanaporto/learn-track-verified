@@ -557,3 +557,4 @@ body { font-family: var(--font-tech); background: radial-gradient(1200px 600px a
 .admin-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); }
 .reduce-motion .victory-stage *, .reduce-motion .glitch-attack * { animation: none !important; }
 @media (max-width: 480px) { .glitch-bubble { width: 170px; right: -20px; } .victory-dumpi { width: 120px; } }
+.admin-card .field-label { color: #BAE6FD; display: block; margin-bottom: 6px; }

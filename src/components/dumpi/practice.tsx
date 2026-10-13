@@ -7,7 +7,7 @@ import { TrailBoard } from './trail-board';
 import { RegisterCard } from './register';
 import { useExplorer } from '@/lib/explorer';
 import { useCourses, workspaceCourse, type Course, type Question } from '@/lib/courses';
-import { MAX_LIVES, courseOf, patchCourse, pointsFor, setLives, updateProgress, useProgress } from '@/lib/progress';
+import { MAX_LIVES, isRegionDone, doneCount, courseOf, patchCourse, pointsFor, setLives, updateProgress, useProgress } from '@/lib/progress';
 import dumpiImg from '@/assets/dumpi.png';
 import glitchImg from '@/assets/glitch.png';
 import r1 from '@/assets/region-1.jpg';
@@ -44,10 +44,10 @@ export function PracticeGame({ initialRegion, courseId = 'workspace' }: { initia
     return <div className="page-content">
       <Button asChild variant="ghost" className="back-link"><Link to="/certifications/$id" params={{ id: course.id }}><ArrowLeft />{course.name}</Link></Button>
       <h1 className="text-2xl font-bold mb-1">{t('Elige una región', 'Choose a region')}</h1>
-      <p className="text-muted-foreground mb-4">{course.questions.length} {t('preguntas', 'questions')} · {cp.completed.length}/{course.regions.length} {t('regiones completadas', 'regions completed')}</p>
+      <p className="text-muted-foreground mb-4">{course.questions.length} {t('preguntas', 'questions')} · {doneCount(cp, course.regions.length)}/{course.regions.length} {t('regiones completadas', 'regions completed')}</p>
       {progress.lives < MAX_LIVES && <button className="train-cta mb-5" onClick={() => setTraining(true)}><GraduationCap size={22} /><span><b>{t('Reto de aprendizaje', 'Learning challenge')}</b><small>{t('Gana vidas respondiendo sin riesgo', 'Earn lives answering risk-free')}</small></span><span className="train-lives"><Heart size={14} fill="currentColor" />{progress.lives}/{MAX_LIVES}</span></button>}
       <div className="grid gap-3 sm:grid-cols-2">
-        {course.regions.map(r => { const count = course.questions.filter(q => q.region === r.n).length; const done = cp.completed.includes(r.n); const tile = cp.tiles[r.n] ?? 0; return (
+        {course.regions.map(r => { const count = course.questions.filter(q => q.region === r.n).length; const done = isRegionDone(cp, r.n); const tile = cp.tiles[r.n] ?? 0; return (
           <button key={r.n} onClick={() => { patchCourse(course.id, c => ({ ...c, lastRegion: r.n })); setRegion(r.n); }} className={`region-pick ${done ? 'is-done' : ''}`} style={{ ['--rc' as string]: r.color }}>
             <img src={art(r.n)} alt="" className="region-pick-bg" loading="lazy" />
             {done && <span className="done-ribbon">{t('¡COMPLETADA!', 'COMPLETED!')} <Star size={12} fill="currentColor" /><Star size={12} fill="currentColor" /><Star size={12} fill="currentColor" /></span>}

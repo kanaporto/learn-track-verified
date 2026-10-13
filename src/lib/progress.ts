@@ -56,3 +56,7 @@ export function useProgress() {
   }, []);
   return p;
 }
+
+/** A region counts as completed once it is in the list or its board reached 10/10. */
+export const isRegionDone = (c: CourseProgress | null | undefined, n: number) => !!c && (c.completed.map(Number).includes(n) || (c.tiles[n] ?? 0) >= 10);
+export const doneCount = (c: CourseProgress | null | undefined, total: number) => Array.from({ length: total }, (_, i) => i + 1).filter(n => isRegionDone(c, n)).length;

@@ -33,7 +33,7 @@ export function CertificationPage({ id }: { id: string }) {
   return <div className="page-content"><Button asChild variant="ghost" className="back-link"><Link to="/certifications"><ArrowLeft />{t('Certificaciones', 'Certifications')}</Link></Button>
     <PageTitle eyebrow={t('MUNDO NUEVO', 'NEW WORLD')} title={course.name} subtitle={`${course.regions.length} ${t('regiones', 'regions')} · ${course.questions.length} ${t('preguntas', 'questions')}`} />
     <Button asChild className="h-14 px-8 mb-6"><Link to="/practice" search={{ course: id }}>{t('Empezar la aventura', 'Start the adventure')}<ArrowRight /></Link></Button>
-    <div className="grid gap-3 sm:grid-cols-2">{course.regions.map(r => <Link key={r.n} to="/practice" search={{ course: id, region: r.n }} className="block rounded-2xl border-2 bg-card p-4 min-h-20" style={{ borderColor: r.color }}><span className="text-xs font-bold uppercase" style={{ color: r.color }}>{t('Región', 'Region')} {r.n}{cp?.completed.includes(r.n) ? ` · ${t('¡COMPLETADA!', 'COMPLETED!')} ⭐⭐⭐` : ''}</span><div className="font-bold text-lg">{language === 'es' ? r.es : r.en}</div></Link>)}</div>
+    <div className="grid gap-3 sm:grid-cols-2">{course.regions.map(r => <Link key={r.n} to="/practice" search={{ course: id, region: r.n }} className="block rounded-2xl border-2 bg-card p-4 min-h-20" style={{ borderColor: r.color }}><span className="text-xs font-bold uppercase" style={{ color: r.color }}>{t('Región', 'Region')} {r.n}{isRegionDone(cp, r.n) ? ` · ${t('¡COMPLETADA!', 'COMPLETED!')} ⭐⭐⭐` : ''}</span><div className="font-bold text-lg">{language === 'es' ? r.es : r.en}</div></Link>)}</div>
   </div>;
 }
 

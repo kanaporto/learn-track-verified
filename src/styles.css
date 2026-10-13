@@ -586,3 +586,16 @@ body { font-family: var(--font-tech); background: radial-gradient(1200px 600px a
 .tech-row.is-me { background: linear-gradient(90deg, rgba(56,189,248,.28), rgba(37,99,235,.18)); box-shadow: inset 4px 0 0 #38BDF8; color: #fff; }
 .tech-row.is-me .tech-name { color: #fff; font-weight: 800; }
 @media (max-width: 480px) { .tech-row { grid-template-columns: 34px 1fr 52px 64px; padding: 10px; font-size: .88rem; } }
+
+.region-card { display: flex; flex-direction: column; gap: 6px; background: #ffffff; border: 2px solid; border-radius: 18px; padding: 18px 20px; color: #0f1e3d; box-shadow: 0 6px 0 color-mix(in srgb, var(--rc) 35%, transparent); transition: transform .12s; }
+.region-card:hover { transform: translateY(-2px); }
+.region-card-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--rc); }
+.region-card h3 { font-size: 1.15rem; font-weight: 800; color: #0f1e3d; line-height: 1.25; }
+.region-card p { font-size: .9rem; color: #42557a; line-height: 1.45; }
+.region-card-play { margin-top: 6px; align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; background: var(--rc); color: #ffffff; font-weight: 800; padding: 6px 14px; border-radius: 999px; font-size: .9rem; }
+.mode-item h3 { color: #0f1e3d; }
+.mode-item a { color: #173b75 !important; border-color: #9fb8de !important; background: #eff6ff !important; font-weight: 700; }
+.admin-zone { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; background: linear-gradient(135deg,#173b75,#2563eb); color: #ffffff; border-radius: 18px; padding: 16px 18px; margin-bottom: 20px; }
+.admin-zone > div { flex: 1; min-width: 180px; }
+.admin-zone h2 { font-weight: 800; font-size: 1.05rem; }
+.admin-zone p { font-size: .88rem; opacity: .9; }

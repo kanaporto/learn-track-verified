@@ -1,18 +1,71 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { ArrowRight, Compass, Flag, Heart, Sparkles, Trophy, BookOpen, MapPin, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Heart, Trophy, Star, Swords, Map as MapIcon, Lock, Play, Zap, ChevronRight, Shield } from 'lucide-react';
 import { Catalog } from '@/components/dumpi/catalog';
 import { useText, pageHead } from '@/lib/dumpi';
 import landscape from '@/assets/compostela.jpg';
 import dumpi from '@/assets/dumpi.png';
 import glitch from '@/assets/glitch.png';
+
 export const Route = createFileRoute('/')({ head: () => pageHead('Mi aventura', 'Tu aventura de aprendizaje IT con DUMPI, rumbo a una Compostela imaginaria.'), component: Index });
+
+const regions = [
+  { n: '01', es: 'Bosque de los Caminos', en: 'Forest of Paths', color: 'var(--region-1)' },
+  { n: '02', es: 'Ribera del Molino', en: 'Mill Riverside', color: 'var(--region-2)' },
+  { n: '03', es: 'Monasterio de Pergaminos', en: 'Scroll Monastery', color: 'var(--region-3)' },
+  { n: '04', es: 'Castillo del Foso', en: 'Moat Castle', color: 'var(--region-4)' },
+  { n: '05', es: 'Faro del Vigía', en: 'Watchtower Beacon', color: 'var(--region-5)' },
+  { n: '06', es: 'Calzada del Maestro', en: "Master's Road", color: 'var(--region-6)' },
+];
+
 function Index() {
- const t = useText();
- return <div className="page-content home-page"><div className="page-heading"><div><span className="eyebrow"><Sparkles size={14} />{t('EL CONOCIMIENTO ES TU SUPERPODER', 'KNOWLEDGE IS YOUR SUPERPOWER')}</span><h1>{t('Mi aventura', 'My adventure')}<span className="heading-dot">.</span></h1><p>{t('Cada pequeño paso te lleva un poco más lejos.', 'Every small step takes you a little further.')}</p></div><span className="edition-pill"><span />{t('Edición hackatón', 'Hackathon edition')}</span></div>
- <section className="adventure-scene"><img className="landscape" src={landscape} width={1536} height={1024} alt={t('Camino fantástico hacia una Compostela imaginaria', 'A fantasy trail towards imaginary Compostela')} /><div className="scene-shade" /><div className="scene-copy"><span className="scene-eyebrow"><Compass size={16} />{t('UN NUEVO CAMINO TE ESPERA', 'A NEW JOURNEY AWAITS')}</span><h2>{t('Tu aventura empieza', 'Your adventure starts')}<br />{t('con un primer paso.', 'with a first step.')}</h2><p>{t('Elige tu certificación. DUMPI está listo para acompañarte hasta Compostela.', 'Choose your certification. DUMPI is ready to join you all the way to Compostela.')}</p><Button asChild size="lg"><Link to="/certifications">{t('Explorar certificaciones', 'Explore certifications')}<ArrowRight /></Link></Button><span className="scene-note"><MapPin size={14} />{t('Destino: una Compostela imaginaria', 'Destination: imaginary Compostela')}</span></div><img className="scene-dumpi" src={dumpi} width={1024} height={1024} alt="DUMPI" /><span className="dumpi-label">{t('¡Vamos juntos!', 'Let’s go together!')}<Sparkles size={14} /></span></section>
- <div className="journey-stats">{[{ icon: Flag, label: t('Mi recorrido', 'My journey'), value: t('Por comenzar', 'Not started') }, { icon: BookOpen, label: t('Certificación', 'Certification'), value: t('Sin seleccionar', 'Not selected') }, { icon: Heart, label: t('Mis vidas', 'My lives'), value: '—' }, { icon: Trophy, label: t('Mis puntos', 'My points'), value: '—' }].map(({ icon: Icon, label, value }) => <div className="journey-stat" key={label}><span className="stat-icon"><Icon size={20} /></span><div><span>{label}</span><strong>{value}</strong></div></div>)}</div>
- <section className="catalog-section"><div className="section-heading"><div><span className="eyebrow">{t('ENCUENTRA TU CAMINO', 'FIND YOUR PATH')}</span><h2>{t('Tu próxima certificación', 'Your next certification')}</h2></div><Button asChild variant="ghost"><Link to="/certifications">{t('Ver todas', 'View all')}<ArrowRight /></Link></Button></div><Catalog compact /></section>
- <section className="glitch-band"><img src={glitch} alt="Glitch" width={1024} height={1024} loading="lazy" /><div><span className="eyebrow">{t('HASTA LOS ERRORES SUMAN APRENDIZAJE', 'EVEN MISTAKES BRING KNOWLEDGE')}</span><h3>{t('Glitch también se apunta al viaje.', 'Glitch is joining the journey, too.')}</h3><p>{t('Un poco travieso. Nada que no puedas aprender a superar.', 'A little mischievous. Nothing you cannot learn to overcome.')}</p></div><Button asChild variant="outline"><Link to="/review">{t('Mi repaso', 'My review')}<ChevronRight /></Link></Button></section>
- </div>;
+  const t = useText();
+  return <div className="page-content home-page game-home">
+    <div className="hud">
+      <span className="hud-pill hud-lives"><span className="hud-gem"><Heart size={16} fill="currentColor" /></span><b>—</b><small>/10</small></span>
+      <span className="hud-pill hud-points"><span className="hud-gem"><Star size={16} fill="currentColor" /></span><b>—</b><small>PTS</small></span>
+      <span className="hud-pill hud-rank"><span className="hud-gem"><Shield size={16} /></span><b>LV.—</b></span>
+    </div>
+
+    <section className="arena">
+      <img className="arena-bg" src={landscape} width={1536} height={1024} alt={t('Camino fantástico hacia una Compostela imaginaria', 'A fantasy trail towards imaginary Compostela')} />
+      <div className="arena-shade" />
+      <div className="arena-tag"><span>/// {t('TEMPORADA', 'SEASON')} 01</span><span className="hazard" /></div>
+      <div className="arena-copy">
+        <span className="kicker">{t('RUMBO A COMPOSTELA', 'ROAD TO COMPOSTELA')}</span>
+        <h1 className="game-title">{t('Mi aventura', 'My adventure')}</h1>
+        <p>{t('Elige tu certificación y avanza casilla a casilla con DUMPI.', 'Pick your certification and advance tile by tile with DUMPI.')}</p>
+      </div>
+      <img className="arena-dumpi" src={dumpi} width={1024} height={1024} alt="DUMPI" />
+      <span className="speech">{t('¡A por ello!', "Let's go!")}</span>
+      <div className="arena-cta">
+        <Link to="/certifications" className="btn-chunky btn-gold"><Play size={22} fill="currentColor" />{t('JUGAR', 'PLAY')}</Link>
+        <Link to="/mock-exam" className="btn-chunky btn-blue"><Swords size={20} />{t('Simulacro', 'Mock exam')}</Link>
+      </div>
+    </section>
+
+    <section>
+      <div className="zzz-heading"><span className="zzz-index">// 01</span><h2>{t('Regiones', 'Regions')}</h2><span className="zzz-line" /><Link to="/certifications" className="zzz-link">{t('Ver mapa', 'View map')}<ChevronRight size={16} /></Link></div>
+      <div className="region-rail">
+        {regions.map((r, i) => <div key={r.n} className={`region-tile ${i === 0 ? 'is-next' : ''}`} style={{ ['--rc' as string]: r.color }}>
+          <span className="region-num">{r.n}</span>
+          <strong>{t(r.es, r.en)}</strong>
+          <span className="region-stars"><Star size={13} /><Star size={13} /><Star size={13} /></span>
+          <span className="region-bar"><i style={{ width: '0%' }} /></span>
+          <span className="region-state">{i === 0 ? <><MapIcon size={13} />0/10</> : <><Lock size={13} />{t('Bloqueada', 'Locked')}</>}</span>
+        </div>)}
+      </div>
+    </section>
+
+    <section>
+      <div className="zzz-heading"><span className="zzz-index">// 02</span><h2>{t('Certificaciones', 'Certifications')}</h2><span className="zzz-line" /><Link to="/certifications" className="zzz-link">{t('Ver todas', 'View all')}<ChevronRight size={16} /></Link></div>
+      <Catalog compact />
+    </section>
+
+    <section className="villain-card">
+      <span className="villain-stripes" />
+      <img src={glitch} alt="Glitch" width={1024} height={1024} loading="lazy" />
+      <div><span className="kicker kicker-hot"><Zap size={13} />{t('AMENAZA DETECTADA', 'THREAT DETECTED')}</span><h3 className="game-title">Glitch</h3><p>{t('Tres fallos en tus últimas cinco preguntas y aparecerá. Repasa para vencerlo.', 'Miss three of your last five questions and he shows up. Review to beat him.')}</p></div>
+      <Link to="/review" className="btn-chunky btn-red"><Trophy size={18} />{t('Mi repaso', 'My review')}</Link>
+    </section>
+  </div>;
 }

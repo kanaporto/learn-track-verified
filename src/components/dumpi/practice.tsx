@@ -7,6 +7,8 @@ import bank from '@/data/workspace-questions.json';
 import { TrailBoard } from './trail-board';
 import { RegisterCard } from './register';
 import { useExplorer } from '@/lib/explorer';
+import dumpiImg from '@/assets/dumpi.png';
+import glitchImg from '@/assets/glitch.png';
 import r1 from '@/assets/region-1.jpg';
 import r2 from '@/assets/region-2.jpg';
 import r3 from '@/assets/region-3.jpg';
@@ -74,7 +76,7 @@ function RegionRun({ region, onExit }: { region: number; onExit: () => void }) {
   const glitch = recent.slice(-5).filter(x => !x).length >= 3;
 
   if (correct >= GOAL) return <End title={t('¡Región completada!', 'Region complete!')} body={t('Has conseguido 10 aciertos.', 'You got 10 correct answers.')} onExit={onExit} />;
-  if (lives <= 0) return <End title={t('Sin vidas', 'Out of lives')} body={t('Se recupera 1 vida por hora. Vuelve más tarde o repasa.', '1 life recovers per hour. Come back later or review.')} onExit={onExit} />;
+  if (lives <= 0) return <NoLives onRefill={() => { setLives(MAX_LIVES); setRecent([]); setPicked([]); setResult(null); setIdx(i => i + 1); }} onExit={onExit} />;
 
   function toggle(l: string) {
     if (result !== null) return;
@@ -126,4 +128,21 @@ function RegionRun({ region, onExit }: { region: number; onExit: () => void }) {
 function End({ title, body, onExit }: { title: string; body: string; onExit: () => void }) {
   const t = useText();
   return <div className="page-content text-center py-16"><h1 className="text-3xl font-bold mb-2">{title}</h1><p className="text-muted-foreground mb-6">{body}</p><Button onClick={onExit}>{t('Volver a las regiones', 'Back to regions')}</Button></div>;
+}
+
+function NoLives({ onRefill, onExit }: { onRefill: () => void; onExit: () => void }) {
+  const t = useText();
+  return <div className="page-content text-center py-8">
+    <div className="nolives-stage">
+      <div className="nolives-glitch"><span className="nolives-laugh">{t('¡JA, JA, JA!', 'HA HA HA!')}</span><img src={glitchImg} alt={t('Glitch riéndose', 'Glitch laughing')} /></div>
+      <div className="nolives-dumpi"><img src={dumpiImg} alt={t('DUMPI triste', 'Sad DUMPI')} /><span className="nolives-tear" /></div>
+    </div>
+    <h1 className="game-title text-3xl mb-2">{t('¡Sin vidas!', 'Out of lives!')}</h1>
+    <p className="text-muted-foreground mb-6">{t('Glitch te ha ganado esta vez. Se recupera 1 vida por hora.', 'Glitch got you this time. 1 life recovers per hour.')}</p>
+    <div className="grid gap-3 max-w-sm mx-auto">
+      <Button className="h-14 text-base" onClick={onRefill}><Heart fill="currentColor" />{t('Conseguir más vidas', 'Get more lives')}</Button>
+      <p className="text-xs text-muted-foreground">{t('Edición hackatón: recarga gratuita de 10 vidas para pruebas.', 'Hackathon edition: free 10-life refill for testing.')}</p>
+      <Button variant="secondary" onClick={onExit}>{t('Volver a las regiones', 'Back to regions')}</Button>
+    </div>
+  </div>;
 }

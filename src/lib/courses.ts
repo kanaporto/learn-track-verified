@@ -7,12 +7,12 @@ export type Course = { id: string; name: string; category: string; icon: string;
 
 const COLORS = ['#2563EB', '#0284C7', '#0D9488', '#6366F1', '#D97706', '#E11D48'];
 const workspaceRegions: Region[] = [
-  { n: 1, es: 'El Bosque de los Caminos', en: 'The Forest of Paths', color: '#2563EB', domain: '' },
-  { n: 2, es: 'La Ribera y el Molino', en: 'The Riverside Mill', color: '#0284C7', domain: '' },
-  { n: 3, es: 'El Monasterio de los Pergaminos', en: 'The Scroll Monastery', color: '#0D9488', domain: '' },
-  { n: 4, es: 'El Castillo del Foso', en: 'The Moat Castle', color: '#6366F1', domain: '' },
-  { n: 5, es: 'El Faro del Vigía', en: 'The Watchtower', color: '#D97706', domain: '' },
-  { n: 6, es: 'La Calzada del Maestro', en: "The Master's Road", color: '#E11D48', domain: '' },
+  { n: 1, es: 'Cuentas, dominios y Directorio', en: 'User accounts, domains, and Directory', color: '#2563EB', domain: 'User accounts, domains, and Directory' },
+  { n: 2, es: 'Servicios principales de Workspace', en: 'Core Workspace services', color: '#0284C7', domain: 'Core Workspace services' },
+  { n: 3, es: 'Gobernanza de datos y cumplimiento', en: 'Data governance and compliance', color: '#0D9488', domain: 'Data governance and compliance' },
+  { n: 4, es: 'Políticas de seguridad y control de acceso', en: 'Security policies and access controls', color: '#6366F1', domain: 'Security policies and access controls' },
+  { n: 5, es: 'Monitorización y resolución de problemas', en: 'Monitoring and troubleshooting', color: '#D97706', domain: 'Monitoring and troubleshooting' },
+  { n: 6, es: 'Navegadores y dispositivos', en: 'Browsers and endpoints', color: '#E11D48', domain: 'Browsers and endpoints' },
 ];
 
 export const workspaceCourse: Course = {

@@ -3,20 +3,14 @@ import { Heart, Trophy, Star, Swords, Map as MapIcon, Play, Zap, ChevronRight, S
 import { Catalog } from '@/components/dumpi/catalog';
 import { useText, pageHead } from '@/lib/dumpi';
 import { useProgress, playerLevel, courseOf } from '@/lib/progress';
-import landscape from '@/assets/compostela.jpg';
+import landscape from '@/assets/silicon-hero.jpg';
 import dumpi from '@/assets/dumpi.png';
 import glitch from '@/assets/glitch.png';
 
 export const Route = createFileRoute('/')({ head: () => pageHead('Mi aventura', 'Tu aventura de aprendizaje IT con DUMPI, rumbo a Silicon Valley, el corazón del mundo tech.'), component: Index });
 
-const regions = [
-  { n: '01', es: 'Bosque de los Caminos', en: 'Forest of Paths', color: 'var(--region-1)' },
-  { n: '02', es: 'Ribera del Molino', en: 'Mill Riverside', color: 'var(--region-2)' },
-  { n: '03', es: 'Monasterio de Pergaminos', en: 'Scroll Monastery', color: 'var(--region-3)' },
-  { n: '04', es: 'Castillo del Foso', en: 'Moat Castle', color: 'var(--region-4)' },
-  { n: '05', es: 'Faro del Vigía', en: 'Watchtower Beacon', color: 'var(--region-5)' },
-  { n: '06', es: 'Calzada del Maestro', en: "Master's Road", color: 'var(--region-6)' },
-];
+import { workspaceCourse } from '@/lib/courses';
+const regions = workspaceCourse.regions.map(r => ({ ...r, n: String(r.n).padStart(2, '0') }));
 
 function Index() {
   const t = useText();

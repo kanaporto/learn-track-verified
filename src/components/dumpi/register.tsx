@@ -15,7 +15,7 @@ export function RegisterCard({ onDone }: { onDone?: () => void }) {
       <div className="register-shade" />
       <div className="register-body">
         <img src={dumpi} alt="DUMPI" className="register-dumpi" width={140} height={140} />
-        <span className="medieval-banner"><Shield size={14} />{t('Registro del peregrino', 'Pilgrim registry')}</span>
+        <span className="medieval-banner"><Shield size={14} />{t('Registro del fundador', 'Founder registry')}</span>
         <h1 className="medieval-title">{t('¿Cómo te llamas, explorador?', 'What is your name, explorer?')}</h1>
         <p>{t('Escribe tu nombre y empieza a jugar.', 'Type your name and start playing.')}</p>
         <form onSubmit={e => { e.preventDefault(); if (saveExplorer(name)) onDone?.(); }} className="register-form">

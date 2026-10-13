@@ -13,7 +13,7 @@ import { useCourses } from '@/lib/courses';
 import { useProgress, leagueFor, playerLevel, courseOf } from '@/lib/progress';
 import { Settings2 } from 'lucide-react';
 import dumpi from '@/assets/dumpi.png';
-import landscape from '@/assets/compostela.jpg';
+import landscape from '@/assets/silicon-hero.jpg';
 
 export function PageTitle({ eyebrow, title, subtitle }: { eyebrow: string; title: string; subtitle: string }) { return <div className="page-heading"><div><span className="eyebrow">{eyebrow}</span><h1>{title}<span className="heading-dot">.</span></h1><p>{subtitle}</p></div></div>; }
 export function CertificationsPage() { const t = useText(); return <div className="page-content"><PageTitle eyebrow={t('UN MUNDO POR DESCUBRIR', 'A WORLD TO DISCOVER')} title={t('Certificaciones', 'Certifications')} subtitle={t('Elige el camino que quieres recorrer con DUMPI.', 'Choose the journey you want to take with DUMPI.')} /><div className="notice"><Sparkles size={19} /><p>{t('Google Workspace Administrator ya está disponible con sus 6 regiones y 110 preguntas. El resto del catálogo se habilitará al cargar sus preguntas.', 'Google Workspace Administrator is now available with its 6 regions and 110 questions. The rest of the catalogue will open as questions are loaded.')}</p></div><Catalog /><AdminLink /></div>; }

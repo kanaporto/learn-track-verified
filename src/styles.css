@@ -489,3 +489,4 @@ body { font-family: var(--font-tech); background: radial-gradient(1200px 600px a
 .league strong { font-family: var(--font-game); font-weight: 400; font-size: 1.2rem; color: #fff; }
 .league small { color: #A9BDE3; font-size: .75rem; }
 .league.is-silver { border-color: #D7DEE8; box-shadow: 0 0 18px rgba(215,222,232,.35); }
+.explorer-chip { font-family: "Cinzel", Georgia, serif; font-weight: 700; color: #3A2400; background: linear-gradient(180deg, #FFE7A3, #E0B055); border: 2px solid #7A4E12; border-radius: 999px; padding: 4px 12px; font-size: .85rem; }

@@ -11,3 +11,5 @@
 - [x] Fondos medievales por región y nombres legibles.
 - [x] Liga Plata en clasificaciones.
 - [x] Registro rápido solo con nombre, obligatorio para jugar (sin inicio de sesión por ahora).
+
+- [x] Pantalla sin vidas: DUMPI triste, Glitch riéndose, botón para recargar vidas (prueba)

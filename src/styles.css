@@ -490,3 +490,15 @@ body { font-family: var(--font-tech); background: radial-gradient(1200px 600px a
 .league small { color: #A9BDE3; font-size: .75rem; }
 .league.is-silver { border-color: #D7DEE8; box-shadow: 0 0 18px rgba(215,222,232,.35); }
 .explorer-chip { font-family: "Cinzel", Georgia, serif; font-weight: 700; color: #3A2400; background: linear-gradient(180deg, #FFE7A3, #E0B055); border: 2px solid #7A4E12; border-radius: 999px; padding: 4px 12px; font-size: .85rem; }
+
+.nolives-stage { position: relative; display: flex; justify-content: center; align-items: flex-end; gap: 4px; height: 220px; margin-bottom: 12px; }
+.nolives-dumpi { position: relative; width: 140px; }
+.nolives-dumpi img { width: 100%; filter: saturate(.35) brightness(.8); transform: rotate(-8deg) translateY(10px); animation: dumpi-sad 2.4s ease-in-out infinite; }
+.nolives-tear { position: absolute; left: 44%; top: 34%; width: 8px; height: 12px; background: #38BDF8; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; animation: tear-drop 1.6s ease-in infinite; }
+.nolives-glitch { position: relative; width: 150px; }
+.nolives-glitch img { width: 100%; animation: glitch-laugh .5s ease-in-out infinite alternate; }
+.nolives-laugh { position: absolute; top: -6px; left: 50%; transform: translateX(-50%) rotate(-6deg); font-family: var(--font-game); color: var(--game-red, #E11D48); font-size: 1.3rem; white-space: nowrap; text-shadow: 0 2px 0 #000; animation: glitch-laugh .5s ease-in-out infinite alternate; }
+@keyframes dumpi-sad { 50% { transform: rotate(-10deg) translateY(14px); } }
+@keyframes tear-drop { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(40px); } }
+@keyframes glitch-laugh { from { transform: translateY(0) rotate(-3deg); } to { transform: translateY(-8px) rotate(3deg); } }
+.reduce-motion .nolives-stage * { animation: none !important; }

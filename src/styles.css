@@ -502,3 +502,59 @@ body { font-family: var(--font-tech); background: radial-gradient(1200px 600px a
 @keyframes tear-drop { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(40px); } }
 @keyframes glitch-laugh { from { transform: translateY(0) rotate(-3deg); } to { transform: translateY(-8px) rotate(3deg); } }
 .reduce-motion .nolives-stage * { animation: none !important; }
+
+/* ---- Progress, Glitch, training, victory, admin ---- */
+.hud-sm { padding: 3px 10px 3px 3px; position: relative; }
+.hud-sm .hud-gem { width: 26px; height: 26px; }
+.points-float { position: absolute; right: -6px; top: -18px; font-family: var(--font-game); color: var(--game-gold); text-shadow: 0 2px 0 rgba(0,0,0,.5); animation: pts-up 1.4s ease-out forwards; pointer-events: none; }
+@keyframes pts-up { 0% { opacity: 0; transform: translateY(8px) scale(.8); } 20% { opacity: 1; transform: translateY(0) scale(1.2); } 100% { opacity: 0; transform: translateY(-26px) scale(1); } }
+.region-pick { position: relative; }
+.region-pick.is-done { box-shadow: 0 0 0 3px var(--game-gold), 0 0 22px rgba(255,200,60,.35); }
+.done-ribbon { position: absolute; top: 10px; right: -4px; z-index: 3; display: inline-flex; align-items: center; gap: 2px; padding: 4px 10px; font-family: var(--font-game); font-size: .8rem; color: #3a2400; background: linear-gradient(180deg,#FFE38A,#E0A100); border-radius: 6px 0 0 6px; box-shadow: 0 3px 0 rgba(0,0,0,.35); }
+.region-tile.is-done { border-color: var(--game-gold); }
+.region-tile.is-done .region-stars { color: var(--game-gold); }
+.train-cta { width: 100%; display: flex; align-items: center; gap: 12px; text-align: left; padding: 12px 14px; border-radius: 14px; color: #fff; background: linear-gradient(170deg,#14532D,#0B3B22); border: 2px solid #22C55E; box-shadow: 0 4px 0 #052E16; }
+.train-cta span:nth-child(2) { flex: 1; display: flex; flex-direction: column; }
+.train-cta small { color: #BBF7D0; }
+.train-lives { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; color: #FCA5A5; }
+.train-head { display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 14px; background: rgba(34,197,94,.12); border: 2px solid rgba(34,197,94,.5); }
+.train-head div { display: flex; flex-direction: column; }
+.train-head small { color: #BBF7D0; }
+.glitch-attack { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 20px; background: rgba(10,0,20,.82); animation: glitch-in .35s steps(4); }
+.glitch-attack::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255,0,90,.08) 0 2px, transparent 2px 5px); }
+.glitch-attack-card { position: relative; max-width: 380px; width: 100%; text-align: center; padding: 22px; border-radius: 18px; background: linear-gradient(170deg,#2A0A1E,#12040E); border: 2px solid #F43F5E; box-shadow: 0 0 40px rgba(244,63,94,.45); }
+.glitch-attack-img { width: 150px; margin: 8px auto; animation: glitch-shake .5s infinite; }
+.glitch-text { position: relative; color: #fff; }
+.glitch-text::before, .glitch-text::after { content: attr(data-text); position: absolute; inset: 0; }
+.glitch-text::before { color: #22D3EE; transform: translate(-2px,0); clip-path: inset(0 0 55% 0); animation: glitch-shake .4s infinite; }
+.glitch-text::after { color: #F43F5E; transform: translate(2px,0); clip-path: inset(50% 0 0 0); animation: glitch-shake .3s infinite reverse; }
+.glitch-speech { color: #FBCFE8; margin-top: 6px; }
+@keyframes glitch-in { 0% { opacity: 0; transform: skewX(20deg); } 100% { opacity: 1; transform: none; } }
+@keyframes glitch-shake { 0%,100% { transform: translate(0); } 25% { transform: translate(-2px,1px); } 50% { transform: translate(2px,-1px); } 75% { transform: translate(-1px,-2px); } }
+.victory-banner { --rc: var(--game-gold); }
+.victory-title { font-size: 2.2rem; color: var(--game-gold); text-shadow: 0 3px 0 #6b4400; margin-top: 10px; }
+.victory-stars { display: flex; justify-content: center; gap: 8px; color: var(--game-gold); margin: 8px 0; }
+.victory-stars svg { width: 36px; height: 36px; animation: star-pop .6s ease-out backwards; }
+.victory-stars svg:nth-child(2) { animation-delay: .15s; } .victory-stars svg:nth-child(3) { animation-delay: .3s; }
+@keyframes star-pop { 0% { transform: scale(0) rotate(-40deg); } 70% { transform: scale(1.3); } 100% { transform: scale(1); } }
+.victory-stage { display: flex; justify-content: center; align-items: flex-end; gap: 10px; margin: 16px 0; }
+.victory-dumpi-wrap { position: relative; }
+.victory-dumpi { width: 160px; animation: dumpi-dance .9s ease-in-out infinite; transform-origin: bottom center; }
+@keyframes dumpi-dance { 0%,100% { transform: translateY(0) rotate(-8deg); } 25% { transform: translateY(-22px) rotate(0); } 50% { transform: translateY(0) rotate(8deg); } 75% { transform: translateY(-22px) rotate(0); } }
+.spark { position: absolute; color: var(--game-gold); font-size: 1.4rem; animation: spark 1.2s ease-in-out infinite; }
+.spark.s1 { top: 0; left: -10px; } .spark.s2 { top: 20%; right: -14px; animation-delay: .4s; } .spark.s3 { bottom: 30%; left: -18px; animation-delay: .8s; }
+@keyframes spark { 0%,100% { opacity: 0; transform: scale(.5); } 50% { opacity: 1; transform: scale(1.2); } }
+.victory-glitch { position: relative; width: 130px; }
+.victory-glitch img { width: 120px; filter: saturate(.6); transform: rotate(6deg); animation: glitch-sob 1.4s ease-in-out infinite; }
+@keyframes glitch-sob { 0%,100% { transform: rotate(6deg) translateY(0); } 50% { transform: rotate(4deg) translateY(4px); } }
+.glitch-bubble { position: absolute; bottom: 100%; right: -6px; width: 220px; margin-bottom: 8px; padding: 10px 12px; font-size: .8rem; text-align: left; color: #1a1a2e; background: #fff; border-radius: 14px; box-shadow: 0 4px 0 rgba(0,0,0,.3); }
+.glitch-tear { position: absolute; width: 7px; height: 11px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: #38BDF8; animation: tear-drop 1.1s ease-in infinite; }
+.glitch-tear.t1 { top: 38%; left: 38%; } .glitch-tear.t2 { top: 38%; left: 58%; animation-delay: .5s; }
+.cert-logo { background: #fff !important; }
+.ranking-me { background: rgba(255,200,60,.12); font-weight: 700; border-top: 1px solid rgba(255,255,255,.08); }
+.admin-card { padding: 20px; border-radius: 16px; background: linear-gradient(170deg, var(--game-panel), var(--game-deep)); border: 2px solid #2A4EA0; }
+.admin-drop { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 72px; padding: 14px; border: 2px dashed #38BDF8; border-radius: 14px; cursor: pointer; color: #BAE6FD; }
+.admin-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); }
+.reduce-motion .victory-stage *, .reduce-motion .glitch-attack * { animation: none !important; }
+@media (max-width: 480px) { .glitch-bubble { width: 170px; right: -20px; } .victory-dumpi { width: 120px; } }
+.admin-card .field-label { color: #BAE6FD; display: block; margin-bottom: 6px; }

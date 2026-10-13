@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthRouteImport } from './routes/auth'
-import { Route as CertificationsRouteImport } from './routes/certifications'
 import { Route as ExamRouteImport } from './routes/exam'
 import { Route as LeaderboardsRouteImport } from './routes/leaderboards'
 import { Route as MockExamRouteImport } from './routes/mock-exam'
@@ -21,6 +20,7 @@ import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ResultsRouteImport } from './routes/results'
 import { Route as ReviewRouteImport } from './routes/review'
 import { Route as StatisticsRouteImport } from './routes/statistics'
+import { Route as CertificationsIndexRouteImport } from './routes/certifications.index'
 import { Route as CertificationsIdRouteImport } from './routes/certifications.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -31,11 +31,6 @@ const IndexRoute = IndexRouteImport.update({
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CertificationsRoute = CertificationsRouteImport.update({
-  id: '/certifications',
-  path: '/certifications',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExamRoute = ExamRouteImport.update({
@@ -83,16 +78,20 @@ const StatisticsRoute = StatisticsRouteImport.update({
   path: '/statistics',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CertificationsIndexRoute = CertificationsIndexRouteImport.update({
+  id: '/certifications/',
+  path: '/certifications/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CertificationsIdRoute = CertificationsIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => CertificationsRoute,
+  id: '/certifications/$id',
+  path: '/certifications/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
-  '/certifications': typeof CertificationsRouteWithChildren
   '/exam': typeof ExamRoute
   '/leaderboards': typeof LeaderboardsRoute
   '/mock-exam': typeof MockExamRoute
@@ -103,11 +102,11 @@ export interface FileRoutesByFullPath {
   '/review': typeof ReviewRoute
   '/statistics': typeof StatisticsRoute
   '/certifications/$id': typeof CertificationsIdRoute
+  '/certifications/': typeof CertificationsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
-  '/certifications': typeof CertificationsRouteWithChildren
   '/exam': typeof ExamRoute
   '/leaderboards': typeof LeaderboardsRoute
   '/mock-exam': typeof MockExamRoute
@@ -118,12 +117,12 @@ export interface FileRoutesByTo {
   '/review': typeof ReviewRoute
   '/statistics': typeof StatisticsRoute
   '/certifications/$id': typeof CertificationsIdRoute
+  '/certifications': typeof CertificationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
-  '/certifications': typeof CertificationsRouteWithChildren
   '/exam': typeof ExamRoute
   '/leaderboards': typeof LeaderboardsRoute
   '/mock-exam': typeof MockExamRoute
@@ -134,13 +133,13 @@ export interface FileRoutesById {
   '/review': typeof ReviewRoute
   '/statistics': typeof StatisticsRoute
   '/certifications/$id': typeof CertificationsIdRoute
+  '/certifications/': typeof CertificationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/auth'
-    | '/certifications'
     | '/exam'
     | '/leaderboards'
     | '/mock-exam'
@@ -151,11 +150,11 @@ export interface FileRouteTypes {
     | '/review'
     | '/statistics'
     | '/certifications/$id'
+    | '/certifications/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/auth'
-    | '/certifications'
     | '/exam'
     | '/leaderboards'
     | '/mock-exam'
@@ -166,11 +165,11 @@ export interface FileRouteTypes {
     | '/review'
     | '/statistics'
     | '/certifications/$id'
+    | '/certifications'
   id:
     | '__root__'
     | '/'
     | '/auth'
-    | '/certifications'
     | '/exam'
     | '/leaderboards'
     | '/mock-exam'
@@ -181,12 +180,12 @@ export interface FileRouteTypes {
     | '/review'
     | '/statistics'
     | '/certifications/$id'
+    | '/certifications/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthRoute: typeof AuthRoute
-  CertificationsRoute: typeof CertificationsRouteWithChildren
   ExamRoute: typeof ExamRoute
   LeaderboardsRoute: typeof LeaderboardsRoute
   MockExamRoute: typeof MockExamRoute
@@ -196,6 +195,8 @@ export interface RootRouteChildren {
   ResultsRoute: typeof ResultsRoute
   ReviewRoute: typeof ReviewRoute
   StatisticsRoute: typeof StatisticsRoute
+  CertificationsIdRoute: typeof CertificationsIdRoute
+  CertificationsIndexRoute: typeof CertificationsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -212,13 +213,6 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/certifications': {
-      id: '/certifications'
-      path: '/certifications'
-      fullPath: '/certifications'
-      preLoaderRoute: typeof CertificationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/exam': {
@@ -284,32 +278,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StatisticsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/certifications/': {
+      id: '/certifications/'
+      path: '/certifications'
+      fullPath: '/certifications/'
+      preLoaderRoute: typeof CertificationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/certifications/$id': {
       id: '/certifications/$id'
-      path: '/$id'
+      path: '/certifications/$id'
       fullPath: '/certifications/$id'
       preLoaderRoute: typeof CertificationsIdRouteImport
-      parentRoute: typeof CertificationsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface CertificationsRouteChildren {
-  CertificationsIdRoute: typeof CertificationsIdRoute
-}
-
-const CertificationsRouteChildren: CertificationsRouteChildren = {
-  CertificationsIdRoute: CertificationsIdRoute,
-}
-
-const CertificationsRouteWithChildren = CertificationsRoute._addFileChildren(
-  CertificationsRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRoute: AuthRoute,
-  CertificationsRoute: CertificationsRouteWithChildren,
   ExamRoute: ExamRoute,
   LeaderboardsRoute: LeaderboardsRoute,
   MockExamRoute: MockExamRoute,
@@ -319,6 +307,8 @@ const rootRouteChildren: RootRouteChildren = {
   ResultsRoute: ResultsRoute,
   ReviewRoute: ReviewRoute,
   StatisticsRoute: StatisticsRoute,
+  CertificationsIdRoute: CertificationsIdRoute,
+  CertificationsIndexRoute: CertificationsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

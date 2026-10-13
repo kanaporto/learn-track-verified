@@ -20,3 +20,5 @@
 - [x] Ránking con tus puntos y ligas; sello ¡COMPLETADA!; victoria con baile de DUMPI
 - [x] Admin: añadir cursos y subir dumps Excel (guardado en el dispositivo)
 - [ ] Compartir cursos y ránking entre jugadores (requiere activar cuentas en la nube)
+- [x] Regiones con el nombre oficial de su dominio de la certificación
+- [x] Fondos futuristas «Rumbo a Silicon Valley» (garaje → número 1 en tech) en lugar de los medievales

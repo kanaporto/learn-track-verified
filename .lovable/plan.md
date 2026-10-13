@@ -16,6 +16,7 @@ Esta será la primera entrega; no se presentará todavía como un MVP funcional 
 - Aplicar la paleta aprobada del PRD, lectura cómoda en móvil, tablet y escritorio, controles accesibles y ajustes de sonido y movimiento.
 - Preparar la interfaz en español e inglés. No traducir preguntas en directo.
 - Mantener certificaciones, regiones y simulacros pendientes hasta contar con información oficial verificada y preguntas aportadas. Sin preguntas inventadas, dominios ficticios, clasificaciones falsas ni progreso simulado como real.
+- Los archivos de preguntas todavía los aportará el propietario. La entrega de pantallas puede continuar sin ellos, pero práctica y simulacros permanecerán deshabilitados hasta recibir y comprobar el banco original preaprobado y sus traducciones; no generar preguntas para cubrir esa espera.
 - Preparar la integración visual de DUMPI y Glitch a partir de la referencia. La imagen no equivale a los personajes separados ni a los bailes terminados: revisar los recursos adaptados antes de tratarlos como definitivos.
 - No elegir una tipografía sustituta ni música definitiva sin autorización; TT Hoves y su licencia siguen pendientes. Mientras tanto, la estructura de revisión podrá usar la fuente del sistema sin afirmar que es la identidad final.
 - Mostrar estados de carga, contenido pendiente, error de conexión y controles aún no disponibles de forma honesta.

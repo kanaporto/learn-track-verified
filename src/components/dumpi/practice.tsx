@@ -87,7 +87,7 @@ function RegionRun({ region, onExit }: { region: number; onExit: () => void }) {
     <h2 className="text-lg font-semibold my-4 leading-snug">{text.q}</h2>
     <div className="grid gap-2.5">
       {text.o.map((o, i) => { const l = LETTERS[i]; const sel = picked.includes(l); const isAns = q.answer.includes(l);
-        const state = result === null ? (sel ? 'border-primary bg-accent' : 'border-border bg-card') : isAns ? 'border-green-600 bg-green-50 dark:bg-green-950' : sel ? 'border-destructive bg-destructive/10' : 'border-border bg-card opacity-70';
+        const state = result === null ? (sel ? 'border-primary bg-primary/15' : 'border-border') : isAns ? 'border-green-500 bg-green-500/15' : sel ? 'border-destructive bg-destructive/10' : 'border-border opacity-60';
         return <button key={l} onClick={() => toggle(l)} className={`flex items-start gap-3 text-left rounded-xl border-2 p-3.5 min-h-14 ${state}`}>
           <span className="font-bold w-6 shrink-0">{l}</span><span className="flex-1">{o}</span>
           {result !== null && isAns && <Check className="text-green-600 shrink-0" size={20} />}
@@ -99,7 +99,7 @@ function RegionRun({ region, onExit }: { region: number; onExit: () => void }) {
       <p>{language === 'es' ? q.expEs : q.expEn}</p>
       {q.ref && <a href={q.ref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 mt-2 text-primary underline">{t('Documentación oficial', 'Official documentation')}<ExternalLink size={14} /></a>}
     </div>}
-    {result === true && <p className="mt-5 font-bold text-green-700 dark:text-green-400">{t('¡Correcto! DUMPI avanza una casilla.', 'Correct! DUMPI moves forward one tile.')}</p>}
+    {result === true && <p className="mt-5 font-bold text-green-400">{t('¡Correcto! DUMPI avanza una casilla.', 'Correct! DUMPI moves forward one tile.')}</p>}
     <div className="fixed bottom-16 md:bottom-4 inset-x-0 px-4 z-30">
       <div className="max-w-2xl mx-auto">
         {result === null

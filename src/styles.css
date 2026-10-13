@@ -422,3 +422,10 @@ body { font-family: var(--font-tech); background: radial-gradient(1200px 600px a
   .arena-cta .btn-chunky { flex: 1; }
 }
 @media (prefers-reduced-motion: reduce) { .arena-dumpi, .region-tile.is-next::after { animation: none; } }
+.brand .text-primary { color: var(--dumpi-sky); }
+.topbar a[href="/auth"] { background: var(--game-lime); color: var(--game-ink); border: 0; font-weight: 700; clip-path: var(--chamfer); border-radius: 0; }
+@media (max-width: 640px) {
+  .arena-copy { margin-top: 250px; }
+  .arena-dumpi { width: 46%; top: 70px; bottom: auto; right: 2%; }
+  .speech { top: 64px; right: auto; left: 18px; }
+}

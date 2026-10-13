@@ -430,3 +430,22 @@ body { font-family: var(--font-tech); background: radial-gradient(1200px 600px a
   .arena-dumpi { width: 46%; top: 70px; bottom: auto; right: 2%; }
   .speech { top: 64px; right: auto; left: 18px; }
 }
+
+/* Trail board · Candy-style mini path */
+.trail-board { position: relative; height: 150px; margin: 12px 0; border-radius: 20px; overflow: visible;
+  background: radial-gradient(ellipse at 50% 120%, color-mix(in oklab, var(--region) 35%, transparent), transparent 70%), color-mix(in oklab, var(--region) 18%, var(--background));
+  border: 2px solid color-mix(in oklab, var(--region) 45%, transparent); box-shadow: inset 0 -6px 0 color-mix(in oklab, var(--region) 25%, transparent); }
+.trail-path { position: absolute; inset: 0; width: 100%; height: 100%; }
+.trail-path polyline { fill: none; stroke: color-mix(in oklab, var(--foreground) 22%, transparent); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 2.2; vector-effect: non-scaling-stroke; }
+.trail-stone { position: absolute; transform: translate(-50%, -50%); width: 30px; height: 26px; border-radius: 50% / 45%;
+  display: grid; place-items: center; font: 800 12px/1 'Chakra Petch', sans-serif; color: var(--muted-foreground);
+  background: var(--muted); box-shadow: 0 4px 0 color-mix(in oklab, var(--muted) 55%, black); transition: all .35s; }
+.trail-stone.done { color: var(--card); background: linear-gradient(#fde68a, #f59e0b); box-shadow: 0 4px 0 #b45309, 0 0 12px #fbbf2480; animation: stone-pop .45s ease-out; }
+.trail-stone.active { color: var(--card); background: var(--region); box-shadow: 0 4px 0 color-mix(in oklab, var(--region) 60%, black), 0 0 0 4px color-mix(in oklab, var(--region) 35%, transparent); animation: stone-pulse 1.4s ease-in-out infinite; }
+.trail-dumpi { position: absolute; width: 46px; height: 46px; object-fit: contain; pointer-events: none; filter: drop-shadow(0 4px 3px #0008);
+  transform: translate(-50%, -105%); transition: left .5s cubic-bezier(.34,1.56,.64,1), top .5s cubic-bezier(.34,1.56,.64,1); animation: dumpi-hop .55s ease-out, dumpi-idle 1.8s ease-in-out .55s infinite; }
+@keyframes dumpi-hop { 0% { transform: translate(-50%, -105%) scale(1); } 40% { transform: translate(-50%, -170%) scale(1.1, .92); } 75% { transform: translate(-50%, -100%) scale(1.08, .9); } 100% { transform: translate(-50%, -105%); } }
+@keyframes dumpi-idle { 50% { transform: translate(-50%, -115%) rotate(-3deg); } }
+@keyframes stone-pop { 0% { transform: translate(-50%, -50%) scale(.6); } 60% { transform: translate(-50%, -50%) scale(1.3); } 100% { transform: translate(-50%, -50%) scale(1); } }
+@keyframes stone-pulse { 50% { box-shadow: 0 4px 0 color-mix(in oklab, var(--region) 60%, black), 0 0 0 9px color-mix(in oklab, var(--region) 15%, transparent); } }
+@media (prefers-reduced-motion: reduce) { .trail-dumpi, .trail-stone { animation: none !important; transition: none; } }

@@ -21,7 +21,7 @@ const MAX_LIVES = 10;
 function shuffle<T>(a: T[]) { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j]!, b[i]!]; } return b; }
 
 export const practiceRegions = regions;
-export function PracticeGame({ initialRegion }: { initialRegion?: number } = {}) {
+export function PracticeGame({ initialRegion }: { initialRegion?: number | undefined } = {}) {
   const t = useText();
   const { language } = usePreferences();
   const [region, setRegion] = useState<number | null>(initialRegion ?? null);

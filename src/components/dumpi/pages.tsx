@@ -38,17 +38,42 @@ export function CertificationPage({ id }: { id: string }) {
 }
 
 const LEAGUES = [{ k: 'bronze', es: 'Bronce', en: 'Bronze', range: '0–499', g: 'linear-gradient(180deg,#F4B98A,#B8723F)' }, { k: 'silver', es: 'Plata', en: 'Silver', range: '500–1.499', g: 'linear-gradient(180deg,#FFFFFF,#AEB8C6)' }, { k: 'gold', es: 'Oro', en: 'Gold', range: '1.500+', g: 'linear-gradient(180deg,#FFE38A,#E0A100)' }];
+/** Demo rivals for the hackathon showcase — fictional players, clearly labelled in the UI. */
+const RIVALS = [
+  { name: 'sara_cloud', pts: 2140 }, { name: 'devin_ai', pts: 1820 }, { name: 'elena_devops', pts: 1510 },
+  { name: 'alex_k8s', pts: 1190 }, { name: 'marcos_sec', pts: 860 }, { name: 'lucia_sre', pts: 640 },
+  { name: 'pablo_iam', pts: 410 }, { name: 'nora_data', pts: 230 }, { name: 'iker_net', pts: 90 },
+];
 export function LeaderboardsPage() {
   const t = useText(); const name = useExplorer(); const p = useProgress();
   const league = p ? leagueFor(p.points) : null;
+  const rows = [...RIVALS.map(r => ({ ...r, me: false })), ...(name && p ? [{ name, pts: p.points, me: true }] : [])].sort((a, b) => b.pts - a.pts);
+  const medal = (i: number) => i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
   return <div className="page-content"><PageTitle eyebrow={t('EL CAMINO SE COMPARTE', 'THE JOURNEY IS SHARED')} title={t('Clasificaciones', 'Leaderboards')} subtitle={t('Cada acierto suma. Cada 500 puntos, un nivel más.', 'Every correct answer counts. Every 500 points, one more level.')} />
     <div className="league-row">{LEAGUES.map(l => <div key={l.k} className={`league ${l.k === league ? 'is-silver' : ''}`}><span className="league-gem" style={{ background: l.g }}><Trophy size={24} /></span><strong>{t('Liga ', 'League ')}{t(l.es, l.en)}</strong><small>{l.range} pts{l.k === league ? ` · ${t('tu liga', 'your league')}` : ''}</small></div>)}</div>
-    <div className="ranking-table"><div className="ranking-row ranking-header"><span>{t('Posición', 'Rank')}</span><span>{t('Explorador', 'Explorer')}</span><span>{t('Puntos', 'Points')}</span></div>
-      {name && p ? <div className="ranking-row ranking-me"><span>#1</span><span>⚔ {name} · LV.{playerLevel(p.points)}</span><span>{p.points}</span></div>
-        : <div className="empty-section"><Trophy size={40} /><h2>{t('Regístrate para aparecer', 'Register to appear')}</h2><Button asChild><Link to="/auth">{t('Registrarse', 'Register')}</Link></Button></div>}
+    {!name && <div className="tech-board p-6 text-center"><h2 className="text-white font-bold text-lg mb-3">{t('Regístrate para aparecer en el ránking', 'Register to appear on the ranking')}</h2><Button asChild><Link to="/auth">{t('Registrarse', 'Register')}</Link></Button></div>}
+    <div className="tech-board">
+      <div className="tech-row tech-head"><span>#</span><span>{t('Explorador', 'Explorer')}</span><span>{t('Nivel', 'Level')}</span><span>{t('Puntos', 'Points')}</span></div>
+      {rows.map((r, i) => <div key={r.name + i} className={`tech-row ${r.me ? 'is-me' : ''} ${medal(i)}`}>
+        <span className="tech-rank">{i + 1}</span>
+        <span className="tech-name"><span className="tech-avatar">{r.name.slice(0, 1).toUpperCase()}</span>{r.name}{r.me && <em>{t('TÚ', 'YOU')}</em>}</span>
+        <span className="tech-lv">LV.{playerLevel(r.pts)}</span>
+        <span className="tech-pts">{r.pts.toLocaleString()}</span>
+      </div>)}
     </div>
-    <p className="text-xs text-muted-foreground mt-3">{t('Edición hackatón: tus puntos se guardan en este dispositivo. El ránking con otros jugadores llegará al activar las cuentas compartidas.', 'Hackathon edition: your points are saved on this device. Ranking against other players arrives with shared accounts.')}</p>
+    <p className="text-xs text-muted-foreground mt-3">{t('Edición hackatón: los rivales son jugadores de demostración. Tus puntos se guardan en este dispositivo.', 'Hackathon edition: rivals are demo players. Your points are saved on this device.')}</p>
   </div>;
+}
+
+export function TrustPanel() {
+  const t = useText();
+  const items = [
+    { icon: ShieldCheck, h: t('Basado en el examen oficial', 'Based on the official exam'), p: t('Las preguntas siguen el formato y los dominios del examen de certificación.', 'Questions follow the format and domains of the certification exam.') },
+    { icon: Flag, h: t('Una región por dominio', 'One region per domain'), p: t('Cada región corresponde a una parte oficial del temario que evalúa el fabricante.', 'Each region maps to an official part of the syllabus assessed by the vendor.') },
+    { icon: BookOpen, h: t('Aprendes de cada fallo', 'Learn from every miss'), p: t('Tras un error verás la explicación y el enlace a la documentación oficial.', 'After a miss you get the explanation and a link to official documentation.') },
+    { icon: Trophy, h: t('Simulacro como el real', 'Mock exam like the real one'), p: t('Practica en condiciones de examen antes de presentarte. Es preparación, no una certificación oficial.', 'Practise under exam conditions before you sit it. This is preparation, not an official certification.') },
+  ];
+  return <section className="trust-panel"><span className="kicker">{t('TU CAMINO A LA CERTIFICACIÓN', 'YOUR PATH TO CERTIFICATION')}</span><h2>{t('Cada mundo es una certificación real', 'Every world is a real certification')}</h2><div className="trust-grid">{items.map(({ icon: Icon, h, p }) => <div key={h} className="trust-item"><Icon size={22} /><b>{h}</b><p>{p}</p></div>)}</div></section>;
 }
 
 export function AdminLink() { const t = useText(); return <Button asChild variant="outline" className="mt-8"><Link to="/admin"><Settings2 />{t('Admin: añadir cursos y dumps', 'Admin: add courses and dumps')}</Link></Button>; }

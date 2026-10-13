@@ -4,6 +4,7 @@ import { ArrowLeft, Check, ExternalLink, Heart, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useText, usePreferences } from '@/lib/dumpi';
 import bank from '@/data/workspace-questions.json';
+import { TrailBoard } from './trail-board';
 
 type Q = { id: string; level: number; domain: string; region: number; multi: boolean; es: { q: string; o: string[] }; en: { q: string; o: string[] }; answer: string[]; expEs: string; expEn: string; ref: string };
 const questions = bank as Q[];
@@ -80,10 +81,8 @@ function RegionRun({ region, onExit }: { region: number; onExit: () => void }) {
       <span className="flex items-center gap-1 font-bold"><Heart className="text-destructive" size={18} fill="currentColor" />{lives}/{MAX_LIVES}</span>
     </div>
     <div className="text-xs font-bold uppercase" style={{ color: meta.color }}>{t('Región', 'Region')} {region} · {language === 'es' ? meta.es : meta.en}</div>
-    <div className="flex gap-1 my-3" aria-label={t('Progreso', 'Progress')}>
-      {Array.from({ length: GOAL }, (_, i) => <span key={i} className="h-2.5 flex-1 rounded-full bg-muted" style={i < correct ? { background: meta.color } : undefined} />)}
-    </div>
-    <p className="text-sm text-muted-foreground">{correct}/{GOAL} {t('aciertos', 'correct')} · {t('Nivel', 'Level')} {q.level}{q.multi ? ` · ${t('Selecciona 2', 'Select 2')}` : ''}</p>
+    <TrailBoard total={GOAL} done={correct} color={meta.color} label={`${t('Casilla', 'Tile')} ${Math.min(correct + 1, GOAL)} / ${GOAL}`} />
+    <p className="text-sm text-muted-foreground">{t('Casilla', 'Tile')} {Math.min(correct + 1, GOAL)} · {t('Nivel', 'Level')} {q.level}{q.multi ? ` · ${t('Selecciona 2', 'Select 2')}` : ''}</p>
     {glitch && result === null && <div className="glitch-band my-3 rounded-xl p-3 text-sm">{t('⚠ Glitch acecha: 3 fallos en las últimas 5. ¡Concéntrate!', '⚠ Glitch is lurking: 3 misses in the last 5. Focus!')}</div>}
     <h2 className="text-lg font-semibold my-4 leading-snug">{text.q}</h2>
     <div className="grid gap-2.5">

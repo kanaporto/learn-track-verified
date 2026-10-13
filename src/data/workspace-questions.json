@@ -1,0 +1,3416 @@
+[
+{
+"id": "GWA-L1-040",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Un administrador puede definir el historial predeterminado de los espacios de Chat nuevos; los usuarios pueden cambiar el historial. ¿Qué valor predeterminado guarda inicialmente los mensajes en lugar de eliminarlos tras 24 horas?",
+"o": [
+"Historial desactivado",
+"Historial activado",
+"Espacios externos permitidos",
+"Espacios externos restringidos"
+]
+},
+"en": {
+"q": "An administrator can set the default history for newly created Chat spaces; users are allowed to change history. Which default initially saves messages instead of removing them after 24 hours?",
+"o": [
+"History off",
+"History on",
+"External spaces allowed",
+"External spaces restricted"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "El historial activado guarda inicialmente los mensajes. El historial desactivado los elimina tras 24 horas. Este valor predeterminado no impide que los usuarios autorizados cambien el historial; los controles de espacios externos regulan la membresía.",
+"expEn": "History on initially saves messages. History off removes them after 24 hours. This default does not prevent permitted users from changing history; external-space controls address membership.",
+"ref": "https://knowledge.workspace.google.com/admin/chat/set-a-space-history-option-for-users"
+},
+{
+"id": "GWA-L1-056",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Una etiqueta de clasificación de Drive marca un archivo como Confidencial. No se ha configurado ninguna restricción de acceso ni acción de DLP para esa etiqueta. ¿Qué hace la aplicación de la etiqueta por sí sola?",
+"o": [
+"Retirar el acceso de los colaboradores externos",
+"Convertir el archivo en un registro sujeto a retención legal",
+"Añadir metadatos de clasificación al archivo",
+"Trasladar el archivo a una unidad compartida restringida"
+]
+},
+"en": {
+"q": "A Drive classification label marks a file as Confidential. No access restriction or DLP action is configured for that label. What does applying the label itself do?",
+"o": [
+"Remove access from external collaborators",
+"Convert the file into a legally held record",
+"Attach classification metadata to the file",
+"Transfer the file to a restricted shared drive"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Una etiqueta de clasificación añade metadatos. Restringir el uso compartido, aplicar retenciones legales o trasladar contenido requiere acciones separadas o políticas configuradas.",
+"expEn": "A classification label adds metadata. Sharing restrictions, holds, or moving content require separate actions or configured policies.",
+"ref": "https://developers.google.com/workspace/drive/labels/guides/overview"
+},
+{
+"id": "GWA-L1-067",
+"level": 1,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Un administrador necesita la lista de alertas de seguridad de toda la organización y su estado actual de investigación. ¿Qué ubicación de la consola de administración proporciona esa lista?",
+"o": [
+"Centro de alertas",
+"Eventos de registro de usuarios",
+"Estado de seguridad",
+"Panel de seguridad"
+]
+},
+"en": {
+"q": "An administrator needs the list of organization-wide security alerts and their current investigation status. Which Admin console location provides that alert list?",
+"o": [
+"Alert center",
+"User log events",
+"Security health",
+"Security dashboard"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "El Centro de alertas muestra las alertas de seguridad y su estado. Los registros de eventos, el estado de la configuración y los paneles ofrecen otras vistas de seguridad.",
+"expEn": "The Alert center lists security alerts and their status. Event logs, configuration health, and dashboards provide different security views.",
+"ref": "https://knowledge.workspace.google.com/admin/security/use-the-alert-center"
+},
+{
+"id": "GWA-L1-074",
+"level": 1,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Un técnico puede iniciar sesión correctamente, pero no puede restablecer la contraseña de otro usuario. ¿Qué asignación determina si está autorizado para realizar esa acción administrativa?",
+"o": [
+"Una sesión iniciada",
+"Un contacto de recuperación",
+"Una correspondencia de identidad",
+"Un rol de administrador"
+]
+},
+"en": {
+"q": "A technician can sign in successfully but cannot reset another user’s password. Which assignment determines whether that administrative action is authorized?",
+"o": [
+"A sign-in session",
+"A recovery contact",
+"An identity mapping",
+"An administrator role"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "La autenticación correcta identifica al técnico. Los privilegios administrativos asignados determinan qué acciones puede realizar.",
+"expEn": "Successful authentication identifies the technician. The assigned administrative privileges determine which actions the technician may perform.",
+"ref": "https://knowledge.workspace.google.com/admin/users/administrator-privilege-definitions"
+},
+{
+"id": "GWA-L1-076",
+"level": 1,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Se confirma que una contraseña gestionada por Google está comprometida, y un administrador debe actuar tanto sobre la contraseña robada como sobre las sesiones activas de Google en navegadores. ¿Qué pareja de controles actúa directamente sobre ambas vías de acceso?",
+"o": [
+"Restablecer la contraseña y las cookies de inicio de sesión",
+"Restablecer la contraseña y actualizar el teléfono de recuperación",
+"Retirar una autorización OAuth y actualizar el correo de recuperación",
+"Restablecer las cookies de inicio de sesión y retirar una contraseña de aplicación"
+]
+},
+"en": {
+"q": "A Google-managed password is confirmed compromised, and an administrator must address both the stolen password and active Google browser sessions. Which pair of controls directly targets these two access paths?",
+"o": [
+"Reset password and reset sign-in cookies",
+"Reset password and update recovery phone",
+"Remove an OAuth grant and update recovery email",
+"Reset sign-in cookies and remove an app password"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Restablecer la contraseña gestionada por Google actúa sobre la credencial robada; restablecer las cookies de inicio de sesión cierra la sesión del usuario. También se deben revisar los datos de recuperación y las autorizaciones de aplicaciones según las pruebas del incidente.",
+"expEn": "Resetting the Google-managed password addresses the stolen credential; resetting sign-in cookies signs the user out. Recovery information and app authorizations should also be reviewed according to the incident evidence.",
+"ref": "https://knowledge.workspace.google.com/admin/security/manage-a-users-security-settings"
+},
+{
+"id": "GWA-L1-078",
+"level": 1,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Los empleados usan credenciales de Google para autenticarse en una aplicación SAML de terceros, y Google envía la aserción SAML a la aplicación. ¿Qué papel desempeña Google en este inicio de sesión?",
+"o": [
+"Destino del aprovisionamiento de directorio",
+"Proveedor de servicios SAML",
+"Proveedor de identidad SAML",
+"Servidor de recursos OAuth"
+]
+},
+"en": {
+"q": "Employees use Google credentials to authenticate to a third-party SAML app, and Google sends the app the SAML assertion. What role does Google play in this sign-in?",
+"o": [
+"Directory provisioning target",
+"SAML service provider",
+"SAML identity provider",
+"OAuth resource server"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "El proveedor de identidad autentica a los usuarios y envía aserciones SAML. En esta configuración, la aplicación de terceros es el proveedor de servicios.",
+"expEn": "The identity provider authenticates users and sends SAML assertions. In this configuration the third-party application is the service provider.",
+"ref": "https://knowledge.workspace.google.com/admin/apps/set-up-your-own-custom-saml-app"
+},
+{
+"id": "GWA-L1-006",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Un grupo de soporte usa una bandeja de entrada colaborativa. Un miembro debe identificar qué compañero es responsable de atender una conversación sin respuesta. ¿Qué acción registra esa responsabilidad?",
+"o": [
+"Asignar la conversación a ese compañero",
+"Marcar la conversación como completada",
+"Aprobar la conversación para su publicación",
+"Bloquear la conversación para impedir más respuestas"
+]
+},
+"en": {
+"q": "A support group uses Collaborative Inbox. A member must identify which teammate is responsible for handling an unanswered conversation. Which action records that responsibility?",
+"o": [
+"Assign the conversation to that teammate",
+"Mark the conversation as complete",
+"Approve the conversation for publication",
+"Lock the conversation against further replies"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "La bandeja de entrada colaborativa permite a los miembros autorizados asignar conversaciones y seguir el estado de respuesta. Completar, moderar y bloquear no asigna responsabilidad.",
+"expEn": "Collaborative Inbox lets permitted members assign conversations and track response status. Completion, moderation, and locking do not assign responsibility.",
+"ref": "https://knowledge.workspace.google.com/admin/groups/add-features-and-manage-conversations-in-google-groups"
+},
+{
+"id": "GWA-L1-037",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "El calendario de una sala debe aceptar reservas autorizadas solo cuando la sala esté disponible y rechazar invitaciones que se solapen. ¿Qué configuración de invitaciones cumple este requisito?",
+"o": [
+"Añadir automáticamente todas las invitaciones",
+"Aceptar automáticamente las invitaciones que no se solapen",
+"Hacer cambios y gestionar el uso compartido",
+"Ver todos los detalles de los eventos"
+]
+},
+"en": {
+"q": "A room calendar should accept permitted bookings only when the room is available and reject conflicting invitations. Which invitation setting fits?",
+"o": [
+"Automatically add all invitations",
+"Auto-accept invitations that do not conflict",
+"Make changes and manage sharing",
+"See all event details"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "La aceptación automática de invitaciones sin solapamientos rechaza conflictos y comprueba los permisos de reserva. Añadir automáticamente todas las invitaciones puede permitir reservas simultáneas; los permisos de uso compartido no sustituyen la configuración de respuesta a invitaciones.",
+"expEn": "Nonconflicting auto-accept rejects conflicts and checks booking permissions. Automatically adding all invitations can allow overlapping bookings; sharing permissions do not replace this invitation response setting.",
+"ref": "https://knowledge.workspace.google.com/admin/calendar/share-room-and-resource-calendars"
+},
+{
+"id": "GWA-L1-035",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Un usuario necesita trabajar en un documento concreto de Google durante un vuelo sin acceso a internet. El uso sin conexión está permitido en el navegador compatible. ¿Qué debe hacer el usuario mientras aún está conectado?",
+"o": [
+"Añadir su URL a favoritos",
+"Guardar su enlace de uso compartido",
+"Hacerlo disponible sin conexión",
+"Crear un acceso directo en Drive"
+]
+},
+"en": {
+"q": "A user needs to work on a specific Google Doc during a flight without internet access. Offline use is allowed on the supported browser. What should the user do while still connected?",
+"o": [
+"Bookmark its URL",
+"Save its sharing link",
+"Make it available offline",
+"Create a Drive shortcut"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "El documento debe prepararse y sincronizarse para usarlo sin conexión mientras se dispone de conexión. Un enlace, un favorito o un acceso directo por sí solos no almacenan el documento para editarlo sin conexión.",
+"expEn": "A document must be prepared and synced for offline use while connected. A link, bookmark, or shortcut alone does not store the document for offline editing.",
+"ref": "https://support.google.com/docs/answer/6388102"
+},
+{
+"id": "GWA-L1-095",
+"level": 1,
+"domain": "Monitoring and troubleshooting",
+"region": 5,
+"multi": false,
+"es": {
+"q": "Existe un documento de Google y Drive funciona. Su propietario concedió acceso a employee@company.example, pero el navegador usa personal@example.net. El usuario ve una página de acceso denegado. ¿Qué acción resuelve la discrepancia de cuentas?",
+"o": [
+"Cambiar los destinatarios del uso compartido del propietario",
+"Pedir al propietario que reenvíe el enlace de uso compartido",
+"Solicitar acceso para la cuenta personal",
+"Cambiar a la cuenta laboral autorizada"
+]
+},
+"en": {
+"q": "A Google Doc exists, and Drive is working. Its owner granted access to employee@company.example, but the browser uses personal@example.net. The user sees an access-denied page. Which action addresses the account mismatch?",
+"o": [
+"Change the owner’s sharing audience",
+"Ask the owner to resend the sharing link",
+"Request access for the personal account",
+"Switch to the granted employee account"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Drive evalúa el acceso de la cuenta que abre el archivo. Iniciar sesión con la cuenta que tiene permiso de acceso resuelve la discrepancia de identidad indicada.",
+"expEn": "Drive access is evaluated for the account opening the file. Signing into the account with the sharing permission addresses the stated identity mismatch.",
+"ref": "https://support.google.com/drive/answer/6211862"
+},
+{
+"id": "GWA-L1-027",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Un administrador quiere añadir centralmente el mismo aviso de cumplimiento a los mensajes ordinarios salientes de Gmail. Los mensajes con cifrado del lado del cliente quedan fuera del requisito. ¿Qué configuración de Gmail proporciona el aviso?",
+"o": [
+"Una firma de Gmail gestionada por el usuario",
+"La configuración administrativa Añadir pie de página",
+"La respuesta automática de vacaciones de un usuario",
+"Una correspondencia de direcciones salientes"
+]
+},
+"en": {
+"q": "An administrator wants the same compliance notice added centrally to ordinary outgoing Gmail messages. Client-side encrypted messages are excluded from this requirement. Which Gmail setting supplies the notice?",
+"o": [
+"A user-managed Gmail signature",
+"The administrative Append footer setting",
+"A user’s vacation responder",
+"An outbound address mapping"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Añadir pie de página agrega centralmente el aviso configurado a los mensajes salientes. Se excluyen explícitamente los mensajes con cifrado del lado del cliente porque esta función no los admite.",
+"expEn": "Append footer centrally adds the configured notice to outgoing messages. CSE messages are explicitly excluded because this feature does not support them.",
+"ref": "https://knowledge.workspace.google.com/admin/gmail/advanced/add-a-standard-footer-to-outgoing-emails"
+},
+{
+"id": "GWA-L1-039",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Un usuario de Business Plus cumple los requisitos de rol de la reunión y tiene activada la grabación de Meet. Aun así, no puede iniciar una grabación porque Drive está desactivado para él. ¿Qué cambio resuelve este requisito del servicio?",
+"o": [
+"Activar Drive para el usuario",
+"Activar la transmisión en directo de Meet",
+"Permitir asistentes externos en las reuniones",
+"Activar el uso compartido de eventos de Calendar"
+]
+},
+"en": {
+"q": "A Business Plus user meets the meeting-role requirements and has Meet recording enabled. A recording still cannot start because Drive is turned off for that user. Which change addresses this service prerequisite?",
+"o": [
+"Turn on Drive for the user",
+"Turn on Meet live streaming",
+"Allow external meeting attendees",
+"Enable Calendar event sharing"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Las grabaciones de Meet necesitan Drive para almacenar los datos de la reunión. Activar únicamente la grabación no permite grabar si Drive no está disponible.",
+"expEn": "Meet recordings require Drive to store meeting data. Enabling recording alone does not make recording possible when Drive is unavailable.",
+"ref": "https://knowledge.workspace.google.com/admin/meet/turn-meet-recording-on-or-off-for-your-organization"
+},
+{
+"id": "GWA-L1-057",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Un investigador ha descargado una exportación de Vault y pide restaurar su contenido automáticamente con Vault. ¿Qué limitación debe explicar el administrador?",
+"o": [
+"Las exportaciones de Vault se limitan a consultas de búsqueda guardadas",
+"Una retención legal de Vault habilita la restauración automática de exportaciones",
+"Vault no proporciona herramientas de recuperación automatizada",
+"La restauración automática requiere cerrar el asunto"
+]
+},
+"en": {
+"q": "An investigator has downloaded a Vault export and asks to restore its contents automatically using Vault. Which limitation should the administrator explain?",
+"o": [
+"Vault exports are limited to saved search queries",
+"A Vault hold enables automatic export restoration",
+"Vault provides no automated recovery tools",
+"Automatic restoration requires closing the matter"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Las exportaciones de Vault sirven para el descubrimiento de pruebas legales y Vault no incluye herramientas de recuperación automatizada. Aplicar una retención legal o cerrar un asunto no añade funciones de restauración.",
+"expEn": "Vault exports support legal discovery, and Vault does not include automated recovery tools. Placing a hold or closing a matter does not add restoration functionality.",
+"ref": "https://knowledge.workspace.google.com/vault/getting-started/google-vault-faq"
+},
+{
+"id": "GWA-L1-062",
+"level": 1,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Un administrador quiere que los usuarios se inscriban en la verificación en dos pasos durante un período de preparación, sin exigirla todavía. ¿Qué configuración de política cumple este requisito?",
+"o": [
+"Impedir la inscripción de los usuarios; mantener la obligatoriedad desactivada",
+"Permitir la inscripción de los usuarios; activar la obligatoriedad ahora",
+"Impedir la inscripción de los usuarios; programar la obligatoriedad",
+"Permitir la inscripción de los usuarios; mantener la obligatoriedad desactivada"
+]
+},
+"en": {
+"q": "An administrator wants users to enroll in 2-Step Verification during a preparation period, without requiring it yet. Which policy configuration fits?",
+"o": [
+"Disallow user enrollment; leave enforcement off",
+"Allow user enrollment; turn enforcement on now",
+"Disallow user enrollment; schedule enforcement",
+"Allow user enrollment; leave enforcement off"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Permitir que los usuarios activen la verificación en dos pasos con la obligatoriedad desactivada permite inscribirse durante la preparación. La obligatoriedad se configura por separado.",
+"expEn": "Allowing users to turn on 2SV while enforcement is off permits enrollment during preparation. Enforcement is a separate requirement setting.",
+"ref": "https://knowledge.workspace.google.com/admin/security/deploy-2-step-verification"
+},
+{
+"id": "GWA-L1-064",
+"level": 1,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Una política debe tener en cuenta si el dispositivo que se conecta está cifrado y si la solicitud procede de una ubicación autorizada. ¿Qué capacidad de control de acceso evalúa ese contexto?",
+"o": [
+"Acceso contextual",
+"Duración de las sesiones de Google",
+"Control del acceso de aplicaciones OAuth",
+"Obligatoriedad de la verificación en dos pasos"
+]
+},
+"en": {
+"q": "A policy should consider whether the connecting device is encrypted and the request comes from an approved location. Which access-control capability evaluates that context?",
+"o": [
+"Context-Aware Access",
+"Google session duration",
+"OAuth app access control",
+"2-Step Verification enforcement"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "El acceso contextual evalúa atributos del contexto, como la seguridad del dispositivo y la ubicación. La duración de las sesiones, la confianza en aplicaciones OAuth y la obligatoriedad de la verificación en dos pasos abordan otros controles de acceso.",
+"expEn": "Context-Aware Access evaluates contextual attributes such as device security and location. Session duration, OAuth app trust, and 2SV enforcement address different access controls.",
+"ref": "https://knowledge.workspace.google.com/admin/security/about-context-aware-access"
+},
+{
+"id": "GWA-L1-070",
+"level": 1,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Una aplicación OAuth solicita acceso a datos de los usuarios. ¿Qué información identifica directamente el acceso a datos que solicita la aplicación?",
+"o": [
+"El estado de verificación del editor de la aplicación",
+"Los ámbitos OAuth que solicita",
+"Los destinatarios de la instalación de Marketplace",
+"La lista de aplicaciones permitidas para instalar en la organización"
+]
+},
+"en": {
+"q": "An OAuth app requests access to user data. Which information directly identifies what data access the app is requesting?",
+"o": [
+"The app publisher’s verification status",
+"Its requested OAuth scopes",
+"The Marketplace installation audience",
+"The organization’s app-installation allowlist"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Los ámbitos OAuth describen el acceso solicitado a los datos de Google. La verificación del editor, los destinatarios de instalación y una lista de instalaciones permitidas abordan aspectos separados de evaluación y despliegue de aplicaciones.",
+"expEn": "OAuth scopes describe the requested access to Google data. Publisher verification, installation audience, and an installation allowlist address separate aspects of app evaluation and deployment.",
+"ref": "https://knowledge.workspace.google.com/admin/apps/control-which-apps-access-google-workspace-data"
+},
+{
+"id": "GWA-L1-073",
+"level": 1,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Un administrador investiga un cambio de configuración y necesita saber quién lo hizo y cuándo ocurrió. ¿Qué pareja de campos de los eventos de registro de administrador proporciona esos datos?",
+"o": [
+"Evento y Dirección IP",
+"Actor y Evento",
+"Dirección IP y Fecha",
+"Actor y Fecha"
+]
+},
+"en": {
+"q": "An administrator investigates a settings change and needs both who made it and when it occurred. Which pair of Admin log event fields supplies those facts?",
+"o": [
+"Event and IP address",
+"Actor and Event",
+"IP address and Date",
+"Actor and Date"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Actor identifica al administrador que realizó el evento; Fecha registra cuándo ocurrió. El tipo de evento y la dirección IP proporcionan otro contexto.",
+"expEn": "Actor identifies the administrator who performed the event; Date records its time. The event type and IP address provide different context.",
+"ref": "https://knowledge.workspace.google.com/admin/reports/admin-log-events"
+},
+{
+"id": "GWA-L1-075",
+"level": 1,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "¿Qué patrón de uso de cuentas sigue la recomendación de Google para una persona con responsabilidades de superadministrador?",
+"o": [
+"Usar la cuenta de superadministrador tanto para navegar como para tareas privilegiadas",
+"Usar una cuenta de superadministrador compartida por el equipo para tareas privilegiadas",
+"Usar cuentas separadas para el trabajo cotidiano y la superadministración",
+"Usar la cuenta cotidiana y darle el rol de superadministrador para evitar cambiar de cuenta"
+]
+},
+"en": {
+"q": "Which account-use pattern follows Google’s recommendation for an individual with Super Admin responsibilities?",
+"o": [
+"Use the Super Admin account for both browsing and privileged work",
+"Use a team-shared Super Admin account for privileged work",
+"Use separate everyday and Super Admin accounts",
+"Use the everyday account but grant it Super Admin to avoid switching"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Google recomienda cuentas separadas para el superadministrador y el trabajo cotidiano, sin compartir la identidad administrativa. Esto reduce la exposición de la cuenta con muchos privilegios.",
+"expEn": "Google recommends separate Super Admin and everyday accounts, with no shared administrator identity. This reduces exposure of the highly privileged account.",
+"ref": "https://knowledge.workspace.google.com/admin/users/security-best-practices-for-administrator-accounts"
+},
+{
+"id": "GWA-L1-077",
+"level": 1,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Una regla de actividad compatible está configurada para enviar correo a administradores internos cuando se cumple por primera vez su condición. ¿Qué resultado se pretende proporcionar con esa notificación por correo?",
+"o": [
+"Un resumen de la activación y un enlace a la alerta",
+"Una confirmación de que se revocaron las sesiones coincidentes",
+"Una copia del contenido de cada mensaje coincidente",
+"Una exportación programada de los resultados de investigación coincidentes"
+]
+},
+"en": {
+"q": "A supported activity rule is set to email internal administrators when its condition first triggers. Which result is an email notification from that rule intended to provide?",
+"o": [
+"A trigger summary and an alert link",
+"A confirmation that matching sessions were revoked",
+"A copy of each matching message’s content",
+"A scheduled export of matching investigation results"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "La notificación de la regla resume la activación y enlaza a los administradores con la alerta. La notificación en sí es distinta de cualquier acción de respuesta configurada por separado.",
+"expEn": "The rule notification summarizes the trigger and links administrators to the alert. The notification itself is distinct from any separately configured response action.",
+"ref": "https://knowledge.workspace.google.com/admin/security/create-and-manage-activity-rules"
+},
+{
+"id": "GWA-L1-083",
+"level": 1,
+"domain": "Browsers and endpoints",
+"region": 6,
+"multi": false,
+"es": {
+"q": "Una organización quiere que los administradores aprueben los dispositivos Android propiedad de los usuarios recién inscritos antes de que puedan acceder a los datos de trabajo. En una edición compatible, ¿qué modalidad de gestión de dispositivos móviles exige este control de aprobación?",
+"o": [
+"Gestión básica de dispositivos móviles",
+"Gestión avanzada de dispositivos móviles",
+"Acceso móvil sin gestionar",
+"Gestión de políticas solo del navegador"
+]
+},
+"en": {
+"q": "An organization wants administrators to approve newly enrolled user-owned Android devices before those devices can access work data. On a supported edition, which mobile management mode is required for this device-approval control?",
+"o": [
+"Basic mobile management",
+"Advanced mobile management",
+"Unmanaged mobile access",
+"Browser-only policy management"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "La aprobación administrativa del acceso de dispositivos Android e iOS requiere gestión avanzada de dispositivos móviles. La gestión del navegador y la visibilidad solo de inventario no proporcionan ese requisito de aprobación móvil.",
+"expEn": "Admin approval for Android and iOS device access requires advanced mobile management. Browser management and inventory-only visibility do not provide that mobile approval requirement.",
+"ref": "https://knowledge.workspace.google.com/admin/devices/require-admin-approval-for-device-access"
+},
+{
+"id": "GWA-L2-021",
+"level": 2,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Tras una migración, las cuentas de usuario tienen licencia y Gmail está activado. El nuevo dominio está verificado, pero los remitentes externos siguen llegando al antiguo proveedor de correo. ¿Qué configuración DNS debe corregirse?",
+"o": [
+"Los registros MX de recepción del dominio",
+"El registro SPF de remitentes autorizados del dominio",
+"El registro de clave pública DKIM del dominio",
+"El token TXT de verificación del dominio"
+]
+},
+"en": {
+"q": "After migration, user accounts are licensed and Gmail is enabled. The new domain is verified, but external senders still reach the old mail provider. Which DNS configuration should be corrected?",
+"o": [
+"The domain's receiving MX records",
+"The domain's authorized-sender SPF record",
+"The domain's DKIM public-key record",
+"The domain-verification TXT token"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Los registros MX determinan los servidores que reciben correo para el dominio. La verificación y la autenticación de remitentes no cambian el destino de la entrega entrante.",
+"expEn": "MX records determine the servers receiving mail for the domain. Verification and sender authentication do not switch incoming delivery.",
+"ref": "https://knowledge.workspace.google.com/admin/gmail/activate-gmail-with-google-workspace-your-company"
+},
+{
+"id": "GWA-L2-024",
+"level": 2,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Los mensajes de facturación usan From: billing@company.example. SPF pasa para vendor.example y el proveedor no tiene ninguna firma DKIM válida alineada con el dominio visible de From, company.example. ¿Qué cambio puede satisfacer DMARC mediante DKIM?",
+"o": [
+"Confiar en el resultado SPF válido existente para vendor.example",
+"Configurar DMARC en cuarentena mientras ambos mecanismos siguen sin alinearse",
+"Configurar una firma DKIM válida alineada con company.example",
+"Cambiar el selector del proveedor manteniendo d=vendor.example"
+]
+},
+"en": {
+"q": "Billing messages use From: billing@company.example. SPF passes for vendor.example, and the provider has no passing DKIM aligned with the visible From domain company.example. Which change can satisfy DMARC through DKIM?",
+"o": [
+"Rely on the existing SPF pass for vendor.example",
+"Set DMARC to quarantine while both mechanisms remain unaligned",
+"Configure valid DKIM signing aligned with company.example",
+"Rotate the vendor selector while keeping d=vendor.example"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Para satisfacer DMARC, una firma DKIM válida debe alinearse con el dominio visible de From. Aplicar una política o cambiar un selector por sí solo no establece esa alineación.",
+"expEn": "Passing DKIM must align with the visible From domain to satisfy DMARC. Policy enforcement or a selector change alone does not establish that alignment.",
+"ref": "https://knowledge.workspace.google.com/admin/security/set-up-dmarc"
+},
+{
+"id": "GWA-L2-034",
+"level": 2,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Los administradores quieren que aparezca un conjunto recomendado de destinatarios en el cuadro de diálogo de uso compartido de Drive para un proyecto interno recurrente. Debe simplificar la selección mientras los permisos de archivo siguen controlando el acceso real. ¿Qué deben configurar?",
+"o": [
+"Un grupo de Google con permiso de lector en todos los archivos del proyecto",
+"Acceso por enlace público predeterminado en todos los documentos del proyecto",
+"Un grupo de configuración que active el servicio Drive",
+"Una audiencia objetivo de Drive específica del proyecto"
+]
+},
+"en": {
+"q": "Administrators want a recommended recipient audience to appear in Drive's sharing dialog for a recurring internal project. It should simplify selection while file permissions continue to control actual access. What should they configure?",
+"o": [
+"A Google Group granted Viewer on every project file",
+"Default public-link access for every project document",
+"A configuration group enabling the Drive service",
+"A project-specific Drive target audience"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Las audiencias objetivo proporcionan destinatarios recomendados para compartir. No sustituyen los permisos de los archivos ni las políticas administrativas de uso compartido.",
+"expEn": "Target audiences provide recommended sharing recipients. They do not replace file permissions or administrative sharing policies.",
+"ref": "https://knowledge.workspace.google.com/admin/groups/about-target-audiences"
+},
+{
+"id": "GWA-L2-052",
+"level": 2,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "En una edición compatible de Google Workspace, varios grupos internos de la misma unidad organizativa necesitan distintas relaciones de uso compartido de Drive con un dominio asociado. Sus asignaciones a unidades organizativas deben mantenerse. ¿Qué función de la lista expresa explícitamente reglas detalladas entre origen y destinatarios?",
+"o": [
+"Estado del servicio Drive",
+"Reglas de confianza de Drive",
+"Lista de dominios de confianza",
+"Grupos de acceso de Drive"
+]
+},
+"en": {
+"q": "On a supported Google Workspace edition, internal groups in the same OU require different Drive sharing relationships with a partner domain. Their OU assignments must stay unchanged. Which listed feature explicitly expresses fine-grained source-and-recipient sharing rules?",
+"o": [
+"Drive service status",
+"Drive trust rules",
+"Trusted-domain allowlist",
+"Drive access groups"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Las reglas de confianza de Drive expresan relaciones de uso compartido entre ámbitos compatibles. La activación del servicio y una lista global de dominios por sí solas no definen esas distintas relaciones entre grupos.",
+"expEn": "Drive trust rules express sharing relationships between supported scopes. Service enablement and a global domain list alone do not define these different group relationships.",
+"ref": "https://knowledge.workspace.google.com/admin/security/create-and-manage-trust-rules-for-drive-sharing"
+},
+{
+"id": "GWA-L2-069",
+"level": 2,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Una aplicación OAuth retirada debe tener denegado el acceso tanto a los servicios de Google restringidos como a los no restringidos. ¿Qué estado configurado de acceso de aplicaciones cumple el requisito?",
+"o": [
+"De confianza",
+"Limitada",
+"Bloqueada",
+"Datos específicos de Google"
+]
+},
+"en": {
+"q": "A retired OAuth app must be denied access to both restricted and unrestricted Google services. Which configured app-access state meets that requirement?",
+"o": [
+"Trusted",
+"Limited",
+"Blocked",
+"Specific Google data"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "El estado Bloqueada deniega el acceso de la aplicación. Los demás estados permiten parte o todo el acceso a datos en lugar de denegarlo por completo.",
+"expEn": "Blocked denies the application access. The other states permit some or all data access rather than denying it entirely.",
+"ref": "https://knowledge.workspace.google.com/admin/apps/control-which-apps-access-google-workspace-data"
+},
+{
+"id": "GWA-L2-075",
+"level": 2,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Solo está comprometida la autorización OAuth de Alice para una integración. Los demás empleados deben seguir usando la integración. ¿Qué acción dirigida retira la autorización afectada de Alice sin bloquear la aplicación para toda la organización?",
+"o": [
+"Revocar la autorización de Alice para la aplicación afectada",
+"Bloquear la aplicación para toda la organización",
+"Cambiar la credencial de cliente de la integración para todos los usuarios",
+"Restablecer las cookies de inicio de sesión de Google de Alice"
+]
+},
+"en": {
+"q": "Only Alice's OAuth grant for an integration is compromised. Other employees must keep using the integration. Which targeted action removes Alice's affected authorization without blocking the app for the whole organization?",
+"o": [
+"Revoke Alice's authorization for the affected app",
+"Block the app for the entire organization",
+"Rotate the integration's client credential for all users",
+"Reset Alice’s Google browser sign-in cookies"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Retire directamente la autorización de la aplicación del usuario afectado. Bloquearla para toda la organización excede el alcance; los cambios de sesión o de credencial de cliente no sustituyen la retirada de esa autorización.",
+"expEn": "Remove the affected user's app authorization directly. Tenant-wide blocking exceeds the scope, and session or client-credential changes do not substitute for removal of that grant.",
+"ref": "https://knowledge.workspace.google.com/admin/security/manage-a-users-security-settings"
+},
+{
+"id": "GWA-L2-079",
+"level": 2,
+"domain": "Browsers and endpoints",
+"region": 6,
+"multi": false,
+"es": {
+"q": "Una persona que deja la empresa usaba un dispositivo Android propio con un perfil de trabajo gestionado compatible. La empresa debe eliminar los datos de trabajo y conservar las fotografías personales. ¿Qué acción cumple el requisito?",
+"o": [
+"Un restablecimiento de fábrica de todo el dispositivo",
+"La eliminación únicamente del registro de inventario",
+"Bloquear la sincronización del dispositivo",
+"El borrado compatible de la cuenta o del perfil de trabajo"
+]
+},
+"en": {
+"q": "A leaver used a personally owned Android with a supported managed work profile. The company must remove work data while preserving personal photographs. Which action matches that requirement?",
+"o": [
+"A full-device factory reset",
+"Deletion of the inventory record alone",
+"Block device synchronization",
+"The supported account or work-profile wipe"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Un borrado compatible limitado al trabajo elimina los datos de trabajo gestionados. El borrado de todo el dispositivo puede eliminar datos personales; retirar el inventario o bloquear la sincronización no demuestra su eliminación.",
+"expEn": "A supported work-scope wipe removes managed work data. Full-device erasure can remove personal data, while inventory removal or a sync block does not prove erasure.",
+"ref": "https://knowledge.workspace.google.com/admin/devices/wipe-corporate-data-from-a-device"
+},
+{
+"id": "GWA-L2-089",
+"level": 2,
+"domain": "Monitoring and troubleshooting",
+"region": 5,
+"multi": false,
+"es": {
+"q": "La búsqueda en el registro de correo confirma la entrega en Gmail. El mensaje es visible en Todos, fuera de Spam y Papelera, pero no tiene la etiqueta Recibidos. ¿Qué explicación corresponde a ese estado?",
+"o": [
+"Una cuarentena de correo entrante aún lo retiene antes de entregarlo al buzón",
+"Se archivó manualmente o mediante un filtro que omite Recibidos",
+"Se eliminó y envió a la Papelera tras entregarse correctamente al buzón",
+"La delegación de Gmail lo movió a un buzón separado exclusivo del delegado"
+]
+},
+"en": {
+"q": "Email Log Search confirms Gmail delivery. The message is visible in All Mail, outside Spam and Trash, but has no Inbox label. Which explanation fits that state?",
+"o": [
+"An inbound quarantine is still holding it before mailbox delivery",
+"It was archived manually or by a filter that skips Inbox",
+"It was deleted into Trash after successful mailbox delivery",
+"Gmail delegation moved it into a separate delegate-only mailbox"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Archivar retira la etiqueta Recibidos y conserva el mensaje en Todos. La entrega y la ubicación observadas descartan las demás explicaciones de la lista.",
+"expEn": "Archiving removes the Inbox label while retaining the message in All Mail. The observed delivery and location exclude the other listed explanations.",
+"ref": "https://support.google.com/mail/answer/6576"
+},
+{
+"id": "GWA-L2-095",
+"level": 2,
+"domain": "Monitoring and troubleshooting",
+"region": 5,
+"multi": false,
+"es": {
+"q": "Un usuario eliminó hoy un archivo de Mi unidad. El archivo sigue visible en su Papelera y necesita devolverlo a Drive. ¿Qué acción de recuperación corresponde a ese estado confirmado?",
+"o": [
+"Restaurar el archivo visible desde la Papelera de Drive del usuario",
+"Ejecutar una recuperación administrativa de archivos eliminados permanentemente",
+"Exportar una copia retenida mediante una búsqueda legal de Vault",
+"Volver a compartir el archivo con su propietario"
+]
+},
+"en": {
+"q": "A user deleted a My Drive file today. The file is still visible in that user's Trash, and the user needs to put it back in Drive. Which recovery action fits this confirmed state?",
+"o": [
+"Restore the visible file from the user's Drive Trash",
+"Run administrative recovery for permanently deleted files",
+"Export a retained copy through a legal Vault search",
+"Re-share the file with its owner"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Un archivo que sigue en la Papelera del usuario puede restaurarse desde allí. La recuperación de archivos eliminados permanentemente, la exportación legal y los cambios de permisos no sustituyen la restauración del archivo visible en la Papelera.",
+"expEn": "A file still in the user’s Trash can be restored there. Permanently deleted-file recovery, legal export, and changing sharing permissions do not replace restoration of the visible trashed file.",
+"ref": "https://support.google.com/drive/answer/1716222"
+},
+{
+"id": "GWA-L2-033",
+"level": 2,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "En Business Plus, las plantillas personalizadas están activadas. Los empleados deben poder enviar diseños de la empresa, pero un administrador debe aprobar cada envío antes de que se añada a la galería personalizada. ¿Qué configuración cumple este flujo de trabajo?",
+"o": [
+"Envíos de plantillas abiertos",
+"Envíos de plantillas restringidos",
+"Envíos de plantillas moderados",
+"Desactivar las plantillas personalizadas"
+]
+},
+"en": {
+"q": "On Business Plus, custom templates are enabled. Employees must be able to submit company layouts, but an administrator must approve each submission before it enters the custom gallery. Which configuration meets that workflow?",
+"o": [
+"Open template submissions",
+"Restricted template submissions",
+"Moderated template submissions",
+"Disable custom templates"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Los envíos moderados generan una solicitud de aprobación para los administradores con privilegios de plantillas de Documentos. El modo abierto permite enviar sin aprobación; el restringido permite enviar solo a esos administradores. Desactivar las plantillas personalizadas impide usarlas y enviarlas.",
+"expEn": "Moderated submissions send administrators with Docs Templates privileges an approval request. Open permits submissions without approval; Restricted allows only those administrators to submit. Disabling custom templates prevents their use and submission.",
+"ref": "https://knowledge.workspace.google.com/admin/drive/turn-custom-drive-templates-on-or-off-for-users"
+},
+{
+"id": "GWA-L2-017",
+"level": 2,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Un administrador de soporte puede restablecer las contraseñas gestionadas por Google de usuarios normales, pero ahora debe restablecer la contraseña de otro administrador. ¿Qué rol de administrador se requiere para esta segunda tarea?",
+"o": [
+"Administrador de gestión de usuarios",
+"Administrador de grupos",
+"Superadministrador",
+"Administrador de servicios"
+]
+},
+"en": {
+"q": "A help-desk administrator can reset ordinary users’ Google-managed passwords but must now reset another administrator’s password. Which administrator role is required for this second task?",
+"o": [
+"User management administrator",
+"Groups administrator",
+"Super administrator",
+"Services administrator"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Restablecer la contraseña de otro administrador requiere privilegios de superadministrador. Un rol delegado que permite restablecer contraseñas de usuarios normales no cumple este requisito adicional.",
+"expEn": "Resetting another administrator’s password requires Super Admin privileges. A delegated role that can reset ordinary users’ passwords does not satisfy this additional requirement.",
+"ref": "https://knowledge.workspace.google.com/admin/users/reset-a-users-password"
+},
+{
+"id": "GWA-L2-048",
+"level": 2,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Un investigador autorizado ha completado y validado una búsqueda en Vault. Ahora necesita resultados descargables para una revisión legal. ¿Qué operación de Vault genera esos resultados descargables?",
+"o": [
+"Guardar la consulta de búsqueda",
+"Exportar los resultados de la búsqueda",
+"Aplicar una retención legal a las cuentas consultadas",
+"Crear una regla de conservación para el servicio correspondiente"
+]
+},
+"en": {
+"q": "An authorized investigator has completed and validated a Vault search. They now need downloadable results for legal review. Which Vault operation produces those downloadable results?",
+"o": [
+"Save the search query",
+"Export the search results",
+"Place the searched accounts on hold",
+"Create a retention rule for the matching service"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Exportar genera resultados descargables a partir de la búsqueda autorizada. Guardar una consulta permite repetir búsquedas; las retenciones legales y las reglas de conservación preservan datos en lugar de extraer los resultados.",
+"expEn": "Export produces downloadable results from the authorized search. Saving a query supports repeat searches; holds and retention preserve data rather than extract the results.",
+"ref": "https://knowledge.workspace.google.com/vault/getting-started/get-started-with-vault-search-and-export"
+},
+{
+"id": "GWA-L2-049",
+"level": 2,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Una regla propuesta de DLP de Drive debe evaluarse con archivos reales que cumplan las condiciones, sin cambiar el uso compartido ni el acceso de los usuarios. ¿Qué modalidad de prueba cumple el requisito?",
+"o": [
+"Una regla solo de auditoría que registre los eventos coincidentes",
+"Una regla de bloqueo aplicada a una prueba piloto en producción",
+"Una regla de advertencia que obligue a los usuarios a confirmar cada coincidencia",
+"Una regla de bloqueo del uso compartido con un grupo de excepción temporal"
+]
+},
+"en": {
+"q": "A proposed Drive DLP rule must be evaluated against real matching files without changing users’ sharing or file access. Which test mode fits?",
+"o": [
+"Audit-only rule with matching events recorded",
+"Enforced blocking rule applied to a production pilot",
+"Warning rule requiring users to acknowledge each match",
+"Sharing-block rule with a temporary bypass group"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "La modalidad solo de auditoría registra las coincidencias sin aplicar ninguna acción. Las reglas de bloqueo o advertencia afectan a los usuarios, mientras que excluir un grupo no evalúa las coincidencias sin aplicar medidas en todo el ámbito indicado.",
+"expEn": "Audit-only records matches without enforcing an action. Blocking or warning rules affect users, while bypassing a group does not evaluate enforcement-free matching across the stated scope.",
+"ref": "https://knowledge.workspace.google.com/admin/security/create-dlp-for-drive-rules-and-custom-content-detectors"
+},
+{
+"id": "GWA-L2-067",
+"level": 2,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Una configuración compatible de regla de actividad debe notificar a los administradores cuando un evento de seguridad específico cumpla su condición. La regla ya define la condición del evento. ¿Qué configuración completa el requisito de notificación?",
+"o": [
+"Aumentar el período de búsqueda retrospectiva de la regla",
+"Guardar la condición como consulta de investigación reutilizable",
+"Añadir más tipos de eventos a la condición",
+"Activar las alertas y configurar los destinatarios de las notificaciones de la regla"
+]
+},
+"en": {
+"q": "A supported activity-rule configuration should notify administrators when a specified security event matches its condition. The rule already defines the event condition. Which configuration completes the notification requirement?",
+"o": [
+"Increase the rule’s search lookback period",
+"Save the condition as a reusable investigation query",
+"Add more event types to the condition",
+"Enable alerting and configure the rule’s notification recipients"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Los ajustes de alertas y notificaciones de la regla de actividad determinan quién recibe una notificación cuando se cumple su condición. El ámbito de una consulta y las búsquedas guardadas no configuran notificaciones por sí solos.",
+"expEn": "The activity rule’s alerting and notification settings determine who is notified when its condition matches. Query scope and saved searches do not by themselves configure notifications.",
+"ref": "https://knowledge.workspace.google.com/admin/security/create-and-manage-activity-rules"
+},
+{
+"id": "GWA-L2-070",
+"level": 2,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Una aplicación compatible de Marketplace aún no se ha instalado administrativamente. Debe desplegarse en un departamento sin que los usuarios la instalen, mientras los demás conservan el derecho a instalarla por sí mismos. ¿Qué operación administrativa proporciona ese despliegue?",
+"o": [
+"Confiar en el acceso API de la aplicación para la unidad organizativa del departamento",
+"Instalar administrativamente la aplicación para la unidad organizativa del departamento",
+"Permitir la instalación individual desde la lista de Marketplace para esa unidad organizativa",
+"Activar el acceso al servicio de la aplicación para el grupo de acceso del departamento"
+]
+},
+"en": {
+"q": "An eligible Marketplace app has not yet been administratively installed. It should be deployed to one department without user installation, while other departments retain self-installation rights. Which administrator operation supplies that rollout?",
+"o": [
+"Trust the app’s API access for the department’s OU",
+"Install the app administratively for the department’s OU",
+"Allow self-installation from the Marketplace allowlist for that OU",
+"Enable the app’s service access for the department’s access group"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "La instalación administrativa se dirige a la unidad organizativa seleccionada e instala la aplicación para sus usuarios. La confianza API, el permiso de instalación individual y los ajustes de acceso controlan permisos o acceso en lugar de proporcionar la instalación administrativa.",
+"expEn": "Admin installation targets the selected OU and installs for its users. API trust, self-installation permission, and service-access settings control permissions or access rather than supplying the administrative installation.",
+"ref": "https://knowledge.workspace.google.com/admin/apps/install-marketplace-apps-for-your-organization"
+},
+{
+"id": "GWA-L2-074",
+"level": 2,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "Una alerta de inicio de sesión indica un acceso de un empleado desde un país desconocido. El empleado confirma que viajaba allí en la fecha y hora de la alerta. ¿Qué comprobación evalúa más directamente si la sesión alertada coincide con su actividad confirmada?",
+"o": [
+"Comparar la fecha, hora e IP del evento con la actividad confirmada del empleado",
+"Comparar el país de la alerta con ubicaciones históricas de inicio de sesión",
+"Comparar el estado de éxito de la alerta con accesos anteriores correctos",
+"Comparar los dispositivos registrados del usuario con el inventario de dispositivos gestionados"
+]
+},
+"en": {
+"q": "A login alert reports an employee sign-in from an unfamiliar country. The employee confirms travel there during the alert’s timestamp. Which check most directly assesses whether the alerted session matches the employee’s confirmed activity?",
+"o": [
+"Compare event time and IP with the employee’s confirmed activity",
+"Compare the alert’s country with historical sign-in locations",
+"Compare the alert’s success status with prior successful logins",
+"Compare the user’s registered devices with the managed-device inventory"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Correlacione la fecha, hora e IP de este evento con la actividad confirmada. Las ubicaciones históricas, la autenticación correcta y el inventario de dispositivos aportan contexto, pero no establecen esa coincidencia. La ubicación de una IP también puede corresponder a un proxy o una VPN.",
+"expEn": "Correlate this event’s time and IP with confirmed activity. Historical locations, successful authentication, and device inventory are useful context, but they do not establish that match. IP location can also reflect a proxy or VPN.",
+"ref": "https://knowledge.workspace.google.com/admin/reports/user-log-events"
+},
+{
+"id": "GWA-L2-077",
+"level": 2,
+"domain": "Security policies and access controls",
+"region": 4,
+"multi": false,
+"es": {
+"q": "En Enterprise Standard, una alerta de phishing identifica un mensaje malicioso enviado a varios empleados. Antes de elegir el alcance de contención, ¿qué conjunto de pruebas identifica mejor los destinatarios concretos expuestos y sus interacciones registradas?",
+"o": [
+"Remitente del sobre, resultados de autenticación e historial del dominio remitente",
+"Coincidencias de asunto, historial de IP de envío y reputación del remitente",
+"Identificador del mensaje, entrega a destinatarios y eventos de interacción disponibles",
+"Hash del archivo adjunto, dominios enlazados y clasificación de familia de malware"
+]
+},
+"en": {
+"q": "On Enterprise Standard, a phishing alert identifies a malicious message sent to several employees. Before choosing containment scope, which evidence set best identifies the particular recipients exposed and their recorded interactions?",
+"o": [
+"Envelope sender, authentication results, and sender-domain history",
+"Subject matches, sending-IP history, and sender reputation",
+"Message identifier, recipient delivery, and available interaction events",
+"Attachment hash, linked domains, and malware-family classification"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Correlacione el identificador del mensaje con los resultados de entrega y los eventos de interacción disponibles de Gmail para identificar la exposición. Los indicadores de remitente, contenido y amenazas caracterizan el mensaje, pero no sustituyen las pruebas por destinatario.",
+"expEn": "Correlate the message identifier with delivery results and available Gmail interaction events to identify exposure. Sender, content, and threat indicators help characterize the message but do not replace recipient-level evidence.",
+"ref": "https://knowledge.workspace.google.com/admin/reports/gmail-log-events"
+},
+{
+"id": "GWA-L2-086",
+"level": 2,
+"domain": "Browsers and endpoints",
+"region": 6,
+"multi": false,
+"es": {
+"q": "Una extensión maliciosa de Chrome Web Store ya está instalada en navegadores Chrome gestionados de Windows. La política predeterminada de instalación es Permitir. Los administradores deben impedir nuevas instalaciones y desactivar esa extensión manteniendo disponibles las demás. ¿Qué cambio proporciona ambos efectos?",
+"o": [
+"Establecer install_sources predeterminado en sitios de descarga corporativos",
+"Quitar la excepción Permitir de esta extensión manteniendo la política predeterminada Permitir",
+"Establecer runtime_allowed_hosts de esta extensión en sitios corporativos",
+"Establecer installation_mode en blocked para el identificador de esta extensión"
+]
+},
+"en": {
+"q": "A malicious Chrome Web Store extension is already installed on managed Windows Chrome browsers. The default installation policy is Allow. Administrators must prevent new installations and disable this extension while keeping other extensions available. Which change supplies both effects?",
+"o": [
+"Set default install_sources to corporate download websites",
+"Unset this extension’s Allow exception, keeping the default Allow policy",
+"Set this extension’s runtime_allowed_hosts to corporate websites",
+"Set installation_mode to blocked for this extension ID"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Una política Bloquear específica del identificador impide instalar la extensión y desactiva la instalada. Los ajustes de orígenes de descarga y hosts de ejecución abordan otros controles; retirar una excepción Permitir deja el comportamiento predeterminado Permitir indicado.",
+"expEn": "An ID-specific Block policy prevents installation and disables the installed extension. Download-source and runtime-host settings address different controls; removing an Allow exception leaves the stated default Allow behavior.",
+"ref": "https://support.google.com/chrome/a/answer/6177447"
+},
+{
+"id": "GWA-L2-097",
+"level": 2,
+"domain": "Monitoring and troubleshooting",
+"region": 5,
+"multi": true,
+"es": {
+"q": "Un usuario recibe una restricción por almacenamiento lleno al subir un archivo pequeño a Mi unidad. El almacenamiento compartido de la organización tiene espacio libre suficiente y el acceso de red funciona. ¿Qué dos límites debe revisar el administrador? (Elija dos.)",
+"o": [
+"El límite efectivo de almacenamiento del usuario de su unidad organizativa o grupo de configuración aplicable",
+"Un límite de almacenamiento de una unidad compartida distinta",
+"Cualquier restricción de almacenamiento impuesta por la edición de licencia del usuario",
+"El tamaño máximo permitido para subir un archivo individual a Drive"
+]
+},
+"en": {
+"q": "A user sees a storage-full restriction while uploading a small file to My Drive. The organization’s pool has sufficient free storage, and network access is healthy. Which two limits should the administrator inspect? (Choose two.)",
+"o": [
+"The effective user storage limit from the applicable OU or configuration group",
+"A storage limit set on a separate shared drive",
+"Any storage restriction imposed by the user’s licensed edition",
+"The maximum size allowed for an individual Drive upload"
+]
+},
+"answer": [
+"A",
+"C"
+],
+"expEs": "Los límites por usuario y los específicos de la edición pueden restringir las subidas a Mi unidad aunque haya capacidad compartida libre. El límite de otra unidad compartida no se aplica a esta subida y el archivo pequeño no supera el máximo de tamaño de archivos individuales.",
+"expEn": "User-level and edition-specific limits can constrain My Drive uploads despite free pooled capacity. A separate shared drive limit does not apply to this My Drive upload, and the small file does not exceed the individual file-size ceiling.",
+"ref": "https://knowledge.workspace.google.com/admin/storage/set-storage-limits-for-your-users"
+},
+{
+"id": "GWA-L2-100",
+"level": 2,
+"domain": "Monitoring and troubleshooting",
+"region": 5,
+"multi": false,
+"es": {
+"q": "Un caso de soporte trata de un fallo reproducible que persistió después de dos cambios de configuración. ¿Qué paquete de diagnóstico registra tanto la reproducción como el historial de resolución de problemas?",
+"o": [
+"Error exacto, usuarios afectados, estado del servicio, capturas y hora del último fallo",
+"Error exacto, usuarios afectados, marcas de tiempo, pasos de reproducción y cambios ya probados",
+"Error exacto, usuarios afectados, registros del cliente, marcas de tiempo y versiones del navegador",
+"Error exacto, usuarios afectados, pasos de reproducción, licencias actuales y estado del servicio"
+]
+},
+"en": {
+"q": "A support case concerns a reproducible failure that persisted after two configuration changes. Which diagnostic package records both reproducibility and the troubleshooting history?",
+"o": [
+"Exact error, affected users, service status, screenshots, and latest failure time",
+"Exact error, affected users, timestamps, reproduction steps, and changes already tested",
+"Exact error, affected users, client logs, timestamps, and browser versions",
+"Exact error, affected users, reproduction steps, current licenses, and service status"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Los pasos de reproducción muestran cómo provocar el fallo; los cambios intentados registran las comprobaciones previas. Los registros, capturas, estado del servicio e inventario pueden complementar ese registro cuando sean pertinentes.",
+"expEn": "Reproduction steps show how to trigger the failure; the attempted changes record prior troubleshooting. Logs, screenshots, service status, and inventory can supplement that record when relevant.",
+"ref": "https://knowledge.workspace.google.com/admin/support/before-you-contact-support-gather-key-information"
+},
+{
+"id": "GWA-BENCH-ADV-001",
+"level": 4,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "La unidad organizativa de un usuario permite compartir archivos de Drive externamente. Dos grupos de configuración aplicables definen explícitamente ese ajuste: Legal, de mayor prioridad, limita el uso compartido al ámbito interno; Partners, de menor prioridad, permite compartir externamente. El usuario debe conservar ambas membresías. ¿Qué cambio hace que el ajuste de Partners sea efectivo para este usuario?",
+"o": [
+"Mover al usuario a otra unidad organizativa que permita compartir externamente",
+"Guardar de nuevo el valor de uso compartido externo en Partners, de menor prioridad",
+"Activar el acceso al servicio Drive mediante el grupo Partners",
+"Situar Partners por encima de Legal en la prioridad de grupos de configuración"
+]
+},
+"en": {
+"q": "A user's OU allows external Drive sharing. Two applicable configuration groups each explicitly configure that setting: the higher-priority Legal group restricts sharing internally; the lower-priority Partners group permits external sharing. The user must retain both memberships. Which change makes the Partners setting effective for this user?",
+"o": [
+"Move the user to another OU that allows external sharing",
+"Save the external-sharing value again in the lower-priority Partners group",
+"Enable Drive service access through the Partners group",
+"Place Partners above Legal in configuration-group priority"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "El grupo de configuración aplicable de mayor prioridad determina el ajuste, por encima de la unidad organizativa. Las concesiones de acceso activan Drive, pero no cambian la precedencia del ajuste de uso compartido.",
+"expEn": "The highest-priority applicable configuration group supplies the setting, overriding the OU. Service-access grants enable Drive but do not change sharing-setting precedence.",
+"ref": "https://knowledge.workspace.google.com/admin/users/advanced/customize-service-settings-using-configuration-groups"
+},
+{
+"id": "GWA-BENCH-ADV-002",
+"level": 4,
+"domain": "Browsers and endpoints",
+"region": 6,
+"multi": false,
+"es": {
+"q": "En un navegador de Windows inscrito en Chrome Enterprise Core, un administrador actualiza una configuración de máquina en la nube. La política de máquina local sigue definiendo un valor incompatible, y chrome://policy muestra que ese valor local es efectivo. El orden de precedencia predeterminado no ha cambiado. ¿Qué corrección puede dar prioridad al valor de máquina en la nube sin modificar el valor local incompatible?",
+"o": [
+"Cambiar la precedencia para que la política de máquina en la nube supere a la de máquina local",
+"Cambiar la unidad organizativa del usuario gestionado y reenviar la misma política de perfil de usuario",
+"Recargar las políticas repetidamente hasta que prevalezca la marca de tiempo más reciente",
+"Iniciar sesión en un perfil afiliado manteniendo el orden predeterminado de las fuentes"
+]
+},
+"en": {
+"q": "On a Windows browser enrolled in Chrome Enterprise Core, an administrator updates a cloud-machine setting. The local machine policy still specifies a conflicting value, and chrome://policy shows that local value effective. The default precedence order is unchanged. Which correction can make the cloud-machine value win without changing the conflicting local value?",
+"o": [
+"Change policy precedence so machine cloud is above machine policy",
+"Change the managed user’s OU and resend the same user-profile policy",
+"Reload policies repeatedly until the latest timestamp takes precedence",
+"Sign into an affiliated profile while leaving the default source order intact"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "En el orden predeterminado, la política de máquina local prevalece sobre la política de máquina en la nube. Un cambio compatible de precedencia puede invertir estas dos fuentes; las marcas de tiempo y el inicio de sesión en un perfil no invierten el orden predeterminado indicado.",
+"expEn": "Under the default order, machine policy takes precedence over machine cloud. A supported source-precedence change can reverse these two sources; timestamps and profile sign-in do not reverse the stated default order.",
+"ref": "https://support.google.com/chrome/a/answer/9037717"
+},
+{
+"id": "GWA-BENCH-ADV-003",
+"level": 4,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Una configuración de clasificación compatible de Drive aplica un valor predeterminado Secreto a una etiqueta en los archivos nuevos. Después, una regla de DLP detecta un archivo y asigna Interno como valor de esa misma etiqueta. El equipo esperaba que Secreto permaneciera porque es más sensible. ¿Qué explicación identifica la regla que determina este resultado?",
+"o": [
+"El valor de mayor sensibilidad siempre prevalece entre todos los métodos de clasificación",
+"El valor predeterminado prevalece hasta que el propietario cambia la clasificación",
+"La etiqueta asignada por DLP sustituye la clasificación predeterminada, aunque el valor predeterminado sea superior",
+"El orden de la lista de opciones impide que DLP sustituya un valor predeterminado superior"
+]
+},
+"en": {
+"q": "A supported Drive classification setup applies a default Secret label value to new files. A DLP rule then matches a file and sets the same label's value to Internal. The team expected Secret to remain because it is more sensitive. Which explanation identifies the rule that controls this outcome?",
+"o": [
+"The highest-sensitivity value always wins across all classification methods",
+"The default value wins until the file owner changes its classification",
+"The DLP-set label overrides default classification, even if the default value is higher",
+"Options-list ranking prevents DLP from replacing a higher default value"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Las etiquetas asignadas por DLP tienen prioridad sobre la clasificación predeterminada, aunque esta tenga un valor superior. El orden de la lista de opciones resuelve conflictos entre reglas del mismo tipo, no esta precedencia entre métodos.",
+"expEn": "DLP-set labels take priority over default classification even when the default value is higher. Options-list ranking resolves conflicts between rules of the same kind, not this cross-method precedence.",
+"ref": "https://knowledge.workspace.google.com/admin/security/apply-classification-labels-to-drive-files-automatically-with-dlp-rules"
+},
+{
+"id": "GWA-BENCH-ADV-004",
+"level": 4,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Un colaborador de una unidad compartida puede crear archivos en la interfaz web, pero tiene acceso de solo lectura mediante Drive para ordenadores. El empleado necesita crear, editar, mover y enviar archivos a la papelera desde allí, pero no debe gestionar miembros. ¿Qué rol mínimo cumple todo el requisito?",
+"o": [
+"Colaborador",
+"Gestor de contenido",
+"Administrador",
+"Comentador"
+]
+},
+"en": {
+"q": "A shared-drive Contributor can create files in the web interface but sees read-only access through Drive for desktop. The employee needs to create, edit, move, and trash files there, but must not manage membership. Which minimum role meets the full requirement?",
+"o": [
+"Contributor",
+"Content manager",
+"Manager",
+"Commenter"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "El rol Colaborador tiene acceso de solo lectura en Drive para ordenadores; Gestor de contenido permite las operaciones de contenido requeridas. Administrador añade la gestión de miembros, que excede el requisito.",
+"expEn": "Contributor access is read-only in Drive for desktop; Content manager supports the required content operations. Manager adds membership administration beyond the stated requirement.",
+"ref": "https://support.google.com/a/users/answer/12380484"
+},
+{
+"id": "GWA-BENCH-ADV-005",
+"level": 4,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Un investigador aplica una retención legal a los datos de Drive de Alice, incluido el contenido de unidades compartidas. Un proyecto también tiene una unidad compartida, pero un archivo pertinente está en Mi unidad de Bob y se comparte mediante un grupo de Google que contiene a Alice, pero no a Bob. Bob está en otra unidad organizativa, dispone de la cobertura de Vault requerida y la conservación de su archivo está autorizada. ¿Qué acción conserva este archivo sin cambiar su uso compartido?",
+"o": [
+"Aplicar retenciones legales de Drive a las cuentas de los miembros del grupo",
+"Crear una retención legal de Drive para todas las cuentas de la unidad organizativa de Alice",
+"Aplicar a la cuenta de Bob una retención legal de Drive con el ámbito adecuado",
+"Crear una regla de conservación personalizada para la unidad compartida del proyecto"
+]
+},
+"en": {
+"q": "An investigator holds Alice’s Drive data, including shared-drive content. A project also has a shared drive, but a relevant file is in Bob’s My Drive and is shared through a Google Group containing Alice, not Bob. Bob is in a different OU from Alice, has the required Vault coverage, and preservation of his file is authorized. Which action preserves this file without changing its sharing?",
+"o": [
+"Place the sharing group’s member accounts under Drive holds",
+"Create a Drive hold covering all accounts in Alice’s OU",
+"Place Bob’s account under an appropriately scoped Drive hold",
+"Create a custom retention rule for the project’s shared drive"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Una retención legal de Drive cubre los archivos del propietario, pero el uso compartido mediante un grupo no incluye este archivo de Mi unidad en las retenciones de sus miembros. La unidad organizativa de Alice excluye a Bob y una regla de conservación de una unidad compartida no cubre su archivo de Mi unidad.",
+"expEn": "A Drive hold covers the owner’s files, but group-based sharing does not place this My Drive file under group members’ holds. Alice’s OU excludes Bob, and a shared-drive retention rule does not cover his My Drive file.",
+"ref": "https://knowledge.workspace.google.com/vault/holds/place-drive-meet-and-sites-data-on-hold"
+},
+{
+"id": "GWA-BENCH-ADV-006",
+"level": 4,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Un empleado que deja la empresa está sujeto a una retención legal activa en Vault. Se debe impedir que inicie sesión, reducir los costes cuando las licencias compatibles de la organización lo permitan y mantener disponibles los datos retenidos. ¿Qué cambio de estado de la cuenta cumple los requisitos?",
+"o": [
+"Eliminar el usuario después de transferir sus archivos de Drive",
+"Retirar el derecho de uso de Vault y mantener activo al usuario",
+"Exportar los resultados actuales de búsqueda y después eliminar al usuario",
+"Archivar al usuario con la cobertura requerida de Usuario Archivado y Vault"
+]
+},
+"en": {
+"q": "A departing employee is subject to an active Vault hold. Sign-in must stop, licensing costs should fall where the organization’s supported licenses permit, and the held data must remain available. Which account-state change fits those requirements?",
+"o": [
+"Delete the user after transferring their Drive files",
+"Remove the Vault entitlement and keep the user active",
+"Export the current search results and then delete the user",
+"Archive the user with the required Archived User and Vault coverage"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Una cuenta archivada con las licencias adecuadas impide iniciar sesión y conserva la cobertura aplicable de Vault. Eliminarla o retirar las licencias de Vault requeridas puede poner en peligro los datos retenidos; una exportación no sustituye la conservación continuada.",
+"expEn": "An appropriately licensed archived account blocks sign-in while preserving applicable Vault coverage. Deletion or removal of required Vault licensing can jeopardize held data; an export does not replace continuing preservation.",
+"ref": "https://knowledge.workspace.google.com/vault/getting-started/google-vault-faq"
+},
+{
+"id": "GWA-BENCH-ADV-007",
+"level": 4,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Ventas y Marketing tienen cada uno un límite de 50 GB por usuario. Tres fotógrafos de esas unidades organizativas necesitan una excepción de 500 GB, pero sus otros ajustes de unidad organizativa deben mantenerse. Una edición compatible con almacenamiento compartido tiene capacidad libre suficiente. Los administradores también necesitan avisos previos si el límite propuesto es inferior al uso de algún miembro. ¿Qué despliegue cumple ambos requisitos?",
+"o": [
+"Crear un grupo de configuración para fotógrafos, convertirlo en grupo de filtrado, esperar entre 24 y 48 horas y establecer su límite de 500 GB",
+"Establecer un límite de 500 GB en la unidad organizativa superior y reducirlo individualmente para cada empleado restante",
+"Mover a los fotógrafos a una unidad organizativa de 500 GB y conservar los ajustes heredados de sus unidades anteriores",
+"Establecer 500 GB en un grupo nuevo que no sea de filtrado y usar sus avisos inmediatos para aprobar el cambio"
+]
+},
+"en": {
+"q": "Sales and Marketing each have a 50-GB user limit. Three photographers in those OUs need a 500-GB exception, but their other OU settings must stay unchanged. A supported pooled-storage edition has sufficient free capacity. Administrators also need advance warnings if the proposed limit is below a member's usage. Which rollout meets both requirements?",
+"o": [
+"Create a photographers configuration group, make it a filtering group, wait 24–48 hours, then set its 500-GB limit",
+"Set a 500-GB limit at the parent OU and lower each remaining employee individually",
+"Move the photographers into one 500-GB OU and preserve inherited settings from their former OUs",
+"Set a 500-GB limit on a newly created non-filtering group and use its immediate warnings to approve the change"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "El límite de un grupo de configuración prevalece sobre los límites de las unidades organizativas sin mover a los usuarios. Convertirlo en grupo de filtrado y esperar el intervalo documentado permite recibir avisos previos de superación del límite.",
+"expEn": "A configuration-group limit overrides OU limits without moving users. Making it a filtering group and waiting the documented interval enables advance over-limit warnings.",
+"ref": "https://knowledge.workspace.google.com/admin/storage/set-storage-limits-for-your-users"
+},
+{
+"id": "GWA-BENCH-ADV-008",
+"level": 5,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "En una organización con Enterprise Standard, una regla de DLP de Drive aplica por error valores de clasificación a un departamento grande. Permite que los usuarios cambien esos valores y algunos ya lo han hecho. Los administradores autorizados deben retirar la regla, conservar las clasificaciones posteriores de los usuarios y verificar los cambios en los archivos afectados. ¿Qué plan de reversión y verificación sigue el comportamiento documentado?",
+"o": [
+"Desactivar la regla, borrar los valores de todos los archivos detectados originalmente y revisar sus entradas de auditoría de Drive",
+"Desactivar la regla, permitir la limpieza que conserva los cambios de usuarios y revisar las entradas de auditoría de Drive de los archivos afectados",
+"Desactivar la regla, conservar los cambios de usuarios durante la limpieza y verificar la limpieza de archivos mediante la entrada administrativa de cambio de regla",
+"Desactivar la regla, restablecer la clasificación predeterminada de los archivos detectados y revisar sus entradas de auditoría de Drive"
+]
+},
+"en": {
+"q": "In an Enterprise Standard organization, a Drive DLP rule accidentally applies classification values across a large department. It allows users to change those values, and some users have done so. Authorized administrators must retire the rule, preserve subsequent user classifications, and verify changes to affected files. Which rollback and verification plan follows the documented behavior?",
+"o": [
+"Disable the rule, clear values from all originally matched files, and review their Drive audit entries",
+"Disable the rule, allow cleanup that preserves user changes, and review affected files’ Drive audit entries",
+"Disable the rule, preserve user changes during cleanup, and verify file cleanup through the Admin rule-change entry",
+"Disable the rule, reset matched files to default classification, and review their Drive audit entries"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Desactivar la regla retira los valores que aplicó y conserva los modificados por los usuarios cuando se permitían cambios. La limpieza puede tardar. Event Description de la auditoría de Drive registra las acciones de DLP sobre archivos; una entrada administrativa de cambio de regla confirma el cambio de configuración.",
+"expEn": "Disabling the rule removes its applied values while preserving user-modified values when changes were allowed. Cleanup can take time. Drive audit Event Description records file-level DLP actions; an administrative rule-change entry confirms the configuration change.",
+"ref": "https://knowledge.workspace.google.com/admin/security/apply-classification-labels-to-drive-files-automatically-with-dlp-rules"
+},
+{
+"id": "GWA-BENCH-ADV-009",
+"level": 4,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Dos reglas de DLP de Drive del mismo tipo detectan un archivo y asignan valores distintos al mismo campo de clasificación. Las opciones están ordenadas así: Interno primero, Confidencial segundo y Público tercero. La organización quiere que Confidencial prevalezca siempre que estas dos reglas entren en conflicto. ¿Qué cambio administrativo actúa sobre esa regla de resolución de conflictos?",
+"o": [
+"Situar Confidencial por encima de Interno en la lista de opciones del campo",
+"Crear de nuevo la regla Confidencial para que su fecha de creación sea la más reciente",
+"Mover al propietario a una unidad organizativa cuya clasificación predeterminada sea Confidencial",
+"Cambiar el nombre de la regla Confidencial para que se ordene antes que la regla Interno"
+]
+},
+"en": {
+"q": "Two Drive DLP rules of the same kind match a file and set different values of the same classification field. The options are ordered Internal first, Confidential second, Public third. The organization wants Confidential to win whenever these two rules conflict. Which administrative change addresses that conflict-resolution rule?",
+"o": [
+"Move Confidential above Internal in that field’s options list",
+"Create the Confidential rule again so its creation time is newest",
+"Move the file owner into an OU whose default classification is Confidential",
+"Rename the Confidential rule so it sorts ahead of the Internal rule"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Cuando entran en conflicto reglas del mismo tipo, prevalece el valor situado más arriba en la lista de opciones de la etiqueta. La fecha de creación y los nombres de las reglas no determinan ese orden, y la clasificación predeterminada no sustituye los valores asignados por DLP.",
+"expEn": "For conflicting rules of the same kind, the higher value in the label’s options list wins. Rule creation time and names do not set that ranking, and default classification does not override DLP-set values.",
+"ref": "https://knowledge.workspace.google.com/admin/security/apply-classification-labels-to-drive-files-automatically-with-dlp-rules"
+},
+{
+"id": "GWA-BENCH-ADV-010",
+"level": 4,
+"domain": "Monitoring and troubleshooting",
+"region": 5,
+"multi": false,
+"es": {
+"q": "Un portátil tiene calidad normal de Meet sin VPN, pero latencia alta con VPN. La política de la empresa exige mantener la VPN conectada para las aplicaciones internas. El equipo de redes puede enrutar por separado el tráfico autorizado de Meet. ¿Qué prueba piloto sigue mejor las indicaciones de red de Google y conserva el acceso a las aplicaciones internas?",
+"o": [
+"Mantener todo el tráfico de Meet en el túnel y aplicar una nueva prioridad QoS solo al portátil",
+"Excluir del túnel los dominios e intervalos de direcciones IP documentados de Meet y comparar la calidad con la VPN conectada",
+"Excluir del túnel solo la carga de la página meet.google.com manteniendo dentro los intervalos IP multimedia de Meet indicados",
+"Forzar todo el tráfico multimedia de Meet a usar TCP en el túnel existente y comparar el tiempo de carga de su página"
+]
+},
+"en": {
+"q": "A laptop has normal Meet quality off VPN but high latency on VPN. Company policy requires the VPN to remain connected for internal applications. The network team can route approved Meet traffic separately. Which pilot best follows Google's network guidance while preserving internal-application access?",
+"o": [
+"Keep all Meet traffic in the tunnel and apply a new QoS priority only to the laptop",
+"Split-tunnel the documented Meet domains and IP ranges, then compare meeting quality with the VPN still connected",
+"Split-tunnel only meet.google.com page loading while retaining the listed Meet media IP ranges inside the tunnel",
+"Force all Meet media through TCP in the existing tunnel and compare its page-load time"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Google recomienda enrutar el tráfico de Meet fuera de una VPN obligatoria mediante túnel dividido para los dominios e intervalos IP documentados. La prueba conserva la VPN para el tráfico interno y evalúa la ruta multimedia, no solo la carga de páginas.",
+"expEn": "Google recommends routing Meet traffic outside a required VPN using split tunneling for the documented domains and IP ranges. The pilot preserves the VPN for internal traffic and tests the media path rather than only page loading.",
+"ref": "https://knowledge.workspace.google.com/admin/meet/prepare-your-network-for-meet-meetings-and-live-streams"
+},
+{
+"id": "GWA-L1-001",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "¿Qué objeto tiene sus propias credenciales de inicio de sesión de Workspace?",
+"o": [
+"Recurso de calendario compartido",
+"Grupo de distribución de correo",
+"Cuenta de usuario individual",
+"Alias de correo de usuario"
+]
+},
+"en": {
+"q": "Which object has its own Workspace sign-in credentials?",
+"o": [
+"Shared calendar resource",
+"Mail distribution group",
+"Individual user account",
+"User email alias"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Una cuenta tiene su propia identidad y sus credenciales.",
+"expEn": "An account has its own identity and credentials.",
+"ref": "https://knowledge.workspace.google.com/admin/users/add-an-account-for-a-new-user"
+},
+{
+"id": "GWA-L1-002",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Ana necesita una dirección alternativa propia cuyos mensajes se entreguen en su buzón actual de Gmail, sin un grupo ni una identidad separados. ¿Qué debe añadirse?",
+"o": [
+"Lista de distribución",
+"Alias de correo de usuario",
+"Cuenta de buzón separada",
+"Bandeja de entrada colaborativa"
+]
+},
+"en": {
+"q": "Ana needs a user-owned alternate address delivered to her current Gmail mailbox, without a separate group or identity. What should you add?",
+"o": [
+"Distribution list",
+"User email alias",
+"Separate mailbox account",
+"Collaborative Inbox"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Un alias proporciona otra dirección sin otro buzón.",
+"expEn": "An alias provides another address without another mailbox.",
+"ref": "https://knowledge.workspace.google.com/admin/users/add-or-delete-an-alternate-email-address-email-alias"
+},
+{
+"id": "GWA-L1-003",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "¿Qué estructura permite heredar la configuración de servicios entre departamentos?",
+"o": [
+"Grupos de distribución de correo",
+"Direcciones de dominios secundarios",
+"Audiencias sugeridas para compartir",
+"Jerarquía de unidades organizativas"
+]
+},
+"en": {
+"q": "Which structure supports inherited departmental service settings?",
+"o": [
+"Email distribution groups",
+"Secondary domain addresses",
+"Suggested sharing audiences",
+"Organizational-unit hierarchy"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Las unidades organizativas proporcionan una jerarquía con ajustes heredados.",
+"expEn": "OUs provide a hierarchy with inherited settings.",
+"ref": "https://knowledge.workspace.google.com/admin/users/advanced/how-the-organizational-structure-works"
+},
+{
+"id": "GWA-L1-004",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "¿A cuántas unidades organizativas puede pertenecer un usuario simultáneamente?",
+"o": [
+"Solo a una unidad organizativa",
+"A una por servicio",
+"A dos unidades organizativas independientes",
+"A una por grupo"
+]
+},
+"en": {
+"q": "How many organizational units can a user belong to simultaneously?",
+"o": [
+"One OU only",
+"One per service",
+"Two independent OUs",
+"One per group"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Un usuario pertenece a una unidad organizativa; los grupos proporcionan membresías adicionales.",
+"expEn": "A user belongs to one OU; groups provide additional membership.",
+"ref": "https://knowledge.workspace.google.com/admin/users/advanced/how-the-organizational-structure-works"
+},
+{
+"id": "GWA-L1-005",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "¿Qué objeto distribuye correo electrónico a varios miembros?",
+"o": [
+"Buzón individual",
+"Dirección de alias de dominio",
+"Alias de correo de usuario",
+"Grupo de distribución de correo"
+]
+},
+"en": {
+"q": "Which object distributes email to multiple members?",
+"o": [
+"Individual mailbox",
+"Domain alias address",
+"User email alias",
+"Email distribution group"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Los grupos distribuyen mensajes según la membresía y los permisos de publicación.",
+"expEn": "Groups distribute messages according to membership and posting permissions.",
+"ref": "https://knowledge.workspace.google.com/admin/groups/get-started-managing-groups-for-an-organization"
+},
+{
+"id": "GWA-L1-007",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "En Enterprise Standard, la membresía de un grupo debe determinarse automáticamente a partir de los atributos de departamento de los usuarios del Directorio. ¿Qué capacidad de grupo proporciona este comportamiento de membresía?",
+"o": [
+"Membresía dinámica",
+"Bandeja de entrada colaborativa",
+"Prioridad de grupos de configuración",
+"Activación de servicios mediante grupos de acceso"
+]
+},
+"en": {
+"q": "On Enterprise Standard, a group’s membership should be determined automatically by users’ Directory department attributes. Which group capability supplies this membership behavior?",
+"o": [
+"Dynamic membership",
+"Collaborative Inbox",
+"Configuration-group priority",
+"Access-group service enablement"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Los grupos dinámicos usan consultas de membresía basadas en atributos compatibles del Directorio, incluido el departamento. Las funciones de bandeja de entrada y los grupos usados para configurar políticas no hacen que la membresía dependa de atributos.",
+"expEn": "Dynamic groups use membership queries based on supported Directory attributes, including department. Inbox features and groups used for policy configuration do not make membership attribute-driven.",
+"ref": "https://docs.cloud.google.com/identity/docs/how-to/create-dynamic-groups"
+},
+{
+"id": "GWA-L1-008",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "¿Qué debe demostrarse al añadir un dominio?",
+"o": [
+"El control del dominio",
+"La titularidad de licencias de buzón",
+"La preferencia de enrutamiento del correo",
+"La configuración existente de enrutamiento MX"
+]
+},
+"en": {
+"q": "What must you establish when adding a domain?",
+"o": [
+"Domain control",
+"Mailbox license ownership",
+"Email routing preference",
+"Existing MX routing configuration"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "La verificación demuestra el control mediante un mecanismo aprobado, normalmente DNS.",
+"expEn": "Verification establishes control using an approved mechanism, commonly DNS.",
+"ref": "https://knowledge.workspace.google.com/admin/domains/add-a-user-alias-domain-or-secondary-domain"
+},
+{
+"id": "GWA-L1-009",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Una segunda marca necesita usuarios separados con sus propias direcciones principales. ¿Qué opción cumple el requisito?",
+"o": [
+"Grupo de distribución de correo",
+"Alias de correo individual",
+"Dominio secundario",
+"Dominio de alias de usuario"
+]
+},
+"en": {
+"q": "A second brand needs separate users with their own primary addresses. What fits?",
+"o": [
+"Mail distribution group",
+"Individual email alias",
+"Secondary domain",
+"User alias domain"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Un dominio secundario permite crear cuentas separadas con direcciones principales en ese dominio.",
+"expEn": "A secondary domain supports separate accounts with primary addresses there.",
+"ref": "https://knowledge.workspace.google.com/admin/domains/add-a-user-alias-domain-or-secondary-domain"
+},
+{
+"id": "GWA-L1-010",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Los usuarios existentes necesitan direcciones equivalentes en otro dominio. ¿Qué opción cumple el requisito?",
+"o": [
+"Un solo grupo de distribución",
+"Dominio de alias de usuario",
+"Cuentas separadas de dominio secundario",
+"Buzones nuevos por usuario"
+]
+},
+"en": {
+"q": "Existing users need equivalent addresses at another domain. What fits?",
+"o": [
+"Single distribution group",
+"User alias domain",
+"Separate secondary-domain accounts",
+"Per-user new mailboxes"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Un dominio de alias de usuario proporciona direcciones adicionales a las cuentas existentes.",
+"expEn": "A user alias domain provides additional addresses for existing accounts.",
+"ref": "https://knowledge.workspace.google.com/admin/domains/add-a-user-alias-domain-or-secondary-domain"
+},
+{
+"id": "GWA-L1-011",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Una ausencia temporal requiere bloquear el inicio de sesión conservando la cuenta. ¿Qué acción cumple el requisito?",
+"o": [
+"Retirar únicamente la licencia",
+"Cambiar el nombre de la cuenta",
+"Eliminar la cuenta",
+"Suspender la cuenta"
+]
+},
+"en": {
+"q": "A temporary leave requires blocking sign-in while preserving the account. What fits?",
+"o": [
+"Remove license only",
+"Rename account",
+"Delete account",
+"Suspend account"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "La suspensión bloquea el acceso sin eliminar la cuenta ni sus datos.",
+"expEn": "Suspension blocks access without deleting the account and its data.",
+"ref": "https://knowledge.workspace.google.com/admin/users/suspend-a-user-temporarily"
+},
+{
+"id": "GWA-L3-001",
+"level": 3,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Un equipo de Enterprise Standard basará una consulta de grupo dinámico en un campo personalizado de usuario proporcionado por RR. HH. ¿Qué requisito previo del Directorio debe cumplirse antes de usar ese campo en una consulta de membresía?",
+"o": [
+"Grupos para empresas debe estar activado para los usuarios consultados",
+"El campo personalizado debe copiarse a un campo estándar de organización",
+"El grupo debe convertirse en grupo de seguridad antes de usar campos personalizados",
+"El esquema personalizado de usuario correspondiente debe existir ya en el Directorio"
+]
+},
+"en": {
+"q": "An Enterprise Standard team will base a dynamic group query on a custom user field supplied by HR. Which Directory prerequisite must be satisfied before that custom field can be used in a membership query?",
+"o": [
+"Groups for Business must be enabled for the queried users",
+"The custom field must be copied into a standard organization field",
+"The group must be made a security group before custom fields are usable",
+"The corresponding custom user schema must already exist in Directory"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Los campos personalizados de usuario requieren un esquema existente en user.custom_schemas. Activar un servicio o asignar una designación al grupo no crea ese esquema.",
+"expEn": "Custom user fields require an existing schema in user.custom_schemas. Enabling a service or assigning a group designation does not create that schema.",
+"ref": "https://docs.cloud.google.com/identity/docs/how-to/dynamic-groups-attributes"
+},
+{
+"id": "GWA-L3-002",
+"level": 3,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Drive está desactivado en varias unidades organizativas. Un equipo con licencia de distintos departamentos necesita activar Drive y aplicar un ajuste compatible de uso compartido distinto. Los demás usuarios de esas unidades deben seguir sin acceso a Drive y las políticas de uso compartido de esas unidades deben mantenerse sin cambios. Los administradores usarán un grupo creado en la consola de administración para el equipo. ¿Qué plan cumple los requisitos?",
+"o": [
+"Activar Drive para el grupo y aplicar su ajuste de uso compartido a las unidades organizativas",
+"Activar Drive para el grupo y aplicar su ajuste de uso compartido al grupo",
+"Aplicar el ajuste de uso compartido al grupo y activar Drive para las unidades organizativas completas",
+"Crear grupos de acceso y configuración separados con los mismos miembros"
+]
+},
+"en": {
+"q": "Drive is off for several OUs. A licensed cross-department team needs Drive enabled and a distinct supported Drive-sharing setting. Other users in those OUs must remain without Drive access, and existing OU sharing policies must remain unchanged. Administrators will use one Admin-console-created group for the team. Which plan meets these requirements?",
+"o": [
+"Enable Drive for the group and apply its sharing setting to the OUs",
+"Enable Drive for the group and apply its sharing setting to the group",
+"Apply the group sharing setting and enable Drive for the entire OUs",
+"Create separate access and configuration groups with the same members"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "El mismo grupo puede activar el acceso al servicio como grupo de acceso y personalizar ajustes compatibles como grupo de configuración. Son funciones de política separadas aplicadas al mismo grupo.",
+"expEn": "The same group can enable service access as an access group and customize supported service settings as a configuration group. These are separate policy functions on the same group.",
+"ref": "https://knowledge.workspace.google.com/admin/users/advanced/customize-service-access-using-access-groups"
+},
+{
+"id": "GWA-L3-003",
+"level": 3,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Una organización tiene suscripciones válidas de Business Plus y Enterprise Standard. Un usuario con licencia de Business Plus pasa a una unidad organizativa que hereda el ajuste superior de asignación automática de licencias de Enterprise Standard. ¿Qué resultado documenta Google para ese traslado por sí solo?",
+"o": [
+"La licencia de Business Plus se sustituye por Enterprise Standard",
+"La licencia de Business Plus se retira sin sustitución",
+"Se conserva la licencia existente de Business Plus",
+"El usuario recibe ambas suscripciones del mismo servicio"
+]
+},
+"en": {
+"q": "An organization has valid Business Plus and Enterprise Standard subscriptions. A user with a Business Plus license moves to an OU that inherits the top-level automatic licensing setting for Enterprise Standard. Which license outcome does Google document for that move alone?",
+"o": [
+"The Business Plus license is replaced with Enterprise Standard",
+"The Business Plus license is revoked without a replacement",
+"The existing Business Plus license is retained",
+"The user receives both subscriptions for the same service"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Trasladar a un usuario que ya tiene licencia al nivel superior o a una unidad que hereda su asignación automática conserva las licencias existentes. Una unidad con un ajuste anulado tiene una regla distinta de sustitución para el mismo servicio.",
+"expEn": "Moving an already licensed user to the top level or an OU inheriting its automatic licensing setting retains existing licenses. Moving into an OU with an override has a different documented same-service replacement rule.",
+"ref": "https://knowledge.workspace.google.com/admin/billing/about-automatic-licensing-for-organizational-units"
+},
+{
+"id": "GWA-L3-004",
+"level": 3,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Una unidad organizativa superior cambia un ajuste de servicio, pero una unidad subordinada conserva su anulación explícita. Esta unidad debe seguir ahora ese ajuste superior y sus cambios futuros; las anulaciones de las unidades hermanas deben mantenerse. ¿Qué acción establece esa relación?",
+"o": [
+"Copiar el valor actual superior al ajuste personalizado de la unidad subordinada",
+"Mantener la anulación subordinada y guardar de nuevo el valor superior actual",
+"Mover la unidad subordinada bajo otra superior conservando su anulación",
+"Restaurar la herencia de ese ajuste en la unidad organizativa subordinada"
+]
+},
+"en": {
+"q": "A parent OU changes a service setting, but a child retains its explicit override. The child must now follow this parent setting and future changes to it; sibling overrides must remain intact. Which action establishes that relationship?",
+"o": [
+"Copy the parent’s current value into the child’s custom setting",
+"Keep the child override and save the parent’s current value again",
+"Move the child below a new parent while retaining its override",
+"Restore inheritance for that setting in the child OU"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Restaurar la herencia hace que la unidad subordinada siga el ajuste superior. Copiar el valor actual puede igualarlos hoy, pero conserva una anulación que ignorará cambios futuros del nivel superior.",
+"expEn": "Restoring inheritance makes the child follow the parent setting. Copying the current value can make values equal today while preserving an override that will ignore future parent changes.",
+"ref": "https://knowledge.workspace.google.com/admin/users/advanced/how-the-organizational-structure-works"
+},
+{
+"id": "GWA-L3-005",
+"level": 3,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "La unidad organizativa de un usuario con licencia tiene Drive desactivado. Dos grupos de acceso activan Drive para ese usuario. Un administrador quita el ajuste de Drive de uno de los grupos, pero deja activado el otro. Tras propagarse los ajustes, ¿qué acceso resulta?",
+"o": [
+"El usuario pierde acceso porque se quitó el ajuste de un grupo",
+"El usuario conserva el acceso mediante el otro grupo de acceso activado",
+"El ajuste desactivado de la unidad organizativa anula ambas concesiones de los grupos",
+"La prioridad de los grupos de configuración determina si continúa el acceso al servicio"
+]
+},
+"en": {
+"q": "A licensed user’s OU has Drive off. Two access groups both enable Drive for the user. An administrator unsets Drive for one group but leaves the other group enabled. After settings propagate, which access result follows?",
+"o": [
+"The user loses access because one group was unset",
+"The user retains access through the other enabled access group",
+"The OU’s off setting cancels both group grants",
+"Configuration-group priority determines whether service access continues"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Cada grupo de acceso activado concede acceso al servicio por encima del ajuste desactivado de la unidad organizativa. Quitar el ajuste de un grupo retira su concesión, pero no la de otro grupo activado aplicable.",
+"expEn": "Each enabled access group grants service access over the OU’s off setting. Unsetting one group removes that group’s grant; it does not remove the grant from another applicable enabled group.",
+"ref": "https://knowledge.workspace.google.com/admin/users/advanced/customize-service-access-using-access-groups"
+},
+{
+"id": "GWA-L3-006",
+"level": 3,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Una organización planea añadir un dominio nuevo como dominio de alias de usuario, pero primero necesita identificar las cuentas personales de Google no gestionadas que usan ese dominio. ¿Qué estrategia de incorporación documentada genera la lista de cuentas para revisarla?",
+"o": [
+"Añadir primero el dominio como dominio secundario",
+"Añadirlo como dominio de alias y buscar después en el Directorio de usuarios gestionados",
+"Añadirlo como dominio de alias y buscar después esas cuentas personales en Vault",
+"Cambiar los registros MX y usar después la búsqueda del registro de correo para enumerar las cuentas"
+]
+},
+"en": {
+"q": "An organization plans to add a new domain as a user alias domain but first needs to identify unmanaged personal Google Accounts using that domain. Which documented addition strategy generates the account list for review?",
+"o": [
+"Add the domain as a secondary domain first",
+"Add it as an alias domain, then search the managed-user Directory",
+"Add it as an alias domain, then search those personal accounts in Vault",
+"Change MX records, then use Email Log Search to enumerate the accounts"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Google documenta añadir primero el dominio como dominio secundario para generar la lista de cuentas en conflicto en un plazo de 24 horas. Añadir un dominio de alias puede cambiar automáticamente el nombre de las cuentas personales, cuyos datos siguen fuera de la gestión de la organización.",
+"expEn": "Google documents adding the domain as a secondary domain first to generate the conflicting-account list within 24 hours. Adding an alias domain can automatically rename personal accounts while their data remains outside organizational management.",
+"ref": "https://knowledge.workspace.google.com/admin/domains/add-a-user-alias-domain-or-secondary-domain"
+},
+{
+"id": "GWA-L3-007",
+"level": 3,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": true,
+"es": {
+"q": "Se cambia la dirección principal de correo de Workspace de un usuario. Una aplicación SAML personalizada con Google como proveedor de identidad rechaza después el identificador de ese usuario; los demás siguen accediendo, y la URL ACS y el ID de entidad no han cambiado. La aplicación usa el valor predeterminado de Name ID. ¿Qué dos identificadores deben compararse? (Elija dos.)",
+"o": [
+"El nombre del emisor del certificado de firma SAML",
+"El nombre de host del punto de conexión ACS de la aplicación",
+"El correo principal actual del usuario enviado como Name ID",
+"El identificador que el proveedor de servicios espera para ese usuario"
+]
+},
+"en": {
+"q": "A user’s primary Workspace email address is renamed. A custom SAML app using Google as IdP then rejects that user’s identifier; other users still sign in, and the ACS URL and Entity ID are unchanged. The app uses the default Name ID value. Which two identifiers should be compared? (Choose two.)",
+"o": [
+"The SAML signing certificate’s issuer name",
+"The application’s ACS endpoint hostname",
+"The user’s current primary email sent as Name ID",
+"The identifier the service provider expects for that user"
+]
+},
+"answer": [
+"C",
+"D"
+],
+"expEs": "El Name ID predeterminado es el correo principal. Un cambio de dirección puede hacer que difiera del identificador esperado por el proveedor de servicios; comparar ambos aborda el rechazo específico de identidad indicado.",
+"expEn": "The default Name ID is the primary email. A rename can make that value differ from the identifier expected by the service provider; comparing the two addresses the stated identity-specific rejection.",
+"ref": "https://knowledge.workspace.google.com/admin/apps/set-up-your-own-custom-saml-app"
+},
+{
+"id": "GWA-L3-008",
+"level": 3,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Un administrador de grupos debe moderar una conversación en un grupo de la organización creado por otro administrador. No pertenece a ese grupo. ¿Qué ámbito de privilegios de propietario explica su autoridad para moderarlo?",
+"o": [
+"Privilegios que abarcan todos los grupos de la organización",
+"Privilegios que abarcan los grupos creados por el administrador",
+"Privilegios que abarcan los grupos de la propia unidad organizativa del administrador",
+"Privilegios que abarcan los grupos a los que se incorporó personalmente el administrador"
+]
+},
+"en": {
+"q": "A Groups administrator must moderate a conversation in an organization group created by another administrator. They are not a member of this group. Which scope of group-owner privileges explains their authority to moderate it?",
+"o": [
+"Privileges covering all groups in the organization",
+"Privileges covering groups the administrator created",
+"Privileges covering groups in the administrator’s own OU",
+"Privileges covering groups the administrator personally joined"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Un administrador de grupos tiene privilegios de propietario en todos los grupos de la organización, incluidos los que no creó. La membresía de cada grupo no es un requisito previo para esos privilegios administrativos.",
+"expEn": "A Groups administrator has owner privileges for all groups in the organization, including groups they did not create. Membership in each group is not the prerequisite for these administrative privileges.",
+"ref": "https://knowledge.workspace.google.com/admin/groups/add-features-and-manage-conversations-in-google-groups"
+},
+{
+"id": "GWA-L3-009",
+"level": 3,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Un grupo se sincronizó de Active Directory a Google Workspace mediante GCDS. Después se cambia su dirección de correo en Active Directory. El administrador debe mantener el grupo sincronizado y evitar el comportamiento documentado de eliminación y recreación en la próxima sincronización. ¿Qué corrección está documentada?",
+"o": [
+"Cambiar solo el nombre visible del grupo de Google a la dirección nueva",
+"Cambiar manualmente la dirección de correo del grupo en ambos directorios para que coincida",
+"Vaciar la caché de GCDS manteniendo distintas las dos direcciones",
+"Excluir el grupo renombrado de las posteriores sincronizaciones de grupos de GCDS"
+]
+},
+"en": {
+"q": "A group was synchronized from Active Directory to Google Workspace by GCDS. Its email address is then renamed in Active Directory. The administrator must keep the group synchronized and avoid the documented delete-and-recreate behavior on the next sync. Which correction is documented?",
+"o": [
+"Change only the Google group’s display name to the new address",
+"Manually change the group email address in both directories to match",
+"Clear the GCDS cache while leaving the two email addresses different",
+"Exclude the renamed group from subsequent GCDS group synchronization"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Cambiar la dirección de un grupo solo en AD puede provocar que GCDS elimine y recree el grupo de Google. Google documenta como solución cambiar manualmente la dirección del grupo en AD y Workspace para que coincidan.",
+"expEn": "Renaming a group address only in AD can cause GCDS to delete and recreate the Google group. Google documents manually changing the group email address in both AD and Workspace so they match as a workaround.",
+"ref": "https://knowledge.workspace.google.com/admin/users/troubleshoot-common-gcds-issues"
+},
+{
+"id": "GWA-L3-010",
+"level": 3,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "GCDS tiene activada la opción de sustituir los nombres de dominio en las direcciones de correo de LDAP. Una exclusión de coincidencia exacta para lena@ldap.example no coincide con ese usuario LDAP. ¿Qué valor de exclusión corresponde al comportamiento de comparación documentado?",
+"o": [
+"lena@workspace.example",
+"lena@ldap.example",
+"@ldap.example",
+"lena"
+]
+},
+"en": {
+"q": "GCDS has Replace domain names in LDAP email addresses enabled. An Exact Match exclusion for lena@ldap.example fails to match that LDAP user. Which exclusion value matches the documented comparison behavior?",
+"o": [
+"lena@workspace.example",
+"lena@ldap.example",
+"@ldap.example",
+"lena"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Cuando está activada la sustitución de dominios, GCDS retira el dominio antes de procesar las exclusiones. Por eso una regla de coincidencia exacta usa la parte local, lena, en lugar de cualquiera de las direcciones completas.",
+"expEn": "With domain replacement enabled, GCDS strips the domain before processing exclusion rules. An Exact Match rule therefore uses the local part, lena, rather than either full email address.",
+"ref": "https://knowledge.workspace.google.com/admin/users/troubleshoot-common-gcds-issues"
+},
+{
+"id": "GWA-L1-012",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Antes de eliminar la cuenta de un empleado, la organización debe conservar los archivos de Mi unidad de los que es propietario. ¿Qué preparación aborda la propiedad de los archivos?",
+"o": [
+"Compartir los archivos con el sucesor antes de eliminar la cuenta",
+"Cambiar el nombre de la cuenta del empleado",
+"Planificar la transferencia a otro propietario de archivos",
+"Crear un alias para el buzón del empleado"
+]
+},
+"en": {
+"q": "Before deleting an employee’s account, the organization must retain the My Drive files they own. Which preparation addresses file ownership?",
+"o": [
+"Share the files with the successor before deletion",
+"Rename the employee’s account",
+"Plan the transfer to another file owner",
+"Create an alias for the employee’s mailbox"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Planifique una transferencia de propiedad de los archivos de Drive del usuario. Compartirlos concede acceso, pero deja su propiedad en manos del usuario que se marcha.",
+"expEn": "Plan an ownership transfer for the user-owned Drive files. Sharing files grants access but leaves their ownership with the departing user.",
+"ref": "https://knowledge.workspace.google.com/admin/users/delete-or-remove-a-user-from-your-organization"
+},
+{
+"id": "GWA-L1-013",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "¿Qué herramienta proporciona sincronización unidireccional de usuarios, grupos y contactos compartidos desde un directorio LDAP a Google Workspace?",
+"o": [
+"Google Cloud Directory Sync",
+"Password Sync",
+"Servicio de migración de datos",
+"Google Workspace Migrate"
+]
+},
+"en": {
+"q": "Which tool provides one-way synchronization of users, groups, and shared contacts from an LDAP directory to Google Workspace?",
+"o": [
+"Google Cloud Directory Sync",
+"Password Sync",
+"Data migration service",
+"Google Workspace Migrate"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "GCDS sincroniza objetos del Directorio de LDAP a Google. Password Sync se centra en las contraseñas; las herramientas de migración de contenido no proporcionan esta sincronización del Directorio.",
+"expEn": "GCDS synchronizes Directory objects from LDAP to Google. Password Sync focuses on passwords; content-migration tools do not supply this Directory synchronization.",
+"ref": "https://knowledge.workspace.google.com/admin/users/about-google-cloud-directory-sync"
+},
+{
+"id": "GWA-L1-014",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Workspace está configurado para inicio de sesión único SAML con un proveedor de identidad de terceros. ¿Qué función proporciona principalmente esa integración?",
+"o": [
+"Licencias de suscripción",
+"Aprovisionamiento del Directorio",
+"Autenticación federada",
+"Migración del contenido de buzones"
+]
+},
+"en": {
+"q": "Workspace is configured for SAML SSO with a third-party identity provider. Which function does that integration primarily supply?",
+"o": [
+"Subscription licensing",
+"Directory provisioning",
+"Federated authentication",
+"Mailbox content migration"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "El inicio de sesión único SAML usa el proveedor de identidad configurado para la autenticación. Aprovisionar cuentas, asignar licencias y migrar contenido son funciones separadas.",
+"expEn": "SAML SSO uses the configured identity provider for authentication. Provisioning accounts and licensing or migrating content are separate functions.",
+"ref": "https://knowledge.workspace.google.com/admin/apps/setting-up-sso"
+},
+{
+"id": "GWA-L1-015",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Un empleado olvida la contraseña de una cuenta gestionada por Google. Un administrador con privilegios para restablecer contraseñas debe recuperar el acceso. ¿Qué acción de cuenta aborda la credencial olvidada?",
+"o": [
+"Restablecer la contraseña",
+"Cambiar la duración de la sesión",
+"Sustituir un alias de correo",
+"Cambiar el nombre de la cuenta"
+]
+},
+"en": {
+"q": "An employee forgets a Google-managed account password. An administrator with reset-password privileges must restore access. Which account action addresses the forgotten credential?",
+"o": [
+"Reset the password",
+"Change session duration",
+"Replace an email alias",
+"Rename the account"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Un administrador autorizado puede restablecer la contraseña gestionada por Google. Cambiar la duración de la sesión, los alias o el nombre de la cuenta no sustituye esa credencial.",
+"expEn": "An authorized administrator can reset the Google-managed password. Changing session duration, aliases, or account names does not replace that credential.",
+"ref": "https://knowledge.workspace.google.com/admin/users/reset-a-users-password"
+},
+{
+"id": "GWA-L1-016",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Un administrador crea manualmente una contraseña temporal durante un restablecimiento. ¿Qué opción de restablecimiento solicita al usuario que la sustituya al iniciar sesión de nuevo?",
+"o": [
+"Enviar la contraseña nueva por correo",
+"Copiar la contraseña temporal",
+"Pedir al usuario que cambie su contraseña",
+"Actualizar el correo de recuperación del usuario"
+]
+},
+"en": {
+"q": "An administrator manually creates a temporary password during a reset. Which reset option prompts the user to replace it at the next sign-in?",
+"o": [
+"Send the new password by email",
+"Copy the temporary password",
+"Ask the user to change their password",
+"Update the user’s recovery email"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "La opción de pedir al usuario que cambie su contraseña exige sustituirla al siguiente inicio de sesión. Enviarla o copiarla la comunica, pero no establece ese requisito.",
+"expEn": "The Ask the user to change their password option requires replacement at the next sign-in. Sending or copying the password communicates it but does not set that requirement.",
+"ref": "https://knowledge.workspace.google.com/admin/users/reset-a-users-password"
+},
+{
+"id": "GWA-L1-017",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "¿Qué derecho de uso proporciona a un usuario individual una licencia asignada de Google Workspace?",
+"o": [
+"La posibilidad de usar los servicios incluidos de Workspace",
+"Privilegios de superadministrador de la organización",
+"La propiedad de todos los archivos de Drive de la organización",
+"El control verificado del dominio de la organización"
+]
+},
+"en": {
+"q": "Which entitlement does an assigned Google Workspace license provide to an individual user?",
+"o": [
+"Eligibility to use included Workspace services",
+"Super Admin privileges for the organization",
+"Ownership of all organization Drive files",
+"Verified control of the organization’s domain"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Una licencia es necesaria para usar los servicios incluidos de Workspace. Las políticas de servicios siguen aplicándose; la licencia por sí sola no concede roles administrativos, propiedad de archivos ni control de dominio.",
+"expEn": "A license is required to use included Workspace services. Service policies still apply; the license itself does not grant administrator roles, file ownership, or domain control.",
+"ref": "https://knowledge.workspace.google.com/admin/billing/how-licensing-works"
+},
+{
+"id": "GWA-L1-018",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Un administrador añade una sala de reuniones que los empleados pueden seleccionar al reservar eventos de Calendar. ¿Qué objeto representa esa sala reservable?",
+"o": [
+"Grupo de distribución",
+"Delegado de buzón compartido",
+"Recurso de Calendar",
+"Alias de correo de usuario"
+]
+},
+"en": {
+"q": "An administrator adds a meeting room that employees can select when booking Calendar events. Which object represents that bookable room?",
+"o": [
+"Distribution group",
+"Shared mailbox delegate",
+"Calendar resource",
+"User email alias"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Los recursos de Calendar representan salas y equipos compartidos que los usuarios pueden reservar. Los grupos, la delegación de buzones y los alias no son el objeto de recurso de sala.",
+"expEn": "Calendar resources represent shared rooms and equipment that users can book. Groups, mailbox delegation, and aliases are not the room resource object.",
+"ref": "https://knowledge.workspace.google.com/admin/calendar/create-buildings-features-and-calendar-resources"
+},
+{
+"id": "GWA-L1-019",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "¿Qué valor cumple el formato documentado del campo Capacidad de un recurso estructurado de sala de Calendar?",
+"o": [
+"12",
+"0",
+"-1",
+"12,5"
+]
+},
+"en": {
+"q": "Which value satisfies the Capacity field’s documented format requirement for a structured Calendar room resource?",
+"o": [
+"12",
+"0",
+"-1",
+"12.5"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "La capacidad debe ser un número entero positivo que represente el número recomendado de personas para la sala. El cero, los números negativos y las fracciones no cumplen ese formato.",
+"expEn": "Capacity must be a positive integer representing the recommended number of people for the room. Zero, negative numbers, and fractions do not meet that format.",
+"ref": "https://knowledge.workspace.google.com/admin/calendar/create-buildings-features-and-calendar-resources"
+},
+{
+"id": "GWA-L1-020",
+"level": 1,
+"domain": "User accounts, domains, and Directory",
+"region": 1,
+"multi": false,
+"es": {
+"q": "Un usuario se archiva con las licencias adecuadas de Usuario Archivado. ¿Qué ocurre con su licencia activa de Google Workspace?",
+"o": [
+"Queda reservada exclusivamente para el usuario archivado",
+"Se convierte en una licencia independiente del complemento Google Vault",
+"Se elimina permanentemente de las licencias compradas de la organización",
+"Queda disponible para reasignarla en un plazo de 24 horas"
+]
+},
+"en": {
+"q": "A user is archived with appropriate Archived User licensing. What happens to the user’s active Google Workspace license?",
+"o": [
+"It stays reserved exclusively for the archived user",
+"It becomes a standalone Google Vault add-on license",
+"It is permanently removed from the organization’s purchased licenses",
+"It becomes available to reassign within 24 hours"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Archivar deja la licencia activa de Workspace disponible para reasignarla en un plazo de 24 horas. La cobertura adecuada de usuario archivado conserva los datos aplicables de la cuenta; no convierte la licencia activa en un complemento de Vault.",
+"expEn": "Archiving makes the active Workspace license available to reassign within 24 hours. Appropriate archived-user coverage preserves the archived account’s applicable data; it does not convert the active license into a Vault add-on.",
+"ref": "https://knowledge.workspace.google.com/admin/users/archive-former-employee-accounts"
+},
+{
+"id": "GWA-L1-021",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Un administrador ha añadido y verificado un dominio secundario para usuarios con licencia. ¿Qué acción de Gestionar dominios inicia la configuración de Gmail para ese dominio nuevo?",
+"o": [
+"Convertir el dominio secundario en el principal",
+"Seleccionar Activar Gmail para el dominio nuevo",
+"Crear una cuarentena de correo específica del dominio",
+"Activar la delegación de Gmail para los usuarios nuevos"
+]
+},
+"en": {
+"q": "An administrator has added and verified a secondary domain for licensed users. Which action in Manage domains starts Gmail setup for that new domain?",
+"o": [
+"Make the secondary domain the primary domain",
+"Select Activate Gmail for the new domain",
+"Create a domain-specific email quarantine",
+"Enable Gmail delegation for the new users"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Tras verificar el dominio, seleccione Activar Gmail en Gestionar dominios y siga las instrucciones de configuración de Gmail del dominio, incluida la configuración MX. Cambiar el dominio principal u otros ajustes de Gmail no sustituye esa acción.",
+"expEn": "After domain verification, select Activate Gmail in Manage domains and follow the domain’s Gmail setup instructions, including MX configuration. Changing the primary domain or other Gmail settings does not replace that setup action.",
+"ref": "https://knowledge.workspace.google.com/admin/domains/add-a-user-alias-domain-or-secondary-domain"
+},
+{
+"id": "GWA-L1-022",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "¿Qué mecanismo de correo basado en DNS identifica los servidores de envío autorizados de un dominio?",
+"o": [
+"MX",
+"DKIM",
+"DMARC",
+"SPF"
+]
+},
+"en": {
+"q": "Which DNS-based email mechanism identifies the authorized sending servers for a domain?",
+"o": [
+"MX",
+"DKIM",
+"DMARC",
+"SPF"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Un registro TXT de SPF enumera los orígenes de envío autorizados. Los servidores receptores comparan el servidor de envío con ese registro; MX, DKIM y DMARC realizan otras funciones de correo.",
+"expEn": "An SPF TXT record lists authorized sending sources. Receiving servers compare the sending server with that record; MX, DKIM, and DMARC perform different mail functions.",
+"ref": "https://knowledge.workspace.google.com/admin/security/set-up-spf"
+},
+{
+"id": "GWA-L1-023",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": true,
+"es": {
+"q": "¿Qué dos elementos permiten el proceso de firma y verificación de DKIM? (Elija dos.)",
+"o": [
+"Una clave privada que firma los mensajes salientes",
+"La clave pública correspondiente publicada en DNS",
+"Un servidor MX receptor con la mayor prioridad",
+"Una política DMARC que rechace todos los fallos"
+]
+},
+"en": {
+"q": "Which two elements support the DKIM signing and verification process? (Choose two.)",
+"o": [
+"A private key that signs outgoing messages",
+"The corresponding public key published in DNS",
+"A receiving MX server given the highest priority",
+"A DMARC policy set to reject all failures"
+]
+},
+"answer": [
+"A",
+"B"
+],
+"expEs": "El servidor de envío usa una clave privada para firmar; el receptor obtiene la clave pública correspondiente de DNS para autenticar la firma. La prioridad MX y la aplicación de DMARC son controles separados.",
+"expEn": "The sending server uses a private key to sign; the receiver retrieves the corresponding public key from DNS to authenticate the signature. MX priority and DMARC enforcement are separate controls.",
+"ref": "https://knowledge.workspace.google.com/admin/security/set-up-dkim"
+},
+{
+"id": "GWA-L1-024",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Un administrador configura los informes rua y comienza a supervisar DMARC. ¿Qué valor de p solicita que no se aplique ninguna acción DMARC a los mensajes que fallen la autenticación?",
+"o": [
+"p=quarantine",
+"p=none",
+"p=reject",
+"p=monitor"
+]
+},
+"en": {
+"q": "An administrator configures rua reporting and begins monitoring DMARC. Which p value requests no DMARC handling action for messages that fail authentication?",
+"o": [
+"p=quarantine",
+"p=none",
+"p=reject",
+"p=monitor"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "La política none solicita que no se aplique ninguna acción DMARC y permite informes agregados al destino rua. Quarantine y reject solicitan aplicar medidas; monitor no es un valor de p documentado.",
+"expEn": "The none policy requests no DMARC handling action while supporting aggregate reports to the rua destination. Quarantine and reject request enforcement; monitor is not a documented p value.",
+"ref": "https://knowledge.workspace.google.com/admin/security/set-up-dmarc"
+},
+{
+"id": "GWA-L1-025",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Un empleado es delegado autorizado de la cuenta de Gmail de un compañero. ¿Qué capacidad incluye esa delegación?",
+"o": [
+"Leer, enviar y eliminar mensajes de Gmail",
+"Cambiar la contraseña de Google del propietario",
+"Enviar mensajes de Google Chat como el propietario",
+"Cambiar la dirección principal de correo del propietario"
+]
+},
+"en": {
+"q": "An employee is an authorized delegate for a coworker’s Gmail account. Which capability is included in that delegation?",
+"o": [
+"Read, send, and delete Gmail messages",
+"Change the owner’s Google password",
+"Send Google Chat messages as the owner",
+"Rename the owner’s primary email address"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Un delegado de Gmail puede leer, enviar y eliminar correo del propietario. La delegación no concede sus capacidades generales de gestión de cuenta ni de Google Chat.",
+"expEn": "A Gmail delegate can read, send, and delete email for the owner. Delegation does not grant the owner’s broader account-management or Google Chat capabilities.",
+"ref": "https://support.google.com/mail/answer/138350"
+},
+{
+"id": "GWA-L1-026",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Una regla configurada de Gmail retiene mensajes entrantes dirigidos a usuarios de Workspace para una revisión autorizada antes de entregarlos. ¿Dónde se retienen esos mensajes?",
+"o": [
+"En el archivo de Gmail del usuario",
+"En una cuarentena administrativa",
+"En la carpeta Spam del destinatario",
+"En un registro de conservación de Vault"
+]
+},
+"en": {
+"q": "A configured Gmail rule holds incoming messages to Workspace users for authorized review before delivery. Where are those messages held?",
+"o": [
+"The user’s Gmail archive",
+"An administrator quarantine",
+"The recipient’s Spam folder",
+"A Vault retention record"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Una cuarentena administrativa retiene mensajes seleccionados antes de entregarlos para que los revisores autorizados los liberen o bloqueen. Las carpetas del buzón y la conservación de Vault no proporcionan esa revisión previa a la entrega.",
+"expEn": "An administrator quarantine holds selected messages before delivery so authorized reviewers can release or block them. Mailbox folders and Vault retention do not provide this pre-delivery review.",
+"ref": "https://knowledge.workspace.google.com/admin/gmail/advanced/set-up-email-quarantine"
+},
+{
+"id": "GWA-L1-028",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Un administrador quiere que solo las aplicaciones de correo OAuth autorizadas usen Gmail mediante IMAP. ¿Qué opción del acceso IMAP proporciona esa restricción?",
+"o": [
+"Restringir clientes de correo mediante los ID de cliente OAuth permitidos",
+"Permitir cualquier cliente de correo",
+"Activar el acceso POP para todos los usuarios",
+"Activar la delegación de Gmail para usuarios autorizados"
+]
+},
+"en": {
+"q": "An administrator wants only approved OAuth mail apps to use Gmail through IMAP. Which choice in IMAP access supplies that restriction?",
+"o": [
+"Restrict mail clients using allowed OAuth client IDs",
+"Allow any mail client",
+"Enable POP access for all users",
+"Enable Gmail delegation for approved users"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Seleccione la opción de restringir clientes de correo y enumere sus ID de cliente OAuth permitidos. Permitir cualquier cliente no restringe la lista; el acceso POP y la delegación de buzón son ajustes separados.",
+"expEn": "Select the option to restrict mail clients and list their allowed OAuth client IDs. Allowing any client does not restrict the list; POP access and mailbox delegation are separate settings.",
+"ref": "https://knowledge.workspace.google.com/admin/sync/turn-pop-and-imap-on-or-off-for-users"
+},
+{
+"id": "GWA-L1-029",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Un administrador necesita detectar palabras en el cuerpo de correo ordinario sin cifrar y aplicar acciones de correo configuradas. ¿Qué familia de reglas de Gmail proporciona esa inspección de contenido?",
+"o": [
+"Cumplimiento de archivos adjuntos",
+"Cumplimiento de contenido",
+"Enrutamiento",
+"Remitentes bloqueados"
+]
+},
+"en": {
+"q": "An administrator needs to match words in the body of ordinary unencrypted email and apply configured mail actions. Which Gmail rule family supplies that content inspection?",
+"o": [
+"Attachment compliance",
+"Content compliance",
+"Routing",
+"Blocked senders"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "El cumplimiento de contenido puede inspeccionar el texto del cuerpo y aplicar modificación, rechazo o cuarentena. Los ajustes de archivos adjuntos, enrutamiento y bloqueo de remitentes se centran en otros criterios.",
+"expEn": "Content compliance can inspect message body text and apply modification, rejection, or quarantine actions. Attachment, routing, and sender-blocking settings address different criteria.",
+"ref": "https://knowledge.workspace.google.com/admin/gmail/advanced/set-up-rules-for-advanced-email-content-filtering"
+},
+{
+"id": "GWA-L1-030",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "¿Quién es propietario de los archivos creados o subidos a una unidad compartida de una organización?",
+"o": [
+"El editor más reciente",
+"La organización propietaria de la unidad compartida",
+"El administrador individual de la unidad compartida",
+"La persona que los creó o subió"
+]
+},
+"en": {
+"q": "Who owns files created or uploaded in a shared drive belonging to an organization?",
+"o": [
+"The most recent editor",
+"The organization that owns the shared drive",
+"The individual shared-drive manager",
+"The individual who created or uploaded them"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "La organización es propietaria de los archivos de su unidad compartida. La salida o eliminación de la cuenta de un colaborador no hace que esos archivos le pertenezcan ni los retira de la unidad compartida.",
+"expEn": "The organization owns files in its shared drive. A contributor’s departure or account deletion does not make those files belong to that individual or remove them from the shared drive.",
+"ref": "https://support.google.com/a/users/answer/7212025"
+},
+{
+"id": "GWA-L1-031",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "El uso compartido externo de Drive está efectivamente desactivado para un propietario de Mi unidad. ¿Qué ocurre con los colaboradores externos que ya tenían acceso a sus archivos compartidos?",
+"o": [
+"Solo se bloquean invitaciones nuevas; el acceso existente continúa",
+"Los colaboradores externos pierden acceso a los archivos compartidos previamente",
+"Los editores externos pasan automáticamente a tener acceso de lector",
+"El propietario debe revocar antes manualmente cada acceso existente"
+]
+},
+"en": {
+"q": "External Drive sharing is effectively off for a My Drive owner. What happens to external collaborators who already had access to that owner’s shared files?",
+"o": [
+"Only new invitations are blocked; existing access continues",
+"External collaborators lose access to previously shared files",
+"External editors are automatically reduced to Viewer access",
+"The owner must manually revoke each existing share first"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Desactivar el uso compartido externo también retira el acceso de usuarios externos a elementos compartidos previamente. Este efecto va más allá de bloquear solo invitaciones nuevas o cambiar de editor a lector.",
+"expEn": "Turning external sharing off also removes external users’ access to previously shared items. This policy effect is broader than blocking only new invitations or changing Editor to Viewer.",
+"ref": "https://knowledge.workspace.google.com/admin/drive/manage-external-sharing-for-your-organization"
+},
+{
+"id": "GWA-L1-032",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Una organización con Enterprise Standard utiliza audiencias objetivo. ¿Qué uso propuesto no está disponible para una audiencia objetivo?",
+"o": [
+"Usarla como lista de distribución de correo",
+"Ofrecerla para compartir mediante enlaces de Drive",
+"Elegirla como opción principal de uso compartido de Drive",
+"Usarla como audiencia de uso compartido de espacios de Chat"
+]
+},
+"en": {
+"q": "An Enterprise Standard organization uses target audiences. Which proposed use is unavailable for a target audience?",
+"o": [
+"Using it as an email distribution list",
+"Offering it for Drive link sharing",
+"Choosing it as the primary Drive sharing option",
+"Using it as a Chat space sharing audience"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Las audiencias objetivo son opciones de uso compartido de servicios de Google compatibles. No pueden usarse como listas de correo, foros ni para configurar el acceso a servicios.",
+"expEn": "Target audiences serve as sharing options for supported Google services. They cannot be used as mailing lists, forums, or to configure access to services.",
+"ref": "https://knowledge.workspace.google.com/admin/groups/about-target-audiences"
+},
+{
+"id": "GWA-L1-033",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Un usuario ve un archivo .gdoc en Drive para ordenadores. ¿Qué representa ese archivo local?",
+"o": [
+"Un acceso directo que abre el documento en la nube mediante un navegador",
+"Una copia completa sin conexión editable en un procesador de textos de escritorio",
+"Una exportación PDF guardada junto al documento original en la nube",
+"Un archivo de historial que contiene versiones anteriores del documento"
+]
+},
+"en": {
+"q": "A user sees a .gdoc file in Drive for desktop. What does this local file represent?",
+"o": [
+"A shortcut that opens the cloud document in a browser",
+"A complete offline copy editable in a desktop word processor",
+"A PDF export stored beside the original cloud document",
+"A revision-history archive containing the document’s earlier versions"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Los archivos de referencia de documentos de Google, como .gdoc, son pequeños accesos directos a documentos en la nube. Se abren en un navegador y no son copias completas para sincronización de terceros.",
+"expEn": "Google document pointer files such as .gdoc are small shortcuts to cloud documents. They open in a browser and are not complete document copies for third-party synchronization.",
+"ref": "https://knowledge.workspace.google.com/admin/drive/set-up-drive-for-desktop-for-your-organization"
+},
+{
+"id": "GWA-L1-034",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Un administrador de etiquetas marca como obligatorio un campo de una etiqueta de clasificación mediante Exigir que los usuarios elijan una opción. ¿Qué hace este ajuste?",
+"o": [
+"Impide editar el archivo hasta que se complete el campo",
+"Resalta el campo para fomentar que se complete",
+"Asigna automáticamente la primera opción del campo",
+"Bloquea el uso compartido hasta que un gestor de etiquetas complete el campo"
+]
+},
+"en": {
+"q": "A labels administrator marks a classification-label field as required using Require users to pick an option. What does this setting do?",
+"o": [
+"Prevents editing the file until the field is completed",
+"Highlights the field to encourage completion",
+"Assigns the first listed field option automatically",
+"Blocks file sharing until a label manager fills the field"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Los campos obligatorios muestran un resaltado para fomentar que se completen, pero Google documenta que la obligación no se impone. No asigna un valor automáticamente ni bloquea la edición o el uso compartido.",
+"expEn": "Required label fields show a completion highlight, but Google documents that the requirement is not enforced. It is not an automatic value assignment or an editing or sharing block.",
+"ref": "https://knowledge.workspace.google.com/admin/security/create-classification-labels-for-your-organization"
+},
+{
+"id": "GWA-L1-036",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "La política de uso compartido de Calendar permite la solicitud. Un compañero debe ver cuándo está ocupado un usuario, pero no los nombres ni los detalles de sus eventos. ¿Qué permiso corresponde?",
+"o": [
+"Hacer cambios y gestionar el uso compartido",
+"Ver detalles de los eventos",
+"Ver solo libre/ocupado (ocultar detalles)",
+"Hacer cambios y ver detalles de los eventos"
+]
+},
+"en": {
+"q": "Calendar sharing policy permits the request. A colleague should see when a user is busy but not the names or details of their events. Which permission fits?",
+"o": [
+"Make changes and manage sharing",
+"See event details",
+"See only free/busy (hide details)",
+"Make changes and see event details"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Compartir la información de libre/ocupado muestra la disponibilidad y oculta los nombres y los detalles de los eventos. Los demás permisos muestran detalles o permiten cambios en el calendario.",
+"expEn": "Free/busy sharing reveals availability while hiding event names and details. The other listed permissions expose details or permit calendar changes.",
+"ref": "https://support.google.com/calendar/answer/37082"
+},
+{
+"id": "GWA-L1-038",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Los administradores deben impedir que los usuarios de un departamento accedan a Google Meet. Ningún grupo de acceso les concede Meet. ¿Qué control regula directamente ese acceso?",
+"o": [
+"El permiso de grabación de Meet del departamento",
+"El permiso de compartir pantalla en Meet del departamento",
+"El ajuste de participantes externos del departamento",
+"El estado del servicio Meet en la unidad organizativa del departamento"
+]
+},
+"en": {
+"q": "Administrators need to stop a department’s users from accessing Google Meet. No access group grants Meet to these users. Which control directly governs that access?",
+"o": [
+"The Meet recording permission for the department",
+"The Meet screen-sharing permission for the department",
+"The external-participant setting for the department",
+"The Meet service status for the department’s OU"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "El estado del servicio de una unidad organizativa lo activa o desactiva para sus usuarios. Los permisos de funciones de Meet regulan actividades dentro del servicio, en lugar del acceso al servicio.",
+"expEn": "An OU’s service status turns the service on or off for its users. Meet feature permissions control activities within the service rather than whether users can access it.",
+"ref": "https://knowledge.workspace.google.com/admin/users/advanced/turn-a-service-on-or-off-for-google-workspace-users"
+},
+{
+"id": "GWA-L1-041",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "La política de Chat externo permite colaborar. ¿Cuándo debe decidir el creador que un espacio de Chat admitirá usuarios externos?",
+"o": [
+"Al crear el espacio",
+"Al enviar su primera invitación externa",
+"Al publicar el espacio en Explorar espacios",
+"Al añadir otro administrador del espacio"
+]
+},
+"en": {
+"q": "External Chat policy allows collaboration. When must a creator decide that a Chat space will allow external users?",
+"o": [
+"When creating the space",
+"When sending its first external invitation",
+"When publishing the space in Browse spaces",
+"When adding an additional space manager"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "El carácter externo del espacio se decide al crearlo y no puede cambiarse después. Las invitaciones, la visibilidad y los cambios de administradores no convierten un espacio interno en externo.",
+"expEn": "Whether a space is external is decided at creation and cannot be changed later. Invitation, discoverability, and manager changes do not convert an internal space into an external one.",
+"ref": "https://knowledge.workspace.google.com/admin/chat/chatting-with-external-users"
+},
+{
+"id": "GWA-L1-042",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "AppSheet está desactivado para la cuenta de Workspace de un usuario. ¿Qué acceso a AppSheet sigue disponible?",
+"o": [
+"Editar aplicaciones propiedad de esa cuenta de Workspace",
+"Usar aplicaciones públicas que no requieren iniciar sesión",
+"Abrir aplicaciones de la organización que requieren iniciar sesión con Workspace",
+"Iniciar sesión en el editor de AppSheet con la cuenta desactivada"
+]
+},
+"en": {
+"q": "AppSheet is turned off for a user’s Workspace account. Which AppSheet access remains available to that user?",
+"o": [
+"Editing apps owned by that Workspace account",
+"Using public apps that do not require sign-in",
+"Opening organization apps that require Workspace sign-in",
+"Signing into the AppSheet editor with the disabled account"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "Los usuarios con AppSheet desactivado no pueden iniciar sesión ni acceder a aplicaciones que lo requieran. Sí pueden acceder a aplicaciones públicas sin autenticación; las aplicaciones propiedad de las cuentas desactivadas quedan bloqueadas.",
+"expEn": "Users with AppSheet off cannot sign in or access apps requiring sign-in. They can still access public apps that do not require authentication; apps owned by the disabled accounts are blocked.",
+"ref": "https://knowledge.workspace.google.com/admin/users/access/turn-appsheet-on-or-off-for-users"
+},
+{
+"id": "GWA-L1-043",
+"level": 1,
+"domain": "Core Workspace services",
+"region": 2,
+"multi": false,
+"es": {
+"q": "Alice crea un activador instalable de apertura de Apps Script para una hoja de cálculo. Bob tiene acceso de edición y la abre. ¿Con qué cuenta se ejecuta el activador?",
+"o": [
+"Con la cuenta del propietario actual de la hoja",
+"Con la cuenta de Bob, porque abrió la hoja",
+"Con la cuenta de Alice, porque creó el activador",
+"Con la cuenta del administrador que activó Apps Script"
+]
+},
+"en": {
+"q": "Alice creates an installable Apps Script open trigger for a spreadsheet. Bob has edit access and opens it. Under whose account does the trigger run?",
+"o": [
+"The current spreadsheet owner’s account",
+"Bob’s account, because he opened the spreadsheet",
+"Alice’s account, because she created the trigger",
+"The administrator who enabled the Apps Script service"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Los activadores instalables se ejecutan con la cuenta y la autorización de su creador, aunque otro editor los active al abrir el archivo.",
+"expEn": "Installable triggers run with the account and authorization of their creator, even when another editor activates them by opening the file.",
+"ref": "https://developers.google.com/apps-script/guides/triggers/installable"
+},
+{
+"id": "GWA-L1-044",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Un investigador de Vault necesita un espacio de trabajo para organizar las retenciones legales, las búsquedas guardadas y las exportaciones de una investigación. ¿Qué elemento de Vault lo proporciona?",
+"o": [
+"Una regla de conservación predeterminada",
+"Una etiqueta de clasificación",
+"Una unidad organizativa",
+"Un asunto"
+]
+},
+"en": {
+"q": "A Vault investigator needs one workspace to organize an investigation’s holds, saved searches, and exports. Which Vault construct provides it?",
+"o": [
+"A default retention rule",
+"A classification label",
+"An organizational unit",
+"A matter"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Un asunto de Vault contiene las retenciones legales, las búsquedas y las exportaciones de un proyecto de descubrimiento electrónico. Las políticas de conservación, las etiquetas y las unidades organizativas tienen otras funciones de gobierno y delimitación.",
+"expEn": "A Vault matter is the container for the holds, searches, and exports of an eDiscovery project. Retention policies, labels, and OUs serve other governance and scoping functions.",
+"ref": "https://knowledge.workspace.google.com/vault/matters/create-and-manage-matters"
+},
+{
+"id": "GWA-L1-045",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Los registros de un usuario compatible deben conservarse para una investigación hasta su liberación autorizada, incluso después de vencer la conservación ordinaria. ¿Qué control de Vault proporciona esa conservación?",
+"o": [
+"Una retención legal que abarque los datos requeridos",
+"Una búsqueda guardada que coincida con los datos requeridos",
+"Una exportación de los registros que coincidan actualmente",
+"Una regla de conservación predeterminada para el periodo ordinario"
+]
+},
+"en": {
+"q": "A supported user’s records must remain preserved for an investigation until its authorized release, even after ordinary retention expires. Which Vault control provides that preservation?",
+"o": [
+"A hold covering the required data",
+"A saved search matching the required data",
+"An export of the current matching records",
+"A default retention rule for the ordinary period"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Las retenciones legales conservan los datos incluidos indefinidamente hasta retirarlas y prevalecen sobre las reglas de conservación. Guardar una consulta o crear una exportación no establece una retención legal continua sobre los datos originales.",
+"expEn": "Holds preserve covered data indefinitely until removed and take precedence over retention rules. Saving a query or creating an export does not establish a continuing hold on the source data.",
+"ref": "https://knowledge.workspace.google.com/vault/retention/how-retention-works"
+},
+{
+"id": "GWA-L1-046",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Una organización necesita un periodo de conservación básico de Vault para todos los datos de un servicio compatible, con excepciones gestionadas mediante reglas personalizadas y retenciones legales. ¿Qué tipo de regla proporciona esa base?",
+"o": [
+"Una regla personalizada limitada a una unidad organizativa",
+"Una retención legal de las cuentas de la investigación",
+"Una regla de conservación predeterminada para ese servicio",
+"Una regla personalizada limitada a términos de búsqueda coincidentes"
+]
+},
+"en": {
+"q": "An organization needs a baseline Vault retention period for all data in one supported service, with exceptions managed by custom rules and holds. Which rule type supplies the baseline?",
+"o": [
+"A custom rule limited to one OU",
+"A hold on the investigation’s accounts",
+"A default retention rule for that service",
+"A custom rule limited to matching search terms"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Una regla de conservación predeterminada establece la base para todos los datos de un servicio y se aplica cuando no corresponde una regla personalizada ni una retención legal. Cada servicio puede tener una regla predeterminada.",
+"expEn": "A default retention rule sets the baseline for all data in a service and applies when no custom rule or hold applies. A service can have one default retention rule.",
+"ref": "https://knowledge.workspace.google.com/vault/retention/how-retention-works"
+},
+{
+"id": "GWA-L1-047",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": true,
+"es": {
+"q": "Un investigador autorizado retira todas las retenciones legales y cierra un asunto de Vault. ¿Qué dos elementos conserva el asunto cerrado? (Elija dos.)",
+"o": [
+"Consultas de búsqueda guardadas",
+"Archivos de exportación descargables",
+"Los datos de auditoría del asunto",
+"Retenciones legales activas"
+]
+},
+"en": {
+"q": "An authorized investigator removes all holds and closes a Vault matter. Which two items does the closed matter retain? (Choose two.)",
+"o": [
+"Saved search queries",
+"Downloadable export files",
+"The matter’s audit data",
+"Active legal holds"
+]
+},
+"answer": [
+"A",
+"C"
+],
+"expEs": "Un asunto cerrado conserva las consultas guardadas y sus datos de auditoría. El cierre elimina inmediatamente los archivos de exportación y requiere retirar antes todas las retenciones legales.",
+"expEn": "A closed matter keeps saved search queries and its audit data. Closing deletes export files immediately and requires all holds to have been deleted first.",
+"ref": "https://knowledge.workspace.google.com/vault/matters/create-and-manage-matters"
+},
+{
+"id": "GWA-L1-048",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Los enlaces de descarga de una exportación de Vault caducan tras 15 días. ¿Qué evento inicia ese periodo?",
+"o": [
+"La exportación queda lista para descargar",
+"Se inicia la exportación",
+"El primer investigador descarga un archivo de exportación",
+"Se cierra el asunto que contiene la exportación"
+]
+},
+"en": {
+"q": "Vault export download links expire after 15 days. Which event starts that period?",
+"o": [
+"The export becomes ready for download",
+"The export begins",
+"The first investigator downloads an export file",
+"The matter containing the export is closed"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "El periodo de 15 días comienza al iniciarse la exportación, no al finalizar ni al descargarse por primera vez. Los archivos pueden descargarse repetidamente mientras los enlaces sigan vigentes.",
+"expEn": "The 15-day period begins when the export starts, not when it finishes or is first downloaded. The files can be downloaded repeatedly while the links remain valid.",
+"ref": "https://knowledge.workspace.google.com/vault/exports/download-an-export-from-vault"
+},
+{
+"id": "GWA-L1-049",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Una prueba piloto de DLP de Drive debe registrar los eventos coincidentes y permitir que los usuarios continúen sin advertencias ni bloqueos de uso compartido. ¿Qué acción corresponde?",
+"o": [
+"Advertir al compartir externamente",
+"Bloquear el uso compartido externo",
+"Inhabilitar la descarga, la impresión y la copia",
+"Solo auditar"
+]
+},
+"en": {
+"q": "A Drive DLP pilot must log matching events while users continue without a warning or a sharing block. Which action fits this pilot?",
+"o": [
+"Warn on external sharing",
+"Block external sharing",
+"Disable download, print, and copy",
+"Audit only"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "Solo auditar permite continuar la actividad sin interrupciones y registra el evento. Las demás acciones introducen una advertencia o restringen el uso compartido o las operaciones con el contenido.",
+"expEn": "Audit only allows the activity to continue without interruption and logs the event. The other actions introduce a warning or restrict sharing or content operations.",
+"ref": "https://knowledge.workspace.google.com/admin/security/about-dlp-for-drive"
+},
+{
+"id": "GWA-L1-050",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Una regla de DLP compatible debe reconocer los identificadores numéricos que los clientes introducen para pagar en línea con una tarjeta. ¿Qué detector predefinido se dirige a ese tipo de datos?",
+"o": [
+"Número de cuenta bancaria (SWIFT)",
+"Número de cuenta bancaria (IBAN)",
+"Número de tarjeta de crédito",
+"Número de pista de tarjeta de crédito"
+]
+},
+"en": {
+"q": "A supported DLP rule should recognize the numeric identifiers customers enter to pay online with a card. Which predefined detector targets that data type?",
+"o": [
+"Bank account number (SWIFT)",
+"Bank account number (IBAN)",
+"Credit card number",
+"Credit card track number"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "El detector de números de tarjeta de crédito se dirige a números de tarjetas de pago. El detector de pista se dirige a información de pista del titular; IBAN y SWIFT identifican cuentas bancarias o bancos, no números de tarjeta.",
+"expEn": "The credit-card-number detector targets payment card numbers. The track-number detector targets cardholder track information; IBAN and SWIFT identify bank accounts or banks rather than card numbers.",
+"ref": "https://knowledge.workspace.google.com/admin/security/how-to-use-predefined-content-detectors"
+},
+{
+"id": "GWA-L1-051",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Los identificadores de empleados siguen un formato de tres letras seguidas de seis dígitos. Una condición de DLP de Drive debe detectar distintos identificadores con ese formato sin enumerarlos individualmente. ¿Qué método de coincidencia corresponde?",
+"o": [
+"Coincide con una expresión regular",
+"Contiene una cadena de texto",
+"Coincide con palabras de una lista",
+"Coincide con el tipo de datos predefinido de dirección de correo"
+]
+},
+"en": {
+"q": "Employee identifiers follow a pattern of three letters followed by six digits. A Drive DLP condition must detect different identifiers matching that format without listing each identifier. Which matching method fits?",
+"o": [
+"Matches regular expression",
+"Contains text string",
+"Matches words from word list",
+"Matches predefined email address data type"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "Las expresiones regulares describen patrones variables de texto. Una cadena literal o una lista enumerada no describe este formato de identificador y el detector de direcciones de correo se dirige a otro tipo de datos.",
+"expEn": "Regular expressions describe variable text patterns. A literal string or enumerated word list does not describe this identifier format, and the email-address detector targets a different data type.",
+"ref": "https://knowledge.workspace.google.com/admin/security/about-dlp-for-drive"
+},
+{
+"id": "GWA-L1-052",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Una regla de confianza usa el activador Recibir archivos. ¿Qué identifica su ámbito?",
+"o": [
+"Los propietarios de los archivos que se comparten",
+"Los destinatarios previstos de los archivos",
+"Los administradores que crearon la regla",
+"Los editores que modificaron los archivos por última vez"
+]
+},
+"en": {
+"q": "A trust rule uses the Receiving files trigger. What does its scope identify?",
+"o": [
+"The owners of the files being shared",
+"The intended recipients of the files",
+"The administrators who created the rule",
+"The editors who last modified the files"
+]
+},
+"answer": [
+"B"
+],
+"expEs": "En una regla de recepción, el ámbito identifica a los destinatarios previstos. Las condiciones identifican a los propietarios de los que se reciben los archivos. Una regla de uso compartido usa en cambio el ámbito de los propietarios.",
+"expEn": "For a receiving rule, scope identifies the intended recipients. Conditions identify the owners from whom files are received. A sharing rule uses the owner-side scope instead.",
+"ref": "https://knowledge.workspace.google.com/admin/security/create-and-manage-trust-rules-for-drive-sharing"
+},
+{
+"id": "GWA-L1-053",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Un usuario sin funciones administrativas tiene permiso para descargar sus propios datos compatibles de Gmail y Calendar como archivo personal. ¿Qué herramienta de Google proporciona esta exportación de autoservicio?",
+"o": [
+"La herramienta Exportación de datos de la consola de administración",
+"Una exportación de un asunto de Google Vault",
+"Google Takeout",
+"Google Drive para ordenadores"
+]
+},
+"en": {
+"q": "A non-administrator user has permission to download their own supported Gmail and Calendar data as a personal archive. Which Google tool provides this self-service export?",
+"o": [
+"The Admin console Data Export tool",
+"A Google Vault matter export",
+"Google Takeout",
+"Google Drive for desktop"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Google Takeout permite a los usuarios exportar y descargar datos de productos de Google compatibles. La exportación organizativa y las exportaciones de Vault requieren capacidades administrativas; Drive para ordenadores no exporta archivos de Gmail y Calendar.",
+"expEn": "Google Takeout lets users export and download data from supported Google products. Organizational Data Export and Vault exports require administrative capabilities, and Drive for desktop does not export Gmail and Calendar archives.",
+"ref": "https://support.google.com/accounts/answer/3024190"
+},
+{
+"id": "GWA-L1-054",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Una cuenta apta de superadministrador cumple el requisito de antigüedad de la herramienta de exportación organizativa. ¿Qué requisito de seguridad de la cuenta debe cumplir también?",
+"o": [
+"Debe configurarse una dirección de correo de recuperación",
+"Debe activarse la Protección Avanzada",
+"Debe configurarse una política de caducidad de contraseñas",
+"Debe activarse la verificación en dos pasos"
+]
+},
+"en": {
+"q": "An eligible super administrator account meets the age requirement for the organizational Data Export tool. Which account-security requirement must also be met?",
+"o": [
+"A recovery email address must be configured",
+"Advanced Protection must be enabled",
+"A password-expiration policy must be configured",
+"2-Step Verification must be turned on"
+]
+},
+"answer": [
+"D"
+],
+"expEs": "El administrador que inicia la exportación organizativa debe tener activada la verificación en dos pasos. El requisito documentado corresponde a esa cuenta iniciadora.",
+"expEn": "The administrator who starts the organizational export must have 2-Step Verification turned on. The documented prerequisite applies to that initiating account.",
+"ref": "https://knowledge.workspace.google.com/admin/migrate/export-all-your-organizations-data"
+},
+{
+"id": "GWA-L1-055",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Un administrador selecciona Europa como región para los datos en reposo de usuarios compatibles. ¿Qué zona geográfica representa esa opción?",
+"o": [
+"La Unión Europea",
+"El Espacio Económico Europeo",
+"El país de la dirección de facturación de la organización",
+"El país del último inicio de sesión del usuario"
+]
+},
+"en": {
+"q": "An administrator selects Europe as a data-at-rest region for supported users. Which geographic area does that option represent?",
+"o": [
+"The European Union",
+"The European Economic Area",
+"The country of the organization’s billing address",
+"The country of the user’s latest sign-in"
+]
+},
+"answer": [
+"A"
+],
+"expEs": "La consola de administración denomina Europa a la región de la Unión Europea. La política de región de datos no viene determinada por la dirección de facturación ni por la ubicación actual de inicio de sesión.",
+"expEn": "The Admin console labels the European Union region as Europe. The data-region policy is not determined by the billing address or the user’s current sign-in location.",
+"ref": "https://knowledge.workspace.google.com/admin/compliance/choose-a-geographic-location-for-your-data"
+},
+{
+"id": "GWA-L1-058",
+"level": 1,
+"domain": "Data governance and compliance",
+"region": 3,
+"multi": false,
+"es": {
+"q": "Una regla de DLP de Drive necesita inspeccionar texto dentro de imágenes escaneadas incrustadas en archivos PDF. ¿Qué función permite esa inspección?",
+"o": [
+"La coincidencia de nombres de archivo",
+"La coincidencia del estado de cifrado del archivo",
+"El reconocimiento óptico de caracteres (OCR)",
+"La coincidencia de etiquetas de clasificación"
+]
+},
+"en": {
+"q": "A Drive DLP rule needs to inspect text inside scanned images embedded in PDF files. Which feature enables that inspection?",
+"o": [
+"File-name matching",
+"File encryption status matching",
+"Optical character recognition (OCR)",
+"Classification-label matching"
+]
+},
+"answer": [
+"C"
+],
+"expEs": "Cuando OCR está activado, DLP de Drive también puede analizar imágenes en archivos PDF. OCR funciona con el mejor esfuerzo posible y puede omitir imágenes; las condiciones de nombre, cifrado y etiqueta no extraen texto de imágenes.",
+"expEn": "When OCR is turned on, Drive DLP can also scan images in PDF files. OCR is best effort and may miss images; name, encryption, and label conditions do not extract image text.",
+"ref": "https://knowledge.workspace.google.com/admin/security/about-dlp-for-drive"
+}
+]

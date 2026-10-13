@@ -10,7 +10,7 @@ import { certifications, usePreferences, useText } from '@/lib/dumpi';
 import { Catalog } from './catalog';
 import { practiceRegions } from './practice';
 import { useCourses } from '@/lib/courses';
-import { useProgress, leagueFor, playerLevel, courseOf } from '@/lib/progress';
+import { useProgress, leagueFor, playerLevel, courseOf, isRegionDone } from '@/lib/progress';
 import { Settings2 } from 'lucide-react';
 import dumpi from '@/assets/dumpi.png';
 import landscape from '@/assets/silicon-hero.jpg';

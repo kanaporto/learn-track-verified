@@ -5,6 +5,15 @@ import { Button } from '@/components/ui/button';
 import { useText, usePreferences } from '@/lib/dumpi';
 import bank from '@/data/workspace-questions.json';
 import { TrailBoard } from './trail-board';
+import { RegisterCard } from './register';
+import { useExplorer } from '@/lib/explorer';
+import r1 from '@/assets/region-1.jpg';
+import r2 from '@/assets/region-2.jpg';
+import r3 from '@/assets/region-3.jpg';
+import r4 from '@/assets/region-4.jpg';
+import r5 from '@/assets/region-5.jpg';
+import r6 from '@/assets/region-6.jpg';
+const regionArt = [r1, r2, r3, r4, r5, r6];
 
 type Q = { id: string; level: number; domain: string; region: number; multi: boolean; es: { q: string; o: string[] }; en: { q: string; o: string[] }; answer: string[]; expEs: string; expEn: string; ref: string };
 const questions = bank as Q[];
@@ -26,6 +35,9 @@ export function PracticeGame({ initialRegion }: { initialRegion?: number | undef
   const t = useText();
   const { language } = usePreferences();
   const [region, setRegion] = useState<number | null>(initialRegion ?? null);
+  const explorer = useExplorer();
+  if (explorer === undefined) return <div className="page-content" />;
+  if (!explorer) return <div className="page-content"><RegisterCard /></div>;
   if (region === null) {
     return <div className="page-content">
       <Button asChild variant="ghost" className="back-link"><Link to="/certifications/$id" params={{ id: 'workspace' }}><ArrowLeft />Google Workspace</Link></Button>
@@ -33,10 +45,11 @@ export function PracticeGame({ initialRegion }: { initialRegion?: number | undef
       <p className="text-muted-foreground mb-5">{t('Banco de prueba: 110 preguntas de Google Workspace Administrator.', 'Test bank: 110 Google Workspace Administrator questions.')}</p>
       <div className="grid gap-3 sm:grid-cols-2">
         {regions.map(r => { const count = questions.filter(q => q.region === r.n).length; return (
-          <button key={r.n} onClick={() => setRegion(r.n)} className="text-left rounded-2xl border-2 bg-card p-4 min-h-20 active:translate-y-0.5 transition" style={{ borderColor: r.color }}>
-            <span className="text-xs font-bold uppercase" style={{ color: r.color }}>{t('Región', 'Region')} {r.n}</span>
-            <div className="font-bold text-lg">{language === 'es' ? r.es : r.en}</div>
-            <div className="text-sm text-muted-foreground">{count} {t('preguntas', 'questions')}</div>
+          <button key={r.n} onClick={() => setRegion(r.n)} className="region-pick" style={{ ['--rc' as string]: r.color }}>
+            <img src={regionArt[r.n - 1]} alt="" className="region-pick-bg" loading="lazy" />
+            <span className="medieval-banner">{t('Región', 'Region')} {r.n}</span>
+            <div className="medieval-title region-pick-name">{language === 'es' ? r.es : r.en}</div>
+            <div className="region-pick-count">{count} {t('preguntas', 'questions')}</div>
           </button>); })}
       </div>
     </div>;
@@ -80,8 +93,8 @@ function RegionRun({ region, onExit }: { region: number; onExit: () => void }) {
       <Button variant="ghost" onClick={onExit}><ArrowLeft />{t('Regiones', 'Regions')}</Button>
       <span className="flex items-center gap-1 font-bold"><Heart className="text-destructive" size={18} fill="currentColor" />{lives}/{MAX_LIVES}</span>
     </div>
-    <div className="text-xs font-bold uppercase" style={{ color: meta.color }}>{t('Región', 'Region')} {region} · {language === 'es' ? meta.es : meta.en}</div>
-    <TrailBoard total={GOAL} done={correct} color={meta.color} label={`${t('Casilla', 'Tile')} ${Math.min(correct + 1, GOAL)} / ${GOAL}`} />
+    <div className="region-banner"><span className="medieval-banner" style={{ ['--rc' as string]: meta.color }}>{t('Región', 'Region')} {region}</span><h1 className="medieval-title">{language === 'es' ? meta.es : meta.en}</h1></div>
+    <TrailBoard art={regionArt[region - 1]!} total={GOAL} done={correct} color={meta.color} label={`${t('Casilla', 'Tile')} ${Math.min(correct + 1, GOAL)} / ${GOAL}`} />
     <p className="text-sm text-muted-foreground">{t('Casilla', 'Tile')} {Math.min(correct + 1, GOAL)} · {t('Nivel', 'Level')} {q.level}{q.multi ? ` · ${t('Selecciona 2', 'Select 2')}` : ''}</p>
     {glitch && result === null && <div className="glitch-band my-3 rounded-xl p-3 text-sm">{t('⚠ Glitch acecha: 3 fallos en las últimas 5. ¡Concéntrate!', '⚠ Glitch is lurking: 3 misses in the last 5. Focus!')}</div>}
     <h2 className="text-lg font-semibold my-4 leading-snug">{text.q}</h2>
@@ -100,7 +113,7 @@ function RegionRun({ region, onExit }: { region: number; onExit: () => void }) {
       {q.ref && <a href={q.ref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 mt-2 text-primary underline">{t('Documentación oficial', 'Official documentation')}<ExternalLink size={14} /></a>}
     </div>}
     {result === true && <p className="mt-5 font-bold text-green-400">{t('¡Correcto! DUMPI avanza una casilla.', 'Correct! DUMPI moves forward one tile.')}</p>}
-    <div className="fixed bottom-16 md:bottom-4 inset-x-0 px-4 z-30">
+    <div className="check-bar">
       <div className="max-w-2xl mx-auto">
         {result === null
           ? <Button className="w-full h-14 text-base" disabled={picked.length !== needed} onClick={check}>{t('Comprobar', 'Check')}</Button>

@@ -5,12 +5,23 @@ import { usePreferences, useText } from '@/lib/dumpi';
 import dumpi from '@/assets/dumpi.png';
 import type { ReactNode } from 'react';
 import { useExplorer } from '@/lib/explorer';
+import { useEffect } from 'react';
+import { startMenuMusic, stopMenuMusic } from '@/lib/sound';
 
 export function AppShell({ children }: { children: ReactNode }) {
   const t = useText();
   const { language, setLanguage, sound, setSound } = usePreferences();
   const explorer = useExplorer();
   const path = useRouterState({ select: s => s.location.pathname });
+  const inGame = /^\/(practice|mock-exam|exam|review)/.test(path);
+  useEffect(() => {
+    if (!sound || inGame) { stopMenuMusic(); return; }
+    startMenuMusic();
+    // Browsers block audio until the first tap; retry on interaction.
+    const kick = () => startMenuMusic();
+    window.addEventListener('pointerdown', kick, { once: true });
+    return () => { window.removeEventListener('pointerdown', kick); stopMenuMusic(); };
+  }, [sound, inGame]);
   const nav = [{ to: '/', icon: Compass, label: t('Mi aventura', 'My adventure') }, { to: '/certifications', icon: BookOpen, label: t('Certificaciones', 'Certifications') }, { to: '/leaderboards', icon: Trophy, label: t('Clasificaciones', 'Leaderboards') }, { to: '/statistics', icon: ChartNoAxesCombined, label: t('Mis estadísticas', 'My statistics') }, { to: '/profile', icon: UserRound, label: t('Mi perfil', 'My profile') }] as const;
   return <div className="app-layout">
     <aside className="sidebar">

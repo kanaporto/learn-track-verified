@@ -1,8 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { PendingPage } from '@/components/dumpi/pages';
+import { MockExamPage } from '@/components/dumpi/mock-exam';
 import { pageHead } from '@/lib/dumpi';
 
 export const Route = createFileRoute('/mock-exam')({
-  head: () => pageHead('Simulacro', 'Inicio de simulacro en Dumpi Learn, pendiente de formato y criterio de evaluación verificados.'),
-  component: function MockExamRoute() { return <PendingPage kind="mock-exam" />; },
+  validateSearch: (s: Record<string, unknown>): { course?: string } => (typeof s['course'] === 'string' ? { course: s['course'] } : {}),
+  head: () => pageHead('Simulacro', 'Simulacro cronometrado de tu certificación en Dumpi Learn: 50 preguntas por dominios, nota final y puntos.'),
+  component: function MockExamRoute() {
+    const { course } = Route.useSearch();
+    return <MockExamPage courseId={course} />;
+  },
 });

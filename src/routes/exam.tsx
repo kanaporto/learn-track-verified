@@ -1,8 +1,7 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { PendingPage } from '@/components/dumpi/pages';
+import { createFileRoute, redirect } from '@tanstack/react-router';
 import { pageHead } from '@/lib/dumpi';
 
 export const Route = createFileRoute('/exam')({
-  head: () => pageHead('Examen de simulacro', 'Pantalla de examen de simulacro en Dumpi Learn, pendiente de contenido verificado.'),
-  component: function ExamRoute() { return <PendingPage kind="exam" />; },
+  head: () => pageHead('Examen de simulacro', 'Accede al simulacro de examen de tu certificación en Dumpi Learn.'),
+  beforeLoad: () => { throw redirect({ to: '/mock-exam' }); },
 });

@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { PreferencesProvider } from '@/lib/dumpi';
 import { AppShell } from '@/components/dumpi/shell';
 import { startCloudSync } from '@/lib/cloud';
+import { checkStudyReminder } from '@/lib/reminders';
 import { Toaster } from '@/components/ui/sonner';
 
 function NotFoundComponent() {
@@ -132,6 +133,7 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   useEffect(() => startCloudSync(), []);
+  useEffect(() => { checkStudyReminder(!navigator.language.startsWith('en')); }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

@@ -7,7 +7,7 @@ import { useCourses, type Course } from '@/lib/courses';
 import { drawMock, mockReward, sameAnswer, PASS_RATIO, SECONDS_PER_QUESTION, MOCK_SIZE } from '@/lib/mock-exam';
 import { updateProgress } from '@/lib/progress';
 import { useExplorer } from '@/lib/explorer';
-import { RegisterCard } from './register';
+import { SignInGate as RegisterCard } from './register';
 import { brandLogos } from './logos';
 import { Options, Explanation } from './practice';
 import dumpiImg from '@/assets/dumpi.png';
@@ -45,7 +45,7 @@ function Exam({ course, onRetry }: { course: Course; onRetry: () => void }) {
     if (done) return;
     const correct = set.filter(q => sameAnswer(answers[q.id] ?? [], q.answer)).length;
     const reward = mockReward(correct, set.length);
-    updateProgress(p => ({ ...p, points: p.points + reward, mocks: [...(p.mocks ?? []), { course: course.id, correct, total: set.length, at: Date.now() }] }));
+    updateProgress(p => ({ ...p, points: p.points + reward, mocks: [...(p.mocks ?? []), { course: course.id, correct, total: set.length, at: Date.now(), ids: set.map(q => q.id), wrong: set.filter(q => !sameAnswer(answers[q.id] ?? [], q.answer)).map(q => q.id), seconds: set.length * SECONDS_PER_QUESTION - left }], mistakes: { ...p.mistakes, [course.id]: Array.from(new Set([...(p.mistakes?.[course.id] ?? []), ...set.filter(q => !sameAnswer(answers[q.id] ?? [], q.answer)).map(q => q.id)])) } }));
     setDone({ correct, reward });
   }
   useEffect(() => {
@@ -77,6 +77,7 @@ function Exam({ course, onRetry }: { course: Course; onRetry: () => void }) {
         <p className="text-muted-foreground">{done.correct}/{set.length} {t('correctas', 'correct')}{passed ? ` · +${done.reward} pts` : ` · ${t('necesitas', 'you need')} ${PASS_RATIO * 100} %`}</p>
         <div className="flex flex-wrap justify-center gap-3 mt-5">
           <Button onClick={onRetry}><RotateCcw />{t('Otro simulacro', 'Another mock exam')}</Button>
+          <Button asChild variant="outline"><Link to="/results">{t('Ver desglose', 'See breakdown')}</Link></Button>
           <Button asChild variant="outline"><Link to="/practice" search={{ course: course.id }}>{t('Practicar en la aventura', 'Practise in the adventure')}</Link></Button>
         </div>
       </div>

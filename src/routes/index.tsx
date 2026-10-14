@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { Heart, Trophy, Star, Swords, Map as MapIcon, Play, Zap, ChevronRight, Shield } from 'lucide-react';
+import { Heart, Trophy, Star, Swords, Map as MapIcon, Play, Zap, ChevronRight, Shield, Lock, Check } from 'lucide-react';
+import { useSession } from '@/lib/cloud';
 import { Catalog } from '@/components/dumpi/catalog';
 import { useText, pageHead } from '@/lib/dumpi';
 import { useProgress, playerLevel, courseOf, isRegionDone, doneCount } from '@/lib/progress';
@@ -14,7 +15,11 @@ const regions = workspaceCourse.regions.map(r => ({ ...r, n: String(r.n).padStar
 
 function Index() {
   const t = useText();
-  const p = useProgress();
+  const session = useSession();
+  const local = useProgress();
+  const guest = session === null;
+  // Signed-out visitors start from zero: never show leftovers from an earlier session.
+  const p = guest ? { lives: 10, points: 0, livesAt: 0, courses: {} } : local;
   const ws = p ? courseOf(p, 'workspace') : null;
   const doneTotal = doneCount(ws, regions.length);
   const firstOpen = regions.findIndex((_, i) => !isRegionDone(ws, i + 1)) + 1;
@@ -37,18 +42,27 @@ function Index() {
       <img className="arena-dumpi" src={dumpi} width={1024} height={1024} alt="DUMPI" />
       <span className="speech">{t('¡A por ello!', "Let's go!")}</span>
       <div className="arena-cta">
-        <Link to="/certifications" className="btn-chunky btn-gold"><Play size={22} fill="currentColor" />{t('JUGAR', 'PLAY')}</Link>
-        <Link to="/mock-exam" className="btn-chunky btn-blue"><Swords size={20} />{t('Simulacro', 'Mock exam')}</Link>
+        <Link to={guest ? '/practice' : '/certifications'} className="btn-chunky btn-gold"><Play size={22} fill="currentColor" />{t('JUGAR', 'PLAY')}</Link>
+        <Link to={guest ? '/auth' : '/mock-exam'} className="btn-chunky btn-blue">{guest ? <Lock size={20} /> : <Swords size={20} />}{t('Simulacro', 'Mock exam')}</Link>
       </div>
     </section>
+
+    {guest && <section className="progress-card">
+      <span className="kicker">{t('PRUEBA GRATIS · DESBLOQUEA MÁS', 'FREE TRIAL · UNLOCK MORE')}</span>
+      <h3>{t('Juega ya. Regístrate para llegar hasta Silicon Valley.', 'Play now. Sign up to reach Silicon Valley.')}</h3>
+      <ul className="grid gap-2 my-4 sm:grid-cols-2">
+        {[t('Simulacros de examen de 50 preguntas con nota', '50-question graded mock exams'), t('Las 5 certificaciones: Workspace, Cloud, Okta, ITIL y Apple', 'All 5 certifications: Workspace, Cloud, Okta, ITIL and Apple'), t('Tu progreso, vidas y puntos guardados en la nube', 'Your progress, lives and points saved in the cloud'), t('Compite en las ligas Bronce, Plata y Oro', 'Compete in Bronze, Silver and Gold leagues')].map(x => <li key={x} className="flex items-center gap-2"><Check size={16} className="text-primary shrink-0" />{x}</li>)}
+      </ul>
+      <Link to="/auth" className="btn-chunky btn-gold"><Lock size={18} />{t('Registrarme gratis', 'Sign up free')}</Link>
+    </section>}
 
     <section>
       <div className="zzz-heading"><span className="zzz-index">// 01</span><h2>{t('Progreso en el juego', 'Game progress')}</h2><span className="zzz-line" /><Link to="/practice" className="zzz-link">{t('Continuar', 'Continue')}<ChevronRight size={16} /></Link></div>
       <div className="progress-card">
         <div className="progress-card-head">
           <div><span className="kicker">{t('CAMINO A SILICON VALLEY', 'ROAD TO SILICON VALLEY')}</span>
-            <h3>{t('En progreso: ', 'In progress: ')}Google Workspace Admin</h3>
-            <p>{t('Regiones completadas', 'Regions completed')}: <b>{doneTotal}/{regions.length}</b></p></div>
+            <h3>{guest ? t('Empieza: ', 'Start: ') : t('En progreso: ', 'In progress: ')}Google Workspace Admin</h3>
+            <p>{t('Regiones completadas', 'Regions completed')}: <b>{doneTotal}/{regions.length}</b>{guest && <> · {t('regístrate para guardar tu avance', 'sign up to save your progress')}</>}</p></div>
           <span className="progress-pct">{Math.round(doneTotal / regions.length * 100)}%</span>
         </div>
         <span className="region-bar progress-main"><i style={{ width: `${doneTotal / regions.length * 100}%` }} /></span>

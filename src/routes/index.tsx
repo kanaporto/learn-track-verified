@@ -7,7 +7,7 @@ import landscape from '@/assets/silicon-hero.jpg';
 import dumpi from '@/assets/dumpi.png';
 import glitch from '@/assets/glitch.png';
 
-export const Route = createFileRoute('/')({ head: () => pageHead('Mi aventura', 'Tu aventura de aprendizaje IT con DUMPI, rumbo a Silicon Valley, el corazón del mundo tech.'), component: Index });
+export const Route = createFileRoute('/')({ staticData: { sitemap: true }, head: () => pageHead('Mi aventura', 'Tu aventura de aprendizaje IT con DUMPI, rumbo a Silicon Valley, el corazón del mundo tech.'), component: Index });
 
 import { workspaceCourse } from '@/lib/courses';
 const regions = workspaceCourse.regions.map(r => ({ ...r, n: String(r.n).padStart(2, '0') }));

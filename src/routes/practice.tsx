@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { PracticeGame } from '@/components/dumpi/practice';
 import { pageHead } from '@/lib/dumpi';
 
-export const Route = createFileRoute('/practice')({
+export const Route = createFileRoute('/practice')({ staticData: { sitemap: false },
   validateSearch: (s: Record<string, unknown>): { region?: number; course?: string } => {
     const n = Number(s['region']);
     const c = typeof s['course'] === 'string' ? s['course'] : undefined;

@@ -7,7 +7,8 @@ const KEY = 'dumpi-progress';
 const EVT = 'dumpi-progress';
 
 export type CourseProgress = { completed: number[]; tiles: Record<string, number>; lastRegion?: number };
-export type Progress = { lives: number; livesAt: number; points: number; courses: Record<string, CourseProgress> };
+export type MockAttempt = { course: string; correct: number; total: number; at: number };
+export type Progress = { lives: number; livesAt: number; points: number; courses: Record<string, CourseProgress>; mocks?: MockAttempt[] };
 
 /** Points for a correct answer: 10 × question level. */
 export const pointsFor = (questionLevel: number) => 10 * questionLevel;

@@ -114,7 +114,30 @@ export async function parseDumpFile(buf: ArrayBuffer): Promise<ParseResult> {
     const ws = wb.Sheets[name] ?? wb.Sheets[wb.SheetNames.find(n => n.trim().toLowerCase() === name.toLowerCase()) ?? ''];
     return ws ? (XLSX.utils.sheet_to_json(ws, { header: 1, raw: false }) as Row[]) : null;
   };
+  const single = get('Preguntas');
+  if (single) return parseQuestionSheet(single);
   const es = get('Test ES'), en = get('Test EN'), ans = get('Respuestas');
-  if (!es || !en || !ans) return { questions: [], certification: '', errors: ['El Excel debe tener las hojas «Test ES», «Test EN» y «Respuestas».'] };
+  if (!es || !en || !ans) return { questions: [], certification: '', errors: ['El Excel debe tener la hoja «Preguntas» o las hojas «Test ES», «Test EN» y «Respuestas».'] };
   return parseDumpRows(es, en, ans);
+}
+
+/** Newer single-sheet layout («Preguntas»): ID, level, domain, type, ES q + A–D, key, ES exp, EN q + A–D, key, EN exp, status, eligible, refs. */
+export function parseQuestionSheet(rows: Row[]): ParseResult {
+  const errors: string[] = [];
+  const raw: Omit<Question, 'region'>[] = [];
+  for (const r of table(rows)) {
+    const id = s(r[0]);
+    const answer = Array.from(new Set((s(r[9]).match(/(?:^|\|)\s*([A-D])\s*:/g) ?? []).map(m => m.replace(/[^A-D]/g, '')))).sort();
+    if (!answer.length) { errors.push(`${id}: sin respuesta correcta`); continue; }
+    raw.push({
+      id, level: Math.min(5, Math.max(1, Number(r[1]) || 1)), domain: s(r[2]).split(' | ')[0] ?? '', multi: answer.length > 1,
+      es: { q: s(r[4]), o: [s(r[5]), s(r[6]), s(r[7]), s(r[8])] },
+      en: { q: s(r[11]), o: [s(r[12]), s(r[13]), s(r[14]), s(r[15])] },
+      answer, expEs: s(r[10]), expEn: s(r[17]), ref: s(r[20]).split('\n')[0] ?? '',
+    });
+  }
+  const counts = new Map<string, number>();
+  raw.forEach(q => counts.set(q.domain, (counts.get(q.domain) ?? 0) + 1));
+  const order = [...counts.entries()].sort((x, y) => y[1] - x[1]).map(([d]) => d);
+  return { certification: '', errors, questions: raw.map(q => ({ ...q, region: order.indexOf(q.domain) + 1 })) };
 }

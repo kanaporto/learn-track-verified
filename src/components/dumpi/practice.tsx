@@ -127,7 +127,7 @@ function RegionRun({ course, region, onExit, onTrain }: { course: Course; region
     </div>
     <div className="region-banner"><span className="medieval-banner" style={{ ['--rc' as string]: meta.color }}>{t('Región', 'Region')} {region}</span><h1 className="medieval-title">{language === 'es' ? meta.es : meta.en}</h1></div>
     <TrailBoard art={art(region)} total={GOAL} done={correct} color={meta.color} label={`${t('Casilla', 'Tile')} ${Math.min(correct + 1, GOAL)} / ${GOAL}`} />
-    <p className="text-sm text-muted-foreground">{t('Nivel', 'Level')} {q.level} · +{pointsFor(q.level)} pts{q.multi ? ` · ${t('Selecciona 2', 'Select 2')}` : ''}</p>
+    <p className="text-sm text-muted-foreground">{t('Nivel', 'Level')} {q.level} · +{pointsFor(q.level)} pts{q.multi ? ` · ${t(`Selecciona ${q.answer.length}`, `Select ${q.answer.length}`)}` : ''}</p>
     <h2 className="text-lg font-semibold my-4 leading-snug">{text.q}</h2>
     <Options q={q} text={text} picked={picked} result={result} toggle={toggle} />
     {result === false && <Explanation q={q} />}

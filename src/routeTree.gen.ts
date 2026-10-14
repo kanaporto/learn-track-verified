@@ -18,6 +18,7 @@ import { Route as MockExamRouteImport } from './routes/mock-exam'
 import { Route as NoLivesRouteImport } from './routes/no-lives'
 import { Route as PracticeRouteImport } from './routes/practice'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as ResultsRouteImport } from './routes/results'
 import { Route as ReviewRouteImport } from './routes/review'
 import { Route as StatisticsRouteImport } from './routes/statistics'
@@ -69,6 +70,11 @@ const ProfileRoute = ProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResultsRoute = ResultsRouteImport.update({
   id: '/results',
   path: '/results',
@@ -105,6 +111,7 @@ export interface FileRoutesByFullPath {
   '/no-lives': typeof NoLivesRoute
   '/practice': typeof PracticeRoute
   '/profile': typeof ProfileRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/results': typeof ResultsRoute
   '/review': typeof ReviewRoute
   '/statistics': typeof StatisticsRoute
@@ -121,6 +128,7 @@ export interface FileRoutesByTo {
   '/no-lives': typeof NoLivesRoute
   '/practice': typeof PracticeRoute
   '/profile': typeof ProfileRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/results': typeof ResultsRoute
   '/review': typeof ReviewRoute
   '/statistics': typeof StatisticsRoute
@@ -138,6 +146,7 @@ export interface FileRoutesById {
   '/no-lives': typeof NoLivesRoute
   '/practice': typeof PracticeRoute
   '/profile': typeof ProfileRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/results': typeof ResultsRoute
   '/review': typeof ReviewRoute
   '/statistics': typeof StatisticsRoute
@@ -156,6 +165,7 @@ export interface FileRouteTypes {
     | '/no-lives'
     | '/practice'
     | '/profile'
+    | '/reset-password'
     | '/results'
     | '/review'
     | '/statistics'
@@ -172,6 +182,7 @@ export interface FileRouteTypes {
     | '/no-lives'
     | '/practice'
     | '/profile'
+    | '/reset-password'
     | '/results'
     | '/review'
     | '/statistics'
@@ -188,6 +199,7 @@ export interface FileRouteTypes {
     | '/no-lives'
     | '/practice'
     | '/profile'
+    | '/reset-password'
     | '/results'
     | '/review'
     | '/statistics'
@@ -205,6 +217,7 @@ export interface RootRouteChildren {
   NoLivesRoute: typeof NoLivesRoute
   PracticeRoute: typeof PracticeRoute
   ProfileRoute: typeof ProfileRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   ResultsRoute: typeof ResultsRoute
   ReviewRoute: typeof ReviewRoute
   StatisticsRoute: typeof StatisticsRoute
@@ -277,6 +290,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/results': {
       id: '/results'
       path: '/results'
@@ -325,6 +345,7 @@ const rootRouteChildren: RootRouteChildren = {
   NoLivesRoute: NoLivesRoute,
   PracticeRoute: PracticeRoute,
   ProfileRoute: ProfileRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   ResultsRoute: ResultsRoute,
   ReviewRoute: ReviewRoute,
   StatisticsRoute: StatisticsRoute,

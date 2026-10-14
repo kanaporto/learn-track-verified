@@ -3,6 +3,7 @@ import type { Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 import { PROGRESS_EVENT, readProgress, replaceProgress, resetProgress, type Progress } from './progress';
 import { saveExplorer, clearExplorer } from './explorer';
+import { syncMyPoints } from './points.functions';
 
 /** Undefined until known, then the session or null. */
 export function useSession() {
@@ -36,7 +37,9 @@ async function push(uid: string) {
   const p = readProgress();
   await Promise.all([
     supabase.from('player_progress').upsert({ user_id: uid, data: p as never, updated_at: new Date().toISOString() }),
-    supabase.from('profiles').update({ points: p.points, updated_at: new Date().toISOString() }).eq('id', uid),
+    // Points are server-managed: the profiles table no longer accepts direct
+    // client writes to the points column, so sync goes through a server function.
+    syncMyPoints({ data: { points: p.points } }).catch(() => {}),
   ]);
 }
 

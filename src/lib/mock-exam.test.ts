@@ -30,13 +30,13 @@ describe('mock exam', () => {
   });
   it('ITIL missing AI/frameworks domains are flagged, not back-filled', () => {
     const c = builtInCourses.find(x => x.id === 'itil')!;
-    const r = drawMockPlan(c.questions, MOCK_CONFIGS.itil!);
+    const r = drawMockPlan(c.questions, MOCK_CONFIGS['itil']!);
     expect(r.shortfall).toBe(true);
     expect(r.questions).toHaveLength(38);
   });
   it('Apple draws 80 unique questions with no shortfall', () => {
     const c = builtInCourses.find(x => x.id === 'apple')!;
-    const r = drawMockPlan(c.questions, MOCK_CONFIGS.apple!);
+    const r = drawMockPlan(c.questions, MOCK_CONFIGS['apple']!);
     expect(r.shortfall).toBe(false);
     expect(new Set(r.questions.map(q => q.id)).size).toBe(80);
   });

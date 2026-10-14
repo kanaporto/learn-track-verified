@@ -46,5 +46,5 @@ function loop() {
   seq(BASS, step, 'sine', 0.06);
   bgmTimer = setTimeout(loop, len * 1000);
 }
-export function startMenuMusic() { if (!enabled || bgmOn) return; bgmOn = true; loop(); }
+export function startMenuMusic() { if (!enabled) return; ac(); if (bgmOn) return; bgmOn = true; loop(); }
 export function stopMenuMusic() { bgmOn = false; clearTimeout(bgmTimer); }

@@ -21,6 +21,11 @@ export const certifications = [
   { id: 'itil', name: 'ITIL Foundation v5', category: 'IT Service Management', icon: 'itil' },
   { id: 'apple', name: 'Apple Device Support', category: 'Apple', icon: 'apple' },
 ] as const;
-export function pageHead(title: string, description: string) {
-  return { meta: [{ title: `${title} · Dumpi Learn` }, { name: 'description', content: description }, { property: 'og:title', content: `${title} · Dumpi Learn` }, { property: 'og:description', content: description }, { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' }] };
+export const SITE_URL = 'https://learn-track-verified.lovable.app';
+export function pageHead(title: string, description: string, path?: string) {
+  const full = `${title} · Dumpi Learn`;
+  const image = `${SITE_URL}/og-image.jpg`;
+  const meta: Array<Record<string, string>> = [{ title: full }, { name: 'description', content: description }, { property: 'og:title', content: full }, { property: 'og:description', content: description }, { property: 'og:type', content: 'website' }, { property: 'og:image', content: image }, { name: 'twitter:card', content: 'summary_large_image' }, { name: 'twitter:image', content: image }];
+  if (path) meta.push({ property: 'og:url', content: `${SITE_URL}${path}` });
+  return { meta };
 }

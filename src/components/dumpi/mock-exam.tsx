@@ -69,17 +69,25 @@ function Exam({ course, onRetry }: { course: Course; onRetry: () => void }) {
     const pct = Math.round((done.correct / set.length) * 100);
     const passed = done.reward > 0;
     const wrong = set.filter(q => !sameAnswer(answers[q.id] ?? [], q.answer));
+    const byRegion = course.regions.map(r => { const qs = set.filter(q => q.region === r.n); const ok = qs.filter(q => sameAnswer(answers[q.id] ?? [], q.answer)).length; return { r, ok, total: qs.length }; }).filter(x => x.total > 0);
     return <div className="page-content pb-16">
+      <MockOutro passed={passed} />
       <div className="text-center my-6">
-        <Trophy size={56} className={`mx-auto mb-3 ${passed ? 'text-primary' : 'text-muted-foreground'}`} />
         <h1 className="text-3xl font-black">{passed ? t('¡Simulacro aprobado!', 'Mock exam passed!') : t('Aún no lo tienes', 'Not quite yet')}</h1>
         <p className="text-5xl font-black my-3">{pct}%</p>
         <p className="text-muted-foreground">{done.correct}/{set.length} {t('correctas', 'correct')}{passed ? ` · +${done.reward} pts` : ` · ${t('necesitas', 'you need')} ${PASS_RATIO * 100} %`}</p>
-        <div className="flex flex-wrap justify-center gap-3 mt-5">
-          <Button onClick={onRetry}><RotateCcw />{t('Otro simulacro', 'Another mock exam')}</Button>
-          <Button asChild variant="outline"><Link to="/results">{t('Ver desglose', 'See breakdown')}</Link></Button>
-          <Button asChild variant="outline"><Link to="/practice" search={{ course: course.id }}>{t('Practicar en la aventura', 'Practise in the adventure')}</Link></Button>
-        </div>
+      </div>
+      <section className="mock-breakdown">
+        <h2 className="text-xl font-bold mb-4">{t('Desglose por dominio', 'Breakdown by domain')}</h2>
+        <div className="grid gap-3">{byRegion.map(({ r, ok, total }) => { const p = Math.round((ok / total) * 100); return <div key={r.n}>
+          <div className="flex justify-between gap-3 text-sm mb-1"><b>{language === 'es' ? r.es : r.en}</b><span className={p >= PASS_RATIO * 100 ? 'text-primary font-bold' : 'text-destructive font-bold'}>{ok}/{total} · {p}%</span></div>
+          <div className="h-2.5 rounded-full bg-muted overflow-hidden"><div className="h-full rounded-full" style={{ width: `${p}%`, background: r.color }} /></div>
+        </div>; })}</div>
+      </section>
+      <div className="flex flex-wrap justify-center gap-3 mt-6">
+        <Button onClick={onRetry}><RotateCcw />{t('Otro simulacro', 'Another mock exam')}</Button>
+        <Button asChild variant="outline"><Link to="/review">{t('Repasar errores', 'Review mistakes')}</Link></Button>
+        <Button asChild variant="outline"><Link to="/practice" search={{ course: course.id }}>{t('Practicar en la aventura', 'Practise in the adventure')}</Link></Button>
       </div>
       {wrong.length > 0 && <><h2 className="text-xl font-bold mt-8 mb-4">{t('Revisa tus fallos', 'Review your misses')} ({wrong.length})</h2>
         <div className="grid gap-6">{wrong.map(q => { const text = language === 'es' ? q.es : q.en; return <div key={q.id}>

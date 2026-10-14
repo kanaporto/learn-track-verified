@@ -127,7 +127,7 @@ function RegionRun({ course, region, onExit, onTrain }: { course: Course; region
     </div>
     <div className="region-banner"><span className="medieval-banner" style={{ ['--rc' as string]: meta.color }}>{t('Región', 'Region')} {region}</span><h1 className="medieval-title">{language === 'es' ? meta.es : meta.en}</h1></div>
     <TrailBoard art={art(region)} total={GOAL} done={correct} color={meta.color} label={`${t('Casilla', 'Tile')} ${Math.min(correct + 1, GOAL)} / ${GOAL}`} />
-    <p className="text-sm text-muted-foreground">{t('Nivel', 'Level')} {q.level} · +{pointsFor(q.level)} pts{q.multi ? ` · ${t('Selecciona 2', 'Select 2')}` : ''}</p>
+    <p className="text-sm text-muted-foreground">{t('Nivel', 'Level')} {q.level} · +{pointsFor(q.level)} pts{q.multi ? ` · ${t(`Selecciona ${q.answer.length}`, `Select ${q.answer.length}`)}` : ''}</p>
     <h2 className="text-lg font-semibold my-4 leading-snug">{text.q}</h2>
     <Options q={q} text={text} picked={picked} result={result} toggle={toggle} />
     {result === false && <Explanation q={q} />}
@@ -140,7 +140,7 @@ function RegionRun({ course, region, onExit, onTrain }: { course: Course; region
   </div>;
 }
 
-function Options({ q, text, picked, result, toggle }: { q: Question; text: { o: string[] }; picked: string[]; result: null | boolean; toggle: (l: string) => void }) {
+export function Options({ q, text, picked, result, toggle }: { q: Question; text: { o: string[] }; picked: string[]; result: null | boolean; toggle: (l: string) => void }) {
   return <div className="grid gap-2.5">
     {text.o.map((o, i) => { const l = LETTERS[i]!; const sel = picked.includes(l); const isAns = q.answer.includes(l);
       const state = result === null ? (sel ? 'border-primary' : 'border-border') : isAns ? 'border-green-500' : sel ? 'border-destructive' : 'border-border opacity-60';
@@ -152,7 +152,7 @@ function Options({ q, text, picked, result, toggle }: { q: Question; text: { o: 
   </div>;
 }
 
-function Explanation({ q }: { q: Question }) {
+export function Explanation({ q }: { q: Question }) {
   const t = useText(); const { language } = usePreferences();
   return <div className="notice mt-5 block">
     <p className="font-semibold mb-1">{t('Explicación', 'Explanation')}</p>

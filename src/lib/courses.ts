@@ -1,24 +1,30 @@
 import { useEffect, useState } from 'react';
-import bank from '@/data/workspace-questions.json';
+import workspaceBank from '@/data/workspace-questions.json';
+import cloudBank from '@/data/cloud-questions.json';
+import oktaBank from '@/data/okta-questions.json';
+import itilBank from '@/data/itil-questions.json';
+import appleBank from '@/data/apple-questions.json';
 
 export type Question = { id: string; level: number; domain: string; region: number; multi: boolean; es: { q: string; o: string[] }; en: { q: string; o: string[] }; answer: string[]; expEs: string; expEn: string; ref: string };
 export type Region = { n: number; es: string; en: string; color: string; domain: string };
 export type Course = { id: string; name: string; category: string; icon: string; custom: boolean; regions: Region[]; questions: Question[] };
 
 const COLORS = ['#2563EB', '#0284C7', '#0D9488', '#6366F1', '#D97706', '#E11D48'];
-const workspaceRegions: Region[] = [
-  { n: 1, es: 'Cuentas, dominios y Directorio', en: 'User accounts, domains, and Directory', color: '#2563EB', domain: 'User accounts, domains, and Directory' },
-  { n: 2, es: 'Servicios principales de Workspace', en: 'Core Workspace services', color: '#0284C7', domain: 'Core Workspace services' },
-  { n: 3, es: 'Gobernanza de datos y cumplimiento', en: 'Data governance and compliance', color: '#0D9488', domain: 'Data governance and compliance' },
-  { n: 4, es: 'Políticas de seguridad y control de acceso', en: 'Security policies and access controls', color: '#6366F1', domain: 'Security policies and access controls' },
-  { n: 5, es: 'Monitorización y resolución de problemas', en: 'Monitoring and troubleshooting', color: '#D97706', domain: 'Monitoring and troubleshooting' },
-  { n: 6, es: 'Navegadores y dispositivos', en: 'Browsers and endpoints', color: '#E11D48', domain: 'Browsers and endpoints' },
-];
+type RegionName = { en: string; es: string };
+const mk = (names: RegionName[]): Region[] => names.map((r, i) => ({ n: i + 1, es: r.es, en: r.en, color: COLORS[i % COLORS.length]!, domain: r.en }));
+const REGIONS: Record<string, RegionName[]> = {"workspace": [{"en": "User accounts, domains, and Directory", "es": "Cuentas, dominios y Directorio"}, {"en": "Core Workspace services", "es": "Servicios principales de Workspace"}, {"en": "Data governance and compliance", "es": "Gobernanza de datos y cumplimiento"}, {"en": "Security policies and access controls", "es": "Políticas de seguridad y control de acceso"}, {"en": "Monitoring and troubleshooting", "es": "Monitorización y resolución de problemas"}, {"en": "Browsers and endpoints", "es": "Navegadores y dispositivos"}], "cloud": [{"en": "Digital transformation with Google Cloud", "es": "Transformación digital con Google Cloud"}, {"en": "Data transformation", "es": "Transformación de datos"}, {"en": "Artificial intelligence", "es": "Inteligencia artificial"}, {"en": "Infrastructure and applications", "es": "Infraestructura y aplicaciones"}, {"en": "Trust and security", "es": "Confianza y seguridad"}, {"en": "Operations and costs", "es": "Operaciones y costes"}], "itil": [{"en": "Key ITIL terms and definitions", "es": "Términos y definiciones clave de ITIL"}, {"en": "The ITIL value system", "es": "Sistema de valor de ITIL"}, {"en": "The four dimensions", "es": "Cuatro dimensiones"}, {"en": "Product and service lifecycle", "es": "Ciclo de vida de productos y servicios"}, {"en": "Value streams", "es": "Flujos de valor"}], "okta": [{"en": "Security and policies", "es": "Seguridad y políticas"}, {"en": "Directory and federation", "es": "Directorio y federación"}, {"en": "Lifecycle, profiles and groups", "es": "Ciclo de vida, perfiles y grupos"}, {"en": "Administration and API", "es": "Administración y API"}, {"en": "Monitoring and troubleshooting", "es": "Monitorización y resolución de problemas"}], "apple": [{"en": "Setup, accounts and management", "es": "Configuración, cuentas y gestión"}, {"en": "Security and privacy", "es": "Seguridad y privacidad"}, {"en": "Networks and connectivity", "es": "Redes y conectividad"}, {"en": "Backup and recovery", "es": "Copias y recuperación"}, {"en": "Updates and apps", "es": "Actualizaciones y apps"}, {"en": "Diagnostics and performance", "es": "Diagnóstico y rendimiento"}]};
+const builtIn = (id: string, name: string, category: string, icon: string, questions: unknown): Course =>
+  ({ id, name, category, icon, custom: false, regions: mk(REGIONS[id]!), questions: questions as Question[] });
 
-export const workspaceCourse: Course = {
-  id: 'workspace', name: 'Google Workspace Administrator', category: 'Google Workspace', icon: 'workspace', custom: false,
-  regions: workspaceRegions, questions: bank as Question[],
-};
+export const workspaceCourse = builtIn('workspace', 'Google Workspace Administrator', 'Google Workspace', 'workspace', workspaceBank);
+/** The five official worlds, each built from its approved bilingual Excel bank. */
+export const builtInCourses: Course[] = [
+  workspaceCourse,
+  builtIn('cloud', 'Google Cloud Digital Leader', 'Google Cloud', 'cloud', cloudBank),
+  builtIn('okta', 'Okta Certified Administrator', 'Identity & Access', 'okta', oktaBank),
+  builtIn('itil', 'ITIL Foundation v5', 'IT Service Management', 'itil', itilBank),
+  builtIn('apple', 'Apple Device Support', 'Apple', 'apple', appleBank),
+];
 
 const KEY = 'dumpi-custom-courses';
 const EVT = 'dumpi-courses';
@@ -54,9 +60,9 @@ export function slug(s: string) {
 
 /** All playable courses (built-in + uploaded). Custom ones appear after hydration. */
 export function useCourses() {
-  const [list, setList] = useState<Course[]>([workspaceCourse]);
+  const [list, setList] = useState<Course[]>(builtInCourses);
   useEffect(() => {
-    const read = () => setList([workspaceCourse, ...customCourses()]);
+    const read = () => setList([...builtInCourses, ...customCourses()]);
     read();
     window.addEventListener(EVT, read);
     return () => window.removeEventListener(EVT, read);
@@ -108,7 +114,30 @@ export async function parseDumpFile(buf: ArrayBuffer): Promise<ParseResult> {
     const ws = wb.Sheets[name] ?? wb.Sheets[wb.SheetNames.find(n => n.trim().toLowerCase() === name.toLowerCase()) ?? ''];
     return ws ? (XLSX.utils.sheet_to_json(ws, { header: 1, raw: false }) as Row[]) : null;
   };
+  const single = get('Preguntas');
+  if (single) return parseQuestionSheet(single);
   const es = get('Test ES'), en = get('Test EN'), ans = get('Respuestas');
-  if (!es || !en || !ans) return { questions: [], certification: '', errors: ['El Excel debe tener las hojas «Test ES», «Test EN» y «Respuestas».'] };
+  if (!es || !en || !ans) return { questions: [], certification: '', errors: ['El Excel debe tener la hoja «Preguntas» o las hojas «Test ES», «Test EN» y «Respuestas».'] };
   return parseDumpRows(es, en, ans);
+}
+
+/** Newer single-sheet layout («Preguntas»): ID, level, domain, type, ES q + A–D, key, ES exp, EN q + A–D, key, EN exp, status, eligible, refs. */
+export function parseQuestionSheet(rows: Row[]): ParseResult {
+  const errors: string[] = [];
+  const raw: Omit<Question, 'region'>[] = [];
+  for (const r of table(rows)) {
+    const id = s(r[0]);
+    const answer = Array.from(new Set((s(r[9]).match(/(?:^|\|)\s*([A-D])\s*:/g) ?? []).map(m => m.replace(/[^A-D]/g, '')))).sort();
+    if (!answer.length) { errors.push(`${id}: sin respuesta correcta`); continue; }
+    raw.push({
+      id, level: Math.min(5, Math.max(1, Number(r[1]) || 1)), domain: s(r[2]).split(' | ')[0] ?? '', multi: answer.length > 1,
+      es: { q: s(r[4]), o: [s(r[5]), s(r[6]), s(r[7]), s(r[8])] },
+      en: { q: s(r[11]), o: [s(r[12]), s(r[13]), s(r[14]), s(r[15])] },
+      answer, expEs: s(r[10]), expEn: s(r[17]), ref: s(r[20]).split('\n')[0] ?? '',
+    });
+  }
+  const counts = new Map<string, number>();
+  raw.forEach(q => counts.set(q.domain, (counts.get(q.domain) ?? 0) + 1));
+  const order = [...counts.entries()].sort((x, y) => y[1] - x[1]).map(([d]) => d);
+  return { certification: '', errors, questions: raw.map(q => ({ ...q, region: order.indexOf(q.domain) + 1 })) };
 }

@@ -12,10 +12,10 @@ export function usePreferences() { return useContext(Preferences); }
 export function useText() { const { language } = usePreferences(); return (es: string, en: string) => language === 'es' ? es : en; }
 export const certifications = [
   { id: 'workspace', name: 'Google Workspace Administrator', category: 'Google Workspace', icon: 'workspace' },
-  { id: 'itil', name: 'ITIL versión 5', category: 'IT Service Management', icon: 'itil' },
-  { id: 'python', name: 'Python · CNTG', category: 'Python', icon: 'python' },
   { id: 'cloud', name: 'Google Cloud Digital Leader', category: 'Google Cloud', icon: 'cloud' },
-  { id: 'okta', name: 'Okta Administrator', category: 'Identity & Access', icon: 'okta' },
+  { id: 'okta', name: 'Okta Certified Administrator', category: 'Identity & Access', icon: 'okta' },
+  { id: 'itil', name: 'ITIL Foundation v5', category: 'IT Service Management', icon: 'itil' },
+  { id: 'apple', name: 'Apple Device Support', category: 'Apple', icon: 'apple' },
 ] as const;
 export function pageHead(title: string, description: string) {
   return { meta: [{ title: `${title} · Dumpi Learn` }, { name: 'description', content: description }, { property: 'og:title', content: `${title} · Dumpi Learn` }, { property: 'og:description', content: description }, { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' }] };

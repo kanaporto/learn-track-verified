@@ -12,3 +12,4 @@
 - Keep the shared application shell and session-only presentation preferences in the root route so all first-phase screens share navigation without implying persistent accounts.
 - Keep certification content unavailable until owner-supplied questions and verified configuration exist; frontend previews must never fabricate questions, progress or rankings.
 - Use shared bilingual presentation helpers and per-leaf head metadata so every screen remains navigable and independently identifiable.
+- Built-in certifications live as JSON banks in src/data/<id>-questions.json converted from the owner's Excel; regions are fixed per course in courses.ts. Why: keeps worlds data-driven without per-course code.

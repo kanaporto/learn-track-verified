@@ -1,4 +1,4 @@
-import { Link, useNavigate } from '@tanstack/react-router';
+import { Link } from '@tanstack/react-router';
 import { useExplorer } from '@/lib/explorer';
 import { supabase } from '@/integrations/supabase/client';
 import { fetchLeaderboard, type Ranked } from '@/lib/cloud';

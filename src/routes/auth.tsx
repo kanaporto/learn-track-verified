@@ -3,6 +3,6 @@ import { AuthPage } from '@/components/dumpi/pages';
 import { pageHead } from '@/lib/dumpi';
 
 export const Route = createFileRoute('/auth')({
-  head: () => pageHead('Registro', 'Regístrate en Dumpi Learn solo con tu nombre y empieza a jugar.'),
+  head: () => pageHead('Registro', 'Crea tu cuenta de Dumpi Learn con nombre y email y guarda tu progreso en la nube.'),
   component: AuthPage,
 });

@@ -4,10 +4,10 @@ import { ArrowLeft, Check, ExternalLink, Heart, Star, X, GraduationCap, Zap } fr
 import { Button } from '@/components/ui/button';
 import { useText, usePreferences } from '@/lib/dumpi';
 import { TrailBoard } from './trail-board';
-import { RegisterCard } from './register';
+import { SignInGate as RegisterCard } from './register';
 import { useExplorer } from '@/lib/explorer';
 import { useCourses, workspaceCourse, type Course, type Question } from '@/lib/courses';
-import { MAX_LIVES, isRegionDone, doneCount, courseOf, patchCourse, pointsFor, setLives, updateProgress, useProgress } from '@/lib/progress';
+import { MAX_LIVES, isRegionDone, doneCount, courseOf, patchCourse, pointsFor, setLives, updateProgress, useProgress, recordMistake } from '@/lib/progress';
 import dumpiImg from '@/assets/dumpi.png';
 import glitchImg from '@/assets/glitch.png';
 import r1 from '@/assets/region-1.jpg';
@@ -111,6 +111,7 @@ function RegionRun({ course, region, onExit, onTrain }: { course: Course; region
       setSinceGlitch(since);
     } else {
       setLives(lives - 1);
+      recordMistake(course.id, q.id);
       if (r.slice(-5).filter(x => !x).length >= 3 && since >= 5) { setGlitchOn(true); setSinceGlitch(0); } else setSinceGlitch(since);
     }
   }

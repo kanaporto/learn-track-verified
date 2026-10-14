@@ -7,8 +7,8 @@ const KEY = 'dumpi-progress';
 const EVT = 'dumpi-progress';
 
 export type CourseProgress = { completed: number[]; tiles: Record<string, number>; lastRegion?: number };
-export type MockAttempt = { course: string; correct: number; total: number; at: number };
-export type Progress = { lives: number; livesAt: number; points: number; courses: Record<string, CourseProgress>; mocks?: MockAttempt[] };
+export type MockAttempt = { course: string; correct: number; total: number; at: number; ids?: string[]; wrong?: string[]; seconds?: number };
+export type Progress = { lives: number; livesAt: number; points: number; courses: Record<string, CourseProgress>; mocks?: MockAttempt[]; mistakes?: Record<string, string[]> };
 
 /** Points for a correct answer: 10 × question level. */
 export const pointsFor = (questionLevel: number) => 10 * questionLevel;
@@ -61,3 +61,19 @@ export function useProgress() {
 /** A region counts as completed once it is in the list or its board reached 10/10. */
 export const isRegionDone = (c: CourseProgress | null | undefined, n: number) => !!c && (c.completed.map(Number).includes(n) || (c.tiles[n] ?? 0) >= 10);
 export const doneCount = (c: CourseProgress | null | undefined, total: number) => Array.from({ length: total }, (_, i) => i + 1).filter(n => isRegionDone(c, n)).length;
+
+/** Mistake log per course (question ids), used by the review screen. */
+export function recordMistake(course: string, id: string) {
+  return updateProgress(p => { const m = p.mistakes?.[course] ?? []; return m.includes(id) ? p : { ...p, mistakes: { ...p.mistakes, [course]: [...m, id] } }; });
+}
+export function clearMistake(course: string, id: string) {
+  return updateProgress(p => ({ ...p, mistakes: { ...p.mistakes, [course]: (p.mistakes?.[course] ?? []).filter(x => x !== id) } }));
+}
+/** Replace local progress wholesale (used when loading from the cloud). */
+export function replaceProgress(next: Progress) {
+  localStorage.setItem(KEY, JSON.stringify(next));
+  window.dispatchEvent(new Event(EVT));
+}
+export const PROGRESS_EVENT = EVT;
+/** Milliseconds until the next life regenerates, or null when full. */
+export const msToNextLife = (p: Progress, now = Date.now()) => p.lives >= MAX_LIVES ? null : Math.max(0, p.livesAt + HOUR - now);

@@ -14,6 +14,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { PreferencesProvider } from '@/lib/dumpi';
 import { AppShell } from '@/components/dumpi/shell';
+import { startCloudSync } from '@/lib/cloud';
+import { Toaster } from '@/components/ui/sonner';
 
 function NotFoundComponent() {
   return (
@@ -120,11 +122,12 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useEffect(() => startCloudSync(), []);
 
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <PreferencesProvider><AppShell><Outlet /></AppShell></PreferencesProvider>
+      <PreferencesProvider><AppShell><Outlet /></AppShell><Toaster /></PreferencesProvider>
     </QueryClientProvider>
   );
 }

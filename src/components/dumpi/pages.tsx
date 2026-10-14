@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router';
 import { useExplorer } from '@/lib/explorer';
 import { supabase } from '@/integrations/supabase/client';
-import { fetchLeaderboard, type Ranked } from '@/lib/cloud';
+import { fetchLeaderboard, useSession, type Ranked } from '@/lib/cloud';
 import { useEffect } from 'react';
 import { RegisterCard } from './register';
 import { useState } from 'react';
@@ -48,9 +48,12 @@ const RIVALS = [
   { name: 'pablo_iam', pts: 410 }, { name: 'nora_data', pts: 230 }, { name: 'iker_net', pts: 90 },
 ];
 export function LeaderboardsPage() {
-  const t = useText(); const name = useExplorer(); const p = useProgress();
+  const t = useText(); const name = useExplorer(); const p = useProgress(); const session = useSession();
+  const [real, setReal] = useState<Ranked[]>([]);
+  useEffect(() => { if (session) void fetchLeaderboard().then(setReal); }, [session, p?.points]);
   const league = p ? leagueFor(p.points) : null;
-  const rows = [...RIVALS.map(r => ({ ...r, me: false })), ...(name && p ? [{ name, pts: p.points, me: true }] : [])].sort((a, b) => b.pts - a.pts);
+  const me = session?.user.id;
+  const rows = [...RIVALS.map(r => ({ ...r, me: false, demo: true })), ...real.map(r => ({ name: r.name, pts: r.id === me && p ? p.points : r.pts, me: r.id === me, demo: false }))].sort((a, b) => b.pts - a.pts);
   const medal = (i: number) => i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
   return <div className="page-content"><PageTitle eyebrow={t('EL CAMINO SE COMPARTE', 'THE JOURNEY IS SHARED')} title={t('Clasificaciones', 'Leaderboards')} subtitle={t('Cada acierto suma. Cada 500 puntos, un nivel más.', 'Every correct answer counts. Every 500 points, one more level.')} />
     <div className="league-row">{LEAGUES.map(l => <div key={l.k} className={`league ${l.k === league ? 'is-silver' : ''}`}><span className="league-gem" style={{ background: l.g }}><Trophy size={24} /></span><strong>{t('Liga ', 'League ')}{t(l.es, l.en)}</strong><small>{l.range} pts{l.k === league ? ` · ${t('tu liga', 'your league')}` : ''}</small></div>)}</div>
@@ -59,12 +62,12 @@ export function LeaderboardsPage() {
       <div className="tech-row tech-head"><span>#</span><span>{t('Explorador', 'Explorer')}</span><span>{t('Nivel', 'Level')}</span><span>{t('Puntos', 'Points')}</span></div>
       {rows.map((r, i) => <div key={r.name + i} className={`tech-row ${r.me ? 'is-me' : ''} ${medal(i)}`}>
         <span className="tech-rank">{i + 1}</span>
-        <span className="tech-name"><span className="tech-avatar">{r.name.slice(0, 1).toUpperCase()}</span>{r.name}{r.me && <em>{t('TÚ', 'YOU')}</em>}</span>
+        <span className="tech-name"><span className="tech-avatar">{r.name.slice(0, 1).toUpperCase()}</span>{r.name}{r.me && <em>{t('TÚ', 'YOU')}</em>}{r.demo && <small className="opacity-60 ml-1">demo</small>}</span>
         <span className="tech-lv">LV.{playerLevel(r.pts)}</span>
         <span className="tech-pts">{r.pts.toLocaleString()}</span>
       </div>)}
     </div>
-    <p className="text-xs text-muted-foreground mt-3">{t('Edición hackatón: los rivales son jugadores de demostración. Tus puntos se guardan en este dispositivo.', 'Hackathon edition: rivals are demo players. Your points are saved on this device.')}</p>
+    <p className="text-xs text-muted-foreground mt-3">{t('Edición hackatón: los jugadores marcados «demo» son de demostración; el resto son exploradores reales guardados en la nube.', 'Players tagged “demo” are demo players; the rest are real explorers saved in the cloud.')}</p>
   </div>;
 }
 

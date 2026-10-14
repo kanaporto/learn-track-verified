@@ -65,6 +65,8 @@ export function startCloudSync() {
 
 export type Ranked = { name: string; pts: number; id: string };
 export async function fetchLeaderboard(): Promise<Ranked[]> {
-  const { data } = await supabase.from('profiles').select('id, display_name, points').order('points', { ascending: false }).limit(50);
+  // Profiles are private to their owner; the leaderboard comes from a
+  // security-definer function that exposes only id, name and points.
+  const { data } = await supabase.rpc('get_leaderboard');
   return (data ?? []).map(r => ({ id: r.id, name: r.display_name, pts: r.points }));
 }

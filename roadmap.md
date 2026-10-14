@@ -31,3 +31,6 @@
 - [x] Música del menú, jingles de victoria/derrota e hitos (casillas 5 y 10)
 - [x] Filtro de ligas Bronce/Plata/Oro/Todas
 - [x] Perfil: sesión real, nombre y edad, cambio de contraseña, cerrar sesión y borrar cuenta
+- [x] Simulacros por certificación: preguntas, tiempo, aprobado y reparto según blueprint oficial
+- [ ] Añadir preguntas de ITIL v5 «ITIL e IA» y «ITIL y otros marcos» (faltan en el banco)
+- [ ] Revisar banco de Cloud Digital Leader frente a la guía del 12/08/2026

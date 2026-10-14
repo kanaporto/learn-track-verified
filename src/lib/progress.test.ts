@@ -37,3 +37,11 @@ describe('importador de Excel', () => {
     expect(r.questions.find(q => q.id === 'Q3')!.region).toBe(2);
   });
 });
+
+import { msToNextLife as _ms } from './progress';
+describe('next life countdown', () => {
+  it('is null at 10 lives and one hour after livesAt otherwise', () => {
+    expect(_ms({ lives: 10, livesAt: 0, points: 0, courses: {} }, 5)).toBeNull();
+    expect(_ms({ lives: 3, livesAt: 0, points: 0, courses: {} }, 600_000)).toBe(3_000_000);
+  });
+});

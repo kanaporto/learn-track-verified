@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { usePreferences, useText } from '@/lib/dumpi';
 import { useCourses } from '@/lib/courses';
 import { MAX_LIVES, clearMistake, msToNextLife, recordMistake, setLives, useProgress } from '@/lib/progress';
-import { sameAnswer, PASS_RATIO } from '@/lib/mock-exam';
+import { sameAnswer, MOCK_CONFIGS, PASS_RATIO } from '@/lib/mock-exam';
 import { useExplorer } from '@/lib/explorer';
 import { PageTitle } from './pages';
 import { Options, Explanation } from './practice';
@@ -57,7 +57,7 @@ export function ResultsPage() {
   if (!mocks.length) return <div className="page-content">{head}<Empty title={t('Aún no hay simulacros', 'No mock exams yet')} text={t('Haz tu primer simulacro y verás aquí tu nota y el desglose.', 'Take your first mock exam and your score and breakdown will appear here.')} to="/mock-exam" cta={t('Hacer simulacro', 'Take a mock exam')} /></div>;
   const m = mocks[Math.min(sel, mocks.length - 1)]!;
   const course = courses.find(c => c.id === m.course);
-  const pct = Math.round((m.correct / m.total) * 100); const passed = m.correct / m.total >= PASS_RATIO;
+  const pct = Math.round((m.correct / m.total) * 100); const passed = m.correct / m.total >= (MOCK_CONFIGS[m.course]?.pass ?? PASS_RATIO);
   const byId = new Map(course?.questions.map(q => [q.id, q]) ?? []);
   const wrongSet = new Set(m.wrong ?? []);
   const domains = course?.regions.map(r => {

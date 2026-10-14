@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { drawMock, mockReward, sameAnswer } from './mock-exam';
+import { drawMock, drawMockPlan, allocate, MOCK_CONFIGS, mockReward, sameAnswer } from './mock-exam';
 import { builtInCourses } from './courses';
 
 describe('mock exam', () => {
@@ -16,6 +16,29 @@ describe('mock exam', () => {
     expect(set).toHaveLength(50);
     expect(new Set(set.map(q => q.id)).size).toBe(50);
     expect(new Set(set.map(q => q.region)).size).toBe(c.regions.length);
+  });
+  it('per-certification sizes and times', () => {
+    const v = Object.fromEntries(Object.entries(MOCK_CONFIGS).map(([k, c]) => [k, [c.questions, c.minutes, c.pass]]));
+    expect(v).toEqual({ workspace: [50, 120, 0.7], cloud: [50, 90, 0.7], okta: [35, 45, 0.7], itil: [40, 60, 0.65], apple: [80, 120, 0.75] });
+  });
+  it('Apple 75 % is not rounded: 59/80 fails, 60/80 passes', () => {
+    expect(mockReward(59, 80, 0.75)).toBe(0); expect(mockReward(60, 80, 0.75)).toBe(500);
+  });
+  it('ITIL 26/40 passes, 25/40 fails', () => { expect(mockReward(26, 40, 0.65)).toBe(500); expect(mockReward(25, 40, 0.65)).toBe(0); });
+  it('Workspace split follows the official weights', () => {
+    expect(allocate([20, 23, 15, 20, 10, 13], 50)).toEqual([10, 11, 7, 10, 5, 7]);
+  });
+  it('ITIL missing AI/frameworks domains are flagged, not back-filled', () => {
+    const c = builtInCourses.find(x => x.id === 'itil')!;
+    const r = drawMockPlan(c.questions, MOCK_CONFIGS.itil!);
+    expect(r.shortfall).toBe(true);
+    expect(r.questions).toHaveLength(38);
+  });
+  it('Apple draws 80 unique questions with no shortfall', () => {
+    const c = builtInCourses.find(x => x.id === 'apple')!;
+    const r = drawMockPlan(c.questions, MOCK_CONFIGS.apple!);
+    expect(r.shortfall).toBe(false);
+    expect(new Set(r.questions.map(q => q.id)).size).toBe(80);
   });
   it('the five certifications are loaded with their full banks', () => {
     expect(Object.fromEntries(builtInCourses.map(c => [c.id, c.questions.length]))).toEqual({ workspace: 370, cloud: 470, okta: 300, itil: 200, apple: 230 });

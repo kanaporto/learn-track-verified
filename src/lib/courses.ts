@@ -16,13 +16,13 @@ const REGIONS: Record<string, RegionName[]> = {"workspace": [{"en": "User accoun
 const builtIn = (id: string, name: string, category: string, icon: string, questions: unknown): Course =>
   ({ id, name, category, icon, custom: false, regions: mk(REGIONS[id]!), questions: questions as Question[] });
 
-export const workspaceCourse = builtIn('workspace', 'Google Workspace Administrator', 'Google Workspace', 'workspace', workspaceBank);
+export const workspaceCourse = builtIn('workspace', 'Associate Google Workspace Administrator', 'Google Workspace', 'workspace', workspaceBank);
 /** The five official worlds, each built from its approved bilingual Excel bank. */
 export const builtInCourses: Course[] = [
   workspaceCourse,
   builtIn('cloud', 'Google Cloud Digital Leader', 'Google Cloud', 'cloud', cloudBank),
   builtIn('okta', 'Okta Certified Administrator', 'Identity & Access', 'okta', oktaBank),
-  builtIn('itil', 'ITIL Foundation v5', 'IT Service Management', 'itil', itilBank),
+  builtIn('itil', 'ITIL Foundation (Version 5)', 'IT Service Management', 'itil', itilBank),
   builtIn('apple', 'Apple Device Support', 'Apple', 'apple', appleBank),
 ];
 

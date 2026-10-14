@@ -37,21 +37,21 @@ export function AccountPanel() {
   async function saveData() {
     const n = name.trim().slice(0, 24);
     const a = age.trim() ? Number(age) : null;
-    if (!n) return toast.error(t('El nombre no puede estar vacío.', 'Name cannot be empty.'));
-    if (a !== null && (!Number.isInteger(a) || a < 10 || a > 120)) return toast.error(t('La edad debe estar entre 10 y 120.', 'Age must be between 10 and 120.'));
+    if (!n) { toast.error(t('El nombre no puede estar vacío.', 'Name cannot be empty.')); return; }
+    if (a !== null && (!Number.isInteger(a) || a < 10 || a > 120)) { toast.error(t('La edad debe estar entre 10 y 120.', 'Age must be between 10 and 120.')); return; }
     setBusy(true);
     const { error } = await supabase.from('profiles').update({ display_name: n, age: a, updated_at: new Date().toISOString() }).eq('id', uid!);
     setBusy(false);
-    if (error) return toast.error(t('No se pudo guardar.', 'Could not save.'));
+    if (error) { toast.error(t('No se pudo guardar.', 'Could not save.')); return; }
     saveExplorer(n); toast.success(t('Datos guardados', 'Details saved'));
   }
   async function changePw() {
-    if (pw.length < 6) return toast.error(t('Mínimo 6 caracteres.', 'At least 6 characters.'));
-    if (pw !== pw2) return toast.error(t('Las contraseñas no coinciden.', 'Passwords do not match.'));
+    if (pw.length < 6) { toast.error(t('Mínimo 6 caracteres.', 'At least 6 characters.')); return; }
+    if (pw !== pw2) { toast.error(t('Las contraseñas no coinciden.', 'Passwords do not match.')); return; }
     setBusy(true);
     const { error } = await supabase.auth.updateUser({ password: pw });
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     setPw(''); setPw2(''); toast.success(t('Contraseña cambiada', 'Password changed'));
   }
   async function signOut() { await supabase.auth.signOut(); navigate({ to: '/' }); }

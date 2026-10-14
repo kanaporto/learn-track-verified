@@ -112,7 +112,8 @@ export function allocate(weights: number[], total: number, available: number[] =
   const raw = weights.map(w => (w / sum) * total);
   const out = raw.map(Math.floor);
   const order = raw.map((r, i) => i).sort((a, b) => (raw[b]! - out[b]!) - (raw[a]! - out[a]!) || available[b]! - available[a]!);
-  for (let k = 0; k < total - out.reduce((a, b) => a + b, 0); k++) out[order[k % order.length]!]!++;
+  const rest = total - out.reduce((a, b) => a + b, 0);
+  for (let k = 0; k < rest; k++) out[order[k % order.length]!]!++;
   return out;
 }
 

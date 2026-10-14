@@ -31,4 +31,7 @@ export function GoogleCloudLogo() {
 export function OktaLogo() {
   return <svg viewBox="0 0 48 48" width="34" height="34" aria-label="Okta"><circle cx="24" cy="24" r="20" fill="#fff" /><circle cx="24" cy="24" r="10" fill="none" stroke="#007DC1" strokeWidth="7" /></svg>;
 }
-export const brandLogos: Record<string, () => React.JSX.Element> = { workspace: WorkspaceLogo, itil: ItilLogo, python: PythonLogo, cloud: GoogleCloudLogo, okta: OktaLogo };
+export function AppleLogo() {
+  return <svg viewBox="0 0 48 48" width="34" height="34" aria-label="Apple"><path fill="currentColor" d="M33.6 25.4c0-4.6 3.8-6.8 4-6.9-2.2-3.2-5.5-3.6-6.7-3.7-2.8-.3-5.6 1.7-7 1.7-1.5 0-3.7-1.7-6.1-1.6-3.1 0-6 1.8-7.6 4.6-3.3 5.7-.8 14 2.3 18.6 1.6 2.3 3.4 4.8 5.8 4.7 2.3-.1 3.2-1.5 6-1.5s3.6 1.5 6.1 1.4c2.5 0 4.1-2.3 5.6-4.6 1.8-2.6 2.5-5.1 2.5-5.3 0 0-4.9-1.9-4.9-7.4zM29 11.7c1.3-1.6 2.1-3.7 1.9-5.9-1.8.1-4.1 1.2-5.4 2.8-1.2 1.4-2.2 3.6-1.9 5.7 2 .2 4.1-1 5.4-2.6z"/></svg>;
+}
+export const brandLogos: Record<string, () => React.JSX.Element> = { workspace: WorkspaceLogo, itil: ItilLogo, python: PythonLogo, cloud: GoogleCloudLogo, okta: OktaLogo, apple: AppleLogo };

@@ -23,3 +23,6 @@
 - [x] Regiones con el nombre oficial de su dominio de la certificación
 - [x] Fondos futuristas «Rumbo a Silicon Valley» (garaje → número 1 en tech) en lugar de los medievales
 - [x] Admin en Mi Perfil con contraseña; regiones legibles con resumen del temario
+- [x] Cargar las 5 certificaciones (Workspace 370, Cloud 470, Okta 300, ITIL 200, Apple 230)
+- [x] Simulacro funcional (50 preguntas, tiempo, nota, 500/650 pts, sin Glitch)
+- [x] Revisión general del funcionamiento de la app

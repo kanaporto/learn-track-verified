@@ -1,11 +1,15 @@
-import { createContext, useContext, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import { setSoundEnabled } from './sound';
 
 type Language = 'es' | 'en';
 const Preferences = createContext({ language: 'es' as Language, setLanguage: (_: Language) => {}, motion: true, setMotion: (_: boolean) => {}, sound: false, setSound: (_: boolean) => {} });
 export function PreferencesProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>('es');
   const [motion, setMotion] = useState(true);
-  const [sound, setSound] = useState(false);
+  const [sound, setSoundState] = useState(false);
+  useEffect(() => { if (localStorage.getItem('dumpi-sound') === '1') setSoundState(true); }, []);
+  useEffect(() => { setSoundEnabled(sound); }, [sound]);
+  const setSound = (v: boolean) => { localStorage.setItem('dumpi-sound', v ? '1' : '0'); setSoundEnabled(v); setSoundState(v); };
   return <Preferences.Provider value={{ language, setLanguage, motion, setMotion, sound, setSound }}><div className={motion ? '' : 'reduce-motion'}>{children}</div></Preferences.Provider>;
 }
 export function usePreferences() { return useContext(Preferences); }

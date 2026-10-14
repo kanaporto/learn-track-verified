@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from '@tanstack/react-router';
-import { ArrowLeft, ArrowRight, Clock3, Flag, Trophy, RotateCcw, FileSpreadsheet } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Clock3, Flag, RotateCcw, FileSpreadsheet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useText, usePreferences } from '@/lib/dumpi';
 import { useCourses, type Course } from '@/lib/courses';
@@ -11,6 +11,21 @@ import { SignInGate as RegisterCard } from './register';
 import { brandLogos } from './logos';
 import { Options, Explanation } from './practice';
 import dumpiImg from '@/assets/dumpi.png';
+import glitchImg from '@/assets/glitch.png';
+import { playLose, playWin } from '@/lib/sound';
+
+function MockOutro({ passed }: { passed: boolean }) {
+  const t = useText();
+  return passed
+    ? <div className="victory-stage mock-outro">
+        <div className="victory-dumpi-wrap"><img src={dumpiImg} alt={t('DUMPI bailando', 'DUMPI dancing')} className="victory-dumpi" /><span className="spark s1">✦</span><span className="spark s2">✦</span><span className="spark s3">✦</span></div>
+        <div className="victory-glitch"><span className="glitch-bubble">{t('«¡Nooo! Has aprobado… Tu conocimiento es superior. Me rindo, ¡enhorabuena!»', '"Nooo! You passed… Your knowledge is superior. I give up, congratulations!"')}</span><img src={glitchImg} alt={t('Glitch llorando', 'Glitch crying')} /><span className="glitch-tear t1" /><span className="glitch-tear t2" /></div>
+      </div>
+    : <div className="nolives-stage mock-outro">
+        <div className="nolives-glitch"><span className="glitch-bubble">{t('«¡JA, JA! Te voy a castigar repasando la lección toda la tarde. Empieza por los dominios en rojo 👾📚»', '"HA HA! I\'m going to punish you by reviewing the lesson all afternoon. Start with the red domains 👾📚"')}</span><img src={glitchImg} alt={t('Glitch riéndose', 'Glitch laughing')} /></div>
+        <div className="nolives-dumpi"><img src={dumpiImg} alt={t('DUMPI triste', 'Sad DUMPI')} /><span className="nolives-tear" /></div>
+      </div>;
+}
 
 export function MockExamPage({ courseId }: { courseId?: string | undefined }) {
   const t = useText();
@@ -47,6 +62,7 @@ function Exam({ course, onRetry }: { course: Course; onRetry: () => void }) {
     const reward = mockReward(correct, set.length);
     updateProgress(p => ({ ...p, points: p.points + reward, mocks: [...(p.mocks ?? []), { course: course.id, correct, total: set.length, at: Date.now(), ids: set.map(q => q.id), wrong: set.filter(q => !sameAnswer(answers[q.id] ?? [], q.answer)).map(q => q.id), seconds: set.length * SECONDS_PER_QUESTION - left }], mistakes: { ...p.mistakes, [course.id]: Array.from(new Set([...(p.mistakes?.[course.id] ?? []), ...set.filter(q => !sameAnswer(answers[q.id] ?? [], q.answer)).map(q => q.id)])) } }));
     setDone({ correct, reward });
+    if (reward > 0) playWin(); else playLose();
   }
   useEffect(() => {
     if (!started || done) return;
@@ -69,17 +85,25 @@ function Exam({ course, onRetry }: { course: Course; onRetry: () => void }) {
     const pct = Math.round((done.correct / set.length) * 100);
     const passed = done.reward > 0;
     const wrong = set.filter(q => !sameAnswer(answers[q.id] ?? [], q.answer));
+    const byRegion = course.regions.map(r => { const qs = set.filter(q => q.region === r.n); const ok = qs.filter(q => sameAnswer(answers[q.id] ?? [], q.answer)).length; return { r, ok, total: qs.length }; }).filter(x => x.total > 0);
     return <div className="page-content pb-16">
+      <MockOutro passed={passed} />
       <div className="text-center my-6">
-        <Trophy size={56} className={`mx-auto mb-3 ${passed ? 'text-primary' : 'text-muted-foreground'}`} />
         <h1 className="text-3xl font-black">{passed ? t('¡Simulacro aprobado!', 'Mock exam passed!') : t('Aún no lo tienes', 'Not quite yet')}</h1>
         <p className="text-5xl font-black my-3">{pct}%</p>
         <p className="text-muted-foreground">{done.correct}/{set.length} {t('correctas', 'correct')}{passed ? ` · +${done.reward} pts` : ` · ${t('necesitas', 'you need')} ${PASS_RATIO * 100} %`}</p>
-        <div className="flex flex-wrap justify-center gap-3 mt-5">
-          <Button onClick={onRetry}><RotateCcw />{t('Otro simulacro', 'Another mock exam')}</Button>
-          <Button asChild variant="outline"><Link to="/results">{t('Ver desglose', 'See breakdown')}</Link></Button>
-          <Button asChild variant="outline"><Link to="/practice" search={{ course: course.id }}>{t('Practicar en la aventura', 'Practise in the adventure')}</Link></Button>
-        </div>
+      </div>
+      <section className="mock-breakdown">
+        <h2 className="text-xl font-bold mb-4">{t('Desglose por dominio', 'Breakdown by domain')}</h2>
+        <div className="grid gap-3">{byRegion.map(({ r, ok, total }) => { const p = Math.round((ok / total) * 100); return <div key={r.n}>
+          <div className="flex justify-between gap-3 text-sm mb-1"><b>{language === 'es' ? r.es : r.en}</b><span className={p >= PASS_RATIO * 100 ? 'text-primary font-bold' : 'text-destructive font-bold'}>{ok}/{total} · {p}%</span></div>
+          <div className="h-2.5 rounded-full bg-muted overflow-hidden"><div className="h-full rounded-full" style={{ width: `${p}%`, background: r.color }} /></div>
+        </div>; })}</div>
+      </section>
+      <div className="flex flex-wrap justify-center gap-3 mt-6">
+        <Button onClick={onRetry}><RotateCcw />{t('Otro simulacro', 'Another mock exam')}</Button>
+        <Button asChild variant="outline"><Link to="/review">{t('Repasar errores', 'Review mistakes')}</Link></Button>
+        <Button asChild variant="outline"><Link to="/practice" search={{ course: course.id }}>{t('Practicar en la aventura', 'Practise in the adventure')}</Link></Button>
       </div>
       {wrong.length > 0 && <><h2 className="text-xl font-bold mt-8 mb-4">{t('Revisa tus fallos', 'Review your misses')} ({wrong.length})</h2>
         <div className="grid gap-6">{wrong.map(q => { const text = language === 'es' ? q.es : q.en; return <div key={q.id}>

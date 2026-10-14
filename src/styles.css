@@ -599,3 +599,17 @@ body { font-family: var(--font-tech); background: radial-gradient(1200px 600px a
 .admin-zone > div { flex: 1; min-width: 180px; }
 .admin-zone h2 { font-weight: 800; font-size: 1.05rem; }
 .admin-zone p { font-size: .88rem; opacity: .9; }
+
+/* Mock exam outro + breakdown */
+.mock-outro { margin-top: 120px; }
+.mock-outro .nolives-glitch { position: relative; }
+.mock-breakdown { max-width: 640px; margin: 0 auto; padding: 18px; border-radius: 18px; background: var(--card); border: 1px solid var(--border); }
+
+/* League filter */
+.league { cursor: pointer; transition: transform .15s, box-shadow .15s; }
+.league:hover { transform: translateY(-2px); }
+.league.is-active { outline: 3px solid var(--primary); outline-offset: 2px; box-shadow: 0 0 24px color-mix(in oklab, var(--primary) 45%, transparent); }
+.league-all { display: inline-flex; margin: 0 0 14px; }
+.league.is-active { border-color: var(--primary) !important; transform: translateY(-3px); }
+.league-all { background: transparent !important; color: #cfe3ff !important; border: 1px solid rgba(147,197,253,.35) !important; }
+.league-all.is-on { background: var(--primary) !important; color: #fff !important; }

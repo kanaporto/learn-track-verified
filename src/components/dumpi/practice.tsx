@@ -10,6 +10,7 @@ import { useCourses, workspaceCourse, type Course, type Question } from '@/lib/c
 import { MAX_LIVES, isRegionDone, doneCount, courseOf, patchCourse, pointsFor, setLives, updateProgress, useProgress, recordMistake } from '@/lib/progress';
 import dumpiImg from '@/assets/dumpi.png';
 import glitchImg from '@/assets/glitch.png';
+import { playCorrect, playLose, playMilestone, playWin, playWrong } from '@/lib/sound';
 import r1 from '@/assets/region-1.jpg';
 import r2 from '@/assets/region-2.jpg';
 import r3 from '@/assets/region-3.jpg';
@@ -107,10 +108,13 @@ function RegionRun({ course, region, onExit, onTrain }: { course: Course; region
         const done = c >= GOAL && !cp.completed.includes(region) ? [...cp.completed, region] : cp.completed;
         return { ...p, points: p.points + pts, courses: { ...p.courses, [course.id]: { ...cp, completed: done, tiles: { ...cp.tiles, [region]: Math.min(c, GOAL) } } } };
       });
-      if (c >= GOAL) setTimeout(() => setJustWon(true), 900);
+      if (c >= GOAL) { playMilestone(true); setTimeout(() => { setJustWon(true); playWin(); }, 900); }
+      else if (c === 5) playMilestone(false);
+      else playCorrect();
       setSinceGlitch(since);
     } else {
       setLives(lives - 1);
+      if (lives - 1 <= 0) playLose(); else playWrong();
       recordMistake(course.id, q.id);
       if (r.slice(-5).filter(x => !x).length >= 3 && since >= 5) { setGlitchOn(true); setSinceGlitch(0); } else setSinceGlitch(since);
     }

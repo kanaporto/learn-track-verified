@@ -11,6 +11,21 @@ import { SignInGate as RegisterCard } from './register';
 import { brandLogos } from './logos';
 import { Options, Explanation } from './practice';
 import dumpiImg from '@/assets/dumpi.png';
+import glitchImg from '@/assets/glitch.png';
+import { playLose, playWin } from '@/lib/sound';
+
+function MockOutro({ passed }: { passed: boolean }) {
+  const t = useText();
+  return passed
+    ? <div className="victory-stage mock-outro">
+        <div className="victory-dumpi-wrap"><img src={dumpiImg} alt={t('DUMPI bailando', 'DUMPI dancing')} className="victory-dumpi" /><span className="spark s1">✦</span><span className="spark s2">✦</span><span className="spark s3">✦</span></div>
+        <div className="victory-glitch"><span className="glitch-bubble">{t('«¡Nooo! Has aprobado… Tu conocimiento es superior. Me rindo, ¡enhorabuena!»', '"Nooo! You passed… Your knowledge is superior. I give up, congratulations!"')}</span><img src={glitchImg} alt={t('Glitch llorando', 'Glitch crying')} /><span className="glitch-tear t1" /><span className="glitch-tear t2" /></div>
+      </div>
+    : <div className="nolives-stage mock-outro">
+        <div className="nolives-glitch"><span className="glitch-bubble">{t('«¡JA, JA! Te voy a castigar repasando la lección toda la tarde. Empieza por los dominios en rojo 👾📚»', '"HA HA! I\'m going to punish you by reviewing the lesson all afternoon. Start with the red domains 👾📚"')}</span><img src={glitchImg} alt={t('Glitch riéndose', 'Glitch laughing')} /></div>
+        <div className="nolives-dumpi"><img src={dumpiImg} alt={t('DUMPI triste', 'Sad DUMPI')} /><span className="nolives-tear" /></div>
+      </div>;
+}
 
 export function MockExamPage({ courseId }: { courseId?: string | undefined }) {
   const t = useText();
@@ -47,6 +62,7 @@ function Exam({ course, onRetry }: { course: Course; onRetry: () => void }) {
     const reward = mockReward(correct, set.length);
     updateProgress(p => ({ ...p, points: p.points + reward, mocks: [...(p.mocks ?? []), { course: course.id, correct, total: set.length, at: Date.now(), ids: set.map(q => q.id), wrong: set.filter(q => !sameAnswer(answers[q.id] ?? [], q.answer)).map(q => q.id), seconds: set.length * SECONDS_PER_QUESTION - left }], mistakes: { ...p.mistakes, [course.id]: Array.from(new Set([...(p.mistakes?.[course.id] ?? []), ...set.filter(q => !sameAnswer(answers[q.id] ?? [], q.answer)).map(q => q.id)])) } }));
     setDone({ correct, reward });
+    if (reward > 0) playWin(); else playLose();
   }
   useEffect(() => {
     if (!started || done) return;

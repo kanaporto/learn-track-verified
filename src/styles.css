@@ -610,3 +610,6 @@ body { font-family: var(--font-tech); background: radial-gradient(1200px 600px a
 .league:hover { transform: translateY(-2px); }
 .league.is-active { outline: 3px solid var(--primary); outline-offset: 2px; box-shadow: 0 0 24px color-mix(in oklab, var(--primary) 45%, transparent); }
 .league-all { display: inline-flex; margin: 0 0 14px; }
+.league.is-active { border-color: var(--primary) !important; transform: translateY(-3px); }
+.league-all { background: transparent !important; color: #cfe3ff !important; border: 1px solid rgba(147,197,253,.35) !important; }
+.league-all.is-on { background: var(--primary) !important; color: #fff !important; }

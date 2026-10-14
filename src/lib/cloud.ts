@@ -50,6 +50,7 @@ export function startCloudSync() {
   };
   window.addEventListener(PROGRESS_EVENT, onChange);
   const { data } = supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'INITIAL_SESSION' && !session) { clearExplorer(); return; }
     if (event === 'SIGNED_OUT') { userId = null; clearExplorer(); resetProgress(); return; }
     if (session && session.user.id !== userId && (event === 'SIGNED_IN' || event === 'INITIAL_SESSION')) {
       userId = session.user.id;

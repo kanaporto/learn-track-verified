@@ -28,11 +28,13 @@ describe('mock exam', () => {
   it('Workspace split follows the official weights', () => {
     expect(allocate([20, 23, 15, 20, 10, 13], 50)).toEqual([10, 11, 7, 10, 5, 7]);
   });
-  it('ITIL missing AI/frameworks domains are flagged, not back-filled', () => {
+  it('ITIL draws the full 40 with one AI and one frameworks question', () => {
     const c = builtInCourses.find(x => x.id === 'itil')!;
     const r = drawMockPlan(c.questions, MOCK_CONFIGS['itil']!);
-    expect(r.shortfall).toBe(true);
-    expect(r.questions).toHaveLength(38);
+    expect(r.shortfall).toBe(false);
+    expect(r.questions).toHaveLength(40);
+    expect(r.questions.filter(q => q.domain === 'ITIL and AI')).toHaveLength(1);
+    expect(r.questions.filter(q => q.domain === 'ITIL and other frameworks')).toHaveLength(1);
   });
   it('Apple draws 80 unique questions with no shortfall', () => {
     const c = builtInCourses.find(x => x.id === 'apple')!;

@@ -26,3 +26,8 @@
 - [x] Cargar las 5 certificaciones (Workspace 370, Cloud 470, Okta 300, ITIL 200, Apple 230)
 - [x] Simulacro funcional (50 preguntas, tiempo, nota, 500/650 pts, sin Glitch)
 - [x] Revisión general del funcionamiento de la app
+- [x] Logo de Apple visible
+- [x] Cierre de simulacro con DUMPI/Glitch y desglose por dominio
+- [x] Música del menú, jingles de victoria/derrota e hitos (casillas 5 y 10)
+- [x] Filtro de ligas Bronce/Plata/Oro/Todas
+- [x] Perfil: sesión real, nombre y edad, cambio de contraseña, cerrar sesión y borrar cuenta

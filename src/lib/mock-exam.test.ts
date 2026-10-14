@@ -28,11 +28,13 @@ describe('mock exam', () => {
   it('Workspace split follows the official weights', () => {
     expect(allocate([20, 23, 15, 20, 10, 13], 50)).toEqual([10, 11, 7, 10, 5, 7]);
   });
-  it('ITIL missing AI/frameworks domains are flagged, not back-filled', () => {
+  it('ITIL draws the full 40 with one AI and one frameworks question', () => {
     const c = builtInCourses.find(x => x.id === 'itil')!;
     const r = drawMockPlan(c.questions, MOCK_CONFIGS['itil']!);
-    expect(r.shortfall).toBe(true);
-    expect(r.questions).toHaveLength(38);
+    expect(r.shortfall).toBe(false);
+    expect(r.questions).toHaveLength(40);
+    expect(r.questions.filter(q => q.domain === 'ITIL and AI')).toHaveLength(1);
+    expect(r.questions.filter(q => q.domain === 'ITIL and other frameworks')).toHaveLength(1);
   });
   it('Apple draws 80 unique questions with no shortfall', () => {
     const c = builtInCourses.find(x => x.id === 'apple')!;
@@ -41,6 +43,6 @@ describe('mock exam', () => {
     expect(new Set(r.questions.map(q => q.id)).size).toBe(80);
   });
   it('the five certifications are loaded with their full banks', () => {
-    expect(Object.fromEntries(builtInCourses.map(c => [c.id, c.questions.length]))).toEqual({ workspace: 370, cloud: 470, okta: 300, itil: 200, apple: 230 });
+    expect(Object.fromEntries(builtInCourses.map(c => [c.id, c.questions.length]))).toEqual({ workspace: 370, cloud: 470, okta: 300, itil: 220, apple: 230 });
   });
 });

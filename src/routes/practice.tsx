@@ -8,7 +8,7 @@ export const Route = createFileRoute('/practice')({ staticData: { sitemap: false
     const c = typeof s['course'] === 'string' ? s['course'] : undefined;
     return { ...(Number.isInteger(n) && n >= 1 && n <= 20 ? { region: n } : {}), ...(c ? { course: c } : {}) };
   },
-  head: () => pageHead('Práctica de región', 'Practica por regiones las preguntas de tu certificación con DUMPI.'),
+  head: () => pageHead('Práctica de región', 'Practica por regiones las preguntas de tu certificación con DUMPI.', '/practice'),
   component: function PracticeRoute() {
     const { region, course } = Route.useSearch();
     return <PracticeGame initialRegion={region} courseId={course} />;

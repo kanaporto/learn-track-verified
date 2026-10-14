@@ -10,7 +10,7 @@ import { pageHead, useText } from '@/lib/dumpi';
 import { deleteCourse, parseDumpFile, saveCourse, slug, useCourses, type ParseResult } from '@/lib/courses';
 
 export const Route = createFileRoute('/admin')({ staticData: { sitemap: false },
-  head: () => pageHead('Admin de cursos', 'Añade nuevas certificaciones a Dumpi Learn subiendo dumps de preguntas en Excel.'),
+  head: () => pageHead('Admin de cursos', 'Añade nuevas certificaciones a Dumpi Learn subiendo dumps de preguntas en Excel.', '/admin'),
   component: AdminPage,
 });
 

@@ -83,9 +83,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
-      { title: "Dumpi Learn" },
+      { title: "Dumpi Learn — Aventura para certificaciones IT" },
       { name: "description", content: "Aventura de aprendizaje IT para el hackatón con DUMPI." },
-      { property: "og:title", content: "Dumpi Learn" },
+      { property: "og:title", content: "Dumpi Learn — Aventura para certificaciones IT" },
       { property: "og:description", content: "Tu aventura de aprendizaje IT con DUMPI." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

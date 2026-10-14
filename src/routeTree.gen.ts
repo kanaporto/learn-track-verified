@@ -21,6 +21,7 @@ import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as ResultsRouteImport } from './routes/results'
 import { Route as ReviewRouteImport } from './routes/review'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as StatisticsRouteImport } from './routes/statistics'
 import { Route as CertificationsIndexRouteImport } from './routes/certifications.index'
 import { Route as CertificationsIdRouteImport } from './routes/certifications.$id'
@@ -85,6 +86,11 @@ const ReviewRoute = ReviewRouteImport.update({
   path: '/review',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StatisticsRoute = StatisticsRouteImport.update({
   id: '/statistics',
   path: '/statistics',
@@ -114,6 +120,7 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof ResetPasswordRoute
   '/results': typeof ResultsRoute
   '/review': typeof ReviewRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/statistics': typeof StatisticsRoute
   '/certifications/$id': typeof CertificationsIdRoute
   '/certifications/': typeof CertificationsIndexRoute
@@ -131,6 +138,7 @@ export interface FileRoutesByTo {
   '/reset-password': typeof ResetPasswordRoute
   '/results': typeof ResultsRoute
   '/review': typeof ReviewRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/statistics': typeof StatisticsRoute
   '/certifications/$id': typeof CertificationsIdRoute
   '/certifications': typeof CertificationsIndexRoute
@@ -149,6 +157,7 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/results': typeof ResultsRoute
   '/review': typeof ReviewRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/statistics': typeof StatisticsRoute
   '/certifications/$id': typeof CertificationsIdRoute
   '/certifications/': typeof CertificationsIndexRoute
@@ -168,6 +177,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/results'
     | '/review'
+    | '/sitemap.xml'
     | '/statistics'
     | '/certifications/$id'
     | '/certifications/'
@@ -185,6 +195,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/results'
     | '/review'
+    | '/sitemap.xml'
     | '/statistics'
     | '/certifications/$id'
     | '/certifications'
@@ -202,6 +213,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/results'
     | '/review'
+    | '/sitemap.xml'
     | '/statistics'
     | '/certifications/$id'
     | '/certifications/'
@@ -220,6 +232,7 @@ export interface RootRouteChildren {
   ResetPasswordRoute: typeof ResetPasswordRoute
   ResultsRoute: typeof ResultsRoute
   ReviewRoute: typeof ReviewRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StatisticsRoute: typeof StatisticsRoute
   CertificationsIdRoute: typeof CertificationsIdRoute
   CertificationsIndexRoute: typeof CertificationsIndexRoute
@@ -311,6 +324,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/statistics': {
       id: '/statistics'
       path: '/statistics'
@@ -348,6 +368,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResetPasswordRoute: ResetPasswordRoute,
   ResultsRoute: ResultsRoute,
   ReviewRoute: ReviewRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   StatisticsRoute: StatisticsRoute,
   CertificationsIdRoute: CertificationsIdRoute,
   CertificationsIndexRoute: CertificationsIndexRoute,

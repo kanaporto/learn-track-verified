@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from '@tanstack/react-router';
-import { ArrowLeft, ArrowRight, Clock3, Flag, Trophy, RotateCcw, FileSpreadsheet } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Clock3, Flag, RotateCcw, FileSpreadsheet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useText, usePreferences } from '@/lib/dumpi';
 import { useCourses, type Course } from '@/lib/courses';

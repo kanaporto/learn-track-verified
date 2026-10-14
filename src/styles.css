@@ -613,3 +613,20 @@ body { font-family: var(--font-tech); background: radial-gradient(1200px 600px a
 .league.is-active { border-color: var(--primary) !important; transform: translateY(-3px); }
 .league-all { background: transparent !important; color: #cfe3ff !important; border: 1px solid rgba(147,197,253,.35) !important; }
 .league-all.is-on { background: var(--primary) !important; color: #fff !important; }
+
+/* ===== Contrast pass: every light panel gets dark ink, dark panels get light ink ===== */
+:root { --card: #12285A; --card-foreground: #EAF2FF; --muted-foreground: #A9BEE0; }
+.preference-row, .profile-account, .cert-card, .statistics-item, .mode-item, .pending-layout, .auth-form, .notice, .journey-stat, .ranking-table, .edition-pill, .empty-section { color: var(--dumpi-navy); }
+:is(.preference-row, .profile-account, .cert-card, .statistics-item, .mode-item, .pending-layout, .auth-form, .notice, .journey-stat) .text-muted-foreground { color: #4A6287; }
+.statistics-item span, .journey-stat span, .preference-row p { color: #4A6287; }
+.cert-category { color: #0369A1; }
+.empty-section { color: #C9D8F2; } .empty-section h2 { color: #fff; }
+.trail-stone.done { color: #451A03; }
+.trail-stone.active { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.6); }
+.trail-stone { color: #3B2A0E; font-weight: 800; }
+.q-dot { width: 1.9rem; height: 1.9rem; border-radius: 8px; font-size: .75rem; font-weight: 800; border: 2px solid #5B7BB8; color: #EAF2FF; background: rgba(255,255,255,.06); }
+.q-dot.is-answered { background: #1E4AA8; border-color: #60A5FA; color: #fff; }
+.q-dot.is-flagged { border-color: #FBBF24; color: #FDE68A; background: rgba(251,191,36,.15); }
+.q-dot.is-current { background: #FFC93C; border-color: #FFC93C; color: #2A1A00; }
+.answer-opt { border-color: #4A6BAA !important; }
+.answer-opt.border-primary { border-color: #60A5FA !important; }

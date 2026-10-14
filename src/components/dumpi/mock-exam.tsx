@@ -148,7 +148,7 @@ function Exam({ course, onRetry }: { course: Course; onRetry: () => void }) {
       <span className={`hud-pill hud-sm ${left < 300 ? 'text-destructive' : ''}`}><Clock3 size={15} /><b>{mm}:{ss}</b></span>
     </div>
     <div className="h-2 rounded-full bg-muted overflow-hidden mb-2"><div className="h-full bg-primary transition-all" style={{ width: `${(answered / set.length) * 100}%` }} /></div>
-    <div className="flex flex-wrap gap-1.5 mb-5" aria-label={t('Preguntas', 'Questions')}>{set.map((x, i) => <button key={x.id} onClick={() => setIdx(i)} aria-label={`${t('Pregunta', 'Question')} ${i + 1}`} className={`w-7 h-7 rounded-md text-xs font-bold border ${i === idx ? 'border-primary bg-primary text-primary-foreground' : flags[x.id] ? 'border-amber-500' : (answers[x.id] ?? []).length ? 'bg-secondary border-border' : 'border-border'}`}>{i + 1}</button>)}</div>
+    <div className="flex flex-wrap gap-1.5 mb-5" aria-label={t('Preguntas', 'Questions')}>{set.map((x, i) => <button key={x.id} onClick={() => setIdx(i)} aria-label={`${t('Pregunta', 'Question')} ${i + 1}`} className={`q-dot ${i === idx ? 'is-current' : flags[x.id] ? 'is-flagged' : (answers[x.id] ?? []).length ? 'is-answered' : ''}`}>{i + 1}</button>)}</div>
     <p className="text-sm text-muted-foreground">{t('Pregunta', 'Question')} {idx + 1}/{set.length}{q.multi ? ` · ${t(`Selecciona ${q.answer.length}`, `Select ${q.answer.length}`)}` : ''}</p>
     <h2 className="text-lg font-semibold my-4 leading-snug">{text.q}</h2>
     <Options q={q} text={text} picked={picked} result={null} toggle={toggle} />

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from '@tanstack/react-router';
 import { useServerFn } from '@tanstack/react-start';
-import { ArrowRight, Compass, KeyRound, LogOut, Save, Trash2 } from 'lucide-react';
+import { ArrowRight, Compass, Eye, EyeOff, KeyRound, LogOut, Save, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -22,6 +22,7 @@ export function AccountPanel() {
   const [pw2, setPw2] = useState('');
   const [confirmDel, setConfirmDel] = useState('');
   const [busy, setBusy] = useState(false);
+  const [showEmail, setShowEmail] = useState(false);
   const uid = session?.user.id;
 
   useEffect(() => {
@@ -63,7 +64,7 @@ export function AccountPanel() {
   }
 
   return <div className="grid gap-4 mb-6">
-    <div className="profile-account"><span className="profile-avatar"><Compass size={28} /></span><div><h2>{name || t('Explorador', 'Explorer')}</h2><p>{session.user.email}</p></div><Button variant="outline" onClick={signOut}><LogOut />{t('Cerrar sesión', 'Sign out')}</Button></div>
+    <div className="profile-account"><span className="profile-avatar"><Compass size={28} /></span><div><h2>{name || t('Explorador', 'Explorer')}</h2><p className="flex items-center gap-2"><span>{showEmail ? session.user.email : maskEmail(session.user.email ?? '')}</span><button type="button" className="inline-flex items-center gap-1 text-xs font-bold underline" onClick={() => setShowEmail(s => !s)}>{showEmail ? <EyeOff size={14} /> : <Eye size={14} />}{showEmail ? t('Ocultar email', 'Hide email') : t('Mostrar email', 'Show email')}</button></p></div><Button variant="outline" onClick={signOut}><LogOut />{t('Cerrar sesión', 'Sign out')}</Button></div>
 
     <section className="preference-row flex-col items-stretch gap-3">
       <strong>{t('Tus datos', 'Your details')}</strong>
@@ -86,4 +87,9 @@ export function AccountPanel() {
       <Button variant="destructive" disabled={busy || confirmDel.trim().toUpperCase() !== t('BORRAR', 'DELETE')} onClick={removeAccount}><Trash2 />{t('Borrar mi cuenta', 'Delete my account')}</Button>
     </section>
   </div>;
+}
+
+function maskEmail(e: string) {
+  const [u = '', d = ''] = e.split('@');
+  return `${u.slice(0, 1)}•••••@${d ? '••••' + d.slice(d.lastIndexOf('.')) : ''}`;
 }

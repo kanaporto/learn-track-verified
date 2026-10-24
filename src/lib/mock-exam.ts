@@ -40,8 +40,8 @@ export const MOCK_CONFIGS: Record<string, MockConfig> = {
     name: 'Google Cloud Digital Leader', questions: 50, minutes: 90, pass: 0.7, officialPass: false, officialWeights: true,
     status: 'partial', guide: 'Cloud Digital Leader exam guide (12 Aug 2026)',
     source: 'https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf',
-    noteEs: 'Pesos de la guía del 12/08/2026. El banco aún no está revisado frente a los temas nuevos (IA agéntica, Gemini Enterprise Agent Platform, AI Hypercomputer); nueva guía en español desde el 29/10/2026. El 70 % es orientativo de Dumpi Learn.',
-    noteEn: 'Weights from the 12 Aug 2026 guide. The bank is not yet reviewed against the new topics (agentic AI, Gemini Enterprise Agent Platform, AI Hypercomputer); new Spanish guide from 29 Oct 2026. 70 % is a Dumpi Learn guideline.',
+    noteEs: 'Pesos de la guía del 12/08/2026. Banco de 460 preguntas revisado al nivel conceptual de los materiales del curso, con práctica adicional de los temas nuevos. Es una revisión editorial, sin calibración ni aprobación oficial. El 70 % es orientativo de Dumpi Learn.',
+    noteEn: 'Weights from the 12 Aug 2026 guide. A 460-question bank reviewed at the conceptual depth of the course materials, with additional practice on new topics. This is an editorial review, without official calibration or approval. 70 % is a Dumpi Learn guideline.',
     domains: [
       d('Digital transformation with Google Cloud', 'Transformación digital con Google Cloud', 18),
       d('Data transformation', 'Exploración de la transformación de datos', 18),
@@ -154,3 +154,4 @@ export function mockReward(correct: number, total: number, pass = PASS_RATIO) {
 
 export const sameAnswer = (picked: string[], answer: string[]) =>
   picked.length === answer.length && answer.every(a => picked.includes(a));
+

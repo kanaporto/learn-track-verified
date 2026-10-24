@@ -1,0 +1,1741 @@
+[
+  {
+    "id": "CDL-L3-069",
+    "level": 3,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": false,
+    "es": {
+      "q": "Los clústeres Kubernetes están registrados en una flota híbrida, pero una aplicación no puede acceder a un servicio local requerido. ¿Qué revisión diagnostica más directamente este fallo entre entornos?",
+      "o": [
+        "Revisar nombres de miembros y etiquetas visibles de recursos",
+        "Revisar rutas de red, acceso a servicios y endpoints requeridos",
+        "Revisar compresión de imágenes y tamaños de descarga",
+        "Revisar utilización de recursos de pods y salud de procesos de aplicación"
+      ]
+    },
+    "en": {
+      "q": "Kubernetes clusters are registered in a hybrid fleet, but an application cannot reach its required onsite service. Which review most directly diagnoses this cross-environment failure?",
+      "o": [
+        "Review fleet member names and resource display labels",
+        "Review application network routes, service access and required endpoints",
+        "Review container image compression and download sizes",
+        "Review pod resource utilization and application process health"
+      ]
+    },
+    "answer": [
+      "B"
+    ],
+    "expEs": "El registro en una flota no establece las rutas de red ni el acceso a servicios que necesita la aplicación.",
+    "expEn": "Fleet registration does not establish the application’s required network paths and service access.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L3-071",
+    "level": 3,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": true,
+    "es": {
+      "q": "Un backend HTTP está sobrecargado mientras otras instancias reciben pocas solicitudes y la CPU media de la flota es baja. ¿Cuáles dos comprobaciones investigan directamente la distribución de tráfico antes de añadir capacidad? Selecciona dos.",
+      "o": [
+        "Utilización media de CPU de toda la flota",
+        "Configuración de rutas y aptitud de salud de backends",
+        "Cantidad total de instancias de máquinas virtuales aprovisionadas",
+        "Cantidad de solicitudes recibidas por cada instancia backend"
+      ]
+    },
+    "en": {
+      "q": "One HTTP backend is overloaded while other instances receive few requests and fleet-average CPU is low. Which two checks directly investigate traffic distribution before adding capacity? Select two.",
+      "o": [
+        "Average CPU utilization across the whole fleet",
+        "Routing configuration and backend health eligibility",
+        "Total count of provisioned virtual machine instances",
+        "Received request counts for individual backend instances"
+      ]
+    },
+    "answer": [
+      "B",
+      "D"
+    ],
+    "expEs": "El tráfico por backend y la aptitud de rutas y salud identifican distribución desigual que una media de flota puede ocultar.",
+    "expEn": "Per-backend traffic and routing/health eligibility identify uneven distribution that a fleet average can hide.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L3-072",
+    "level": 3,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": true,
+    "es": {
+      "q": "Un grupo gestionado de instancias HTTP debe ajustar capacidad al cambiar la demanda de servicio. ¿Cuáles dos señales admitidas de escalado automático reflejan directamente la demanda de ejecución? Selecciona dos.",
+      "o": [
+        "Utilización de CPU de instancias de servicio",
+        "Cuota máxima de máquinas virtuales configurada para el proyecto",
+        "Precio horario anunciado de instancias de máquinas virtuales",
+        "Utilización de capacidad de servicio del balanceador HTTP"
+      ]
+    },
+    "en": {
+      "q": "An HTTP managed instance group must adjust capacity as serving demand changes. Which two supported autoscaling signals directly reflect runtime demand? Select two.",
+      "o": [
+        "CPU utilization of serving instances",
+        "Maximum virtual machine quota configured for the project",
+        "Advertised hourly price of virtual machine instances",
+        "HTTP load balancing serving capacity utilization"
+      ]
+    },
+    "answer": [
+      "A",
+      "D"
+    ],
+    "expEs": "El escalado automático de Compute Engine admite utilización media de CPU y capacidad de servicio del balanceo HTTP como señales de demanda.",
+    "expEn": "Compute Engine autoscaling supports average CPU utilization and HTTP load balancing serving capacity as demand signals.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L3-083",
+    "level": 3,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "AI Protection despliega marcos de cumplimiento en modo de detección. Un gerente supone que los hallazgos demuestran bloqueo de acciones incumplidoras. ¿Qué revisión comprueba directamente la cobertura preventiva?",
+      "o": [
+        "Revisar cantidad de hallazgos y cobertura de etiquetas",
+        "Revisar frecuencia de análisis y retención de hallazgos",
+        "Revisar inventario de activos y cobertura de proyectos",
+        "Revisar modo de detección y controles aplicados por separado"
+      ]
+    },
+    "en": {
+      "q": "AI Protection deploys compliance frameworks in detective mode. A manager assumes the findings prove that violating actions are blocked. Which review directly checks preventive coverage?",
+      "o": [
+        "Review compliance finding counts and label coverage",
+        "Review scan frequency and finding log retention",
+        "Review asset inventory and project scope coverage",
+        "Review detective mode and separately enforced controls"
+      ]
+    },
+    "answer": [
+      "D"
+    ],
+    "expEs": "Los marcos de detección informan hallazgos; la prevención depende de controles configurados que apliquen el requisito.",
+    "expEn": "Detective frameworks report findings; prevention depends on the separately configured controls that enforce the requirement.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L3-088",
+    "level": 3,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Empleados usan cuentas de Google para una aplicación protegida por IAP. La política exige también dispositivos aprobados, pero acceden desde dispositivos no gestionados. ¿Qué revisión aborda la condición ausente?",
+      "o": [
+        "Reglas de autorización por red de origen del firewall VPC",
+        "Políticas IAP con niveles de acceso de dispositivos requeridos",
+        "Reglas de filtrado de tráfico de Cloud Armor",
+        "Asignaciones IAM de la máquina virtual backend"
+      ]
+    },
+    "en": {
+      "q": "Employees use Google accounts to access an IAP-protected app. Policy also requires approved device posture, but users can access it from unmanaged devices. Which policy review addresses the missing condition?",
+      "o": [
+        "VPC firewall source network allow rules",
+        "IAP access policies with required device access levels",
+        "Cloud Armor application traffic filtering rules",
+        "Backend virtual machine IAM role bindings"
+      ]
+    },
+    "answer": [
+      "B"
+    ],
+    "expEs": "Los niveles de acceso conscientes del contexto pueden restringir acceso por atributos de dispositivos, además de identidad.",
+    "expEn": "Context-aware access levels can restrict access using end-user device attributes in addition to identity.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-022",
+    "level": 4,
+    "domain": "Data transformation",
+    "region": 2,
+    "multi": false,
+    "es": {
+      "q": "Un pipeline Dataflow produce resultados agregados una vez, pero una acción externa de facturación se repite y faltan eventos tardíos. ¿Qué revisión comprueba cobertura del requisito empresarial?",
+      "o": [
+        "Revisar memoria y cómputo de workers en cada período",
+        "Revisar garantías de acciones externas y efecto de eventos tardíos en completitud",
+        "Revisar actualización de paneles y definición de ingresos",
+        "Revisar capacidad de objetos y cantidad de réplicas"
+      ]
+    },
+    "en": {
+      "q": "A Dataflow pipeline produces each aggregated purchase result once, but an external billing action is sometimes repeated and late events are missing from reports. Which review directly tests whether the business requirement is covered?",
+      "o": [
+        "Review worker memory and compute utilization during each billing period",
+        "Review external-action guarantees and how late events affect report completeness",
+        "Review dashboard refresh frequency and the published revenue definition",
+        "Review object storage capacity and the number of pipeline replicas"
+      ]
+    },
+    "answer": [
+      "B"
+    ],
+    "expEs": "Resultados una vez no garantizan cada efecto externo una vez ni inclusión de datos tardíos. Deben revisarse ambos límites del resultado empresarial.",
+    "expEn": "Exactly-once pipeline results do not guarantee every external side effect occurs once or that reports include late data. The business outcome needs both boundaries reviewed.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-023",
+    "level": 4,
+    "domain": "Data transformation",
+    "region": 2,
+    "multi": false,
+    "es": {
+      "q": "Analistas rara vez abren un dataset y se propone Autoclass para clases más baratas. Un analizador diario lee contenido de cada objeto. ¿Qué supuesto debe comprobar revisión de costos?",
+      "o": [
+        "Si crecimiento cambia equilibrio entre almacenamiento y procesamiento",
+        "Si rendimiento pico del analizador cambia capacidad requerida",
+        "Si menor retención cambia cargos por duración mínima y eliminación",
+        "Si lecturas automáticas cambian transiciones por acceso y ahorro previsto"
+      ]
+    },
+    "en": {
+      "q": "A dataset is rarely opened by analysts, so the team proposes Autoclass to keep it in cheaper classes. A daily scanner reads every object’s content. Which assumption should the cost review test?",
+      "o": [
+        "Whether dataset growth changes the balance of storage and processing charges",
+        "Whether peak scanner throughput changes the required processing capacity",
+        "Whether shorter retention changes minimum-duration and deletion charges",
+        "Whether automated content reads change access-driven transitions and expected savings"
+      ]
+    },
+    "answer": [
+      "D"
+    ],
+    "expEs": "Autoclass responde al acceso, incluidas lecturas de contenido. Poco uso humano no demuestra poco acceso cuando un analizador lee todos los contenidos.",
+    "expEn": "Autoclass responds to access, including actual content reads. Infrequent human use is not evidence of infrequent object access when a scanner reads all contents.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-029",
+    "level": 4,
+    "domain": "Data transformation",
+    "region": 2,
+    "multi": false,
+    "es": {
+      "q": "Un diseño compara dos claves de fila Bigtable. Una favorece lecturas por dispositivo y otra resúmenes temporales amplios. Importan ambas y dispositivo exige respuesta más rápida. ¿Qué debe priorizar evaluación?",
+      "o": [
+        "Crecimiento de almacenamiento y capacidad para volumen previsto",
+        "Necesidades de consultas críticas y costo de servir patrón alternativo",
+        "Ubicaciones y costo de mantener copias requeridas",
+        "Responsabilidades de analistas y permisos de lectura"
+      ]
+    },
+    "en": {
+      "q": "A telemetry design compares two Bigtable row-key approaches. One suits frequent per-device reads, while another suits broad time-range summaries. Both access patterns matter, but the device path has the tighter response requirement. What should the design evaluation prioritize?",
+      "o": [
+        "Projected storage growth and the capacity required for the expected event volume",
+        "Critical query needs and the cost of serving the alternative access pattern",
+        "Available deployment locations and the cost of maintaining required data copies",
+        "Analyst access responsibilities and the permissions required to read the stored data"
+      ]
+    },
+    "answer": [
+      "B"
+    ],
+    "expEs": "Un diseño optimiza patrones de acceso, no todas las consultas por igual. Debe ponderarse ruta crítica y otro patrón requerido.",
+    "expEn": "A row-key design optimizes access patterns rather than every query equally. The business must weigh the critical path against the other required query pattern.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-030",
+    "level": 4,
+    "domain": "Data transformation",
+    "region": 2,
+    "multi": false,
+    "es": {
+      "q": "Una aplicación PostgreSQL usa extensiones propias para informes esenciales. Se propone dialecto PostgreSQL de Spanner para transacciones distribuidas y se supone que sintaxis familiar preserva funciones. ¿Qué revisión debe preceder compromiso de migración?",
+      "o": [
+        "Comparar funciones requeridas y dialecto admitido con impacto empresarial de cambios",
+        "Comparar respuesta transaccional y crecimiento previsto entre regiones",
+        "Comparar ubicaciones de réplicas y requisitos aprobados de almacenamiento",
+        "Comparar respaldos y restauración con objetivos de recuperación"
+      ]
+    },
+    "en": {
+      "q": "A PostgreSQL application uses custom database extensions for essential reports. A proposal selects Spanner’s PostgreSQL dialect for distributed transactions and assumes that familiar SQL syntax preserves those features. Which review should precede the migration commitment?",
+      "o": [
+        "Compare required engine features with the supported dialect and business impact of changes",
+        "Compare transaction response time with the projected regional workload growth",
+        "Compare data replication locations with the workload’s approved storage requirements",
+        "Compare backup and restore capabilities with the required recovery objectives"
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "La interfaz de Spanner admite un subconjunto de funciones PostgreSQL. Sintaxis familiar no demuestra compatibilidad de extensiones; deben comprobarse funciones e impacto de adaptar informes.",
+    "expEn": "Spanner’s PostgreSQL interface supports a subset of PostgreSQL features. Familiar syntax does not establish extension compatibility; required features and the impact of adapting reports must be checked.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-035",
+    "level": 4,
+    "domain": "Data transformation",
+    "region": 2,
+    "multi": false,
+    "es": {
+      "q": "Activar Autoclass en un dataset existente genera cargo inicial. Facturas posteriores tienen costos recurrentes distintos. Se propone decidir con primera factura. ¿Qué comparación debe hacerse?",
+      "o": [
+        "Comparar tarifas recurrentes de clases actuales y previstas",
+        "Comparar cargos de recuperación y accesos históricos",
+        "Separar activación y costos recurrentes en período evaluado",
+        "Comparar tarifas de gestión y cantidad prevista de objetos"
+      ]
+    },
+    "en": {
+      "q": "Enabling Autoclass for an existing dataset produces an initial charge. Later monthly bills have different recurring costs. The team proposes judging the long-term choice from the first bill alone. Which comparison should be made?",
+      "o": [
+        "Compare recurring storage rates for current and expected object classes",
+        "Compare retrieval charges with the objects’ historical access patterns",
+        "Separate enablement costs from recurring costs over the evaluation period",
+        "Compare object management fees with the forecast object count"
+      ]
+    },
+    "answer": [
+      "C"
+    ],
+    "expEs": "Autoclass tiene componentes de activación y gestión. Deben compararse costos iniciales y continuos en período pertinente, no inferir largo plazo de primera factura.",
+    "expEn": "Autoclass has enablement and management cost components. One-time and ongoing costs should be compared over a relevant period, rather than inferring long-term cost from the first invoice.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-036",
+    "level": 4,
+    "domain": "Data transformation",
+    "region": 2,
+    "multi": true,
+    "es": {
+      "q": "Un panel streaming tolera algunos duplicados y un conteo financiero no. Procesamiento al menos una vez puede reducir costo y latencia. ¿Qué dos evaluaciones respaldan elegir modo para cada uso? Selecciona dos.",
+      "o": [
+        "Evaluar tolerancia a duplicados y corrección de resultados",
+        "Evaluar volumen y capacidad de ingestión de eventos",
+        "Evaluar equilibrio medido de costo y latencia de modos",
+        "Evaluar historia retenida y períodos de análisis"
+      ]
+    },
+    "en": {
+      "q": "A streaming dashboard can tolerate some duplicate records; a financial count cannot. At-least-once processing may reduce cost and latency. Which two evaluations support choosing a processing mode for each use? Select two.",
+      "o": [
+        "Assess each result’s duplicate tolerance and correctness requirement",
+        "Assess source volume and the capacity required for event ingestion",
+        "Assess the measured cost and latency trade-off of the processing modes",
+        "Assess retained history and the report users’ analysis periods"
+      ]
+    },
+    "answer": [
+      "A",
+      "C"
+    ],
+    "expEs": "La elección depende de tolerancia a duplicados y requisitos medidos. Uso financiero y operativo aproximado no requieren el mismo equilibrio.",
+    "expEn": "Mode choice depends on the use case’s tolerance for duplicate results and its measured cost/latency requirements. A financial and an approximate operational use need not have the same balance.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-058",
+    "level": 4,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": false,
+    "es": {
+      "q": "Una app Kubernetes exige configurar nodos de un componente; otros encajan en operación gestionada. Se supone mismo control y responsabilidades en todos los modos GKE. ¿Qué revisión aborda supuesto?",
+      "o": [
+        "Comparar control y operación de nodos con modos GKE",
+        "Comparar escala de cargas y políticas de capacidad de dependencias",
+        "Comparar planificación de aplicaciones y objetivos de respuesta",
+        "Comparar acceso y controles de identidad y auditoría"
+      ]
+    },
+    "en": {
+      "q": "A Kubernetes application needs low-level node configuration for one component, while other components fit managed workload operation. A proposal treats all GKE modes as having identical control and responsibilities. Which review addresses that assumption?",
+      "o": [
+        "Compare required node control and operating duties with supported GKE mode choices",
+        "Compare workload scaling patterns with the capacity policies of dependent services",
+        "Compare application scheduling needs with the required service response objectives",
+        "Compare application access policies with the available identity and audit controls"
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "Modos ofrecen distinta flexibilidad y responsabilidad. Debe evaluarse control requerido frente a modos, incluidas opciones mixtas donde proceda.",
+    "expEn": "GKE modes offer different flexibility and responsibilities. The required component control should be evaluated against the supported mode, including mixed workload options where appropriate.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-062",
+    "level": 4,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": false,
+    "es": {
+      "q": "Una flota Kubernetes híbrida tiene política común, pero clústeres cambiados manualmente se desviaron. Se propone registrar más clústeres. ¿Qué revisión aborda consistencia y no cantidad?",
+      "o": [
+        "Revisar soporte compartido y distribución de costos",
+        "Revisar configuración deseada, cobertura de aplicación y desvíos entre clústeres",
+        "Revisar imágenes y arranque de contenedores",
+        "Revisar cantidad de clústeres y capacidad prevista"
+      ]
+    },
+    "en": {
+      "q": "A hybrid Kubernetes fleet has the intended common policy, but manually changed clusters have drifted from it. The team proposes registering more clusters as the fix. Which review addresses policy consistency rather than fleet inventory growth?",
+      "o": [
+        "Review shared support charges and the regional distribution of cluster costs",
+        "Review the desired configuration, policy enforcement coverage and detected drift across clusters",
+        "Review cluster image sizes and the startup time of application containers",
+        "Review the number of registered clusters and forecast fleet capacity"
+      ]
+    },
+    "answer": [
+      "B"
+    ],
+    "expEs": "Pertenecer a flota no demuestra política aplicada consistentemente. Gestión de configuración y desvíos aborda divergencia.",
+    "expEn": "Fleet membership is inventory, not proof that desired policy remains consistently applied. Configuration management and drift coverage address the stated divergence.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-066",
+    "level": 4,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": false,
+    "es": {
+      "q": "Un equipo despliega varias copias de app contenedorizada. App supone un proceso para actualizar negocio y solicitudes simultáneas entran en conflicto. ¿Qué evaluación aborda riesgo antes de añadir réplicas?",
+      "o": [
+        "Evaluar CPU y memoria con concurrencia prevista",
+        "Evaluar rutas y capacidad de conexiones entre componentes",
+        "Evaluar coordinación y consistencia con instancias concurrentes",
+        "Evaluar acceso de usuarios y auditoría de actualizaciones"
+      ]
+    },
+    "en": {
+      "q": "A team deploys multiple copies of a containerized app. The app assumes one process controls a shared business update, so simultaneous requests now conflict. Which assessment addresses the modernization risk before adding more replicas?",
+      "o": [
+        "Assess runtime CPU and memory requirements under the expected concurrent workload",
+        "Assess request routing and connection capacity between the distributed components",
+        "Assess application coordination and data consistency under concurrent instances",
+        "Assess user access controls and the audit records for business updates"
+      ]
+    },
+    "answer": [
+      "C"
+    ],
+    "expEs": "Replicar cambia concurrencia y no vuelve segura suposición de proceso único. Conflictos requieren evaluar aplicación y datos compartidos.",
+    "expEn": "Replicating an executable changes concurrency but does not automatically make a single-process business assumption safe. The observed conflicts need application and shared-data assessment.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-067",
+    "level": 4,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": false,
+    "es": {
+      "q": "Backend serverless recibe solicitudes con una identidad de servicio, pero usuarios tienen permisos empresariales distintos. Acceso infra funciona con identidad común. ¿Qué revisión aborda distinción de usuarios?",
+      "o": [
+        "Revisar identidad y permisos de usuarios junto a invocación del servicio",
+        "Revisar parches y vulnerabilidades del entorno backend",
+        "Revisar recursos y permisos IAM de identidad compartida",
+        "Revisar restricciones de red y rutas de llamadas"
+      ]
+    },
+    "en": {
+      "q": "Requests to a serverless backend arrive through one service identity, but application users have different business permissions. Infrastructure access succeeds for everyone using that identity. Which design review addresses the missing user-level distinction?",
+      "o": [
+        "Review application-user identity and business permissions alongside service invocation access",
+        "Review managed runtime patching and vulnerability remediation for the backend",
+        "Review the shared service identity’s resource scope and IAM permissions",
+        "Review backend network restrictions and the allowed caller connection paths"
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "Acceso de una identidad no establece permisos de cada usuario. El cliente debe preservar autorización por usuario.",
+    "expEn": "Service access for one identity does not establish each application user’s permissions. The customer must preserve the required user-level authorization distinction.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-073",
+    "level": 4,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Un rol allow incluye operación, pero política deny pertinente la prohíbe. Se propone rol allow más amplio para restaurar acceso. ¿Qué revisión aborda interacción real?",
+      "o": [
+        "Revisar concesiones allow directas y alcance de roles",
+        "Revisar concesiones allow heredadas y políticas organizativas",
+        "Revisar historial de cambios de políticas deny y allow",
+        "Revisar condiciones deny y excepciones previstas antes de cambiar allow"
+      ]
+    },
+    "en": {
+      "q": "A user has an allow role that includes an operation, but a relevant IAM deny policy prohibits that operation. A team proposes adding a broader allow role to restore access. Which review addresses the actual policy interaction?",
+      "o": [
+        "Review direct allow bindings and the resource scopes of their roles",
+        "Review inherited allow grants and their organization-level policy attachments",
+        "Review the audit history of changes to deny and allow policies",
+        "Review applicable deny conditions and intended exceptions before changing allow grants"
+      ]
+    },
+    "answer": [
+      "D"
+    ],
+    "expEs": "IAM evalúa deny antes de allow. Añadir concesión no establece acceso si sigue aplicándose denegación.",
+    "expEn": "IAM evaluates applicable deny policies before allow policies. Adding an allow grant does not establish access when the relevant deny still applies.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-074",
+    "level": 4,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Análisis autorizado debe relacionar historias de dos datasets sin mostrar IDs originales. Eliminar campos pierde vínculo. ¿Qué plan debe evaluar Sensitive Data Protection?",
+      "o": [
+        "Suprimir columnas completas antes de analizar",
+        "Reemplazar IDs con tokens consistentes y gestionar acceso a reidentificación",
+        "Reemplazar IDs por valores aleatorios independientemente por dataset",
+        "Agregar cada dataset por separado antes de entregar registros por cliente"
+      ]
+    },
+    "en": {
+      "q": "Authorized analytics must join customer histories across two datasets without exposing raw customer IDs. Removing the ID fields loses the linkage. Which transformation plan should Sensitive Data Protection evaluation consider?",
+      "o": [
+        "Redact the complete identifier columns before each dataset is analyzed",
+        "Replace identifiers with consistent tokens across datasets and govern re-identification access",
+        "Replace identifiers independently with random values for each dataset",
+        "Aggregate each dataset separately before releasing its customer-level records"
+      ]
+    },
+    "answer": [
+      "B"
+    ],
+    "expEs": "Tokens consistentes preservan relaciones y ocultan IDs originales. Reidentificar es flujo privilegiado separado.",
+    "expEn": "Consistent pseudonymous tokens can preserve analytical joins while obscuring raw identifiers. Re-identification remains a separate privileged workflow.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-075",
+    "level": 4,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "AI Protection usa evidencia de monitoreo para descubrir IA. En período auditado falta evidencia de proyectos. Se toma inventario actual como prueba de ausencia de uso IA. ¿Qué revisión evalúa completitud?",
+      "o": [
+        "Revisar alcance, período y evidencia disponible de uso IA",
+        "Revisar gravedad de hallazgos y activos críticos",
+        "Revisar sensibilidad de filtros y respuestas de endpoints",
+        "Revisar responsabilidad y tiempo de resolución de incidentes"
+      ]
+    },
+    "en": {
+      "q": "AI Protection uses monitoring evidence for AI discovery. For the audited period, some projects lack that evidence. A manager treats the current inventory as proof that those projects had no AI use. Which review tests the completeness of that conclusion?",
+      "o": [
+        "Review discovery scope, time coverage and the available AI usage evidence",
+        "Review severity ranking of the current posture findings and business-critical assets",
+        "Review filtering sensitivity and response handling for the protected model endpoints",
+        "Review investigation ownership and the time taken to resolve security incidents"
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "Un inventario no prueba ausencia histórica completa si falta evidencia indicada. Alcance y período deben respaldar conclusión.",
+    "expEn": "An inventory built from discovery evidence does not establish complete historical absence when the stated evidence is missing. Scope and period coverage must support that conclusion.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-077",
+    "level": 4,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Una revisión pregunta si acceso de personal Google corresponde a soporte aprobado. El caso trata recurso A; evento Access Transparency nombra B y justificación distinta. ¿Qué revisión evalúa correspondencia afirmada?",
+      "o": [
+        "Comparar ubicación de acceso y política regional aprobada",
+        "Comparar hora del evento y período de ticket abierto",
+        "Comparar cobertura de auditoría y garantías requeridas del servicio",
+        "Comparar recurso, acción y justificación del evento con soporte aprobado"
+      ]
+    },
+    "en": {
+      "q": "An assurance review asks whether a Google-personnel access event corresponds to an approved support case. The case concerns resource A; its Access Transparency event names resource B and a different justification. Which review directly tests the claimed correspondence?",
+      "o": [
+        "Compare the personnel access location with the organization’s approved regional policy",
+        "Compare the event time with the period when the support ticket was open",
+        "Compare independent provider audit coverage with the affected service’s assurance requirements",
+        "Compare the event’s resource, action and justification with the approved support case"
+      ]
+    },
+    "answer": [
+      "D"
+    ],
+    "expEs": "Los registros incluyen recursos, acciones y justificación. Permiten comprobar vínculo con caso; una diferencia requiere aclaración, no prueba automáticamente vínculo o acceso no autorizado.",
+    "expEn": "Access Transparency records resources, actions and business justification. Those fields support checking the specific support-case link; a mismatch calls for clarification rather than assuming the event proves that link or proves unauthorized access.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-078",
+    "level": 4,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Se desactiva clave comprometida de cuenta de servicio y credencial breve robada previamente sigue funcionando. ¿Qué evaluación aborda credencial activa además de impedir uso nuevo de clave?",
+      "o": [
+        "Desactivar cuenta comprometida y verificar contención de credenciales emitidas",
+        "Crear clave nueva y actualizar cargas legítimas",
+        "Ampliar evidencia y alertas de actividad de identidad",
+        "Reducir permisos innecesarios y documentar recursos previstos"
+      ]
+    },
+    "en": {
+      "q": "A compromised service-account key is disabled, but a stolen short-lived credential issued earlier still works. Which containment assessment addresses the active credential rather than only preventing new use of the key?",
+      "o": [
+        "Disable the compromised service account and verify containment of issued credentials",
+        "Create a replacement key and update legitimate workloads to use it",
+        "Expand the audit evidence and alert coverage for activity by the service identity",
+        "Reduce unnecessary permissions and document the service’s intended resource scope"
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "Desactivar clave no revoca credenciales breves emitidas. Google indica desactivar o eliminar la cuenta representada para revocarlas.",
+    "expEn": "Disabling a key does not revoke its already-issued short-lived credentials. Google documents disabling or deleting the represented service account to revoke those credentials.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-084",
+    "level": 4,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Un contratista necesita proyecto cinco días y conservar identidad para otra app. La concesión admite condiciones temporales. ¿Qué plan limita permiso temporal sin quitar uso distinto?",
+      "o": [
+        "Eliminar identidad al final y recrearla para app permanente",
+        "Exigir renovar contraseña y conservar rol del proyecto",
+        "Aplicar condición de vencimiento a concesión compatible del proyecto",
+        "Programar revisión mensual de roles organizativos"
+      ]
+    },
+    "en": {
+      "q": "A contractor needs project access for five days but must keep a separate ongoing app identity. The role binding supports time conditions. Which plan limits the temporary permission without removing the unrelated identity use?",
+      "o": [
+        "Delete the identity at the end date and recreate it for the ongoing application",
+        "Require password renewal at the end date while retaining the project role",
+        "Apply an expiring condition to the supported project role binding",
+        "Schedule a monthly review of the contractor’s organization-wide role assignments"
+      ]
+    },
+    "answer": [
+      "C"
+    ],
+    "expEs": "Concesión con vencimiento limita permiso concreto y conserva usos distintos sujetos a gestión. Eliminar identidad o renovar contraseña afecta otros ámbitos.",
+    "expEn": "An expiring conditional grant can limit the specified resource permission while other identity uses remain separately governed. Identity deletion and password renewal address different scopes.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-087",
+    "level": 4,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Un dataset contiene teléfonos públicos de soporte y privados de clientes. Política permite primeros y protege segundos. Transformación indiscriminada rompe directorio. ¿Qué evaluación SDP aborda finalidades?",
+      "o": [
+        "Evaluar formatos detectados y rangos válidos",
+        "Evaluar reglas por contexto con campos públicos y privados representativos",
+        "Evaluar umbrales de detección y sensibilidad en campos telefónicos",
+        "Evaluar cobertura de análisis y completitud de inventario de campos"
+      ]
+    },
+    "en": {
+      "q": "A dataset contains public company support numbers and private customer phone numbers. Policy permits the former to remain public and requires protection of the latter. A blanket phone-number transformation breaks the contact directory. Which SDP evaluation addresses both purposes?",
+      "o": [
+        "Evaluate detected phone formats and the valid number ranges in the dataset",
+        "Evaluate context-aware rules against representative public and private fields",
+        "Evaluate inspection likelihood settings and detector sensitivity across phone fields",
+        "Evaluate scan coverage and completeness of the dataset’s field inventory"
+      ]
+    },
+    "answer": [
+      "B"
+    ],
+    "expEs": "Mismo tipo puede tener requisitos distintos por contexto. Reglas específicas preservan uso público aprobado y protegen valores privados.",
+    "expEn": "The same data type can have different stipulated protection requirements by context. Targeted rules must preserve the approved public use while protecting private customer values.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-088",
+    "level": 4,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Una carga multicloud puede usar proveedor de identidad existente y guarda claves Google duraderas en entornos. Se busca eliminar necesidad de almacenar claves de cuenta Google y conservar acceso limitado. ¿Qué enfoque evaluar?",
+      "o": [
+        "Centralizar claves en un vault y limitar permisos por carga",
+        "Asignar claves por entorno y limitar roles y auditar uso",
+        "Usar federación del proveedor externo y permisos limitados por carga",
+        "Gestionar claves rotadas y permisos limitados y revocación documentada"
+      ]
+    },
+    "en": {
+      "q": "A multicloud workload can use its existing external identity provider, but currently stores long-lived Google service-account keys in several environments. The goal is to remove the need for stored Google service-account keys while preserving limited resource access. Which identity approach should be evaluated?",
+      "o": [
+        "Centralize service-account keys in a vault with scoped permissions per workload",
+        "Assign environment-specific service-account keys with scoped roles and key-use audit logging",
+        "Use external identity provider federation with scoped permissions for each workload",
+        "Manage rotated service-account keys with scoped permissions and documented revocation procedures"
+      ]
+    },
+    "answer": [
+      "C"
+    ],
+    "expEs": "Federación permite identidades externas en vez de claves de cuenta. Debe limitarse autorización; evitar claves no concede permisos amplios.",
+    "expEn": "Federation lets external workloads use federated identities instead of service-account keys. Resource authorization still needs the appropriate scope; avoiding stored keys does not grant broad permissions.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-091",
+    "level": 4,
+    "domain": "Operations and costs",
+    "region": 6,
+    "multi": false,
+    "es": {
+      "q": "Un presupuesto Spend cap se configura para servicio elegible de un proyecto. Se espera que detenga todos los cargos, incluidos cómputo y almacenamiento persistentes. ¿Qué revisión evalúa supuesto?",
+      "o": [
+        "Revisar cuotas y almacenamiento aprovisionado",
+        "Revisar alcance elegible, pausas y costos que siguen activos",
+        "Revisar destinatarios y frecuencia de pronósticos",
+        "Revisar plazo y descuento de compromisos de cómputo"
+      ]
+    },
+    "en": {
+      "q": "A Spend cap budget is configured for one eligible service in a project. The manager expects it to stop all project charges, including persistent compute and storage, when triggered. Which review checks that expectation?",
+      "o": [
+        "Review resource quotas and the project’s provisioned storage capacity",
+        "Review eligible service scope, pausing behavior and costs that remain active",
+        "Review budget notification recipients and the forecast report frequency",
+        "Review the term and discount rate of existing compute commitments"
+      ]
+    },
+    "answer": [
+      "B"
+    ],
+    "expEs": "El alcance es servicio elegible y no se pausa uso fijo persistente. No debe describirse como detención universal de costos del proyecto.",
+    "expEn": "Spend caps have a specified eligible service scope and do not pause ongoing fixed usage from persistent resources. They must not be described as a universal stop to all project costs.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L4-092",
+    "level": 4,
+    "domain": "Operations and costs",
+    "region": 6,
+    "multi": false,
+    "es": {
+      "q": "Se compra compromiso flexible de gasto VM elegible. Operaciones exige capacidad compatible reservada en zona concreta. Se supone que compromiso de descuento da ambos. ¿Qué revisión separa requisitos?",
+      "o": [
+        "Revisar descuentos separados de capacidad y adecuación de reservas",
+        "Revisar gasto mínimo y adecuación a demanda base prevista",
+        "Revisar cuotas y ubicaciones compatibles con tipo de máquina",
+        "Revisar capacidad tolerante a interrupción y ahorro de tarifas"
+      ]
+    },
+    "en": {
+      "q": "A finance plan purchases a compute flexible commitment for eligible VM spending. Operations also needs supported capacity held ready in a particular zone. Management assumes the discount commitment supplies both benefits. Which review separates the two requirements?",
+      "o": [
+        "Review commitment discount coverage separately from reservation capacity and fit",
+        "Review minimum spending obligations and their fit with the expected workload baseline",
+        "Review resource quotas and the locations supporting the required machine type",
+        "Review interruption-tolerant capacity options and the available unit-price savings"
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "Compromisos abordan descuentos y reservas retienen capacidad compatible en zona. Evaluar uno no demuestra cumplimiento del otro.",
+    "expEn": "Commitments address eligible discounts; reservations hold supported capacity in a zone. Evaluating one does not establish that the other requirement is met.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L5-005",
+    "level": 5,
+    "domain": "Digital transformation with Google Cloud",
+    "region": 1,
+    "multi": false,
+    "es": {
+      "q": "Una empresa debe distribuir una aplicación adaptada a sus socios comerciales y obtener soporte especializado cuando falle esa versión. Un editor de código abierto permite la modificación y redistribución necesarias, pero solo da soporte a la versión sin cambios. Una alternativa comercial ofrece soporte, aunque sus condiciones actuales restringen la redistribución. La empresa puede contratar a un integrador. ¿Qué evidencia debe determinar si la vía del integrador es viable?",
+      "o": [
+        "El soporte del editor para la versión sin cambios y permiso para que los socios reciban sus binarios estándar",
+        "El historial de soporte de la alternativa comercial y permiso para modificarla para uso interno de la empresa",
+        "Derechos escritos de redistribución de la versión adaptada y un acuerdo de soporte que cubra esa versión y sus fallos",
+        "La capacidad del integrador para acceder al código fuente y un compromiso general de resolver incidencias de la versión original"
+      ]
+    },
+    "en": {
+      "q": "A company must distribute a tailored application to business partners and obtain specialist support when the tailored release fails. An open-source publisher permits the needed modification and redistribution but supports only its unmodified release. A commercial alternative offers support but its current terms restrict redistribution. The company can contract an integrator. Which evidence should decide whether the integrator route is viable?",
+      "o": [
+        "The publisher’s support for the unmodified release and permission for partners to receive its standard binaries",
+        "The commercial alternative’s support record and permission to modify it for internal use by the company",
+        "Written redistribution rights for the tailored release and a support agreement covering that version and its failures",
+        "The integrator’s ability to access source code and a general commitment to resolve issues in the upstream release"
+      ]
+    },
+    "answer": [
+      "C"
+    ],
+    "expEs": "La empresa necesita tanto permiso para distribuir la versión adaptada como soporte especializado para esa versión. El acceso al código o el soporte de la versión original no demuestran ambas condiciones; el acuerdo debe cubrir la versión y el alcance de fallos pertinentes.",
+    "expEn": "The company needs both permission to distribute the tailored version and specialist support for that version. Source availability or upstream support alone does not establish both conditions; the agreement must cover the relevant release and failure scope.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L5-025",
+    "level": 5,
+    "domain": "Data transformation",
+    "region": 2,
+    "multi": false,
+    "es": {
+      "q": "Los feeds de productos de proveedores incorporan atributos opcionales en cada versión. Los analistas necesitan consultar ahora campos estables de ventas y productos, usar un único informe entre proveedores y examinar nuevos atributos sin rediseñar la tabla en cada versión. ¿Qué plan de datos equilibra mejor esos requisitos?",
+      "o": [
+        "Mantener tipados los campos estables del informe y añadir columnas tipadas en cada versión del proveedor, actualizando el esquema común.",
+        "Guardar cargas completas como archivos JSON sin procesar y aplazar las consultas comunes de ventas hasta que los proveedores dejen de cambiar sus feeds.",
+        "Mantener tablas tipadas separadas por proveedor y conciliar sus informes cuando cambien los atributos opcionales.",
+        "Mantener tipados los campos estables y los atributos opcionales cambiantes en una columna JSON; validar los campos necesarios para el informe común."
+      ]
+    },
+    "en": {
+      "q": "Supplier product feeds add optional attributes with each release. Analysts need to query stable sales and product fields now, use one cross-supplier report, and inspect new attributes without redesigning the table for each release. Which data plan best balances those requirements?",
+      "o": [
+        "Keep stable reporting fields typed and add new typed columns at each supplier release, then update the shared schema.",
+        "Store full payloads as raw JSON files and defer shared sales queries until suppliers stop changing their feeds.",
+        "Maintain separate typed tables per supplier and reconcile their reports whenever optional attributes change.",
+        "Keep stable fields typed and optional evolving attributes in a JSON column; validate the required fields for shared reporting."
+      ]
+    },
+    "answer": [
+      "D"
+    ],
+    "expEs": "Este plan mantiene consultables los campos analíticos estables y conserva atributos opcionales cambiantes sin exigir un esquema fijo común en cada versión de proveedor.",
+    "expEn": "This plan keeps stable analytical fields queryable while preserving evolving optional attributes without requiring a shared fixed schema for every supplier release.",
+    "ref": "https://docs.cloud.google.com/bigquery/docs/json-data"
+  },
+  {
+    "id": "CDL-L5-033",
+    "level": 5,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Un minorista europeo debe mantener los datos analíticos de clientes dentro de la UE. Si la región principal no está disponible, los responsables necesitan informes de solo lectura y aceptan que los resultados puedan estar desactualizados; no exigen una garantía máxima de actualización, escrituras ni promover una nueva región principal durante la interrupción. ¿Qué diseño se ajusta mejor a estos requisitos?",
+      "o": [
+        "Ubicar el conjunto de datos en la multirregión EU y confiar en que esa denominación proporciona copias entre regiones que permanecen actualizadas durante una interrupción regional.",
+        "Usar una región principal aprobada de la UE y una segunda réplica en la UE; durante una interrupción, ejecutar informes de solo lectura en la réplica y aceptar un posible retraso.",
+        "Usar una región principal aprobada de la UE con una segunda réplica en la UE; después, promover la réplica y reanudar las escrituras si la región principal sufre una interrupción total.",
+        "Usar una región principal aprobada de la UE y una réplica en EE. UU.; después, restringir el acceso a la copia estadounidense para que los datos de recuperación cumplan el límite de la UE."
+      ]
+    },
+    "en": {
+      "q": "A European retailer must keep customer analytics within the EU. If the primary region is unavailable, managers need read-only reports and will accept results that may be stale; they do not require a maximum freshness guarantee, writes, or promotion of a new primary during the outage. Which design best fits these requirements?",
+      "o": [
+        "Place the dataset in the EU multi-region and rely on the label to provide cross-region copies that stay current during a regional outage.",
+        "Use an approved EU primary region and a second EU replica; during an outage, run read-only reports on the replica and accept possible staleness.",
+        "Use an approved EU primary region with a second EU replica, then promote the replica and resume writes if the primary region has a total outage.",
+        "Use an approved EU primary region and a US replica, then restrict access to the US copy so the recovery data remains compliant with the EU boundary."
+      ]
+    },
+    "answer": [
+      "B"
+    ],
+    "expEs": "Las ubicaciones multirregionales de BigQuery no proporcionan redundancia entre regiones. La replicación ordinaria puede permitir consultas de solo lectura en la región secundaria durante una interrupción de la principal, pero los resultados pueden estar desactualizados y no se puede promover la secundaria durante una interrupción total. La aceptación de datos posiblemente desactualizados y el uso de solo lectura se ajustan a esa limitación, siempre que ambas ubicaciones estén aprobadas en la UE.",
+    "expEn": "BigQuery multi-region locations do not provide cross-region redundancy. Ordinary dataset replication can let read-only jobs continue in the secondary region during a primary-region outage, but those results might be stale and the secondary cannot be promoted during a total outage. The stated acceptance of staleness and read-only use fits that limitation while keeping both locations approved in the EU.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L5-035",
+    "level": 5,
+    "domain": "Data transformation",
+    "region": 2,
+    "multi": false,
+    "es": {
+      "q": "Un minorista recibe archivos horarios de inventario y actualizaciones de tiendas casi en tiempo real. Los cambios frecuentes en las reglas de existencias exigen actualizaciones duplicadas en dos canalizaciones, y un equipo pequeño de operaciones tiene dificultades para mantenerlas alineadas. El minorista solo consolidará si un piloto demuestra que una única implementación compartida de la regla de existencias puede atender ambos patrones de entrada con precisión aceptable y menos esfuerzo de soporte. ¿Qué piloto aporta la evidencia más directa?",
+      "o": [
+        "Probar en Dataflow una implementación compartida de la regla con entradas representativas por lotes y streaming; comparar precisión y esfuerzo de soporte con ambas rutas actuales.",
+        "Probar Dataflow para la ruta horaria por lotes y conservar la ruta actual de streaming; comparar la precisión por lotes y el esfuerzo de soporte antes de decidir si se consolida.",
+        "Probar rutas separadas de Dataflow para lotes y streaming, cada una con su propia copia mantenida de la regla; comparar precisión y esfuerzo con las rutas actuales.",
+        "Probar el modelo compartido de Dataflow con ambos patrones de entrada, pero evaluarlo por el rendimiento y la latencia en vez de por la precisión de la regla de existencias o el esfuerzo de soporte."
+      ]
+    },
+    "en": {
+      "q": "A retailer receives hourly inventory files and near-real-time store updates. Frequent stock-rule changes require duplicate updates in two pipelines, and a small operations team struggles to keep them aligned. The retailer will consolidate only if a pilot shows that one shared implementation of the stock rule can serve both input patterns with acceptable accuracy and less support effort. Which pilot gives the most direct evidence?",
+      "o": [
+        "Pilot one shared stock-rule implementation with representative batch and streaming inputs on Dataflow; compare accuracy and support effort with both current paths.",
+        "Pilot Dataflow for the hourly batch path and retain the current streaming path; compare batch accuracy and support effort before deciding whether to consolidate.",
+        "Pilot separate Dataflow batch and streaming paths, each with its own maintained copy of the stock rule; compare accuracy and support effort with current paths.",
+        "Pilot the shared Dataflow model on both input patterns, but judge it by throughput and latency rather than stock-rule accuracy or support effort."
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "Dataflow ofrece procesamiento unificado por lotes y en streaming con el mismo modelo de programación, pero eso no exige un único trabajo físico. El caso pregunta si el minorista puede reutilizar una implementación de su regla cambiante en ambos patrones de entrada y reducir el esfuerzo de soporte sin perder precisión. La opción A prueba esa reutilización frente a las dos rutas actuales; C conserva copias separadas de la regla, mientras que B y D dejan sin probar un patrón o una medida relevante para decidir.",
+    "expEn": "Dataflow provides unified batch and stream processing with the same programming model, but that does not require one physical job. The case asks whether the retailer can reuse one implementation of its changing stock rule across both input patterns and reduce support effort without lowering accuracy. Option A tests that reuse against both current paths; C retains separate copies of the rule, while B and D leave a pattern or a decision-relevant measure untested.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L5-036",
+    "level": 5,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Un grupo externo de auditoría debe ejecutar consultas de ventas aprobadas sin ver identificadores de clientes e inspeccionar de forma independiente y bajo demanda su propia actividad de consulta, sin esperar al personal de la empresa. La empresa puede ubicar los trabajos del grupo en un proyecto dedicado de BigQuery que solo use ese grupo. ¿Qué plan de acceso satisface ambas necesidades?",
+      "o": [
+        "Conceder una vista autorizada y una vista de registros en el proyecto de registro compartido, filtrando las entradas por el principalEmail del grupo para que tenga acceso autoservicio.",
+        "Conceder una vista autorizada y ubicar los trabajos del grupo en su proyecto dedicado, pero pedir al personal de la empresa que exporte los registros de consulta cada vez que el grupo los solicite.",
+        "Conceder la vista autorizada, ejecutar los trabajos del grupo en su proyecto dedicado y otorgarle allí roles/logging.privateLogViewer para consultar directamente los registros de acceso a datos.",
+        "Conceder la vista autorizada y acceso al proyecto dedicado, pero usar roles/logging.viewer para consultar directamente los registros de acceso a datos del grupo."
+      ]
+    },
+    "en": {
+      "q": "An external assurance group must run approved sales queries without seeing customer identifiers and independently inspect its own query activity on demand, without waiting for company staff. The company can place the group’s jobs in a dedicated BigQuery project used only by that group. Which access plan meets both needs?",
+      "o": [
+        "Grant an authorized view and a log view in the shared logging project, filtering entries by the group’s principalEmail for self-service access.",
+        "Grant an authorized view and place the group’s jobs in its dedicated project, but have company staff export its query records whenever the group asks.",
+        "Grant the authorized view, run the group’s jobs in its dedicated project, and grant roles/logging.privateLogViewer there for direct Data Access log review.",
+        "Grant the authorized view and dedicated project access, but use roles/logging.viewer for direct review of the group’s Data Access logs."
+      ]
+    },
+    "answer": [
+      "C"
+    ],
+    "expEs": "Una vista autorizada permite al grupo consultar resultados seleccionados sin acceso directo al conjunto de datos de origen. La documentación de auditoría de BigQuery indica que los registros de nivel de proyecto incluyen entradas de trabajos; por eso, un proyecto usado solo para los trabajos del grupo separa sus registros de actividad. Conceder roles/logging.privateLogViewer en ese proyecto proporciona el permiso necesario para los registros de acceso a datos; roles/logging.viewer por sí solo no lo proporciona. Otros roles adecuados de Logging o permisos limitados también pueden concederlo. Una vista compartida de registros no puede filtrar campos arbitrarios del contenido como principalEmail, y las exportaciones del personal no ofrecen el acceso independiente bajo demanda solicitado.",
+    "expEn": "An authorized view lets the group query selected results without direct access to the source dataset. BigQuery audit documentation says project-level logs include job entries, so a project used only for this group’s jobs separates its activity records. Granting roles/logging.privateLogViewer on that project provides the needed Data Access-log permission; roles/logging.viewer alone does not. Other suitable Logging roles or scoped grants can also provide the permission. A shared log view cannot filter on arbitrary principalEmail payload fields, and staff exports do not provide the requested independent on-demand access.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L5-038",
+    "level": 5,
+    "domain": "Artificial intelligence",
+    "region": 3,
+    "multi": false,
+    "es": {
+      "q": "Un centro de contacto debe conservar una transcripción consultable en el idioma original, proporcionar a los especialistas una transcripción completa traducida y generar un resumen basado en esa traducción. El lanzamiento depende de tratar correctamente nombres y llamadas con ruido. ¿Qué piloto aporta la evidencia más sólida sobre los artefactos y la calidad requerida?",
+      "o": [
+        "Conservar la transcripción original, generar la traducción completa y el resumen, y evaluar la calidad en llamadas sin ruido usando solo la preferencia media por el resumen.",
+        "Conservar la transcripción original, traducir todo el texto y resumir esa traducción, pero usar una única puntuación integral de satisfacción para todos los pares de idiomas.",
+        "Pedir al personal bilingüe que revise la traducción y el resumen, descartar los textos intermedios y confiar en las grabaciones de audio en vez de conservar transcripciones consultables.",
+        "Conservar la transcripción original, traducirla completa, resumir esa traducción y comprobar cada etapa con llamadas ruidosas y muestras con muchos nombres y acentos."
+      ]
+    },
+    "en": {
+      "q": "A contact center must retain a searchable original-language transcript, give specialists a full translated transcript, and produce a summary based on that translation. Launch depends on handling names and noisy calls reliably. Which pilot gives the strongest evidence for both artifact and quality requirements?",
+      "o": [
+        "Retain the source transcript, produce the full translation and summary, and evaluate quality on clean calls using average summary preference only.",
+        "Retain the source transcript, translate the full text, and summarize that translation, but use one end-to-end satisfaction score for all language pairs.",
+        "Ask bilingual staff to review the translation and summary, discard generated intermediate text, and rely on audio recordings instead of searchable transcript records.",
+        "Retain the source transcript, translate it in full, summarize that translation, and check each stage on noisy calls and samples with many names and accents."
+      ]
+    },
+    "answer": [
+      "D"
+    ],
+    "expEs": "Los artefactos requeridos determinan la secuencia, mientras que los riesgos indicados exigen comprobaciones por etapa con muestras difíciles. Un promedio del resumen final no permite establecer la exactitud de la transcripción ni la fidelidad de la traducción.",
+    "expEn": "The required artifacts determine the sequence, while the stated risks call for stage-specific checks on difficult samples. A final-summary average alone cannot establish transcript accuracy or translation fidelity.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L5-039",
+    "level": 5,
+    "domain": "Artificial intelligence",
+    "region": 3,
+    "multi": false,
+    "es": {
+      "q": "Una organización de servicios aprobó categorías de motivos después de explorar notas sin etiquetar y entrenar un clasificador supervisado con ejemplos etiquetados. Antes de cualquier lanzamiento, puede reservarse una muestra del siguiente período etiquetada por un responsable; la mezcla puede cambiar y algunos errores de categoría son especialmente costosos. ¿Qué evaluación respalda mejor la decisión de automatizar?",
+      "o": [
+        "Usar una muestra aleatoria reservada del período de entrenamiento y reportar la precisión general, porque se espera que el período siguiente contenga las mismas categorías aprobadas.",
+        "Evaluar la muestra del siguiente período con una única puntuación agregada de precisión y aplazar la revisión por categoría hasta que comience la automatización.",
+        "Usar la muestra reservada del siguiente período, inspeccionar errores por categoría aprobada y pedir a los responsables que revisen los errores costosos antes de decidir un lanzamiento acotado.",
+        "Usar una muestra estratificada reservada del período de entrenamiento para medir cada categoría aprobada y tratar esos resultados como concluyentes aunque cambie la mezcla de casos."
+      ]
+    },
+    "en": {
+      "q": "A service organization approved reason categories after exploring unlabeled notes and training a supervised classifier on labeled examples. A steward-labeled sample from the next period can be held back before any rollout; that period’s mix may change, and some category mistakes are especially costly. Which evaluation best supports the automation decision?",
+      "o": [
+        "Use a random holdout from the training period and report overall accuracy, because the next period is expected to contain the same approved categories.",
+        "Evaluate on the next-period sample with one aggregate accuracy score, then defer category-level review until after automation begins.",
+        "Use the held-back next-period sample, inspect errors by approved category, and have stewards review costly mistakes before deciding on a bounded rollout.",
+        "Use a stratified holdout from the training period to measure each approved category, then treat those results as conclusive despite a changed case mix."
+      ]
+    },
+    "answer": [
+      "C"
+    ],
+    "expEs": "La guía de ML de Google recomienda evaluar con ejemplos independientes y representativos, y explica que los cambios en la distribución de datos pueden reducir la generalización. También señala que el costo de los distintos errores de clasificación influye en las métricas adecuadas. Aplicar esos principios al cambio previsto entre períodos respalda reservar una muestra etiquetada del siguiente período y revisar errores por categoría antes de ampliar la automatización.",
+    "expEn": "Google’s ML guidance recommends evaluating on separate, representative examples and explains that changes in data distributions can weaken generalization. It also notes that the cost of different classification errors affects which metrics are meaningful. Applying those principles to the stated upcoming-period shift supports a labeled next-period holdout and category-level review before expanding automation.",
+    "ref": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf"
+  },
+  {
+    "id": "CDL-L5-041",
+    "level": 5,
+    "domain": "Artificial intelligence",
+    "region": 3,
+    "multi": false,
+    "es": {
+      "q": "Una empresa combina registros de clientes de dos sistemas para crear un ejemplo de entrenamiento por persona. Los sistemas no comparten un identificador, algunos datos de contacto están desactualizados o compartidos, y los responsables deben poder auditar qué registros de origen se vincularon. ¿Qué plan de conciliación equilibra mejor los duplicados no detectados y las combinaciones accidentales?",
+      "o": [
+        "Usar una regla versionada con varios atributos corroborantes para los vínculos de alta confianza, enviar los pares ambiguos a un responsable y conservar los ID de origen junto con cada decisión.",
+        "Vincular automáticamente los registros con la misma dirección de correo normalizada, conservar ambos ID de origen y revisar solo los pares con nombres distintos.",
+        "Vincular los registros cuando coincidan los nombres normalizados y los códigos postales, conservar ambos ID de origen y enviar a revisión solo las direcciones incompletas.",
+        "Mantener separados los registros cuando difieran los ID de cuenta, conservar los ID originales y permitir que el entrenamiento los trate como clientes distintos."
+      ]
+    },
+    "en": {
+      "q": "A business combines customer records from two systems to create one training example per person. The systems have no shared identifier, some contact fields are outdated or shared, and stewards must be able to audit which source records were linked. Which reconciliation plan best balances missed duplicates with accidental merges?",
+      "o": [
+        "Use a versioned rule with several corroborating attributes for high-confidence links, send ambiguous pairs to a steward, and retain source IDs with each decision.",
+        "Automatically link records with the same normalized email address, retain both source IDs, and review only pairs that have different names.",
+        "Link records when normalized names and postal codes match, retain both source IDs, and send only incomplete addresses for review.",
+        "Keep records separate when account IDs differ, retain the original IDs, and let training treat them as separate customers."
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "Todos los planes conservan los identificadores de origen, pero difiere la evidencia usada para vincular los registros. Un correo normalizado o la combinación de nombre y código postal puede coincidir entre personas distintas, mientras que exigir que coincidan los ID de cuenta no detecta duplicados entre sistemas. Una regla versionada con varios atributos y revisión hace auditable el criterio y remite los casos inciertos a una decisión empresarial.",
+    "expEn": "All plans preserve source identifiers, but their matching evidence differs. A normalized email or name/postal code can collide across people, while requiring account IDs to agree misses cross-system duplicates. A reviewed, versioned multi-attribute rule makes the match basis auditable and routes uncertain cases for a business decision.",
+    "ref": "https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview"
+  },
+  {
+    "id": "CDL-L5-043",
+    "level": 5,
+    "domain": "Artificial intelligence",
+    "region": 3,
+    "multi": false,
+    "es": {
+      "q": "Un agente empresarial usa un servidor MCP con getStatements y transferFunds. Para un agente piloto, la política debe permitir getStatements y denegar transferFunds. El equipo también quiere inspeccionar las decisiones de la política antes de aplicarla. ¿Qué plan de implementación satisface mejor estos requisitos?",
+      "o": [
+        "En modo de prueba, limitar una política al agente piloto y a los nombres de ambas herramientas con los efectos previstos de permitir y denegar; inspeccionar las decisiones registradas y luego aplicarla.",
+        "En modo de prueba, limitar una política de denegación al agente piloto y a los nombres de ambas herramientas; inspeccionar las decisiones registradas y luego aplicar la denegación a ambas herramientas.",
+        "Aplicar de inmediato al agente piloto la regla que permite getStatements y deniega transferFunds; inspeccionar las decisiones registradas después de aplicarla para confirmar el límite.",
+        "En modo de prueba, limitar las reglas que permiten getStatements y deniegan transferFunds a todos los agentes del servidor; inspeccionar las decisiones registradas y luego aplicarlas a todos los agentes."
+      ]
+    },
+    "en": {
+      "q": "An enterprise agent uses an MCP server with getStatements and transferFunds. For one pilot agent, policy must allow getStatements and deny transferFunds. The team also wants to inspect policy decisions before enforcement. Which rollout plan best meets these requirements?",
+      "o": [
+        "In dry-run mode, scope a policy to the pilot agent and both tool names with the intended allow and deny effects; inspect the logged decisions, then enforce it.",
+        "In dry-run mode, scope a deny policy to the pilot agent and both tool names; inspect the logged decisions, then enforce the denial on both tools.",
+        "Immediately enforce allow for getStatements and deny for transferFunds on the pilot agent; inspect the logged decisions after enforcement to confirm the boundary.",
+        "In dry-run mode, scope allow for getStatements and deny for transferFunds to every agent on the server; inspect the logged decisions, then enforce the rules for all agents."
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "Solo A especifica los efectos opuestos requeridos para las dos herramientas, limita la regla a la identidad piloto y revisa las decisiones de prueba antes de aplicarla. B denegaría la herramienta de lectura permitida; C omite el período de observación solicitado; D amplía el límite del piloto a todos los agentes.",
+    "expEn": "Only A states the required opposite effects for the two named tools, confines the rule to the pilot identity, and reviews dry-run decisions before enforcement. B would deny the permitted read tool; C skips the requested observation period; D expands the pilot boundary to every agent.",
+    "ref": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap"
+  },
+  {
+    "id": "CDL-L5-045",
+    "level": 5,
+    "domain": "Artificial intelligence",
+    "region": 3,
+    "multi": false,
+    "es": {
+      "q": "Un servicio de selección puede enviar al personal como máximo 120 de cada 1.000 casos. Un falso negativo cuesta cuatro unidades y un falso positivo cuesta una, por lo que el costo total estimado de error es 4 × FN + FP. En los datos reservados, cuatro umbrales dieron estos resultados: T0 marca 60 (TP 15, FP 45, FN 85); T1 marca 100 (TP 20, FP 80, FN 80); T2 marca 120 (TP 21, FP 99, FN 79); T3 marca 155 (TP 35, FP 120, FN 65). ¿Qué umbral debe seleccionar la empresa?",
+      "o": [
+        "T0, porque su costo estimado es 385 y es el umbral de menor costo dentro de la capacidad de 120 casos.",
+        "T1, porque tiene menos falsos positivos que T2 y se mantiene por debajo de la capacidad de revisión.",
+        "T2, porque tiene la mayor sensibilidad entre los umbrales que se mantienen dentro de la capacidad de revisión.",
+        "T3, porque su costo estimado es 380, el menor de los cuatro umbrales."
+      ]
+    },
+    "en": {
+      "q": "A screening service can send at most 120 of every 1,000 cases to staff. A false negative costs four units and a false positive costs one unit, so total estimated error cost is 4 × FN + FP. On held-out data, four thresholds produced these results: T0 flags 60 (TP 15, FP 45, FN 85); T1 flags 100 (TP 20, FP 80, FN 80); T2 flags 120 (TP 21, FP 99, FN 79); T3 flags 155 (TP 35, FP 120, FN 65). Which threshold should the business select?",
+      "o": [
+        "T0, because its estimated cost is 385 and it is the lowest-cost threshold within the 120-case capacity.",
+        "T1, because it has fewer false positives than T2 while remaining below the review capacity.",
+        "T2, because it has the highest recall among thresholds that stay within the review capacity.",
+        "T3, because its estimated cost is 380, the lowest of the four thresholds."
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "T0 cuesta 4×85+45=385. T1 cuesta 400 y T2 cuesta 415; ambos son viables, pero más costosos. T3 cuesta 380, pero marca 155 casos y supera la capacidad de 120. Por tanto, T0 minimiza el costo indicado entre los umbrales viables.",
+    "expEn": "T0 costs 4×85+45=385. T1 costs 400 and T2 costs 415; both are feasible but more costly. T3 costs 380, but flags 155 cases and exceeds the 120-case capacity. Thus T0 minimizes the stated cost among feasible thresholds.",
+    "ref": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/beginners-guide"
+  },
+  {
+    "id": "CDL-L5-046",
+    "level": 5,
+    "domain": "Artificial intelligence",
+    "region": 3,
+    "multi": false,
+    "es": {
+      "q": "Un equipo europeo de análisis debe mantener dentro de la UE el procesamiento de Gemini en BigQuery. Los analistas usan tanto el editor de SQL como el lienzo de datos; algunos configuran una ubicación de consulta distinta de la predeterminada por el administrador, y algunos trabajan con conjuntos de datos en distintas ubicaciones. ¿Qué verificación de implementación aporta la evidencia más sólida de que se cumple el requisito?",
+      "o": [
+        "Mover los conjuntos de datos a la UE y usar su ubicación de almacenamiento como única verificación del procesamiento de Gemini, independientemente de la configuración de consulta.",
+        "Establecer la ubicación de consulta de cada analista en la UE, dejar sin cambios el valor predeterminado del administrador y probar solo SQL porque ambas funciones heredan su ubicación.",
+        "Establecer la ubicación predeterminada de la organización en la UE, confirmar que las configuraciones explícitas de ubicación de consulta de los usuarios se mantengan dentro de la UE y probar las rutas del editor de SQL y del lienzo de datos que se usan en la práctica.",
+        "Establecer la ubicación predeterminada del proyecto en la UE y validar una consulta; considerar que ese valor prevalece incluso cuando un usuario selecciona otra ubicación de consulta."
+      ]
+    },
+    "en": {
+      "q": "A European analytics team must keep Gemini in BigQuery processing within the EU. Analysts use both the SQL editor and data canvas; some set a query location different from the administrator's default, and some work with datasets in different locations. Which rollout check gives the strongest evidence that the requirement is met?",
+      "o": [
+        "Move datasets to EU and use their storage location as the sole check for Gemini processing, regardless of query settings.",
+        "Set each analyst's query location to EU, leave the administrator default unchanged, and test only SQL because both features inherit its location.",
+        "Set the organization default to EU, confirm that explicit user query-location settings stay within the EU, and test the SQL editor and data canvas paths used in practice.",
+        "Set the project default to EU and validate one query; treat that default as controlling even when a user selects another query location."
+      ]
+    },
+    "answer": [
+      "C"
+    ],
+    "expEs": "La jurisdicción de procesamiento de Gemini depende del comportamiento de la función y de los controles de ubicación. El valor predeterminado del administrador puede ser reemplazado por la ubicación de consulta del usuario, y la ubicación del conjunto de datos o de la consulta puede influir en el comportamiento de reserva. Verificar las rutas reales del editor de SQL y del lienzo de datos y sus ubicaciones configuradas prueba el límite de procesamiento efectivo.",
+    "expEn": "Gemini's processing jurisdiction depends on feature behavior and location controls. The administrator default can be overridden by a user's query location, while dataset or query location can affect fallback behavior. Checking the actual SQL editor and data canvas paths and their configured locations tests the real processing boundary.",
+    "ref": "https://docs.cloud.google.com/bigquery/docs/gemini-locations"
+  },
+  {
+    "id": "CDL-L5-047",
+    "level": 5,
+    "domain": "Artificial intelligence",
+    "region": 3,
+    "multi": false,
+    "es": {
+      "q": "Un equipo de investigación programó para dentro de cuatro días una ejecución de entrenamiento de GPU de seis días en una zona elegida. Solo puede usar la capacidad si se asegura la configuración exacta de GPU, y su presupuesto no permite mantener una reserva sin usar antes de la ejecución. La vista de disponibilidad muestra los recursos requeridos para ese período. ¿Qué plan de capacidad se ajusta mejor?",
+      "o": [
+        "Crear ahora una reserva bajo demanda en la zona elegida, mantener la configuración exacta y pagarla mientras permanezca reservada antes de la ejecución.",
+        "Usar VM Spot con puntos de control; su menor precio hace viable la ejecución aunque se recupere la capacidad antes de terminar.",
+        "Crear VM Flex-start independientes en la fecha de inicio y establecer una espera de asignación de cuatro días para dar tiempo a que quede capacidad disponible en la zona solicitada.",
+        "Enviar una solicitud de reserva futura en modo calendario con las propiedades de GPU, zona, hora de inicio y período de seis días correspondientes; confirmar la ejecución una vez aprobada la solicitud."
+      ]
+    },
+    "en": {
+      "q": "A research team has a six-day GPU training run scheduled to begin four days from now in a chosen zone. It can use capacity only if the exact GPU configuration is secured, and its budget does not cover holding an unused reservation before the run. The availability view shows the required resources for that period. Which capacity plan best fits?",
+      "o": [
+        "Create an on-demand reservation in the chosen zone now, keep the exact configuration, and pay for it while it is held before the run.",
+        "Use Spot VMs with checkpoints; their lower price makes the run viable even if capacity is reclaimed before completion.",
+        "Create standalone Flex-start VMs on the start date and set a four-day allocation wait so the requested zone has time to free capacity.",
+        "Submit a future reservation request in calendar mode for the matching GPU properties, zone, start time, and six-day period; commit the run after the request is approved."
+      ]
+    },
+    "answer": [
+      "D"
+    ],
+    "expEs": "Una solicitud de reserva futura en modo calendario puede aprovisionar capacidad GPU coincidente en la zona y el período especificados si Google la aprueba; los cargos comienzan cuando se aprovisiona la capacidad reservada al inicio programado. Una reserva bajo demanda se cobra mientras se mantiene, las VM Spot pueden sufrir interrupciones y las solicitudes de espera de Flex-start independiente se limitan a dos horas.",
+    "expEn": "A calendar-mode future reservation request can provision the matching GPU capacity in the specified zone and period if Google approves it; charges begin when the reserved capacity is provisioned at the scheduled start. An on-demand reservation is billed while held, Spot VMs may be preempted, and standalone Flex-start wait requests are limited to two hours.",
+    "ref": "https://docs.cloud.google.com/compute/docs/instances/future-reservations-calendar-mode-overview"
+  },
+  {
+    "id": "CDL-L5-049",
+    "level": 5,
+    "domain": "Artificial intelligence",
+    "region": 3,
+    "multi": false,
+    "es": {
+      "q": "Un minorista prueba un agente conversacional que puede emitir reembolsos. Los reembolsos solo se permiten después de autenticar al cliente y hasta un monto establecido; las solicitudes mayores deben remitirse al personal. Una prueba con instrucciones de un solo turno muestra respuestas fluidas, pero la empresa necesita saber si el agente completa solicitudes válidas sin realizar acciones prohibidas. ¿Qué evaluación es más pertinente para la decisión?",
+      "o": [
+        "Usar casos de prueba de varios turnos para solicitudes autenticadas y elegibles, y para solicitudes no elegibles; puntuar solo si la respuesta final es útil y completa.",
+        "Ejecutar el agente con casos realistas de varios turnos y comparar la secuencia de llamadas a herramientas con una única secuencia de referencia exacta, sin comprobar por separado los resultados de la tarea.",
+        "Probar instrucciones de un solo turno con distintos montos de reembolso, comparar la redacción de las respuestas finales con ejemplos aprobados y revisar solo la satisfacción agregada después del lanzamiento.",
+        "Usar casos de varios turnos que abarquen autenticación, montos elegibles y derivaciones; puntuar la finalización de la tarea y si cada acción de herramienta respeta los límites de autorización y monto, y luego inspeccionar las trazas de fallas."
+      ]
+    },
+    "en": {
+      "q": "A retailer is piloting a conversational agent that can issue refunds. Refunds are permitted only after the customer is authenticated and only up to a stated amount; larger claims must be referred to staff. A test using single-turn prompts shows fluent answers, but the business needs to know whether the agent completes valid requests without taking prohibited actions. Which evaluation is most decision-relevant?",
+      "o": [
+        "Use multi-turn test cases for authenticated eligible requests and ineligible requests; score only whether the final answer is helpful and complete.",
+        "Run the agent on realistic multi-turn cases and score the tool-call sequence against one exact reference sequence, without separately checking task outcomes.",
+        "Run single-turn prompts across refund amounts, then compare the wording of the final answers with approved examples; review only aggregate satisfaction after launch.",
+        "Use multi-turn cases covering authentication, eligible amounts, and referrals; score task completion and whether each tool action follows the applicable authorization and amount limits, then inspect failure traces."
+      ]
+    },
+    "answer": [
+      "D"
+    ],
+    "expEs": "El requisito empresarial abarca tanto el resultado como las acciones que lo producen. Los escenarios de varios turnos prueban la autenticación y las decisiones de derivación; las comprobaciones separadas del éxito de la tarea y de la trayectoria de herramientas detectan una respuesta fluida que aun así emitió un reembolso no autorizado o excesivo. Revisar las trazas ayuda a localizar fallas y corregirlas.",
+    "expEn": "The business requirement concerns both the outcome and the actions that cause it. Multi-turn scenarios test authentication and referral decisions; separate task-success and tool-trajectory checks reveal a fluent answer that nevertheless issued an unauthorized or oversized refund. Reviewing traces helps locate failures for correction.",
+    "ref": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation"
+  },
+  {
+    "id": "CDL-L5-052",
+    "level": 5,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": false,
+    "es": {
+      "q": "Un servicio regional recibe tráfico HTTP variable y debe implementar un operador de Kubernetes compatible con el proveedor, que reconcilia un recurso personalizado en varios componentes de la aplicación. El proveedor confirma que el operador funciona en GKE Autopilot y no requiere acceso privilegiado ni ajustes personalizados de nodos. El equipo de plataforma es pequeño y la empresa quiere evitar administrar nodos de trabajo. ¿Qué piloto de entorno de ejecución se ajusta mejor a las restricciones de implementación y operación?",
+      "o": [
+        "Usar GKE Autopilot para el operador y las cargas de la aplicación; conservar los manifiestos de Kubernetes mientras Google administra el aprovisionamiento, escalado y actualización de nodos.",
+        "Usar Cloud Run para los contenedores HTTP y convertir la reconciliación del recurso personalizado del operador en una solicitud programada al servicio.",
+        "Usar GKE Standard y administrar grupos de nodos dedicados para que el equipo de plataforma conserve el control directo del aprovisionamiento y las actualizaciones de nodos.",
+        "Ejecutar Kubernetes en un grupo de instancias administrado de Compute Engine y mantener sin cambios la implementación existente del operador del proveedor."
+      ]
+    },
+    "en": {
+      "q": "A regional service receives variable HTTP traffic and must deploy a vendor-supported Kubernetes operator that reconciles a custom resource into several application components. The vendor confirms the operator works in GKE Autopilot and does not require privileged access or custom node settings. The platform team is small, and the business wants to avoid managing worker nodes. Which runtime pilot best fits the deployment and operating constraints?",
+      "o": [
+        "Use GKE Autopilot for the operator and application workloads; retain Kubernetes manifests while Google manages node provisioning, scaling, and upgrades.",
+        "Use Cloud Run for the HTTP containers and translate the operator's custom-resource reconciliation into a scheduled service request.",
+        "Use GKE Standard and operate dedicated node pools so the platform team can keep direct control over node provisioning and upgrades.",
+        "Run Kubernetes on a Compute Engine managed instance group and keep the vendor operator's existing cluster deployment unchanged."
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "El operador requerido depende de la API de Kubernetes y de reconciliar recursos personalizados, función que no ofrece la traducción propuesta a Cloud Run. Autopilot conserva el modelo de implementación de Kubernetes y administra el aprovisionamiento y escalado de nodos, de acuerdo con la compatibilidad declarada por el proveedor y la limitada capacidad del equipo para operar nodos. GKE Standard y Kubernetes autoadministrado pueden ejecutar el operador, pero mantienen trabajo de infraestructura que la empresa busca evitar.",
+    "expEn": "The required operator depends on Kubernetes API and custom-resource reconciliation, which the proposed Cloud Run translation does not provide. Autopilot retains the needed Kubernetes deployment model while managing node provisioning and scaling, matching the vendor's stated compatibility and the team's limited node-operations capacity. Standard GKE and self-managed Kubernetes can run the operator but retain infrastructure work the scenario seeks to avoid.",
+    "ref": "https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview"
+  },
+  {
+    "id": "CDL-L5-053",
+    "level": 5,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Una canalización de lanzamiento alojada en la organización GitHub de una empresa implementa una aplicación en Google Cloud cada noche. Actualmente almacena una clave de cuenta de servicio; solo necesita implementar un servicio de Cloud Run y publicar una imagen en un repositorio de Artifact Registry. ¿Qué plan de autenticación reduce mejor la exposición de credenciales y limita el acceso a la canalización prevista?",
+      "o": [
+        "Configurar Workload Identity Federation con una condición de atributos para la organización, el repositorio y la rama de lanzamiento de confianza; permitir que esa identidad suplante una cuenta de servicio dedicada con solo los roles de implementación necesarios.",
+        "Mantener la clave de cuenta de servicio en el almacén de secretos de la canalización, restringir el acceso a responsables de lanzamientos y rotar la clave en un calendario fijo.",
+        "Configurar Workload Identity Federation para cualquier repositorio de la organización y otorgar a su cuenta de servicio compartida el rol Editor en el proyecto de implementación.",
+        "Usar en el almacén de secretos de la canalización la credencial de un desarrollador y otorgarle los dos roles de implementación que necesita el lanzamiento."
+      ]
+    },
+    "en": {
+      "q": "A release pipeline hosted by a company’s GitHub organization deploys one application to Google Cloud each night. The pipeline currently stores a service-account key; it only needs to deploy one Cloud Run service and publish an image to one Artifact Registry repository. Which authentication plan best reduces credential exposure while keeping access limited to the intended pipeline?",
+      "o": [
+        "Configure Workload Identity Federation with an attribute condition for the trusted organization, repository, and release branch; let that identity impersonate a dedicated service account with only the required deployment roles.",
+        "Keep the service-account key in the pipeline secret store, restrict access to release maintainers, and rotate the key on a fixed schedule.",
+        "Configure Workload Identity Federation for any repository in the company organization and grant its shared service account Editor on the deployment project.",
+        "Use a developer’s user credential in the pipeline secret store and grant the developer the two deployment roles needed by the release."
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "Workload Identity Federation permite que un sistema CI externo intercambie su identidad de confianza por acceso temporal a Google Cloud, en lugar de mantener una clave de cuenta de servicio. Restringir las afirmaciones confiables de GitHub y usar una cuenta de servicio dedicada con privilegios mínimos limita el acceso al repositorio y la implementación previstos. Una clave almacenada sigue siendo una credencial de larga duración, mientras que la confianza para toda la organización o una credencial humana amplía el riesgo.",
+    "expEn": "Workload Identity Federation lets an external CI system exchange its trusted identity for short-lived Google Cloud access rather than maintain a service-account key. Restricting the trusted GitHub claims and using a dedicated, narrowly privileged service account confines that access to the intended repository and deployment. A secret-store key still remains a long-lived credential, while organization-wide trust or a human credential broadens risk.",
+    "ref": "https://docs.cloud.google.com/iam/docs/workload-identity-federation"
+  },
+  {
+    "id": "CDL-L5-054",
+    "level": 5,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Un archivo de registros requiere claves de cifrado administradas por el cliente en Cloud KMS para Cloud Storage, y los administradores de claves deben estar separados de los administradores de almacenamiento. Durante una rotación rutinaria, algunos objetos antiguos aún están cifrados con la versión anterior de la clave. ¿Qué procedimiento operativo conserva mejor tanto el control de las claves como la disponibilidad de los datos?",
+      "o": [
+        "Usar el cifrado predeterminado administrado por Google, mantener separados los roles de almacenamiento y documentar que el depósito sigue cifrado en reposo.",
+        "Usar CMEK y convertir en principal la nueva versión de la clave; luego deshabilitar la versión anterior cuando funcionen las nuevas escrituras.",
+        "Usar CMEK, pero otorgar a los administradores de almacenamiento permiso para deshabilitar versiones de claves, de modo que puedan resolver incidentes de acceso sin otro equipo.",
+        "Usar CMEK con roles separados para claves y almacenamiento; volver a cifrar los objetos que aún usan la versión anterior, verificar que ya no se utilice y solo entonces deshabilitarla mediante un cambio revisado."
+      ]
+    },
+    "en": {
+      "q": "A records archive requires Cloud Storage customer-managed encryption keys in Cloud KMS, with key administrators separate from storage administrators. During routine rotation, some older objects are still encrypted with the prior key version. Which operating procedure best preserves both key control and data availability?",
+      "o": [
+        "Use default Google-managed encryption, keep storage roles separate, and document that the bucket remains encrypted at rest.",
+        "Use CMEK and make the new key version primary, then disable the prior version once new writes succeed.",
+        "Use CMEK, but grant storage administrators permission to disable key versions so they can resolve access incidents without a second team.",
+        "Use CMEK with separate key and storage roles; re-encrypt objects still using the prior version, verify its usage is clear, and only then disable that version under a reviewed change."
+      ]
+    },
+    "answer": [
+      "D"
+    ],
+    "expEs": "Una nueva versión principal protege las escrituras futuras, pero no elimina la función de la versión anterior para descifrar los objetos existentes. Google recomienda comprobar si la versión sigue en uso y volver a cifrar los recursos protegidos antes de deshabilitarla. Separar la administración de claves mantiene el límite de control de la organización; el cifrado predeterminado por sí solo no satisface el requisito de CMEK.",
+    "expEn": "A new primary version protects new writes but does not remove the old version’s role in decrypting existing objects. Google recommends checking whether the version is still in use and re-encrypting protected resources before disabling it. Separate key administration maintains the organization’s control boundary; default encryption alone does not meet the stated CMEK requirement.",
+    "ref": "https://docs.cloud.google.com/kms/docs/cmek"
+  },
+  {
+    "id": "CDL-L5-055",
+    "level": 5,
+    "domain": "Operations and costs",
+    "region": 6,
+    "multi": false,
+    "es": {
+      "q": "Un servicio de pago tiene un SLO mensual de disponibilidad aprobado. En el día 18 del período móvil, ya se consumió el 82 % del presupuesto de errores. La política escrita del equipo pausa todos los lanzamientos de funciones no críticas para clientes cuando queda menos del 20 %; las correcciones de confiabilidad y los cambios urgentes de seguridad son excepciones. El registro de lanzamientos clasifica como no crítica la función de alto riesgo prevista para mañana, y su revisión de seguridad no encontró vulnerabilidades urgentes. ¿Qué respuesta aplica mejor la política y mantiene trabajo de ingeniería útil?",
+      "o": [
+        "Continuar con el lanzamiento completo para clientes y agregar cobertura de guardia, ya que todavía no se incumplió el SLO mensual.",
+        "Aplazar la función, priorizar el trabajo de confiabilidad vinculado a causas observadas y continuar solo los cambios que cumplan las excepciones indicadas de confiabilidad o seguridad urgente.",
+        "Lanzar primero la función a un grupo pequeño de clientes y detener la expansión si el presupuesto de errores disminuye más.",
+        "Congelar todos los cambios en producción, incluidas las correcciones de confiabilidad, hasta que se reinicie el período mensual y luego reanudar el lanzamiento previsto."
+      ]
+    },
+    "en": {
+      "q": "A checkout service has an approved monthly availability SLO. On day 18 of the rolling period, 82% of its error budget has been consumed. The team's written policy pauses all noncritical customer-feature launches when less than 20% remains; reliability fixes and urgent security changes are exceptions. The release register classifies tomorrow's high-risk feature as noncritical, and its security review found no urgent vulnerability. Which response best applies the policy while preserving useful engineering work?",
+      "o": [
+        "Proceed with the full customer rollout and add on-call coverage, since the monthly SLO has not yet been missed.",
+        "Defer the feature, prioritize reliability work tied to observed causes, and continue only changes that meet the stated reliability or urgent-security exceptions.",
+        "Release the feature to a small customer cohort first, then stop expansion if the error budget falls further.",
+        "Freeze all production changes, including reliability fixes, until the monthly window resets, then resume the planned release."
+      ]
+    },
+    "answer": [
+      "B"
+    ],
+    "expEs": "Queda solo el 18 %, por debajo del umbral del 20 % de la política, y el registro clasifica explícitamente la función como no crítica. Aplazar el lanzamiento cumple la política y permite continuar las correcciones de confiabilidad; esta función no tiene una excepción de seguridad urgente. Aumentar la supervisión o usar un grupo pequeño de clientes sigue lanzando la función pausada, mientras que congelar el trabajo de confiabilidad excede la restricción de la política.",
+    "expEn": "Only 18% remains, below the team's stated 20% threshold, and the release register explicitly classifies the planned feature as noncritical. Deferring that launch follows the policy while reliability fixes remain allowed; there is no urgent security exception for this feature. More monitoring or a smaller customer cohort still launches the paused feature, while freezing reliability work exceeds the policy's restriction.",
+    "ref": "https://sre.google/workbook/error-budget-policy/"
+  },
+  {
+    "id": "CDL-L5-056",
+    "level": 5,
+    "domain": "Data transformation",
+    "region": 2,
+    "multi": false,
+    "es": {
+      "q": "Un prestamista debe conservar cada documento de préstamo durante siete años después de que se pague el préstamo. Algunos préstamos pueden permanecer abiertos más de siete años y los registros no deben eliminarse antes del pago. ¿Qué diseño de Cloud Storage ajusta mejor la retención al evento empresarial?",
+      "o": [
+        "Configurar un período de retención del depósito de siete años desde la carga y agregar una regla de ciclo de vida que elimine los objetos al terminar ese período.",
+        "Colocar una retención temporal en cada documento nuevo hasta el pago y usar una fecha de retención de siete años para el objeto, medida desde la carga.",
+        "Aplicar una retención basada en eventos predeterminada a los documentos nuevos, liberar cada retención cuando se pague el préstamo y usar una política de retención del depósito de siete años que se cumpla antes de eliminar el objeto por ciclo de vida.",
+        "Aplicar retenciones predeterminadas basadas en eventos a los documentos nuevos y liberar cada retención al pagarse el préstamo; luego permitir que los administradores autorizados eliminen los registros cuando se solicite."
+      ]
+    },
+    "en": {
+      "q": "A lender must retain each loan document for seven years after the loan is paid off. Loans can remain open for more than seven years, and records must not be deleted before payoff. Which Cloud Storage design best aligns retention with the business event?",
+      "o": [
+        "Set a seven-year bucket retention period from upload and add a lifecycle rule to delete objects when that period ends.",
+        "Place a temporary hold on each new document until payoff and use a seven-year object retention date measured from upload.",
+        "Apply a default event-based hold to new documents, release each hold when its loan is paid off, and use a seven-year bucket retention policy that then runs before lifecycle deletion.",
+        "Apply default event-based holds to new documents and release each hold at payoff, then allow authorized administrators to delete the records when requested."
+      ]
+    },
+    "answer": [
+      "C"
+    ],
+    "expEs": "Una retención basada en eventos puede mantenerse hasta el pago; al liberarla comienza el período de retención del depósito, de modo que el documento se conserva los siete años requeridos. Una retención temporal no reinicia el reloj de retención, y un período contado desde la carga puede vencer antes de que se pague un préstamo de larga duración. Mantener la retención solo hasta el pago no satisface el período adicional de siete años.",
+    "expEn": "An event-based hold can remain until payoff; releasing it starts the bucket retention period, so the document then remains for the required seven years. A temporary hold does not restart the retention clock, and a period measured from upload may expire before a long-running loan is paid. Holding only until payoff does not satisfy the additional seven-year post-payoff period.",
+    "ref": "https://docs.cloud.google.com/storage/docs/object-holds"
+  },
+  {
+    "id": "CDL-L5-057",
+    "level": 5,
+    "domain": "Operations and costs",
+    "region": 6,
+    "multi": false,
+    "es": {
+      "q": "Varios equipos de producto comparten una plataforma GKE. Finanzas necesita un informe mensual de costos que permita comparar sus cargas de trabajo de forma justa; algunos costos se pueden atribuir a un espacio de nombres, mientras que la red, el registro y los servicios de plataforma apoyan a varios equipos. ¿Qué política de informes ofrece la atribución más útil sin aparentar una precisión inexistente?",
+      "o": [
+        "Habilitar la asignación de costos de GKE y la exportación detallada de facturación para el uso por espacio de nombres; informar directamente los costos atribuibles a cada carga y publicar por separado los cargos compartidos de plataforma o asignarlos con un criterio de uso documentado.",
+        "Aplicar una etiqueta del propietario del producto a cada clúster y asignar todos los cargos de espacios de nombres, red y registro al propietario de esa etiqueta.",
+        "Dividir la factura total de la plataforma por igual entre los equipos de producto y tratar ese monto como el costo total de nube de cada equipo.",
+        "Informar solo los costos por proyecto y excluir del informe de producto todo uso del clúster compartido hasta que cada partida tenga un único propietario."
+      ]
+    },
+    "en": {
+      "q": "Several product teams share a GKE platform. Finance needs a monthly showback that helps product owners compare their workloads fairly; some costs are traceable to a namespace, while network, logging, and platform services support multiple teams. Which reporting policy gives the most useful attribution without implying false precision?",
+      "o": [
+        "Enable GKE cost allocation and detailed billing export for namespace-level usage; report traceable workload costs directly and publish shared platform charges separately or allocate them through a documented usage driver.",
+        "Apply a product-owner label to each cluster and assign all namespace, network, and logging charges to the owner of that label.",
+        "Divide the total platform bill equally among product teams and treat the amount as each team’s complete cloud cost.",
+        "Report only project-level costs and leave all shared-cluster usage outside the product showback until every line item has a single owner."
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "La asignación de costos de GKE y la exportación detallada pueden mostrar el uso por espacio de nombres, lo que hace más informativos los costos directos de cada carga. El plano de arquitectura señala que algunos recursos compartidos no se pueden atribuir con granularidad; tratarlos de forma transparente como costos de plataforma o aplicar un criterio proporcional documentado es más fiel que asignarlo todo a un equipo o afirmar que una división igual representa el consumo.",
+    "expEn": "GKE cost allocation and detailed export can show usage by namespace, making direct workload costs more informative. The blueprint notes that some shared resources cannot be granularly attributed; treating them transparently as platform costs or applying a documented proportional driver is more honest than assigning everything to one team or claiming equal division reflects consumption.",
+    "ref": "https://docs.cloud.google.com/architecture/blueprints/enterprise-application-blueprint/manage-costs-attributions"
+  },
+  {
+    "id": "CDL-L5-058",
+    "level": 5,
+    "domain": "Operations and costs",
+    "region": 6,
+    "multi": false,
+    "es": {
+      "q": "Este año una empresa puede financiar un entorno de recuperación entre regiones. Su servicio de reservas tiene objetivos aprobados de RTO de 15 minutos y RPO de 5 minutos; su informe analítico mensual tiene RTO de 24 horas y RPO de 12 horas. Las copias probadas cada seis horas restauran el análisis en 10 horas, pero no cumplen los objetivos de reservas. Las pruebas de capacidad muestran que dividir el entorno financiado dejaría las reservas con RTO de 45 minutos y RPO de 30 minutos; asignarlo por completo a reservas puede cumplir sus objetivos, mientras que el análisis permanece en su ruta de copias probada. ¿Qué inversión protege mejor los resultados empresariales?",
+      "o": [
+        "Asignar el entorno regional al análisis y mantener las reservas con copias cada seis horas porque el análisis tiene mayor volumen de datos.",
+        "Dividir el entorno entre ambos servicios; aceptar el RTO probado de 45 minutos y el RPO de 30 minutos para reservas, aunque los objetivos aprobados no cambien.",
+        "Mantener ambos servicios con el calendario actual de copias y revisar los objetivos aprobados después del siguiente ejercicio de recuperación.",
+        "Asignar la capacidad regional financiada y la replicación continua a reservas, ensayar la conmutación frente a sus objetivos y conservar la recuperación probada mediante copias para el análisis."
+      ]
+    },
+    "en": {
+      "q": "A company can fund one cross-region recovery environment this year. Its reservation service has approved RTO 15 minutes and RPO 5 minutes; its monthly analytics report has RTO 24 hours and RPO 12 hours. Tested six-hour backups restore analytics in 10 hours but miss the reservation targets. Capacity tests show that splitting the funded environment would leave reservations at RTO 45 minutes and RPO 30 minutes; assigning it entirely to reservations can meet their targets, while analytics remains on its tested backup path. Which investment plan best protects business outcomes?",
+      "o": [
+        "Assign the regional environment to analytics and keep reservations on six-hour backups because analytics has the larger data volume.",
+        "Split the environment across both services; accept the tested 45-minute RTO and 30-minute RPO for reservations while leaving the approved targets unchanged.",
+        "Keep both services on the current backup schedule and revisit the approved targets after the next recovery exercise.",
+        "Assign the funded regional capacity and continuous replication to reservations, rehearse failover against its targets, and retain tested backup recovery for analytics."
+      ]
+    },
+    "answer": [
+      "D"
+    ],
+    "expEs": "Las reservas tienen la mayor brecha frente a sus objetivos: la ruta probada de copias incumple ambos y el diseño dividido también los incumple según las mediciones. La capacidad financiada puede cerrar esa brecha si se asigna a reservas y se valida mediante pruebas de conmutación. El análisis ya cumple sus objetivos menos estrictos con el procedimiento de copias probado, por lo que asignarle el único entorno nuevo o dividirlo no satisface el requisito de mayor impacto.",
+    "expEn": "Reservations have the greatest target gap: their tested backup path misses both objectives, and the measured split design also misses them. The funded capacity can close that gap when assigned to reservations and validated through failover tests. Analytics already meets its less stringent targets with the tested backup procedure, so assigning the sole new environment there or splitting it does not meet the highest-impact requirement.",
+    "ref": "https://docs.cloud.google.com/architecture/framework/reliability/perform-testing-for-recovery-from-failures"
+  },
+  {
+    "id": "CDL-L5-059",
+    "level": 5,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": false,
+    "es": {
+      "q": "Decenas de aplicaciones de socios usan una API de facturación y se actualizan en calendarios distintos. Una nueva función de facturación requiere cambiar el significado de un campo obligatorio de v1, lo que interrumpiría a los clientes existentes. La empresa quiere entregar la función este trimestre y conservar las integraciones actuales mientras los socios migran. ¿Qué plan de lanzamiento gestiona mejor el cambio?",
+      "o": [
+        "Cambiar el campo de v1 en el lugar, publicar un aviso de migración y pedir a todos los socios que se actualicen antes del siguiente ciclo de facturación.",
+        "Mantener v1 sin cambios y agregar el nuevo comportamiento de facturación tras una marca del lado del servidor, sin exponer un contrato compatible a los clientes socios.",
+        "Publicar un contrato v2 incompatible con versiones anteriores junto con v1, dirigir a los socios a la versión que admiten y supervisar la adopción antes de retirar v1 según un calendario acordado.",
+        "Agregar la nueva semántica del campo a v1 como respuesta opcional y conservar el valor anterior solo para los socios que informen un error de análisis."
+      ]
+    },
+    "en": {
+      "q": "A billing API is used by dozens of partner applications that upgrade on different schedules. A new invoicing feature requires changing the meaning of a required v1 field, which would break existing clients. The business wants to deliver the feature this quarter and preserve current integrations while partners migrate. Which release plan best manages the change?",
+      "o": [
+        "Change the v1 field in place, publish a migration notice, and ask all partners to update before the next billing cycle.",
+        "Keep v1 unchanged and add the new invoicing behavior behind a server-side flag without exposing a compatible contract to partner clients.",
+        "Publish a backward-incompatible v2 contract alongside v1, route partners to the version they support, and monitor adoption before retiring v1 on an agreed schedule.",
+        "Add the changed field semantics to v1 as an optional response and preserve the old value only for partners that report a parsing error."
+      ]
+    },
+    "answer": [
+      "C"
+    ],
+    "expEs": "Cambiar el significado de un campo obligatorio es incompatible con versiones anteriores. Ofrecer v1 y v2 simultáneamente permite que los socios elijan cuándo migrar, mientras la empresa mide la adopción y programa el retiro. Una marca del lado del servidor no cambia por sí sola el contrato público, y cambiar v1 en el lugar expone a los clientes a interrupciones.",
+    "expEn": "Changing a required field’s meaning is backward-incompatible. Serving v1 and v2 concurrently lets partners choose when to migrate while the business measures adoption and sets a planned retirement. A server-side flag alone does not change the public contract, and changing v1 in place leaves clients exposed to breakage.",
+    "ref": "https://docs.cloud.google.com/endpoints/docs/openapi/versioning-an-api"
+  },
+  {
+    "id": "CDL-L5-060",
+    "level": 5,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": false,
+    "es": {
+      "q": "Un minorista debe trasladar 40 TiB de datos NFS a Cloud Storage en 10 días. Solo dispone de 100 Mbit/s de capacidad de red sin afectar los servicios activos, por lo que una copia inicial solo en línea no cumpliría el plazo. Hay un Transfer Appliance disponible y la logística cabe en el calendario. Después de la copia inicial, el origen debe seguir activo y cambian unos 40 GiB al día; la empresa permite una pausa final de escrituras de dos horas. ¿Qué plan de cambio controla mejor la coherencia y el tiempo de inactividad?",
+      "o": [
+        "Copiar el volumen inicial con Transfer Appliance y ejecutar copias incrementales de Storage Transfer Service mientras el origen sigue activo. En la ventana final, pausar las escrituras, medir el delta pendiente y la velocidad de transferencia, conciliar los registros y cambiar solo si el delta completo y su validación caben en dos horas; de lo contrario, reanudar el origen y reprogramar.",
+        "Copiar el volumen inicial con Transfer Appliance, continuar las copias incrementales durante la ventana de cambio con las escrituras habilitadas y cambiar el tráfico cuando el trabajo informe que terminó.",
+        "Copiar el volumen inicial con Transfer Appliance, pausar las escrituras exactamente dos horas y cambiar al final de la ventana aunque la transferencia final aún no se haya conciliado.",
+        "Usar Storage Transfer Service para toda la copia inicial de 40 TiB y los cambios diarios por el enlace de 100 Mbit/s y cambiar en la fecha límite usando el informe completo más reciente."
+      ]
+    },
+    "en": {
+      "q": "A retailer must move 40 TiB of NFS data to Cloud Storage within 10 days. Only 100 Mbit/s of network capacity is available without affecting live services, so an online-only seed cannot meet the deadline. Transfer Appliance is available and logistics fit the schedule. After the seed, the source must remain active, with about 40 GiB of daily changes; the business permits one final two-hour write pause. Which cutover plan best controls consistency and downtime?",
+      "o": [
+        "Seed the bulk data with Transfer Appliance and run incremental Storage Transfer Service copies while the source stays active. During the final window, pause writes, measure the remaining delta and transfer rate, reconcile transfer records, and cut over only if the completed delta and validation fit within two hours; otherwise resume the source and reschedule.",
+        "Seed with Transfer Appliance, continue incremental copies during the cutover window while writes remain enabled, and switch traffic when the transfer job reports completion.",
+        "Copy the bulk data with Transfer Appliance, pause writes for exactly two hours, and cut over at the end of the window even if the final transfer has not reconciled.",
+        "Use Storage Transfer Service for the entire 40-TiB seed and daily changes over the 100-Mbit/s link, then cut over at the deadline using the latest completed report."
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "El dispositivo resuelve la limitación de ancho de banda para el volumen inicial, mientras Storage Transfer Service permite copias incrementales y registra resultados. La pausa final de escrituras evita que nuevos cambios del origen compitan con el último delta; el trabajo pendiente medido y la conciliación determinan si bastan las dos horas. Un cambio programado sin detener escrituras ni confirmar la finalización puede dejar datos incoherentes, y la copia inicial solo en línea no cumple el plazo con el ancho de banda indicado. Si el delta medido no cabe, reprogramar conserva el origen como fuente de verdad.",
+    "expEn": "The appliance addresses the bulk bandwidth constraint, while Storage Transfer Service can carry incremental copies and report transfer results. The final write pause prevents new source changes from racing the last delta; measured remaining work and reconciliation determine whether the two-hour window is sufficient. A scheduled cutover without quiescing writes or confirming completion can leave inconsistent data, and the online-only seed cannot meet the stated bandwidth deadline. If the measured delta does not fit, rescheduling preserves the source of truth.",
+    "ref": "https://docs.cloud.google.com/architecture/migration-to-google-cloud-transferring-your-large-datasets"
+  },
+  {
+    "id": "CDL-L5-061",
+    "level": 5,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": false,
+    "es": {
+      "q": "Un minorista procesa los archivos de facturas cargados en un plazo de 15 minutos. La API de facturación posterior puede estar fuera de servicio durante 20 minutos y reintentar el mismo archivo nunca debe generar un segundo cargo. El equipo propone una función basada en eventos y puede conservar un registro de procesamiento. ¿Qué diseño cumple mejor los requisitos del servicio y de control?",
+      "o": [
+        "Activar una función de Cloud Run para cada objeto, deshabilitar los reintentos de entrega y avisar al personal para que vuelva a cargar los archivos cuya llamada de facturación falle.",
+        "Usar una función de Cloud Run activada por Eventarc con una clave de idempotencia estable basada en el identificador y la revisión de la factura, una comprobación duradera de registros procesados, reintentos acotados y una ruta de mensajes no resueltos para los fallos pendientes.",
+        "Reintentar cada evento fallido hasta que responda la API de facturación y depender del servicio de facturación para detectar y eliminar después los cargos duplicados.",
+        "Consultar el bucket una vez cada noche, procesar todos los archivos en un lote y conciliar los cargos el siguiente día hábil."
+      ]
+    },
+    "en": {
+      "q": "A retailer processes uploaded invoice files within 15 minutes. A downstream billing API can be unavailable for 20 minutes, and retrying the same file must never create a second charge. The engineering team proposes an event-driven function and can retain a processing ledger. Which design best meets the service and control requirements?",
+      "o": [
+        "Trigger a Cloud Run function for each object, disable delivery retries, and alert staff to reload files whose billing call fails.",
+        "Use an Eventarc-triggered Cloud Run function with a stable invoice ID and revision idempotency key, a durable processed-record check, bounded retries, and a dead-letter path for unresolved failures.",
+        "Retry every failed event until the billing API responds, relying on the billing service to identify and remove any duplicate charges afterward.",
+        "Poll the bucket once each night, process all files in one batch, and reconcile charges the following business day."
+      ]
+    },
+    "answer": [
+      "B"
+    ],
+    "expEs": "Eventarc puede volver a entregar eventos después de fallos, por lo que el controlador necesita una clave empresarial idempotente antes de repetir el trabajo mediante un reintento. Una comprobación duradera de registros procesados, una política de reintentos acotada y una ruta de revisión de mensajes no resueltos preservan el objetivo de servicio de 15 minutos cuando sea posible y mantienen visibles los archivos pendientes para volver a procesarlos.",
+    "expEn": "Eventarc can deliver events again after failures, so the handler needs an idempotent business key before a retry can safely repeat work. A durable processed-record check, bounded retry policy, and dead-letter review path preserve the 15-minute service objective where possible while keeping unresolved files visible for replay.",
+    "ref": "https://docs.cloud.google.com/run/docs/function-triggers"
+  },
+  {
+    "id": "CDL-L5-062",
+    "level": 5,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": false,
+    "es": {
+      "q": "Un minorista ejecuta cada noche una canalización de análisis de imágenes. La etapa paralela de extracción de características puede reanudarse desde puntos de control, pero su paso final de 8 minutos registra ajustes de inventario que deben terminar antes de que abran las tiendas a las 06:00. Los pronósticos muestran tiempo suficiente para una ejecución completa, pero el equipo no puede garantizar capacidad Spot al final de la noche. ¿Qué plan de cómputo equilibra mejor el ahorro y el plazo empresarial?",
+      "o": [
+        "Ejecutar todas las etapas en VMs estándar y reservar capacidad suficiente para el pico completo de extracción de características.",
+        "Ejecutar todas las etapas en VMs Spot, guardar puntos de control y depender de reintentos para completar el registro de inventario antes de las 06:00.",
+        "Comprometerse durante tres años con el nivel máximo de cómputo para obtener descuento sobre la capacidad nocturna aunque la canalización esté inactiva.",
+        "Usar VMs Spot para la extracción de características con puntos de control, conservar un grupo pequeño de VMs estándar para el registro final y cambiar el trabajo de extracción pendiente a VMs estándar si el pronóstico medido amenaza el límite de las 06:00."
+      ]
+    },
+    "en": {
+      "q": "A retailer runs a nightly image-analysis pipeline. The parallel feature-extraction stage can resume from checkpoints, but its final 8-minute step posts inventory adjustments that must finish before stores open at 06:00. Forecasts show enough time for a full run, but the team cannot guarantee Spot capacity at the end of the night. Which compute plan best balances savings and the business deadline?",
+      "o": [
+        "Run every stage on Standard VMs and reserve enough headroom for the full feature-extraction peak.",
+        "Run every stage on Spot VMs, save checkpoints, and rely on retries to complete the inventory posting before 06:00.",
+        "Commit to the full peak compute level for three years so that nightly capacity is discounted even when the pipeline is idle.",
+        "Use Spot VMs for checkpointed feature extraction, retain a small Standard pool for final posting, and switch remaining extraction work to Standard if the measured completion forecast threatens the 06:00 cutoff."
+      ]
+    },
+    "answer": [
+      "D"
+    ],
+    "expEs": "Spot puede reducir el costo de la etapa masiva, reiniciable y con puntos de control, mientras que el pequeño grupo estándar protege el paso de registro sujeto a plazo. Un pronóstico de finalización y una regla de respaldo condicionan el ahorro al trabajo pendiente real, en lugar de suponer que habrá capacidad Spot disponible a una hora fija.",
+    "expEn": "Spot can lower the cost of the restartable, checkpointed bulk stage, while the small Standard pool protects the deadline-sensitive posting step. A completion forecast and fallback rule make the savings conditional on the actual remaining work instead of assuming Spot capacity will be available at a fixed time.",
+    "ref": "https://docs.cloud.google.com/compute/docs/instances/spot"
+  },
+  {
+    "id": "CDL-L5-063",
+    "level": 5,
+    "domain": "Operations and costs",
+    "region": 6,
+    "multi": false,
+    "es": {
+      "q": "Un servicio de suscripción genera cuatro escrituras de registros de recomendaciones por cada solicitud de navegación. Las pruebas de carga muestran que la base de datos puede sostener 1.200 escrituras por segundo y mantener su objetivo de latencia; durante campañas, el tráfico puede llegar a 700 solicitudes de navegación por segundo. Las actualizaciones de recomendaciones pueden retrasarse hasta 10 minutos, pero las escrituras de cuentas y pagos deben seguir siendo inmediatas. ¿Qué plan de escalado protege mejor las transacciones de clientes y mantiene una carga económica?",
+      "o": [
+        "Mantener el frontend elástico, poner las actualizaciones de recomendaciones en una cola duradera, limitar sus trabajadores al margen probado de la base de datos y generar alertas por antigüedad de la cola, reservando capacidad de escritura para pagos y cuentas.",
+        "Aumentar el máximo del frontend para atender de inmediato todas las solicitudes de navegación y escalar la base de datos solo después de que su latencia de escritura supere el objetivo.",
+        "Mantener la capacidad actual del frontend durante las campañas y descartar las actualizaciones de recomendaciones cada vez que la base de datos alcance su tasa de escritura probada.",
+        "Trasladar todas las escrituras de la base de datos a un nivel mayor dimensionado para 2.800 escrituras por segundo y mantener el procesamiento de recomendaciones sincrónico con cada solicitud de navegación."
+      ]
+    },
+    "en": {
+      "q": "A subscription service generates four recommendation-record writes for each browse request. Load tests show the database can sustain 1,200 writes per second while preserving its latency objective; campaign traffic can reach 700 browse requests per second. Recommendation updates may lag by up to 10 minutes, but account and checkout writes must remain immediate. Which scaling plan best protects customer transactions and keeps the workload economical?",
+      "o": [
+        "Keep the frontend elastic, place recommendation updates on a durable queue, cap its workers to the tested database headroom, and alert on backlog age while reserving write capacity for checkout and accounts.",
+        "Raise the frontend maximum to serve every browse request immediately and scale the database only after its write latency exceeds the objective.",
+        "Hold frontend capacity at its current level during campaigns and discard recommendation updates whenever the database reaches its tested write rate.",
+        "Move all database writes to a larger tier sized for 2,800 writes per second and keep recommendation processing synchronous with each browse request."
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "El flujo de recomendaciones puede alcanzar 2.800 escrituras por segundo, por encima del límite probado de 1.200, pero la empresa permite retrasar esas actualizaciones. Separar ese trabajo en una cola duradera y limitar sus consumidores protege las escrituras transaccionales inmediatas y permite observar el retraso permitido y la capacidad adicional mediante la supervisión de la cola.",
+    "expEn": "The recommendation stream can peak at 2,800 writes per second, above the tested 1,200-write limit, but the business allows those updates to wait. Separating that work into a durable queue and bounding its consumers protects immediate transactional writes while making the permitted delay and added capacity visible through backlog monitoring.",
+    "ref": "https://docs.cloud.google.com/architecture/framework/cost-optimization/optimize-resource-usage?hl=en"
+  },
+  {
+    "id": "CDL-L5-064",
+    "level": 5,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": false,
+    "es": {
+      "q": "Una empresa de software lanzará acceso pago de socios a tres APIs. Los contratos definen límites mensuales de solicitudes y precios por excedente distintos según el nivel del socio; Finanzas necesita uso atribuible antes de emitir las primeras facturas. ¿Qué plan conecta mejor el acceso al producto, la aplicación de políticas y la validación de facturación?",
+      "o": [
+        "Publicar un endpoint de API sin restricciones, exportar los registros del proxy cada mes y pedir a Finanzas que estime la factura de cada socio a partir del tráfico total del backend.",
+        "Crear implementaciones de backend separadas para cada nivel contractual, calcular los límites según el tiempo de CPU del servidor y mantener una sola credencial de API compartida.",
+        "Definir productos de API alineados con los derechos de los socios, asociar aplicaciones de desarrollador con suscripciones y planes tarifarios, aplicar cuotas por producto y conciliar el uso de prueba con ejemplos contractuales de Finanzas antes del lanzamiento.",
+        "Aplicar un único límite global de solicitudes en el balanceador de carga y emitir facturas separadas según el uso declarado por los socios al cierre de cada mes."
+      ]
+    },
+    "en": {
+      "q": "A software company is launching paid partner access to three APIs. Contracts define different monthly request allowances and overage prices by partner tier; finance needs attributable usage before issuing the first invoices. Which launch plan best connects product access, policy enforcement, and billing validation?",
+      "o": [
+        "Publish one unrestricted API endpoint, export proxy logs monthly, and have finance estimate each partner's bill from total backend traffic.",
+        "Create separate backend deployments for each contract tier, calculate allowances from server CPU time, and keep a single shared API credential.",
+        "Define API products aligned to partner entitlements, associate developer apps with subscriptions and rate plans, enforce product quotas, and reconcile trial usage against finance's contract examples before launch.",
+        "Apply one global request limit at the load balancer and issue separate invoices from partner-reported usage after each month closes."
+      ]
+    },
+    "answer": [
+      "C"
+    ],
+    "expEs": "Los productos de API pueden agrupar el acceso y las cuotas, mientras que la monetización de Apigee admite flujos de suscripción y planes tarifarios. Vincular esos controles con cada contrato y conciliar registros de prueba antes de iniciar la facturación permite probar tanto la atribución por consumidor como la lógica de las facturas frente a los términos reales de la empresa.",
+    "expEn": "API products can package access and quotas, while Apigee monetization supports subscription and rate-plan workflows. Mapping those controls to each contract and reconciling trial records before billing begins tests both consumer attribution and invoice logic against the company's actual terms.",
+    "ref": "https://docs.cloud.google.com/apigee/docs/api-platform/publish/create-api-products"
+  },
+  {
+    "id": "CDL-L5-065",
+    "level": 5,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Una integración de socios utiliza una credencial de API compartida por seis revendedores. La credencial aparece en un repositorio público, pero la empresa solo puede identificar llamadas mediante esa clave compartida; deshabilitarla interrumpiría a todos los revendedores. ¿Qué plan de contención y migración reduce mejor la exposición y conserva la continuidad del servicio?",
+      "o": [
+        "Rotar de inmediato la clave compartida, distribuir el reemplazo por el mismo canal y seguir usándolo para el tráfico de todos los revendedores.",
+        "Crear una aplicación de desarrollador y una credencial separadas para cada revendedor, organizar su migración gradual con supervisión de uso y fechas de revocación, y luego deshabilitar la credencial compartida expuesta cuando todos los clientes activos hayan migrado.",
+        "Mantener activa la credencial hasta la próxima renovación contractual y añadir una regla de firewall que bloquee solicitudes desde la dirección IP del repositorio público.",
+        "Emitir seis URL de endpoint distintas y conservar la misma clave de API para que cada revendedor actualice su configuración por separado."
+      ]
+    },
+    "en": {
+      "q": "A partner integration uses one API credential shared by six resellers. The credential appears in a public repository, but the company can identify calls only by the shared key; disabling it would interrupt every reseller. Which containment and migration plan best reduces exposure while preserving service continuity?",
+      "o": [
+        "Rotate the shared key immediately, distribute the replacement through the same channel, and continue using it for all reseller traffic.",
+        "Create a separate developer app and credential for each reseller, stage their migration with usage monitoring and revocation dates, then disable the exposed shared credential after all active clients move.",
+        "Keep the credential active until the next contract renewal and add a firewall rule that blocks requests from the public repository's IP address.",
+        "Issue six different endpoint URLs while retaining the same API key, so each reseller can update its configuration independently."
+      ]
+    },
+    "answer": [
+      "B"
+    ],
+    "expEs": "Las credenciales de aplicaciones de desarrollador distintas permiten atribuir actividad a cada socio y retirar la credencial compartida expuesta sin exigir un cambio inmediato para todos. Un período de transición supervisado conserva la continuidad mientras la empresa verifica el tráfico de cada revendedor con su nueva identidad.",
+    "expEn": "Distinct developer-app credentials make partner activity attributable and allow the exposed shared credential to be retired without forcing an immediate all-partner cutover. A monitored overlap period supports continuity while the company verifies each reseller's traffic on its replacement identity.",
+    "ref": "https://docs.cloud.google.com/apigee/docs/api-platform/publish/adding-developers-your-api-product"
+  },
+  {
+    "id": "CDL-L5-066",
+    "level": 5,
+    "domain": "Trust and security",
+    "region": 5,
+    "multi": false,
+    "es": {
+      "q": "Una empresa tiene 14 clústeres Kubernetes de producción en Google Cloud y otros dos entornos. Una nueva línea base de seguridad debe prohibir contenedores privilegiados; tres aplicaciones heredadas necesitan excepciones documentadas y los equipos de clúster aplican políticas manualmente. ¿Qué implementación mejora la aplicación coherente sin tratar el registro en la flota como prueba de cumplimiento?",
+      "o": [
+        "Registrar todos los clústeres en una flota y considerar la pertenencia como prueba de que la línea base de seguridad está activa.",
+        "Enviar por correo el archivo de política a cada propietario de clúster y pedir confirmación después de que lo aplique localmente.",
+        "Bloquear de inmediato todos los contenedores privilegiados en todos los entornos y analizar las excepciones de aplicaciones después de que fallen las implementaciones.",
+        "Usar una fuente de Config Sync revisada centralmente y controles de políticas, probarlos en clústeres representativos, supervisar el estado de sincronización e infracciones incluidas las excepciones aprobadas y luego ampliar la aplicación por etapas."
+      ]
+    },
+    "en": {
+      "q": "A company has 14 production Kubernetes clusters across Google Cloud and two other environments. A new security baseline must prohibit privileged containers; three legacy applications need documented exceptions, and cluster teams currently apply policies manually. Which rollout best improves consistent enforcement without treating fleet registration as proof of compliance?",
+      "o": [
+        "Register every cluster in one fleet and count membership as evidence that the security baseline is active.",
+        "Email the policy file to each cluster owner and request a confirmation after they apply it locally.",
+        "Block all privileged containers across every environment immediately, then investigate application exceptions after deployment failures occur.",
+        "Use a centrally reviewed Config Sync source and policy controls, pilot on representative clusters, track sync and violation status including approved exceptions, then expand enforcement in stages."
+      ]
+    },
+    "answer": [
+      "D"
+    ],
+    "expEs": "La pertenencia a una flota organiza los clústeres, pero una implementación separada de configuración y políticas establece la línea base. Una etapa piloto revela problemas de compatibilidad; el estado de sincronización y las infracciones aportan evidencia de cobertura real y permiten revisar excepciones aprobadas antes de ampliar la aplicación.",
+    "expEn": "Fleet membership organizes clusters, but a separate configuration and policy rollout establishes the baseline. A canary stage exposes compatibility issues; sync health and violation status provide evidence of actual coverage while approved exceptions remain reviewable before the company expands enforcement.",
+    "ref": "https://docs.cloud.google.com/kubernetes-engine/fleet-management/docs/fleet-concepts"
+  },
+  {
+    "id": "CDL-L5-067",
+    "level": 5,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": false,
+    "es": {
+      "q": "Una planta de manufactura ejecuta AlloyDB Omni localmente porque su enlace WAN a los servicios en la nube puede desconectarse hasta 18 horas; un enlace entre sitios administrado por separado la conecta con un sitio de recuperación remoto. Ante la pérdida del sitio, el punto de recuperación no debe tener más de 15 minutos y el servicio debe restaurarse en un máximo de 60 minutos. Las copias nocturnas actuales no cumplen esos objetivos. ¿Qué plan de resiliencia se ajusta mejor a la carga y los límites empresariales?",
+      "o": [
+        "Conservar la instancia principal local, establecer un clúster secundario de Omni en otro sitio con replicación asíncrona, supervisar el retraso frente al objetivo de 15 minutos, conservar copias y ensayar la promoción y reconexión de la aplicación.",
+        "Mover la única base de datos a AlloyDB totalmente administrado en Google Cloud y depender del enlace de red de la planta para cada transacción de producción.",
+        "Aumentar la frecuencia de las copias locales a cada 15 minutos y guardar cada copia en el mismo sitio que la base de datos principal.",
+        "Añadir un segundo proceso de Omni en el mismo host local y considerar el tiempo de reinicio del proceso como objetivo de recuperación ante la pérdida del sitio."
+      ]
+    },
+    "en": {
+      "q": "A manufacturing site runs AlloyDB Omni locally because its WAN link to cloud services can be disconnected for up to 18 hours; a separately managed intersite link connects it to a remote recovery site. A site-loss event must have a recovery point no older than 15 minutes and service restored within 60 minutes. Current nightly backups do not meet those targets. Which resilience plan best fits the workload and business limits?",
+      "o": [
+        "Keep the local primary, establish a secondary Omni cluster at a separate site with asynchronous replication, monitor replication lag against the 15-minute target, retain backups, and rehearse promotion and application reconnection.",
+        "Move the only database to fully managed AlloyDB in Google Cloud and rely on the plant's network link for every production transaction.",
+        "Increase local backup frequency to every 15 minutes and store each backup on the same site as the primary database.",
+        "Add a second Omni process on the same local host and treat process restart time as the site-loss recovery target."
+      ]
+    },
+    "answer": [
+      "A"
+    ],
+    "expEs": "Una réplica en otro sitio aborda la pérdida de la planta, mientras que la instancia principal local conserva la operación durante una interrupción de la red externa. Supervisar el retraso permite comprobar si la replicación asíncrona cumple el objetivo de punto de recuperación; conservar copias y ensayar la promoción valida el tiempo de recuperación y las opciones de restauración.",
+    "expEn": "A separate-site replica addresses loss of the local facility while the local primary preserves operation during an external-network outage. Monitoring lag tests whether asynchronous replication is within the stated recovery-point objective; retained backups and rehearsed promotion validate recovery time and restore options.",
+    "ref": "https://docs.cloud.google.com/alloydb/omni/docs/overview"
+  },
+  {
+    "id": "CDL-L5-068",
+    "level": 5,
+    "domain": "Data transformation",
+    "region": 2,
+    "multi": false,
+    "es": {
+      "q": "Un minorista conserva 6 TB diarios de archivos de navegación en una región de AWS aprobada porque los eventos sin procesar no pueden centralizarse. Los analistas necesitan un informe semanal que una un subconjunto filtrado con una tabla de clientes de BigQuery de 25 GB; solo puede trasladarse a Google Cloud un agregado pequeño. ¿Qué plan de análisis equilibra mejor la residencia, la utilidad del informe y el costo recurrente?",
+      "o": [
+        "Copiar todos los archivos sin procesar a Cloud Storage antes de cada informe para que todas las uniones se ejecuten en una ubicación de Google Cloud.",
+        "Ejecutar el informe directamente sobre todos los archivos de AWS con BigQuery Omni y presupuestar solo los bytes procesados en BigQuery.",
+        "Confirmar la combinación de regiones de origen y BigQuery Omni y las operaciones SQL admitidas, medir consultas filtradas representativas y los costos de transferencia de resultados, y exportar solo el agregado permitido si el plan medido cumple el caso empresarial.",
+        "Mantener todos los informes en el motor de AWS y enviar capturas de pantalla a los analistas, evitando evaluar los datos existentes de BigQuery o las opciones de consulta regionales."
+      ]
+    },
+    "en": {
+      "q": "A retailer keeps 6 TB of daily clickstream files in an approved AWS region because raw events cannot be centralized. Analysts need a weekly report that joins a filtered subset to a 25-GB BigQuery customer table; only a small aggregate may cross into Google Cloud. Which analysis plan best balances residency, report utility, and recurring cost?",
+      "o": [
+        "Copy all raw files into Cloud Storage before every report so that all joins execute in one Google Cloud location.",
+        "Run the report directly against every AWS file with BigQuery Omni and budget only for the query bytes processed in BigQuery.",
+        "Confirm the source and BigQuery Omni region pairing and supported SQL operations, benchmark representative filtered queries and result-transfer costs, then export only the permitted aggregate if the measured plan meets the business case.",
+        "Keep all reporting in the AWS engine and send screenshots to analysts, avoiding any evaluation of the existing BigQuery data or regional query options."
+      ]
+    },
+    "answer": [
+      "C"
+    ],
+    "expEs": "BigQuery Omni puede consultar datos externos admitidos en una región emparejada, pero la decisión empresarial depende del comportamiento de consulta admitido, el volumen leído y los resultados que cruzan el límite. Una prueba representativa de capacidades y costos respeta la restricción de residencia y compara las consultas remotas recurrentes con la exportación permitida de un agregado pequeño.",
+    "expEn": "BigQuery Omni can query supported external data in a paired region, but the business decision depends on supported query behavior, the volume read, and the results that cross the boundary. A representative cost and capability test preserves the residency restriction while comparing a recurring remote-query plan with a small permitted aggregate export.",
+    "ref": "https://docs.cloud.google.com/bigquery/docs/omni-introduction"
+  },
+  {
+    "id": "CDL-L5-069",
+    "level": 5,
+    "domain": "Infrastructure and applications",
+    "region": 4,
+    "multi": false,
+    "es": {
+      "q": "Un fabricante debe trasladar un servicio de pedidos y su base de datos de inventario antes del lanzamiento de un producto dentro de 14 semanas. El descubrimiento muestra que no pueden separarse, la corrección requiere seis semanas, el ensayo integrado requiere dos más y un congelamiento de cierre trimestral bloquea cambios de producción durante las semanas 5–7. Una aplicación de informes de dos semanas no depende de ellos. ¿Qué plan de oleadas controla mejor el riesgo del lanzamiento y permite avanzar de forma medible?",
+      "o": [
+        "Trasladar primero el servicio de pedidos porque tiene mayor valor empresarial y añadir la base de datos de inventario después del lanzamiento del producto.",
+        "Trasladar los tres sistemas juntos antes del congelamiento y usar el tiempo restante para corregir en producción la dependencia entre pedidos e inventario.",
+        "Aplazar toda la migración hasta después del lanzamiento del producto para evitar las pruebas durante el cierre trimestral.",
+        "Trasladar la aplicación de informes independiente como una primera oleada acotada, corregir conjuntamente pedidos e inventario, ensayar después del congelamiento y reservar una ventana de reversión antes del lanzamiento."
+      ]
+    },
+    "en": {
+      "q": "A manufacturer must move an order service and its inventory database before a product launch in 14 weeks. Discovery shows they cannot be separated, remediation needs six weeks, an integrated rehearsal needs two more, and a quarter-close freeze blocks production changes in weeks 5–7. A two-week reporting app has no dependency on them. Which wave plan best controls launch risk while making measurable progress?",
+      "o": [
+        "Move the order service first because it has the highest business value, then attach the inventory database after the product launch.",
+        "Move all three systems together before the freeze, using the remaining time to remediate the order and inventory dependency in production.",
+        "Defer all migration work until after the product launch so that the team can avoid testing during the quarter close.",
+        "Move the independent reporting app as a bounded early wave, remediate the coupled order and inventory group, rehearse it after the freeze, and reserve a rollback window before launch."
+      ]
+    },
+    "answer": [
+      "D"
+    ],
+    "expEs": "La aplicación de informes permite una primera migración acotada sin introducir dependencias en la ruta de transacciones de clientes. Tratar pedidos e inventario como un mismo grupo de movimiento conserva su relación necesaria; la corrección y el ensayo indicados caben después del congelamiento y dejan una ventana de reversión antes del lanzamiento.",
+    "expEn": "The reporting app offers a bounded early move without introducing a dependency into the customer transaction path. Treating order and inventory as one move group preserves their required relationship; the stated remediation and rehearsal fit after the freeze and leave a rollback window before launch.",
+    "ref": "https://docs.cloud.google.com/migration-center/docs/plan-migration-waves"
+  }
+]

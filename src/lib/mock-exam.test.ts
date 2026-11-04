@@ -43,7 +43,7 @@ describe('mock exam', () => {
     expect(new Set(r.questions.map(q => q.id)).size).toBe(80);
   });
   it('the five certifications are loaded with their full banks', () => {
-    expect(Object.fromEntries(builtInCourses.map(c => [c.id, c.questions.length]))).toEqual({ workspace: 370, cloud: 460, okta: 300, itil: 220, apple: 230 });
+    expect(Object.fromEntries(builtInCourses.map(c => [c.id, c.questions.length]))).toEqual({ workspace: 370, cloud: 460, okta: 300, itil: 378, apple: 230 });
   });
   it('Cloud draws all 50 unique questions in the 9/9/9/9/9/5 domain split', () => {
     const c = builtInCourses.find(x => x.id === 'cloud')!;

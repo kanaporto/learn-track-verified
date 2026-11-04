@@ -1,4 +1,4 @@
-import { Castle, Gem, Lock, Star } from 'lucide-react';
+import { Flag, Lock, MapPin, Star } from 'lucide-react';
 import dumpi from '@/assets/dumpi.png';
 
 const pos = (i: number) => ({ x: 6 + i * 9.8, y: 52 + 28 * Math.sin(i * 1.1) });
@@ -15,9 +15,9 @@ export function TrailBoard({ total, done, color, label, art }: { total: number; 
       </svg>
       {pts.map((p, i) => {
         const state = i < done ? 'done' : i === done ? 'active' : 'locked';
-        const special = i === 4 ? <Gem size={14} /> : i === total - 1 ? <Castle size={16} /> : null;
+        const special = i === 4 ? <MapPin size={14} /> : i === total - 1 ? <Flag size={15} /> : null;
         return (
-          <span key={i} className={`trail-stone ${state}`} style={{ left: `${p.x}%`, top: `${p.y}%` }}>
+          <span key={i} className={`route-stop ${state}`} style={{ left: `${p.x}%`, top: `${p.y}%` }}>
             {state === 'done' ? <Star size={14} fill="currentColor" /> : state === 'locked' && !special ? <Lock size={11} /> : special ?? i + 1}
           </span>
         );

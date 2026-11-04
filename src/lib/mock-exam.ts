@@ -67,9 +67,9 @@ export const MOCK_CONFIGS: Record<string, MockConfig> = {
   },
   itil: {
     name: 'ITIL Foundation (Version 5)', questions: 40, minutes: 60, pass: 0.65, officialPass: true, officialWeights: true,
-    status: 'aligned', guide: 'ITIL Foundation Version 5 syllabus v5.0',
+    status: 'partial', guide: 'ITIL Foundation Version 5 syllabus v5.0',
     source: 'https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-5-foundation-version-50-4154',
-    noteEs: 'Libro cerrado. Aprobado oficial: 65 % (26 de 40).', noteEn: 'Closed book. Official pass mark: 65 % (26 of 40).',
+    noteEs: 'Formato, tiempo, nota de aprobado y pesos por dominio replican la guía oficial. Las preguntas son material de práctica de Dumpi, no preguntas oficiales ni una calibración de PeopleCert. Simulacro disponible en español e inglés; si haces el examen en otro idioma, la redacción puede variar.', noteEn: 'The format, time, pass mark and domain weights follow the official guide. The questions are Dumpi practice material, not official questions or a PeopleCert-calibrated exam. Practice is available in Spanish and English; wording may differ if you take the exam in another language.',
     domains: [
       d('Key ITIL terms and definitions', 'Términos y definiciones clave de ITIL', 30),
       d('The four dimensions', 'Las cuatro dimensiones', 10),

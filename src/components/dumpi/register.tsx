@@ -17,8 +17,8 @@ export function SignInGate() {
       <div className="register-shade" />
       <div className="register-body">
         <img src={dumpi} alt="DUMPI" className="register-dumpi" width={140} height={140} />
-        <span className="medieval-banner"><Shield size={14} />{t('Registro del fundador', 'Founder registry')}</span>
-        <h1 className="medieval-title">{t('Crea tu cuenta para jugar', 'Create your account to play')}</h1>
+        <span className="region-label"><Shield size={14} />{t('Registro del fundador', 'Founder registry')}</span>
+        <h1>{t('Crea tu cuenta para jugar', 'Create your account to play')}</h1>
         <p>{t('Tu progreso se guarda en la nube y lo retomas en cualquier dispositivo.', 'Your progress is saved in the cloud and follows you to any device.')}</p>
         <Link to="/auth" className="btn-chunky btn-gold register-go">{t('Registrarme o entrar', 'Sign up or sign in')}<ArrowRight /></Link>
       </div>
@@ -67,15 +67,15 @@ export function RegisterCard() {
       <div className="register-shade" />
       <div className="register-body">
         <img src={dumpi} alt="DUMPI" className="register-dumpi" width={140} height={140} />
-        <span className="medieval-banner"><Shield size={14} />{t('Registro del fundador', 'Founder registry')}</span>
+        <span className="region-label"><Shield size={14} />{t('Registro del fundador', 'Founder registry')}</span>
         {sent ? <>
-          <h1 className="medieval-title">{t('¡Revisa tu correo!', 'Check your inbox!')}</h1>
+          <h1>{t('¡Revisa tu correo!', 'Check your inbox!')}</h1>
           <p>{sent === 'reset'
             ? t(`Si ${email} tiene cuenta, te hemos enviado un enlace para crear una contraseña nueva.`, `If ${email} has an account, we sent a link to set a new password.`)
             : t(`Te hemos enviado un enlace a ${email}. Púlsalo para activar tu cuenta y empezar a jugar.`, `We sent a link to ${email}. Click it to activate your account and start playing.`)}</p>
           {sent === 'reset' && <button type="button" className="underline text-sm mt-2" onClick={() => { setSent(false); setMode('in'); }}>{t('Volver a entrar', 'Back to sign in')}</button>}
         </> : <>
-          <h1 className="medieval-title">{title}</h1>
+          <h1>{title}</h1>
           {mode === 'forgot' && <p>{t('Escribe tu email y te mandamos un enlace para cambiar la contraseña.', 'Enter your email and we will send you a link to change your password.')}</p>}
           <form onSubmit={submit} className="register-form flex-col">
             {mode === 'up' && <input aria-label={t('Tu nombre', 'Your name')} value={name} onChange={e => setName(e.target.value)} maxLength={24} autoComplete="nickname" placeholder={t('Tu nombre de explorador', 'Explorer name')} className="register-input" />}
@@ -123,13 +123,13 @@ export function ResetPasswordCard() {
       <div className="register-shade" />
       <div className="register-body">
         <img src={dumpi} alt="DUMPI" className="register-dumpi" width={140} height={140} />
-        <span className="medieval-banner"><Shield size={14} />{t('Nueva contraseña', 'New password')}</span>
+        <span className="region-label"><Shield size={14} />{t('Nueva contraseña', 'New password')}</span>
         {ready === false ? <>
-          <h1 className="medieval-title">{t('Enlace no válido o caducado', 'Invalid or expired link')}</h1>
+          <h1>{t('Enlace no válido o caducado', 'Invalid or expired link')}</h1>
           <p>{t('Pide un enlace nuevo desde la pantalla de entrar.', 'Request a new link from the sign-in screen.')}</p>
           <Link to="/auth" className="btn-chunky btn-gold register-go">{t('Ir a entrar', 'Go to sign in')}<ArrowRight /></Link>
         </> : <>
-          <h1 className="medieval-title">{t('Elige tu nueva contraseña', 'Choose your new password')}</h1>
+          <h1>{t('Elige tu nueva contraseña', 'Choose your new password')}</h1>
           <form onSubmit={submit} className="register-form flex-col">
             <input aria-label={t('Nueva contraseña', 'New password')} type="password" value={pw} onChange={e => setPw(e.target.value)} autoComplete="new-password" placeholder={t('Nueva contraseña (mín. 6)', 'New password (min. 6)')} className="register-input" />
             <input aria-label={t('Repite la contraseña', 'Repeat password')} type="password" value={pw2} onChange={e => setPw2(e.target.value)} autoComplete="new-password" placeholder={t('Repite la contraseña', 'Repeat password')} className="register-input" />

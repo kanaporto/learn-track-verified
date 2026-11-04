@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from '@tanstack/react-router';
+import { Link, useNavigate } from '@tanstack/react-router';
 import { ArrowLeft, Check, ExternalLink, Heart, Star, X, GraduationCap, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useText, usePreferences } from '@/lib/dumpi';
@@ -17,8 +17,10 @@ import r3 from '@/assets/region-3.jpg';
 import r4 from '@/assets/region-4.jpg';
 import r5 from '@/assets/region-5.jpg';
 import r6 from '@/assets/region-6.jpg';
-const regionArt = [r1, r2, r3, r4, r5, r6];
-const art = (n: number) => regionArt[(n - 1) % regionArt.length]!;
+import r7 from '@/assets/region-7.jpg';
+import r8 from '@/assets/region-8.jpg';
+const regionArt = [r1, r2, r3, r4, r5, r6, r7, r8];
+const art = (n: number, courseId?: string) => courseId === 'itil' && n >= 6 ? regionArt[n]! : regionArt[(n - 1) % 6]!;
 
 const LETTERS = ['A', 'B', 'C', 'D'];
 const GOAL = 10;
@@ -50,10 +52,10 @@ export function PracticeGame({ initialRegion, courseId = 'workspace' }: { initia
       <div className="grid gap-3 sm:grid-cols-2">
         {course.regions.map(r => { const count = course.questions.filter(q => q.region === r.n).length; const done = isRegionDone(cp, r.n); const tile = cp.tiles[r.n] ?? 0; return (
           <button key={r.n} onClick={() => { patchCourse(course.id, c => ({ ...c, lastRegion: r.n })); setRegion(r.n); }} className={`region-pick ${done ? 'is-done' : ''}`} style={{ ['--rc' as string]: r.color }}>
-            <img src={art(r.n)} alt="" className="region-pick-bg" loading="lazy" />
+            <img src={art(r.n, course.id)} alt="" className="region-pick-bg" loading="lazy" />
             {done && <span className="done-ribbon">{t('¡COMPLETADA!', 'COMPLETED!')} <Star size={12} fill="currentColor" /><Star size={12} fill="currentColor" /><Star size={12} fill="currentColor" /></span>}
-            <span className="medieval-banner">{t('Región', 'Region')} {r.n}</span>
-            <div className="medieval-title region-pick-name">{language === 'es' ? r.es : r.en}</div>
+            <span className="region-label">{t('Región', 'Region')} {r.n}</span>
+            <div className="region-pick-name">{language === 'es' ? r.es : r.en}</div>
             <div className="region-pick-count">{count} {t('preguntas', 'questions')}{!done && tile > 0 ? ` · ${t('casilla', 'tile')} ${tile}/${GOAL}` : ''}</div>
           </button>); })}
       </div>
@@ -64,6 +66,7 @@ export function PracticeGame({ initialRegion, courseId = 'workspace' }: { initia
 
 function RegionRun({ course, region, onExit, onTrain }: { course: Course; region: number; onExit: () => void; onTrain: () => void }) {
   const t = useText();
+  const navigate = useNavigate();
   const { language } = usePreferences();
   const meta = course.regions[region - 1]!;
   const progress = useProgress();
@@ -86,7 +89,7 @@ function RegionRun({ course, region, onExit, onTrain }: { course: Course; region
   const text = language === 'es' ? q.es : q.en;
   const needed = q.answer.length;
 
-  if (justWon) return <Victory regionName={language === 'es' ? meta.es : meta.en} onExit={onExit} onReplay={() => { patchCourse(course.id, c => ({ ...c, tiles: { ...c.tiles, [region]: 0 } })); setCorrect(0); setJustWon(false); }} />;
+  if (justWon) return <Victory regionName={language === 'es' ? meta.es : meta.en} finalRegion={region === course.regions.length && course.id === 'itil'} onExit={onExit} onReplay={() => { patchCourse(course.id, c => ({ ...c, tiles: { ...c.tiles, [region]: 0 } })); setCorrect(0); setJustWon(false); }} onMockExam={() => navigate({ to: '/mock-exam', search: { course: course.id } })} />;
   if (lives <= 0) return <NoLives onTrain={onTrain} onRefill={() => { setLives(MAX_LIVES); setRecent([]); next(); }} onExit={onExit} />;
 
   function toggle(l: string) {
@@ -130,8 +133,8 @@ function RegionRun({ course, region, onExit, onTrain }: { course: Course; region
         <span className="hud-pill hud-lives hud-sm"><span className="hud-gem"><Heart size={13} fill="currentColor" /></span><b>{lives}</b><small>/{MAX_LIVES}</small></span>
       </div>
     </div>
-    <div className="region-banner"><span className="medieval-banner" style={{ ['--rc' as string]: meta.color }}>{t('Región', 'Region')} {region}</span><h1 className="medieval-title">{language === 'es' ? meta.es : meta.en}</h1></div>
-    <TrailBoard art={art(region)} total={GOAL} done={correct} color={meta.color} label={`${t('Casilla', 'Tile')} ${Math.min(correct + 1, GOAL)} / ${GOAL}`} />
+    <div className="region-banner"><span className="region-label" style={{ ['--rc' as string]: meta.color }}>{t('Región', 'Region')} {region}</span><h1>{language === 'es' ? meta.es : meta.en}</h1></div>
+    <TrailBoard art={art(region, course.id)} total={GOAL} done={correct} color={meta.color} label={`${t('Parada', 'Stop')} ${Math.min(correct + 1, GOAL)} / ${GOAL}`} />
     <p className="text-sm text-muted-foreground">{t('Nivel', 'Level')} {q.level} · +{pointsFor(q.level)} pts{q.multi ? ` · ${t(`Selecciona ${q.answer.length}`, `Select ${q.answer.length}`)}` : ''}</p>
     <h2 className="text-lg font-semibold my-4 leading-snug">{text.q}</h2>
     <Options q={q} text={text} picked={picked} result={result} toggle={toggle} />
@@ -223,18 +226,19 @@ function GlitchAttack({ onClose, onTrain }: { onClose: () => void; onTrain: () =
   </div>;
 }
 
-function Victory({ regionName, onExit, onReplay }: { regionName: string; onExit: () => void; onReplay: () => void }) {
+function Victory({ regionName, finalRegion, onExit, onReplay, onMockExam }: { regionName: string; finalRegion: boolean; onExit: () => void; onReplay: () => void; onMockExam: () => void }) {
   const t = useText();
   return <div className="page-content text-center py-8">
-    <span className="medieval-banner victory-banner">{regionName}</span>
-    <h1 className="medieval-title victory-title">{t('¡Región completada!', 'Region complete!')}</h1>
+    <span className="region-label victory-banner">{regionName}</span>
+    <h1 className="victory-title">{finalRegion ? t('¡Recorrido completado!', 'Journey complete!') : t('¡Región completada!', 'Region complete!')}</h1>
     <div className="victory-stars"><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /></div>
     <div className="victory-stage">
       <div className="victory-dumpi-wrap"><img src={dumpiImg} alt={t('DUMPI bailando', 'DUMPI dancing')} className="victory-dumpi" /><span className="spark s1">✦</span><span className="spark s2">✦</span><span className="spark s3">✦</span></div>
       <div className="victory-glitch"><span className="glitch-bubble">{t('«¡Grrr…! No he encontrado ni una brecha. Admito que vuestro conocimiento es superior… ¡Enhorabuena, DUMPI y explorador!»', '"Grrr…! Not a single breach. I admit your knowledge is superior… Congratulations, DUMPI and explorer!"')}</span><img src={glitchImg} alt={t('Glitch llorando', 'Glitch crying')} /><span className="glitch-tear t1" /><span className="glitch-tear t2" /></div>
     </div>
-    <p className="text-muted-foreground mb-6">10/10 {t('casillas conquistadas', 'tiles conquered')}</p>
+    <p className="text-muted-foreground mb-6">10/10 {t('paradas completadas', 'stops completed')}{finalRegion ? ` · ${t('siguiente: simulacro final', 'next: final mock exam')}` : ''}</p>
     <div className="grid gap-3 max-w-sm mx-auto">
+      {finalRegion && <Button className="h-14 text-base" onClick={onMockExam}>{t('Iniciar simulacro final', 'Start final mock exam')}</Button>}
       <Button className="h-14 text-base" onClick={onExit}>{t('Volver a las regiones', 'Back to regions')}</Button>
       <Button variant="secondary" onClick={onReplay}>{t('Jugar otra vez', 'Play again')}</Button>
     </div>

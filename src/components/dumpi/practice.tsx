@@ -17,8 +17,10 @@ import r3 from '@/assets/region-3.jpg';
 import r4 from '@/assets/region-4.jpg';
 import r5 from '@/assets/region-5.jpg';
 import r6 from '@/assets/region-6.jpg';
-const regionArt = [r1, r2, r3, r4, r5, r6];
-const art = (n: number) => regionArt[(n - 1) % regionArt.length]!;
+import r7 from '@/assets/region-7.jpg';
+import r8 from '@/assets/region-8.jpg';
+const regionArt = [r1, r2, r3, r4, r5, r6, r7, r8];
+const art = (n: number, courseId?: string) => courseId === 'itil' && n >= 6 ? regionArt[n]! : regionArt[(n - 1) % 6]!;
 
 const LETTERS = ['A', 'B', 'C', 'D'];
 const GOAL = 10;
@@ -50,7 +52,7 @@ export function PracticeGame({ initialRegion, courseId = 'workspace' }: { initia
       <div className="grid gap-3 sm:grid-cols-2">
         {course.regions.map(r => { const count = course.questions.filter(q => q.region === r.n).length; const done = isRegionDone(cp, r.n); const tile = cp.tiles[r.n] ?? 0; return (
           <button key={r.n} onClick={() => { patchCourse(course.id, c => ({ ...c, lastRegion: r.n })); setRegion(r.n); }} className={`region-pick ${done ? 'is-done' : ''}`} style={{ ['--rc' as string]: r.color }}>
-            <img src={art(r.n)} alt="" className="region-pick-bg" loading="lazy" />
+            <img src={art(r.n, course.id)} alt="" className="region-pick-bg" loading="lazy" />
             {done && <span className="done-ribbon">{t('¡COMPLETADA!', 'COMPLETED!')} <Star size={12} fill="currentColor" /><Star size={12} fill="currentColor" /><Star size={12} fill="currentColor" /></span>}
             <span className="medieval-banner">{t('Región', 'Region')} {r.n}</span>
             <div className="medieval-title region-pick-name">{language === 'es' ? r.es : r.en}</div>
@@ -131,7 +133,7 @@ function RegionRun({ course, region, onExit, onTrain }: { course: Course; region
       </div>
     </div>
     <div className="region-banner"><span className="medieval-banner" style={{ ['--rc' as string]: meta.color }}>{t('Región', 'Region')} {region}</span><h1 className="medieval-title">{language === 'es' ? meta.es : meta.en}</h1></div>
-    <TrailBoard art={art(region)} total={GOAL} done={correct} color={meta.color} label={`${t('Casilla', 'Tile')} ${Math.min(correct + 1, GOAL)} / ${GOAL}`} />
+    <TrailBoard art={art(region, course.id)} total={GOAL} done={correct} color={meta.color} label={`${t('Casilla', 'Tile')} ${Math.min(correct + 1, GOAL)} / ${GOAL}`} />
     <p className="text-sm text-muted-foreground">{t('Nivel', 'Level')} {q.level} · +{pointsFor(q.level)} pts{q.multi ? ` · ${t(`Selecciona ${q.answer.length}`, `Select ${q.answer.length}`)}` : ''}</p>
     <h2 className="text-lg font-semibold my-4 leading-snug">{text.q}</h2>
     <Options q={q} text={text} picked={picked} result={result} toggle={toggle} />

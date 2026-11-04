@@ -3,6 +3,7 @@ import workspaceBank from '@/data/workspace-questions.json';
 import cloudBank from '@/data/cloud-questions.json';
 import oktaBank from '@/data/okta-questions.json';
 import itilBank from '@/data/itil-questions.json';
+import itilCourseBank from '@/data/itil-course-questions.json';
 import appleBank from '@/data/apple-questions.json';
 
 export type Question = { id: string; level: number; domain: string; region: number; multi: boolean; es: { q: string; o: string[] }; en: { q: string; o: string[] }; answer: string[]; expEs: string; expEn: string; ref: string };
@@ -22,7 +23,7 @@ export const builtInCourses: Course[] = [
   workspaceCourse,
   builtIn('cloud', 'Google Cloud Digital Leader', 'Google Cloud', 'cloud', cloudBank),
   builtIn('okta', 'Okta Certified Administrator', 'Identity & Access', 'okta', oktaBank),
-  builtIn('itil', 'ITIL Foundation (Version 5)', 'IT Service Management', 'itil', itilBank),
+  builtIn('itil', 'ITIL Foundation (Version 5)', 'IT Service Management', 'itil', [...itilBank, ...itilCourseBank]),
   builtIn('apple', 'Apple Device Support', 'Apple', 'apple', appleBank),
 ];
 

@@ -42,7 +42,7 @@
       "q": "¿Qué define MEJOR un servicio digital?",
       "o": [
         "Una combinación de recursos de una organización basada en tecnología digital y diseñada para ofrecer valor a los consumidores",
-        "Un medio para habilitar valor a los consumidores mediante productos digitales sin transferencia de propiedad",
+        "Un servicio que depende total o principalmente de productos digitales.",
         "La adopción e integración de tecnologías digitales en todas las áreas de una organización",
         "El mantenimiento y la mejora del uso eficaz, eficiente y conveniente de la información"
       ]
@@ -51,7 +51,7 @@
       "q": "What BEST defines a digital service?",
       "o": [
         "A combination of an organization's resources based on digital technology and designed to offer value to consumers",
-        "A means of enabling value for consumers through digital products without transferring ownership",
+        "A service that depends wholly or mainly on digital products.",
         "The adoption and integration of digital technologies across all areas of an organization",
         "The maintenance and improvement of the effective, efficient and convenient use of information"
       ]
@@ -59,8 +59,8 @@
     "answer": [
       "B"
     ],
-    "expEs": "El servicio digital habilita la cocreación de valor mediante productos digitales y recursos configurados.",
-    "expEn": "A digital service enables value co-creation through digital products and configured resources.",
+    "expEs": "Un servicio digital depende total o principalmente de productos digitales; esa es la definición de ITIL V5.",
+    "expEn": "A digital service depends wholly or mainly on digital products; this is ITIL V5’s definition.",
     "ref": "",
     "sourceId": "itilv5-course-m01-q002",
     "module": 1
@@ -1065,7 +1065,7 @@
       "q": "¿Qué garantiza la sostenibilidad en el contexto de un servicio o producto?",
       "o": [
         "Que el servicio cumplirá los requisitos acordados",
-        "Que el servicio cumplirá de forma continua los requisitos de responsabilidad ambiental",
+        "Que integra la responsabilidad ambiental, el progreso social y el crecimiento económico.",
         "Que el servicio entrega la funcionalidad requerida para satisfacer las necesidades del negocio",
         "Que el servicio respalda el rendimiento del consumidor"
       ]
@@ -1074,7 +1074,7 @@
       "q": "What does sustainability ensure in the context of a service or product?",
       "o": [
         "That the service will meet agreed requirements",
-        "That the service will continually meet environmental responsibility requirements",
+        "That it integrates environmental responsibility, social progress, and economic growth.",
         "That the service provides the functionality needed to meet business needs",
         "That the service supports consumer performance"
       ]
@@ -1082,8 +1082,8 @@
     "answer": [
       "B"
     ],
-    "expEs": "La sostenibilidad aborda requisitos ambientales, sociales y económicos de forma continua.",
-    "expEn": "Sustainability addresses environmental, social and economic requirements over time.",
+    "expEs": "La sostenibilidad contempla los aspectos ambientales, sociales y económicos, no solo los ambientales.",
+    "expEn": "Sustainability covers environmental, social, and economic aspects, not only environmental ones.",
     "ref": "",
     "sourceId": "itilv5-course-m02-q008",
     "module": 2
@@ -1196,7 +1196,7 @@
     "es": {
       "q": "¿Cuál de estas afirmaciones describe una trayectoria de servicio?",
       "o": [
-        "Las interacciones de extremo a extremo entre un proveedor de servicios y un consumidor de servicios.",
+        "La suma de actividades e interacciones de extremo a extremo entre un consumidor y un proveedor de servicios.",
         "Los flujos de trabajo y procesos internos de un proveedor de servicios.",
         "El ciclo de vida de un producto de extremo a extremo.",
         "La secuencia de actividades de la cadena de valor."
@@ -1205,7 +1205,7 @@
     "en": {
       "q": "[Sample exam 2] Which statement describes a service journey?",
       "o": [
-        "End-to-end interactions between a service provider and a service consumer.",
+        "The sum of end-to-end activities and interactions between a service consumer and a service provider.",
         "A service provider's internal workflows and processes.",
         "The end-to-end lifecycle of a product.",
         "The sequence of value-chain activities."
@@ -1214,8 +1214,8 @@
     "answer": [
       "A"
     ],
-    "expEs": "La opción correcta identifica Las interacciones de extremo a extremo entre un proveedor de servicios y un consumidor de servicios.; las demás opciones describen conceptos distintos de la relación de servicio.",
-    "expEn": "The correct option identifies Las interacciones de extremo a extremo entre un proveedor de servicios y un consumidor de servicios.; the other options describe different service-relationship concepts.",
+    "expEs": "Una trayectoria de servicio reúne las actividades e interacciones del consumidor con el proveedor para alcanzar resultados.",
+    "expEn": "A service journey brings together the consumer’s activities and interactions with the provider to achieve outcomes.",
     "ref": "",
     "sourceId": "itilv5-course-m02-q012",
     "module": 2
@@ -2547,7 +2547,7 @@
     "region": 3,
     "multi": false,
     "es": {
-      "q": "¿Qué proporciona el capítulo “Socioss y proveedores” de una guía práctica?",
+      "q": "¿Qué proporciona el capítulo “Socios y proveedores” de una guía práctica?",
       "o": [
         "Dependencias con terceros",
         "Niveles de capacidad, criterios y recomendaciones para autoevaluación",
@@ -2584,7 +2584,7 @@
       "o": [
         "Número e impacto de incidentes y desviaciones de rendimiento",
         "Calidad de los recursos y servicios obtenidos de proveedores",
-        "Impacto negativo de los cambios sobre la disponibilidad y el rendimiento del servicio",
+        "Impacto negativo de la transición en la disponibilidad y el rendimiento del servicio",
         "Rendimiento del servicio frente a los objetivos SLA acordados"
       ]
     },
@@ -2593,15 +2593,15 @@
       "o": [
         "Number and impact of incidents and performance deviations",
         "Quality of resources and services obtained from suppliers",
-        "Negative impact of changes on service availability and performance",
+        "Negative impact of the transition on service availability and performance",
         "Service performance against agreed SLA targets"
       ]
     },
     "answer": [
       "C"
     ],
-    "expEs": "La transición introduce cambios; su impacto en disponibilidad y rendimiento refleja si se hizo correctamente.",
-    "expEn": "Transition introduces changes; their impact on availability and performance shows how well it was performed.",
+    "expEs": "La guía señala el impacto negativo de la transición en disponibilidad y rendimiento como un indicador de éxito.",
+    "expEn": "The syllabus lists the transition’s negative impact on availability and performance as a success indicator.",
     "ref": "",
     "sourceId": "ITILV5-M6-006",
     "module": 6
@@ -2717,7 +2717,7 @@
         "Velocidad de restauración del servicio normal",
         "Calidad de los recursos y servicios subcontratados a proveedores",
         "Rendimiento del servicio frente a los objetivos SLA acordados",
-        "Número e impacto de los errores de despliegue"
+        "Número e impacto de los errores de transición"
       ]
     },
     "en": {
@@ -2726,14 +2726,14 @@
         "Speed of restoring normal service",
         "Quality of resources and services outsourced to suppliers",
         "Service performance against agreed SLA targets",
-        "Number and impact of deployment errors"
+        "Number and impact of transition errors"
       ]
     },
     "answer": [
       "D"
     ],
-    "expEs": "Los errores de despliegue revelan fallos al introducir cambios en producción, una responsabilidad de transición.",
-    "expEn": "Deployment errors reveal failures when introducing changes into production, a transition concern.",
+    "expEs": "El número y el impacto de los errores de transición indican si la transición fue efectiva.",
+    "expEn": "The number and impact of transition errors indicate whether the transition was effective.",
     "ref": "",
     "sourceId": "ITILV5-M6-010",
     "module": 6
@@ -4494,7 +4494,7 @@
     "region": 3,
     "multi": false,
     "es": {
-      "q": "En la dimensión “Socioss and proveedores”, ¿qué significa que las organizaciones formen asociaciones flexibles?",
+      "q": "En la dimensión “Socios y proveedores”, ¿qué significa que las organizaciones formen asociaciones flexibles?",
       "o": [
         "Evitan cooperar para mantener independencia completa",
         "Operan estrictamente mediante contratos formales sin responsabilidades compartidas",
@@ -5192,7 +5192,7 @@
         "Gestionar las actividades operativas rutinarias y las solicitudes de servicio.",
         "Definir la autoridad de gobierno en todo el sistema de valor de ITIL.",
         "Entregar iniciativas acotadas en el tiempo que introduzcan servicios nuevos o modificados.",
-        "Permitir una entrega estructurada del cambio mientras los servicios continúan operando."
+        "Garantizar que todas las solicitudes operativas rutinarias se gestionen como proyectos."
       ]
     },
     "en": {
@@ -5201,14 +5201,14 @@
         "To manage routine operational activities and service requests",
         "To define governance authority across the ITIL Value System",
         "To deliver time-bound initiatives that introduce new or changed services",
-        "To enable structured change delivery while services continue to operate"
+        "To ensure all routine operational requests are managed as projects."
       ]
     },
     "answer": [
       "C"
     ],
-    "expEs": "La gestión de proyectos entrega iniciativas temporales de cambio; las actividades rutinarias y solicitudes pertenecen a la operación y a otras prácticas.",
-    "expEn": "Project management delivers time-bound change initiatives; routine activities and requests belong to operations and other practices.",
+    "expEs": "La gestión de proyectos entrega iniciativas temporales de cambio, como introducir servicios nuevos o modificados. Las operaciones rutinarias no son proyectos.",
+    "expEn": "Project management delivers time-bound change initiatives, such as introducing new or changed services. Routine operations are not projects.",
     "ref": "",
     "sourceId": "ITILV5-FINAL-76"
   }
